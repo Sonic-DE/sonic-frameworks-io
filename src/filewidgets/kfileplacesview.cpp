@@ -609,6 +609,9 @@ void KFilePlacesViewDelegate::checkFreeSpace(const QModelIndex &index) const
 
 void KFilePlacesViewDelegate::clearFreeSpaceInfo()
 {
+    for (auto &info: m_freeSpaceInfo) {
+        delete info.job;
+    }
     m_freeSpaceInfo.clear();
 }
 
