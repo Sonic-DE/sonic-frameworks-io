@@ -121,9 +121,6 @@ endif()
 if (NOT APPLE AND NOT WIN32 AND NOT ANDROID AND NOT HAIKU)
     option(WITH_X11 "Build with X11 integration" ON)
     set(HAVE_X11 ${WITH_X11})
-
-    option(WITH_WAYLAND "Build with Wayland integration" ON)
-    set(HAVE_WAYLAND ${WITH_WAYLAND})
 endif()
 
 find_package(ACL)

@@ -90,8 +90,6 @@ public:
      * \a startupId startup id, if any (otherwise "").
      *
      * For X11, this would be the id for the Startup Notification protocol.
-     *
-     * For Wayland, this would be the token for the XDG Activation protocol.
      */
     void setStartupId(const QByteArray &startupId);
 

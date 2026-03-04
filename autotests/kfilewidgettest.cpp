@@ -169,10 +169,6 @@ void KFileWidgetTest::testFilterCombo()
 
 void KFileWidgetTest::testFocusOnLocationEdit()
 {
-    if (KWindowSystem::isPlatformWayland()) {
-        QSKIP("X11 only, activation issue");
-        return;
-    }
     KFileWidget fw(QUrl::fromLocalFile(QDir::homePath()));
     fw.show();
     fw.activateWindow();
@@ -185,10 +181,6 @@ void KFileWidgetTest::testFocusOnLocationEdit()
 
 void KFileWidgetTest::testFocusOnLocationEditChangeDir()
 {
-    if (KWindowSystem::isPlatformWayland()) {
-        QSKIP("X11 only, activation issue");
-        return;
-    }
     KFileWidget fw(QUrl::fromLocalFile(QDir::homePath()));
     fw.setUrl(QUrl::fromLocalFile(QDir::tempPath()));
     fw.show();
@@ -202,10 +194,6 @@ void KFileWidgetTest::testFocusOnLocationEditChangeDir()
 
 void KFileWidgetTest::testFocusOnLocationEditChangeDir2()
 {
-    if (KWindowSystem::isPlatformWayland()) {
-        QSKIP("X11 only, activation issue");
-        return;
-    }
     KFileWidget fw(QUrl::fromLocalFile(QDir::homePath()));
     fw.show();
     fw.activateWindow();
@@ -220,10 +208,6 @@ void KFileWidgetTest::testFocusOnLocationEditChangeDir2()
 
 void KFileWidgetTest::testFocusOnDirOps()
 {
-    if (KWindowSystem::isPlatformWayland()) {
-        QSKIP("X11 only, activation issue");
-        return;
-    }
     KFileWidget fw(QUrl::fromLocalFile(QDir::homePath()));
     fw.show();
     fw.activateWindow();

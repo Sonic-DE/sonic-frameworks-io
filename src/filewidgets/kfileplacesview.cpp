@@ -364,14 +364,7 @@ bool KFilePlacesViewDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *vi
             }
 
             if (!toolTipText.isEmpty()) {
-                // FIXME remove once we depend on Qt 6.8
-                // Qt Wayland before 6.8 doesn't support popup repositioning, causing the tooltips
-                // remain stuck in place which is distracting.
-                static bool canRepositionPopups =
-                    !qApp->platformName().startsWith(QLatin1String("wayland")) || QLibraryInfo::version() >= QVersionNumber(6, 8, 0);
-                if (canRepositionPopups) {
-                    QToolTip::showText(event->globalPos(), toolTipText, m_view, m_view->visualRect(index));
-                }
+                QToolTip::showText(event->globalPos(), toolTipText, m_view, m_view->visualRect(index));
                 // Always accepting the event to make sure QAbstractItemDelegate doesn't show it for us.
                 event->setAccepted(true);
                 return true;

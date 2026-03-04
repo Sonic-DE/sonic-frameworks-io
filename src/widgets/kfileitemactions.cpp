@@ -29,10 +29,6 @@
 #include <kdirnotify.h>
 #include <kurlauthorized.h>
 
-#if HAVE_WAYLAND
-#include <KWaylandExtras>
-#endif
-
 #include <QApplication>
 #include <QFile>
 #include <QMenu>
@@ -783,14 +779,6 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
             }
         };
         connect(openWithAction, &QAction::triggered, this, [this, sendMessage] {
-#if HAVE_WAYLAND
-            if (KWindowSystem::isPlatformWayland() && !qGuiApp->allWindows().isEmpty()) {
-                auto window = qGuiApp->allWindows().constFirst();
-                auto tokenFuture = KWaylandExtras::xdgActivationToken(window, {});
-                tokenFuture.then(this, sendMessage);
-                return;
-            }
-#endif
             sendMessage({});
         });
         topMenu->insertAction(before, openWithAction);
