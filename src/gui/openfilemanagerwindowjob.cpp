@@ -26,9 +26,6 @@
 #include <KWindowSystem>
 
 #include "config-kiogui.h"
-#if HAVE_WAYLAND
-#include <KWaylandExtras>
-#endif
 
 #include <KIO/OpenUrlJob>
 
@@ -170,22 +167,7 @@ void OpenFileManagerWindowDBusStrategy::start(const QList<QUrl> &urls, const QBy
     };
 
     if (asn.isEmpty()) {
-#if HAVE_WAYLAND
-        if (KWindowSystem::isPlatformWayland()) {
-            auto window = qGuiApp->focusWindow();
-            if (!window && !qGuiApp->allWindows().isEmpty()) {
-                window = qGuiApp->allWindows().constFirst();
-            }
-            auto tokenFuture = KWaylandExtras::xdgActivationToken(window, {});
-            tokenFuture.then([runWithToken](const QString &token) {
-                runWithToken(token.toUtf8());
-            });
-        } else {
-            runWithToken({});
-        }
-#else
         runWithToken({});
-#endif
     } else {
         runWithToken(asn);
     }

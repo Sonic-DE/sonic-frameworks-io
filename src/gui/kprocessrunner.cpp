@@ -22,10 +22,6 @@
 #include <KLocalizedString>
 #include <KWindowSystem>
 
-#if HAVE_WAYLAND
-#include <KWaylandExtras>
-#endif
-
 #ifdef WITH_QTDBUS
 #include <QDBusConnection>
 #include <QDBusInterface>
@@ -306,29 +302,6 @@ void KProcessRunner::init(const KService::Ptr &service, const QString &serviceEn
     }
 #else
     Q_UNUSED(userVisibleName);
-#endif
-
-#if HAVE_WAYLAND
-    if (KWindowSystem::isPlatformWayland()) {
-        if (!asn.isEmpty()) {
-            m_process->setEnv(QStringLiteral("XDG_ACTIVATION_TOKEN"), QString::fromUtf8(asn));
-        } else {
-            auto window = qGuiApp->focusWindow();
-            if (!window && !qGuiApp->allWindows().isEmpty()) {
-                window = qGuiApp->allWindows().constFirst();
-            }
-            if (window) {
-                m_waitingForXdgToken = true;
-                m_xdgActivationTokenFuture = KWaylandExtras::xdgActivationToken(window, resolveServiceAlias());
-                m_xdgActivationTokenFuture.then(this, [this](const QString &token) {
-                    m_process->setEnv(QStringLiteral("XDG_ACTIVATION_TOKEN"), token);
-                    m_waitingForXdgToken = false;
-                    startProcess();
-                });
-                return;
-            }
-        }
-    }
 #endif
 
     startProcess();
