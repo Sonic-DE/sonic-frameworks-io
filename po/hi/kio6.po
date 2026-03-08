@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-18 00:41+0000\n"
+"POT-Creation-Date: 2026-03-25 00:41+0000\n"
 "PO-Revision-Date: 2024-12-15 19:32+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -94,7 +94,7 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "फ़ोल्डर पहले से ही अस्तित्व में है"
 
-#: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:368
+#: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
@@ -105,7 +105,7 @@ msgstr "फ़ाइल पहले से ही अस्तित्व म�
 msgid "Already Exists as Folder"
 msgstr "पहले से ही फ़ोल्डर के रूप में है"
 
-#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:295
 #, fuzzy, kde-format
 #| msgid "Trash"
 msgid "Trash"
@@ -3723,7 +3723,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:602 widgets/checksumswidget.ui:145
+#: filewidgets/kurlnavigator.cpp:606 widgets/checksumswidget.ui:145
 #: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
 #: widgets/checksumswidget.ui:286
 #, kde-format
@@ -3731,41 +3731,41 @@ msgid "Copy"
 msgstr "नक़ल"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:606 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:610 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "चिपकाएँ"
 
-#: filewidgets/kurlnavigator.cpp:626
+#: filewidgets/kurlnavigator.cpp:630
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "के साथ खोलें"
 
-#: filewidgets/kurlnavigator.cpp:634
+#: filewidgets/kurlnavigator.cpp:638
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "के साथ खोलें"
 
-#: filewidgets/kurlnavigator.cpp:643
+#: filewidgets/kurlnavigator.cpp:647
 #, kde-format
 msgid "Edit"
 msgstr "संपादन"
 
-#: filewidgets/kurlnavigator.cpp:646
+#: filewidgets/kurlnavigator.cpp:650
 #, kde-format
 msgid "Navigate"
 msgstr "नेविगेट"
 
-#: filewidgets/kurlnavigator.cpp:661
+#: filewidgets/kurlnavigator.cpp:665
 #, kde-format
 msgid "Show Full Path"
 msgstr ""
 
-#: filewidgets/kurlnavigator.cpp:822
+#: filewidgets/kurlnavigator.cpp:826
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to delete this item?"
 #| msgid_plural "Do you really want to delete these %1 items?"
@@ -3873,6 +3873,12 @@ msgstr ""
 #: gui/faviconrequestjob.cpp:166
 #, kde-format
 msgid "Icon file too big, download aborted"
+msgstr ""
+
+#: gui/filepreviewjob.cpp:285
+#, kde-format
+msgctxt "%1 is a file url"
+msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
 
 #: gui/kemailclientlauncherjob.cpp:92
@@ -4514,16 +4520,16 @@ msgstr " एक त्रुटि %1  हुई, %2 की कोशिश म�
 msgid "Network"
 msgstr "नेटवर्क"
 
-#: kioworkers/trash/kio_trash.cpp:116 kioworkers/trash/kio_trash.cpp:160
-#: kioworkers/trash/kio_trash.cpp:220 kioworkers/trash/kio_trash.cpp:383
-#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:593
-#: kioworkers/trash/kio_trash.cpp:603
+#: kioworkers/trash/kio_trash.cpp:117 kioworkers/trash/kio_trash.cpp:161
+#: kioworkers/trash/kio_trash.cpp:221 kioworkers/trash/kio_trash.cpp:384
+#: kioworkers/trash/kio_trash.cpp:416 kioworkers/trash/kio_trash.cpp:594
+#: kioworkers/trash/kio_trash.cpp:604
 #, fuzzy, kde-format
 #| msgid "Malformed URL %1."
 msgid "Malformed URL %1"
 msgstr "गलत यूआरएल %1."
 
-#: kioworkers/trash/kio_trash.cpp:135
+#: kioworkers/trash/kio_trash.cpp:136
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4532,12 +4538,12 @@ msgid ""
 "restore it."
 msgstr ""
 
-#: kioworkers/trash/kio_trash.cpp:188 kioworkers/trash/kio_trash.cpp:209
+#: kioworkers/trash/kio_trash.cpp:189 kioworkers/trash/kio_trash.cpp:210
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr ""
 
-#: kioworkers/trash/kio_trash.cpp:200 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:201 kioworkers/trash/kio_trash_win.cpp:232
 #, fuzzy, kde-format
 #| msgid "This file is a link and does not have permissions."
 #| msgid_plural "All files are links and do not have permissions."

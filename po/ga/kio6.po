@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-18 00:41+0000\n"
+"POT-Creation-Date: 2026-03-25 00:41+0000\n"
 "PO-Revision-Date: 2026-02-18 10:12+0000\n"
 "Last-Translator: charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
@@ -94,7 +94,7 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "Tá an chomhadlann ann cheana"
 
-#: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:368
+#: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
@@ -105,7 +105,7 @@ msgstr "Tá an comhad ann cheana"
 msgid "Already Exists as Folder"
 msgstr "Ann cheana mar chomhadlann"
 
-#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:295
 #, kde-format
 msgid "Trash"
 msgstr "Bruscar"
@@ -3809,7 +3809,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:602 widgets/checksumswidget.ui:145
+#: filewidgets/kurlnavigator.cpp:606 widgets/checksumswidget.ui:145
 #: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
 #: widgets/checksumswidget.ui:286
 #, kde-format
@@ -3817,39 +3817,39 @@ msgid "Copy"
 msgstr "Cóipeáil"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:606 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:610 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "Greamaigh"
 
-#: filewidgets/kurlnavigator.cpp:626
+#: filewidgets/kurlnavigator.cpp:630
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Oscail \"%1\" i gCluaisín Nua"
 
-#: filewidgets/kurlnavigator.cpp:634
+#: filewidgets/kurlnavigator.cpp:638
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Oscail \"%1\" i bhFuinneog Nua"
 
-#: filewidgets/kurlnavigator.cpp:643
+#: filewidgets/kurlnavigator.cpp:647
 #, kde-format
 msgid "Edit"
 msgstr "Eagar"
 
-#: filewidgets/kurlnavigator.cpp:646
+#: filewidgets/kurlnavigator.cpp:650
 #, kde-format
 msgid "Navigate"
 msgstr "Nascleanúint"
 
-#: filewidgets/kurlnavigator.cpp:661
+#: filewidgets/kurlnavigator.cpp:665
 #, kde-format
 msgid "Show Full Path"
 msgstr "Taispeáin an Chonair Iomlán"
 
-#: filewidgets/kurlnavigator.cpp:822
+#: filewidgets/kurlnavigator.cpp:826
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -3953,6 +3953,12 @@ msgstr "Earráid ag sábháil íomhá go %1"
 #, kde-format
 msgid "Icon file too big, download aborted"
 msgstr "Comhad deilbhín ró-mhór, cuireadh deireadh leis an íoslódáil"
+
+#: gui/filepreviewjob.cpp:285
+#, kde-format
+msgctxt "%1 is a file url"
+msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
+msgstr ""
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
@@ -4658,15 +4664,15 @@ msgstr ""
 msgid "Network"
 msgstr "Líonra"
 
-#: kioworkers/trash/kio_trash.cpp:116 kioworkers/trash/kio_trash.cpp:160
-#: kioworkers/trash/kio_trash.cpp:220 kioworkers/trash/kio_trash.cpp:383
-#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:593
-#: kioworkers/trash/kio_trash.cpp:603
+#: kioworkers/trash/kio_trash.cpp:117 kioworkers/trash/kio_trash.cpp:161
+#: kioworkers/trash/kio_trash.cpp:221 kioworkers/trash/kio_trash.cpp:384
+#: kioworkers/trash/kio_trash.cpp:416 kioworkers/trash/kio_trash.cpp:594
+#: kioworkers/trash/kio_trash.cpp:604
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "URL mífhoirmithe %1"
 
-#: kioworkers/trash/kio_trash.cpp:135
+#: kioworkers/trash/kio_trash.cpp:136
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4679,12 +4685,12 @@ msgstr ""
 "athchruthú agus an oibríocht athchóirithe a úsáid arís, nó an mhír a "
 "tharraingt áit ar bith eile chun í a athchóiriú."
 
-#: kioworkers/trash/kio_trash.cpp:188 kioworkers/trash/kio_trash.cpp:209
+#: kioworkers/trash/kio_trash.cpp:189 kioworkers/trash/kio_trash.cpp:210
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "Teaglaim neamhbhailí prótacail."
 
-#: kioworkers/trash/kio_trash.cpp:200 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:201 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "Tá an comhad seo sa bhruscar cheana féin."
