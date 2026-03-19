@@ -9,16 +9,16 @@
 # SPDX-FileCopyrightText: 2021 Frank Steinmetzger <dev@felsenfleischer.de>
 # SPDX-FileCopyrightText: 2021 Kai Uwe Broulik <kde@privat.broulik.de>
 # SPDX-FileCopyrightText: 2024-2025 Flori G <Renner03@protonmail.com>
+# SPDX-FileCopyrightText: 2025 Alexander Becker <alex-at-kde-l10n-de@freenet.de>
 # SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Oliver Schramm <oliver.schramm97@gmail.com>
-# SPDX-FileCopyrightText: 2025-2026 Alexander Becker <alex-at-kde-l10n-de@freenet.de>
 # SPDX-FileCopyrightText: 2025-2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-29 00:40+0000\n"
-"PO-Revision-Date: 2026-06-02 20:23+0200\n"
+"POT-Creation-Date: 2026-03-19 00:40+0000\n"
+"PO-Revision-Date: 2026-03-12 00:17+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -52,12 +52,12 @@ msgstr ""
 "Der Eigentümer der Datei <filename>%1</filename> lässt sich nicht ändern. "
 "Vermutlich reichen Ihre Zugriffsrechte nicht aus."
 
-#: core/connectionbackend.cpp:114
+#: core/connectionbackend.cpp:107
 #, kde-format
 msgid "Unable to create KIO worker: %1"
 msgstr "Erstellung des Ein-/Ausgabemoduls nicht möglich: %1"
 
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1015
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1008
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -69,7 +69,7 @@ msgstr ""
 "Symbolische Verknüpfung „%1“ kann nicht erstellt werden.\n"
 "Das Zieldateisystem (%2) unterstützt keine symbolischen Verknüpfungen."
 
-#: core/copyjob.cpp:202
+#: core/copyjob.cpp:179
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -84,7 +84,7 @@ msgstr ""
 "Wenn Sie „Ersetzen“ wählen, werden verbotene Zeichen im Ordnernamen am Ziel "
 "durch einen Unterstrich ersetzt."
 
-#: core/copyjob.cpp:210
+#: core/copyjob.cpp:187
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -99,23 +99,23 @@ msgstr ""
 "Wenn Sie „Ersetzen“ wählen, werden verbotene Zeichen im Dateinamen am Ziel "
 "durch einen Unterstrich ersetzt."
 
-#: core/copyjob.cpp:1429 core/job_error.cpp:588
+#: core/copyjob.cpp:1403 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Ordner existiert bereits"
 
-#: core/copyjob.cpp:1764 core/copyjob.cpp:2480 core/filecopyjob.cpp:371
-#: core/job_error.cpp:577 widgets/paste.cpp:49
+#: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:368
+#: core/job_error.cpp:577 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Datei existiert bereits"
 
-#: core/copyjob.cpp:1764 core/copyjob.cpp:2480
+#: core/copyjob.cpp:1736 core/copyjob.cpp:2441
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Existiert bereits als Ordner"
 
-#: core/copyjob.cpp:1918 kioworkers/trash/kio_trash.cpp:295
+#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:295
 #, kde-format
 msgid "Trash"
 msgstr "Papierkorb"
@@ -1105,7 +1105,7 @@ msgid ""
 msgstr ""
 "Sie können eine Internetsuche nach einem Softwaremodul (englische "
 "Bezeichnung: „KIO worker“) mit Unterstützung dieses Protokolls starten. Ein "
-"Ort zum Suchen ist z. B. <a href=\"https://store.kde.org/\">https://store."
+"Ort zum Suchen ist z. B. <a href=\"https://store.kde.org/\">https://store."
 "kde.org</a>."
 
 #: core/job_error.cpp:517
@@ -1383,10 +1383,11 @@ msgid ""
 "an infinite loop - i.e. the file was (perhaps in a roundabout way) linked to "
 "itself."
 msgstr ""
-"In Unix-Umgebungen ist es normalerweise möglich, Dateien oder Ordner mit "
-"einzelnen Namen oder Orten zu verknüpfen. KDE hat eine Verknüpfung oder eine "
-"Reihe solcher Verknüpfungen entdeckt, die eine Endlosschleife bilden, d. h. "
-"die Datei wurde vermutlich aus Versehen mit sich selbst verknüpft."
+"Unix-Umgebungen sind normalerweise imstande, separate Dateien oder Ordner "
+"(über so genannte „Links“) miteinander zu verknüpfen. KDE hat eine "
+"Verknüpfung oder eine Serie solcher Verknüpfungen entdeckt, die eine "
+"Endlosschleife bilden, d. h. die Datei wurde vermutlich aus Versehen mit "
+"sich selbst verknüpft."
 
 #: core/job_error.cpp:673 core/job_error.cpp:699
 #, kde-format
@@ -1426,11 +1427,11 @@ msgid ""
 "link or series of links that results in an infinite loop - i.e. the file was "
 "(perhaps in a roundabout way) linked to itself."
 msgstr ""
-"In Unix-Umgebungen ist es normalerweise möglich, Dateien oder Ordner mit "
-"einzelnen Namen oder Orten zu verknüpfen. Während des angeforderten "
-"Kopiervorgangs hat KDE eine Verknüpfung oder eine Reihe solcher "
-"Verknüpfungen entdeckt, die eine Endlosschleife bilden, d. h. die Datei "
-"wurde vermutlich aus Versehen mit sich selbst verknüpft."
+"Unix-Umgebungen sind normalerweise imstande, separate Dateien oder Ordner "
+"(über so genannte „Links“) miteinander zu verknüpfen. Während des "
+"angeforderten Kopiervorgangs hat KDE eine Verknüpfung oder eine Serie "
+"solcher Verknüpfungen entdeckt, die eine Endlosschleife bilden, d. h. die "
+"Datei wurde vermutlich aus Versehen mit sich selbst verknüpft."
 
 #: core/job_error.cpp:705
 #, kde-format
@@ -1589,7 +1590,7 @@ msgid ""
 "peripheral/portable device, the device may not be correctly connected."
 msgstr ""
 "Das Gerät ist eventuell nicht betriebsbereit. Vielleicht enthält es kein "
-"Medium (z. B. keine CD bei einem CD-ROM-Laufwerk), oder es ist nicht korrekt "
+"Medium (z. B. keine CD bei einem CD-ROM-Laufwerk), oder es ist nicht korrekt "
 "angeschlossen."
 
 #: core/job_error.cpp:781
@@ -2194,8 +2195,8 @@ msgid ""
 "3) obtain more storage capacity."
 msgstr ""
 "Machen Sie genügend Speicherplatz frei, indem Sie 1) nicht mehr benötigte "
-"bzw. temporäre Dateien löschen, 2) Daten archivieren (z. B. auf CD-ROM) oder "
-"3) zusätzlichen Speicher verfügbar machen."
+"bzw. temporäre Dateien löschen, 2) Daten archivieren (z. B. auf CD-ROM) oder "
+"3) zusätzliche Speichermöglichkeiten verfügbar machen."
 
 #: core/job_error.cpp:1208
 #, kde-format
@@ -2334,17 +2335,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Nicht dokumentierter Fehler"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1523
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Symbolische Verknüpfung zu %1)"
 
-#: core/kfileitem.cpp:1485
+#: core/kfileitem.cpp:1525
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, Verknüpfung mit %2)"
 
-#: core/kfileitem.cpp:1488
+#: core/kfileitem.cpp:1528
 #, kde-format
 msgid " (Points to %1)"
 msgstr "(Verweist auf %1)"
@@ -2364,7 +2365,7 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Der Dateityp für „%1“ kann nicht festgestellt werden"
 
-#: core/openwith.cpp:91
+#: core/openwith.cpp:90
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2373,13 +2374,13 @@ msgstr ""
 "Aus „%1“ lässt sich nicht der Name einer ausführbaren Datei ermitteln. Bitte "
 "geben Sie einen gültigen Programmnamen ein."
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:142
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "<filename>%1</filename> ist anscheinend kein ausführbares Programm."
 
-#: core/openwith.cpp:144
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2389,101 +2390,101 @@ msgstr ""
 "<filename>%1</filename> wurde nicht gefunden, geben Sie bitte einen gültigen "
 "Pfad zu einem ausführbaren -Programm ein."
 
-#: core/slavebase.cpp:813
+#: core/slavebase.cpp:806
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr ""
 "Das Herstellen einer Verbindung über das Protokoll %1 wird nicht unterstützt."
 
-#: core/slavebase.cpp:815
+#: core/slavebase.cpp:808
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr ""
 "Schließen einer Verbindung über das Protokoll %1 wird nicht unterstützt."
 
-#: core/slavebase.cpp:817
+#: core/slavebase.cpp:810
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Der Zugriff auf Dateien über das Protokoll %1 wird nicht unterstützt."
 
-#: core/slavebase.cpp:819
+#: core/slavebase.cpp:812
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Schreiben in %1 wird nicht unterstützt."
 
-#: core/slavebase.cpp:821
+#: core/slavebase.cpp:814
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Für das Protokoll %1 sind keine speziellen Aktionen verfügbar."
 
-#: core/slavebase.cpp:823
+#: core/slavebase.cpp:816
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr ""
 "Die Auflistung von Ordnern über das Protokoll %1 wird nicht unterstützt."
 
-#: core/slavebase.cpp:825
+#: core/slavebase.cpp:818
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Die Übermittlung von Daten aus %1 wird nicht unterstützt."
 
-#: core/slavebase.cpp:827
+#: core/slavebase.cpp:820
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Die Übermittlung von MIME-Typ-Daten aus %1 wird nicht unterstützt."
 
-#: core/slavebase.cpp:829
+#: core/slavebase.cpp:822
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr ""
 "Umbenennen und Verschieben von Dateien innerhalb %1 wird nicht unterstützt."
 
-#: core/slavebase.cpp:831
+#: core/slavebase.cpp:824
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr ""
 "Die Erstellung von Verknüpfungen (Symlinks) über das Protokoll %1 wird nicht "
 "unterstützt."
 
-#: core/slavebase.cpp:833
+#: core/slavebase.cpp:826
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Das Kopieren von Dateien innerhalb %1 wird nicht unterstützt."
 
-#: core/slavebase.cpp:835
+#: core/slavebase.cpp:828
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Löschen von Dateien in %1 wird nicht unterstützt."
 
-#: core/slavebase.cpp:837
+#: core/slavebase.cpp:830
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Das Anlegen von Ordnern über das Protokoll %1 wird nicht unterstützt."
 
-#: core/slavebase.cpp:839
+#: core/slavebase.cpp:832
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr ""
 "Die Änderung von Dateiattributen über das Protokoll %1 wird nicht "
 "unterstützt."
 
-#: core/slavebase.cpp:841
+#: core/slavebase.cpp:834
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr ""
 "Die Änderung des Eigentümers über das Protokoll %1 wird nicht unterstützt."
 
-#: core/slavebase.cpp:843
+#: core/slavebase.cpp:836
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Das Öffnen von Dateien über das Protokoll %1 wird nicht unterstützt."
 
-#: core/slavebase.cpp:845
+#: core/slavebase.cpp:838
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Das Protokoll %1 unterstützt die Aktion %2 nicht."
 
-#: core/worker.cpp:309
+#: core/worker.cpp:297
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2495,17 +2496,17 @@ msgstr ""
 "übergeordneter Berechtigungen ist nicht gewährleistet, da außer dem Benutzer "
 "„root“ auch andere die Berechtigung zum Ändern bei %2 haben."
 
-#: core/worker.cpp:347
+#: core/worker.cpp:335
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Unbekanntes Protokoll „%1“."
 
-#: core/worker.cpp:358
+#: core/worker.cpp:346
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Ein-/Ausgabemodul für das Protokoll „%1“ nicht auffindbar."
 
-#: core/worker.cpp:365
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2517,14 +2518,14 @@ msgstr ""
 "Ein-/Ausgabemodule, die sich außerhalb von %3 befinden und nach erweiterten "
 "Rechten fragen, als unsicher eingestuft werden."
 
-#: core/worker.cpp:377
+#: core/worker.cpp:365
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Socket für Ein-/Ausgabemodul für das Protokoll „%1“ kann nicht erstellt "
 "werden."
 
-#: core/worker.cpp:423
+#: core/worker.cpp:405
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Ausführbare Datei „kioworker“ wurde in „%1“ nicht gefunden"
@@ -2595,217 +2596,217 @@ msgstr "Es gibt nichts für den Papierkorb"
 msgid "The specified folder does not exist or was not readable."
 msgstr "Der angegebene Ordner existiert nicht oder ist nicht lesbar."
 
-#: filewidgets/kdiroperator.cpp:2044
+#: filewidgets/kdiroperator.cpp:2043
 #, kde-format
 msgid "Menu"
 msgstr "Menü"
 
-#: filewidgets/kdiroperator.cpp:2049
+#: filewidgets/kdiroperator.cpp:2048
 #, kde-format
 msgid "Parent Folder"
 msgstr "Übergeordneter Ordner"
 
-#: filewidgets/kdiroperator.cpp:2056
+#: filewidgets/kdiroperator.cpp:2055
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Zurück"
 
-#: filewidgets/kdiroperator.cpp:2060
+#: filewidgets/kdiroperator.cpp:2059
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Vorwärts"
 
-#: filewidgets/kdiroperator.cpp:2064
+#: filewidgets/kdiroperator.cpp:2063
 #, kde-format
 msgid "Home Folder"
 msgstr "Persönlicher Ordner"
 
-#: filewidgets/kdiroperator.cpp:2068
+#: filewidgets/kdiroperator.cpp:2067
 #, kde-format
 msgid "Reload"
 msgstr "Erneut laden"
 
-#: filewidgets/kdiroperator.cpp:2071
+#: filewidgets/kdiroperator.cpp:2070
 #, kde-format
 msgctxt "@action"
 msgid "New Folder…"
 msgstr "Neuer Ordner …"
 
-#: filewidgets/kdiroperator.cpp:2081 widgets/jobuidelegate.cpp:271
+#: filewidgets/kdiroperator.cpp:2080 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
 #: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:312
 #, kde-format
 msgid "Move to Trash"
 msgstr "In den Papierkorb verschieben"
 
-#: filewidgets/kdiroperator.cpp:2087
+#: filewidgets/kdiroperator.cpp:2086
 #, kde-format
 msgid "Delete"
 msgstr "Löschen"
 
-#: filewidgets/kdiroperator.cpp:2094
+#: filewidgets/kdiroperator.cpp:2093
 #, kde-format
 msgid "Sorting"
 msgstr "Sortierung"
 
-#: filewidgets/kdiroperator.cpp:2099
+#: filewidgets/kdiroperator.cpp:2098
 #, kde-format
 msgid "Sort by Name"
 msgstr "Nach Namen sortieren"
 
-#: filewidgets/kdiroperator.cpp:2105
+#: filewidgets/kdiroperator.cpp:2104
 #, kde-format
 msgid "Sort by Size"
 msgstr "Nach Größe sortieren"
 
-#: filewidgets/kdiroperator.cpp:2111
+#: filewidgets/kdiroperator.cpp:2110
 #, kde-format
 msgid "Sort by Date"
 msgstr "Nach Datum sortieren"
 
-#: filewidgets/kdiroperator.cpp:2117
+#: filewidgets/kdiroperator.cpp:2116
 #, kde-format
 msgid "Sort by Type"
 msgstr "Nach Typ sortieren"
 
-#: filewidgets/kdiroperator.cpp:2126
+#: filewidgets/kdiroperator.cpp:2125
 #, kde-format
 msgid "Ascending"
 msgstr "Aufsteigend"
 
-#: filewidgets/kdiroperator.cpp:2133
+#: filewidgets/kdiroperator.cpp:2132
 #, kde-format
 msgid "Descending"
 msgstr "Absteigend"
 
-#: filewidgets/kdiroperator.cpp:2140
+#: filewidgets/kdiroperator.cpp:2139
 #, kde-format
 msgid "Folders First"
 msgstr "Ordner zuerst"
 
-#: filewidgets/kdiroperator.cpp:2146
+#: filewidgets/kdiroperator.cpp:2145
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Versteckte Dateien zuletzt"
 
-#: filewidgets/kdiroperator.cpp:2153
+#: filewidgets/kdiroperator.cpp:2152
 #, kde-format
 msgid "Icons View"
 msgstr "Symbolansicht"
 
-#: filewidgets/kdiroperator.cpp:2160
+#: filewidgets/kdiroperator.cpp:2159
 #, kde-format
 msgid "Compact View"
 msgstr "Kompakte Ansicht"
 
-#: filewidgets/kdiroperator.cpp:2167
+#: filewidgets/kdiroperator.cpp:2166
 #, kde-format
 msgid "Details View"
 msgstr "Detailansicht"
 
-#: filewidgets/kdiroperator.cpp:2186
+#: filewidgets/kdiroperator.cpp:2185
 #, kde-format
 msgid "Icon Position"
 msgstr "Symbolposition"
 
-#: filewidgets/kdiroperator.cpp:2189
+#: filewidgets/kdiroperator.cpp:2188
 #, kde-format
 msgid "Next to File Name"
 msgstr "Neben dem Dateinamen"
 
-#: filewidgets/kdiroperator.cpp:2195
+#: filewidgets/kdiroperator.cpp:2194
 #, kde-format
 msgid "Above File Name"
 msgstr "Über dem Dateinamen"
 
-#: filewidgets/kdiroperator.cpp:2209
+#: filewidgets/kdiroperator.cpp:2208
 #, kde-format
 msgid "Short View"
 msgstr "Kurzansicht"
 
-#: filewidgets/kdiroperator.cpp:2216
+#: filewidgets/kdiroperator.cpp:2215
 #, kde-format
 msgid "Detailed View"
 msgstr "Ausführliche Ansicht"
 
-#: filewidgets/kdiroperator.cpp:2223
+#: filewidgets/kdiroperator.cpp:2222
 #, kde-format
 msgid "Tree View"
 msgstr "Baumansicht"
 
-#: filewidgets/kdiroperator.cpp:2230
+#: filewidgets/kdiroperator.cpp:2229
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Ausführliche Baumansicht"
 
-#: filewidgets/kdiroperator.cpp:2243
+#: filewidgets/kdiroperator.cpp:2242
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Aufklappen in der ausführlichen Ansicht erlauben"
 
-#: filewidgets/kdiroperator.cpp:2249
+#: filewidgets/kdiroperator.cpp:2248
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Versteckte Dateien anzeigen"
 
-#: filewidgets/kdiroperator.cpp:2256
+#: filewidgets/kdiroperator.cpp:2255
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Vorschauleiste anzeigen"
 
-#: filewidgets/kdiroperator.cpp:2263
+#: filewidgets/kdiroperator.cpp:2262
 #, kde-format
 msgid "Show Preview"
 msgstr "Vorschau anzeigen"
 
-#: filewidgets/kdiroperator.cpp:2270
+#: filewidgets/kdiroperator.cpp:2269
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Ordner mit diesem Inhalt öffnen"
 
-#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1270
+#: filewidgets/kdiroperator.cpp:2276 filewidgets/kfileplacesview.cpp:1265
 #, kde-format
 msgid "Properties"
 msgstr "Eigenschaften"
 
-#: filewidgets/kdiroperator.cpp:2286
+#: filewidgets/kdiroperator.cpp:2285
 #, kde-format
 msgid "&View Mode"
 msgstr "&Anzeigemodus"
 
-#: filewidgets/kdiroperator.cpp:2389 filewidgets/kdiroperator.cpp:2401
+#: filewidgets/kdiroperator.cpp:2388 filewidgets/kdiroperator.cpp:2400
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2390 filewidgets/kdiroperator.cpp:2402
+#: filewidgets/kdiroperator.cpp:2389 filewidgets/kdiroperator.cpp:2401
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2393
+#: filewidgets/kdiroperator.cpp:2392
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Älteste zuerst"
 
-#: filewidgets/kdiroperator.cpp:2394
+#: filewidgets/kdiroperator.cpp:2393
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Neueste zuerst"
 
-#: filewidgets/kdiroperator.cpp:2397
+#: filewidgets/kdiroperator.cpp:2396
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Größte zuerst"
 
-#: filewidgets/kdiroperator.cpp:2398
+#: filewidgets/kdiroperator.cpp:2397
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -2890,22 +2891,22 @@ msgid "All Supported Files"
 msgstr "Alle unterstützten Dateien"
 
 #: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:2057
+#: filewidgets/kfilewidget.cpp:2060
 #, kde-format
 msgid "All Files"
 msgstr "Alle Dateien"
 
-#: filewidgets/kfileplaceeditdialog.cpp:68
+#: filewidgets/kfileplaceeditdialog.cpp:66
 #, kde-format
 msgid "Add Places Entry"
 msgstr "Eintrag zum Navigationsbereich hinzufügen"
 
-#: filewidgets/kfileplaceeditdialog.cpp:70
+#: filewidgets/kfileplaceeditdialog.cpp:68
 #, kde-format
 msgid "Edit Places Entry"
 msgstr "Eintrag im Navigationsbereich bearbeiten"
 
-#: filewidgets/kfileplaceeditdialog.cpp:80
+#: filewidgets/kfileplaceeditdialog.cpp:78
 #, kde-format
 msgid ""
 "<qt>This is the text that will appear in the Places panel.<br /><br />The "
@@ -2919,17 +2920,17 @@ msgstr ""
 "Beschriftung eingeben, wird diese aus der Adresse des Speicherortes erzeugt."
 "</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:86
+#: filewidgets/kfileplaceeditdialog.cpp:84
 #, kde-format
 msgid "L&abel:"
 msgstr "Be&schriftung:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:88
+#: filewidgets/kfileplaceeditdialog.cpp:86
 #, kde-format
 msgid "Enter descriptive label here"
 msgstr "Geben Sie hier eine aussagekräftige Beschriftung ein"
 
-#: filewidgets/kfileplaceeditdialog.cpp:93
+#: filewidgets/kfileplaceeditdialog.cpp:91
 #, kde-format
 msgid ""
 "<qt>This is the location associated with the entry. Any valid URL may be "
@@ -2943,12 +2944,12 @@ msgstr ""
 "neben dem Textbearbeitungsfeld anklicken, können Sie zu einer passenden "
 "Adresse navigieren.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:100
+#: filewidgets/kfileplaceeditdialog.cpp:98
 #, kde-format
 msgid "&Location:"
 msgstr "&Adresse:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:107
+#: filewidgets/kfileplaceeditdialog.cpp:105
 #, kde-format
 msgid ""
 "<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
@@ -2958,17 +2959,17 @@ msgstr ""
 "><br />Klicken Sie auf den Knopf, wenn Sie ein anderes Symbol auswählen "
 "möchten.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:128
+#: filewidgets/kfileplaceeditdialog.cpp:126
 #, kde-format
 msgid "Choose an &icon:"
 msgstr "Wählen Sie ein S&ymbol aus:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:138
+#: filewidgets/kfileplaceeditdialog.cpp:136
 #, kde-format
 msgid "&Only show when using this application (%1)"
 msgstr "&Nur für dieses Programm anzeigen (%1)"
 
-#: filewidgets/kfileplaceeditdialog.cpp:141
+#: filewidgets/kfileplaceeditdialog.cpp:139
 #, kde-format
 msgid ""
 "<qt>Select this setting if you want this entry to show only when using the "
@@ -3027,162 +3028,162 @@ msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
 msgstr "%1 (von %2)"
 
-#: filewidgets/kfileplacesmodel.cpp:162
+#: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr "Alle Stichwörter"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:258
+#: filewidgets/kfileplacesmodel.cpp:254
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "Persönlicher Ordner"
 
-#: filewidgets/kfileplacesmodel.cpp:267
+#: filewidgets/kfileplacesmodel.cpp:263
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "Arbeitsfläche"
 
-#: filewidgets/kfileplacesmodel.cpp:274
+#: filewidgets/kfileplacesmodel.cpp:270
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "Dokumente"
 
-#: filewidgets/kfileplacesmodel.cpp:281
+#: filewidgets/kfileplacesmodel.cpp:277
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr "Downloads"
 
-#: filewidgets/kfileplacesmodel.cpp:286
+#: filewidgets/kfileplacesmodel.cpp:282
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "Netzwerk"
 
-#: filewidgets/kfileplacesmodel.cpp:291
+#: filewidgets/kfileplacesmodel.cpp:287
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "Papierkorb"
 
-#: filewidgets/kfileplacesmodel.cpp:352
+#: filewidgets/kfileplacesmodel.cpp:348
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "Musik"
 
-#: filewidgets/kfileplacesmodel.cpp:359
+#: filewidgets/kfileplacesmodel.cpp:355
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "Bilder"
 
-#: filewidgets/kfileplacesmodel.cpp:368
+#: filewidgets/kfileplacesmodel.cpp:364
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "Videos"
 
-#: filewidgets/kfileplacesmodel.cpp:395
+#: filewidgets/kfileplacesmodel.cpp:391
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "Zuletzt geöffnete Dateien"
 
-#: filewidgets/kfileplacesmodel.cpp:400
+#: filewidgets/kfileplacesmodel.cpp:396
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "Zuletzt verwendete Orte"
 
-#: filewidgets/kfileplacesmodel.cpp:423
+#: filewidgets/kfileplacesmodel.cpp:419
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "Heute geändert"
 
-#: filewidgets/kfileplacesmodel.cpp:427
+#: filewidgets/kfileplacesmodel.cpp:423
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "Gestern geändert"
 
-#: filewidgets/kfileplacesmodel.cpp:1134
+#: filewidgets/kfileplacesmodel.cpp:1127
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Kann nicht zur Seitenleiste Orte hinzufügen: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1141
+#: filewidgets/kfileplacesmodel.cpp:1134
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "Zur Seitenleiste Orte können nur Ordner hinzugefügt werden."
 
-#: filewidgets/kfileplacesmodel.cpp:1384
+#: filewidgets/kfileplacesmodel.cpp:1377
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure…"
 msgstr "Einrichten …"
 
-#: filewidgets/kfileplacesmodel.cpp:1420
+#: filewidgets/kfileplacesmodel.cpp:1413
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "Wird freigegeben …"
 
-#: filewidgets/kfileplacesmodel.cpp:1422
+#: filewidgets/kfileplacesmodel.cpp:1415
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&Freigeben"
 
-#: filewidgets/kfileplacesmodel.cpp:1426
+#: filewidgets/kfileplacesmodel.cpp:1419
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "Wird sicher entfernt …"
 
-#: filewidgets/kfileplacesmodel.cpp:1428
+#: filewidgets/kfileplacesmodel.cpp:1421
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&Sicher entfernen"
 
-#: filewidgets/kfileplacesmodel.cpp:1433
+#: filewidgets/kfileplacesmodel.cpp:1426
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Wird ausgehängt …"
 
-#: filewidgets/kfileplacesmodel.cpp:1435
+#: filewidgets/kfileplacesmodel.cpp:1428
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&Aushängen"
 
-#: filewidgets/kfileplacesmodel.cpp:1459
+#: filewidgets/kfileplacesmodel.cpp:1452
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "Ausw&erfen"
 
-#: filewidgets/kfileplacesmodel.cpp:1506
+#: filewidgets/kfileplacesmodel.cpp:1499
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr ""
 "Das Gerät „%1“ ist kein Wechsel-Datenträger und kann nicht ausgeworfen "
 "werden."
 
-#: filewidgets/kfileplacesmodel.cpp:1542
+#: filewidgets/kfileplacesmodel.cpp:1534
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr ""
 "Beim Zugriff auf „%1“ ist ein Fehler aufgetreten, die Meldung lautet: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1544
+#: filewidgets/kfileplacesmodel.cpp:1536
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "Beim Zugriff auf „%1“ ist ein Fehler aufgetreten"
 
-#: filewidgets/kfileplacesmodel.cpp:1571
+#: filewidgets/kfileplacesmodel.cpp:1562
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 "Mindestens eine Datei auf dem Gerät ist noch in einer Anwendung geöffnet."
 
-#: filewidgets/kfileplacesmodel.cpp:1574
+#: filewidgets/kfileplacesmodel.cpp:1565
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3197,108 +3198,108 @@ msgstr[1] ""
 "Mindestens eine Datei auf dem Gerät ist noch in den folgenden Anwendungen "
 "geöffnet: <application>%2</application>."
 
-#: filewidgets/kfileplacesmodel.cpp:1577
+#: filewidgets/kfileplacesmodel.cpp:1568
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesmodel.cpp:1624
+#: filewidgets/kfileplacesmodel.cpp:1615
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "Mit der Partitionsverwaltung neu formatieren oder bearbeiten"
 
-#: filewidgets/kfileplacesview.cpp:344
+#: filewidgets/kfileplacesview.cpp:342
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:361
+#: filewidgets/kfileplacesview.cpp:359
 #: widgets/kpropertiesdialogbuiltin_p.cpp:676
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 von %2 frei (%3 % belegt)"
 
-#: filewidgets/kfileplacesview.cpp:674
+#: filewidgets/kfileplacesview.cpp:669
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (ausgeblendet)"
 
-#: filewidgets/kfileplacesview.cpp:1228
+#: filewidgets/kfileplacesview.cpp:1223
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Papierkorb leeren"
 
-#: filewidgets/kfileplacesview.cpp:1253
+#: filewidgets/kfileplacesview.cpp:1248
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Einhängen"
 
-#: filewidgets/kfileplacesview.cpp:1263
+#: filewidgets/kfileplacesview.cpp:1258
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "In neuem Unterfenster öffnen"
 
-#: filewidgets/kfileplacesview.cpp:1266
+#: filewidgets/kfileplacesview.cpp:1261
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "In neuem Fenster öffnen"
 
-#: filewidgets/kfileplacesview.cpp:1275
+#: filewidgets/kfileplacesview.cpp:1270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Eintrag hinzufügen …"
 
-#: filewidgets/kfileplacesview.cpp:1281
+#: filewidgets/kfileplacesview.cpp:1276
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Bearbeiten …"
 
-#: filewidgets/kfileplacesview.cpp:1286
+#: filewidgets/kfileplacesview.cpp:1281
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Aus Speicherorten entfernen"
 
-#: filewidgets/kfileplacesview.cpp:1290
+#: filewidgets/kfileplacesview.cpp:1285
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Ausblenden"
 
-#: filewidgets/kfileplacesview.cpp:1298
+#: filewidgets/kfileplacesview.cpp:1293
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Abschnitt „%1“ ausblenden"
 
-#: filewidgets/kfileplacesview.cpp:1298
+#: filewidgets/kfileplacesview.cpp:1293
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Abschnitt ausblenden"
 
-#: filewidgets/kfileplacesview.cpp:1306
+#: filewidgets/kfileplacesview.cpp:1301
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&Alle Einträge anzeigen"
 
-#: filewidgets/kfileplacesview.cpp:1311
+#: filewidgets/kfileplacesview.cpp:1306
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Symbolgröße"
 
-#: filewidgets/kfileplacesview.cpp:1432
+#: filewidgets/kfileplacesview.cpp:1427
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3306,51 +3307,56 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Größe automatisch anpassen"
 
-#: filewidgets/kfileplacesview.cpp:1452
+#: filewidgets/kfileplacesview.cpp:1447
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Klein (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1455
+#: filewidgets/kfileplacesview.cpp:1450
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Mittel (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1458
+#: filewidgets/kfileplacesview.cpp:1453
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Groß (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1461
+#: filewidgets/kfileplacesview.cpp:1456
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Riesig (%1×%1)"
 
-#: filewidgets/kfilewidget.cpp:637
+#: filewidgets/kfilewidget.cpp:404
+#, kde-format
+msgid "Current Directory: %1"
+msgstr "Aktueller Ordner: %1"
+
+#: filewidgets/kfilewidget.cpp:640
 #, kde-format
 msgid "You can only select one file"
 msgstr "Sie können nur eine Datei auswählen"
 
-#: filewidgets/kfilewidget.cpp:637
+#: filewidgets/kfilewidget.cpp:640
 #, kde-format
 msgid "More than one file provided"
 msgstr "Mehr als eine Datei angeboten"
 
-#: filewidgets/kfilewidget.cpp:813
+#: filewidgets/kfilewidget.cpp:816
 #, kde-format
 msgid "You can only select local files"
 msgstr "Sie können nur lokale Dateien auswählen"
 
-#: filewidgets/kfilewidget.cpp:813
+#: filewidgets/kfilewidget.cpp:816
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Dateien auf entfernten Rechnern sind nicht erlaubt"
 
-#: filewidgets/kfilewidget.cpp:820
+#: filewidgets/kfilewidget.cpp:823
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3365,22 +3371,22 @@ msgstr[1] ""
 "Die ausgewählten URLs (Adressen) verwenden ein nicht unterstütztes Schema. "
 "Bitte verwenden Sie folgendes Schema: %2"
 
-#: filewidgets/kfilewidget.cpp:826
+#: filewidgets/kfilewidget.cpp:829
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Nicht unterstütztes Adress-Schema"
 
-#: filewidgets/kfilewidget.cpp:847
+#: filewidgets/kfilewidget.cpp:850
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Die Datei „%1“ wurde nicht gefunden"
 
-#: filewidgets/kfilewidget.cpp:847
+#: filewidgets/kfilewidget.cpp:850
 #, kde-format
 msgid "Cannot open file"
 msgstr "Datei kann nicht geöffnet werden"
 
-#: filewidgets/kfilewidget.cpp:1216
+#: filewidgets/kfilewidget.cpp:1219
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3388,50 +3394,50 @@ msgid ""
 "you to file:/home.</qt>"
 msgstr ""
 "<qt>Klicken Sie auf diesen Knopf, um in den darüber liegenden Ordner zu "
-"gelangen. <br /><br />Ist der aktuelle Ordner z. B. file:/home/konqi, bringt "
-"Sie ein Druck auf diesen Knopf nach file:/home.</qt>"
+"gelangen. <br /><br />Ist der aktuelle Ordner z. B. file:/home/konqi, dann "
+"bringt Sie ein Druck auf diesen Knopf nach file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1220
+#: filewidgets/kfilewidget.cpp:1223
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Drücken Sie diesen Knopf, um im Verlaufsspeicher einen Schritt nach hinten "
 "zu gehen."
 
-#: filewidgets/kfilewidget.cpp:1221
+#: filewidgets/kfilewidget.cpp:1224
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Drücken Sie diesen Knopf, um im Verlaufsspeicher einen Schritt nach vorn zu "
 "gehen."
 
-#: filewidgets/kfilewidget.cpp:1223
+#: filewidgets/kfilewidget.cpp:1226
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
 "Drücken Sie diesen Knopf, um das aktuelle Dokument erneut laden zu lassen."
 
-#: filewidgets/kfilewidget.cpp:1225
+#: filewidgets/kfilewidget.cpp:1228
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Klicken Sie auf diesen Knopf, um einen neuen Ordner anzulegen."
 
-#: filewidgets/kfilewidget.cpp:1227
+#: filewidgets/kfilewidget.cpp:1230
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Seitenleiste Orte anzeigen"
 
-#: filewidgets/kfilewidget.cpp:1234
+#: filewidgets/kfilewidget.cpp:1237
 #, kde-format
 msgid "Show Quick Filter"
 msgstr "Schnellfilter anzeigen"
 
-#: filewidgets/kfilewidget.cpp:1242
+#: filewidgets/kfilewidget.cpp:1245
 #, kde-format
 msgid "Options"
 msgstr "Optionen"
 
-#: filewidgets/kfilewidget.cpp:1245
+#: filewidgets/kfilewidget.cpp:1248
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3441,18 +3447,18 @@ msgid ""
 "folders from files</li></ul></qt>"
 msgstr ""
 "<qt>Dies ist das Einrichtungsmenü für den Dateidialog. Von hier aus sind "
-"zahlreiche Einstellungen zugänglich, z. B.: <ul><li>wie Dateien in den "
+"zahlreiche Einstellungen zugänglich. So z. B.: <ul><li>wie Dateien in den "
 "Listen sortiert werden</li><li>Ansichtstypen, einschließlich Symbol- oder "
 "Listendarstellung</li><li>Anzeigen versteckter Dateien</li><li>die "
 "Seitenleiste Orte</li><li>Dateivorschauen</li> <li>separate Darstellung von "
 "Ordnern und Dateien</li> </ul> </qt>"
 
-#: filewidgets/kfilewidget.cpp:1264
+#: filewidgets/kfilewidget.cpp:1267
 #, kde-format
 msgid "Bookmarks"
 msgstr "Lesezeichen"
 
-#: filewidgets/kfilewidget.cpp:1268
+#: filewidgets/kfilewidget.cpp:1271
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3467,35 +3473,35 @@ msgstr ""
 "Lesezeichen in KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1313 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1316 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Name:"
 
-#: filewidgets/kfilewidget.cpp:1338
+#: filewidgets/kfilewidget.cpp:1341
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "Änderung des Dateinamens zurücknehmen"
 
-#: filewidgets/kfilewidget.cpp:1393
+#: filewidgets/kfilewidget.cpp:1396
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr "Filter beim Wechsel der Ordner beibehalten"
 
-#: filewidgets/kfilewidget.cpp:1397
+#: filewidgets/kfilewidget.cpp:1400
 #, kde-format
 msgid "Filter by name…"
 msgstr "Nach Namen filtern …"
 
-#: filewidgets/kfilewidget.cpp:1405
+#: filewidgets/kfilewidget.cpp:1408
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "Filterleiste ausblenden"
 
-#: filewidgets/kfilewidget.cpp:1454
+#: filewidgets/kfilewidget.cpp:1457
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3508,12 +3514,12 @@ msgstr ""
 "Maustaste und eine entsprechende Auswahl aus dem darauf angezeigten Menü "
 "<b>Textvervollständigung</b> kontrollieren.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1461
+#: filewidgets/kfilewidget.cpp:1464
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Dies ist der Name, unter dem die Datei gespeichert wird."
 
-#: filewidgets/kfilewidget.cpp:1464
+#: filewidgets/kfilewidget.cpp:1467
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3522,78 +3528,73 @@ msgstr ""
 "Dies ist eine Liste der Dateien, die geöffnet werden sollen. Wenn Sie mehr "
 "als eine Datei angeben möchten, trennen Sie sie durch Leerzeichen."
 
-#: filewidgets/kfilewidget.cpp:1469
+#: filewidgets/kfilewidget.cpp:1472
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Dies ist der Name der zu öffnenden Datei."
 
-#: filewidgets/kfilewidget.cpp:1482
+#: filewidgets/kfilewidget.cpp:1485
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Orte"
 
-#: filewidgets/kfilewidget.cpp:1763
+#: filewidgets/kfilewidget.cpp:1766
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Die Datei „%1“ existiert bereits. Möchten Sie sie überschreiben?"
 
-#: filewidgets/kfilewidget.cpp:1764
+#: filewidgets/kfilewidget.cpp:1767
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Datei überschreiben?"
 
-#: filewidgets/kfilewidget.cpp:1961
+#: filewidgets/kfilewidget.cpp:1964
 #, kde-format
 msgid "You can only select local files."
 msgstr "Sie können nur lokale Dateien auswählen."
 
-#: filewidgets/kfilewidget.cpp:1961
+#: filewidgets/kfilewidget.cpp:1964
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Dateien auf entfernten Rechnern sind nicht erlaubt"
 
-#: filewidgets/kfilewidget.cpp:2055
+#: filewidgets/kfilewidget.cpp:2058
 #, kde-format
 msgid "All Folders"
 msgstr "Alle Ordner"
 
-#: filewidgets/kfilewidget.cpp:2079
-#, kde-format
-msgid "Current Directory: %1"
-msgstr "Aktueller Ordner: %1"
-
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:847
+#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:842
 #, kde-format
 msgid "&Open"
 msgstr "Öff&nen"
 
-#: filewidgets/kfilewidget.cpp:2315
+#: filewidgets/kfilewidget.cpp:2299
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Symbolgröße: %1 Pixel"
 
-#: filewidgets/kfilewidget.cpp:2482
+#: filewidgets/kfilewidget.cpp:2466
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "&Dateierweiterung automatisch auswählen (%1)"
 
-#: filewidgets/kfilewidget.cpp:2483
+#: filewidgets/kfilewidget.cpp:2467
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "Erweiterung <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2489
+#: filewidgets/kfilewidget.cpp:2473
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "&Dateierweiterung automatisch auswählen"
 
-#: filewidgets/kfilewidget.cpp:2490
+#: filewidgets/kfilewidget.cpp:2474
 #, kde-format
 msgid "a suitable extension"
 msgstr "passende Dateinamen-Erweiterung"
 
-#: filewidgets/kfilewidget.cpp:2498
+#: filewidgets/kfilewidget.cpp:2482
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3622,12 +3623,12 @@ msgstr ""
 "lassen Sie die Einstellung aktiviert, da Ihre Dateien dadurch einfacher zu "
 "verwalten sind."
 
-#: filewidgets/kfilewidget.cpp:2964
+#: filewidgets/kfilewidget.cpp:2948
 #, kde-format
 msgid "&File type:"
 msgstr "&Dateityp:"
 
-#: filewidgets/kfilewidget.cpp:2968
+#: filewidgets/kfilewidget.cpp:2952
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3636,7 +3637,7 @@ msgstr ""
 "<qt>Dies ist der Auswahl für den Dateityp. Damit wird das Format ausgewählt, "
 "in dem die Datei gespeichert werden soll</qt>"
 
-#: filewidgets/kfilewidget.cpp:2970
+#: filewidgets/kfilewidget.cpp:2954
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
@@ -3645,44 +3646,44 @@ msgstr ""
 "<qt>Dies ist die Auswahl für den Dateitypen. Damit wird das Format der "
 "anzuzeigenden Dateien ausgewählt.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:221
-#, kde-format
-msgctxt "@label:textbox Prompt for new file of type"
-msgid "Enter %1 filename:"
-msgstr "Geben Sie einen Dateinamen für %1 ein:"
-
-#: filewidgets/knewfilemenu.cpp:529
+#: filewidgets/knewfilemenu.cpp:518
 #, kde-format
 msgid "Sorry"
 msgstr "Fehler"
 
-#: filewidgets/knewfilemenu.cpp:540
+#: filewidgets/knewfilemenu.cpp:529
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Die Vorlagen-Datei <b>%1</b> existiert nicht.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:691 filewidgets/knewfilemenu.cpp:756
+#: filewidgets/knewfilemenu.cpp:683 filewidgets/knewfilemenu.cpp:748
 #, kde-format
 msgid "Name for new link:"
 msgstr "Name für die neue Verknüpfung:"
 
-#: filewidgets/knewfilemenu.cpp:694
+#: filewidgets/knewfilemenu.cpp:686
 #, kde-format
 msgid "Create Symlink"
 msgstr "Symbolische Verknüpfung erstellen"
 
-#: filewidgets/knewfilemenu.cpp:760
+#: filewidgets/knewfilemenu.cpp:752
 #, kde-format
 msgid "Create link to URL"
 msgstr "Verknüpfung mit Adresse erstellen"
 
-#: filewidgets/knewfilemenu.cpp:800 filewidgets/knewfilemenu.cpp:824
+#: filewidgets/knewfilemenu.cpp:793 filewidgets/knewfilemenu.cpp:848
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1164
+#: filewidgets/knewfilemenu.cpp:1128
+#, kde-format
+msgctxt "@label:textbox Prompt for new file of type"
+msgid "Enter %1 filename:"
+msgstr "Geben Sie einen Dateinamen für %1 ein:"
+
+#: filewidgets/knewfilemenu.cpp:1227
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3692,7 +3693,7 @@ msgstr ""
 "Der Name <filename>%1</filename> kann nicht verwendet werden,<nl/>da dieser "
 "Name für das Betriebssystem reserviert ist."
 
-#: filewidgets/knewfilemenu.cpp:1172
+#: filewidgets/knewfilemenu.cpp:1235
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3702,7 +3703,7 @@ msgstr ""
 "Der Name <filename>%1</filename> beginnt mit einem Punkt, daher wird in der "
 "Voreinstellung ausgeblendet."
 
-#: filewidgets/knewfilemenu.cpp:1180
+#: filewidgets/knewfilemenu.cpp:1243
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3714,29 +3715,29 @@ msgstr ""
 "der Name bei der alphabetischen Sortierung vor anderen Einträgen angezeigt, "
 "weitere Probleme können auftreten."
 
-#: filewidgets/knewfilemenu.cpp:1198
+#: filewidgets/knewfilemenu.cpp:1261
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
-msgstr "Mit Schrägstrichen in Ordnernamen werden Unterordner erstellt, z. B.:"
+msgstr "Mit Schrägstrichen in Ordnernamen werden Unterordner erstellt, z. B.:"
 
-#: filewidgets/knewfilemenu.cpp:1212
+#: filewidgets/knewfilemenu.cpp:1275
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Mit Schrägstrichen in Ordnernamen werden Unterordner erstellt."
 
-#: filewidgets/knewfilemenu.cpp:1224
+#: filewidgets/knewfilemenu.cpp:1287
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Schrägstriche können in Datei- und Ordnernamen nicht verwendet werden."
 
-#: filewidgets/knewfilemenu.cpp:1229
+#: filewidgets/knewfilemenu.cpp:1292
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 "Umgekehrte Schrägstriche können in Datei- und Ordnernamen nicht verwendet "
 "werden."
 
-#: filewidgets/knewfilemenu.cpp:1243
+#: filewidgets/knewfilemenu.cpp:1306
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3747,7 +3748,7 @@ msgstr ""
 "filename> ist nicht möglich, da dies zu einer Überschneidung mit dem "
 "Speicherort des Persönlichen Ordners eines Benutzers führen würde."
 
-#: filewidgets/knewfilemenu.cpp:1252
+#: filewidgets/knewfilemenu.cpp:1315
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3757,52 +3758,52 @@ msgstr ""
 "zu beginnen, da dies verwirrend oder gefährlich sein kann, wenn Sie das "
 "Terminal zum Löschen verwenden."
 
-#: filewidgets/knewfilemenu.cpp:1324
+#: filewidgets/knewfilemenu.cpp:1387
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Ein Ordner mit dem Namen <filename>%1</filename> existiert bereits."
 
-#: filewidgets/knewfilemenu.cpp:1326
+#: filewidgets/knewfilemenu.cpp:1389
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Eine Datei mit dem Namen <filename>%1</filename> existiert bereits."
 
-#: filewidgets/knewfilemenu.cpp:1412
+#: filewidgets/knewfilemenu.cpp:1475
 #, kde-format
 msgid "Create New"
 msgstr "Neu erstellen"
 
-#: filewidgets/knewfilemenu.cpp:1447
+#: filewidgets/knewfilemenu.cpp:1510
 #, kde-format
 msgid "Link to Device"
 msgstr "Verknüpfung zu Gerät"
 
-#: filewidgets/knewfilemenu.cpp:1486
+#: filewidgets/knewfilemenu.cpp:1556
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Neuer Ordner"
 
-#: filewidgets/knewfilemenu.cpp:1509
+#: filewidgets/knewfilemenu.cpp:1579
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Neuen Ordner erstellen"
 
-#: filewidgets/knewfilemenu.cpp:1511
+#: filewidgets/knewfilemenu.cpp:1581
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Neuen Ordner anlegen in %1:"
 
-#: filewidgets/knewfilemenu.cpp:1514 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1584 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Ordnernamen eingeben"
 
-#: filewidgets/knewfilemenu.cpp:1571
+#: filewidgets/knewfilemenu.cpp:1641
 #, kde-format
 msgid "Default"
 msgstr "Standard"
@@ -3843,7 +3844,7 @@ msgstr "Sie können das Symbol später in den Ordnereigenschaften ändern."
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:610 widgets/checksumswidget.ui:145
+#: filewidgets/kurlnavigator.cpp:602 widgets/checksumswidget.ui:145
 #: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
 #: widgets/checksumswidget.ui:286
 #, kde-format
@@ -3851,39 +3852,39 @@ msgid "Copy"
 msgstr "Kopieren"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:614 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:606 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "Einfügen"
 
-#: filewidgets/kurlnavigator.cpp:634
+#: filewidgets/kurlnavigator.cpp:626
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "„%1“ in neuem Unterfenster öffnen"
 
-#: filewidgets/kurlnavigator.cpp:642
+#: filewidgets/kurlnavigator.cpp:634
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "„%1“ in neuem Fenster öffnen"
 
-#: filewidgets/kurlnavigator.cpp:651
+#: filewidgets/kurlnavigator.cpp:643
 #, kde-format
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: filewidgets/kurlnavigator.cpp:654
+#: filewidgets/kurlnavigator.cpp:646
 #, kde-format
 msgid "Navigate"
 msgstr "Navigieren"
 
-#: filewidgets/kurlnavigator.cpp:669
+#: filewidgets/kurlnavigator.cpp:661
 #, kde-format
 msgid "Show Full Path"
 msgstr "Vollständigen Pfad anzeigen"
 
-#: filewidgets/kurlnavigator.cpp:839
+#: filewidgets/kurlnavigator.cpp:822
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -3900,15 +3901,6 @@ msgstr "Mehr"
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
 msgstr "Zum Ort des Pfades springen"
-
-#: filewidgets/kurlnavigatorplacesselector.cpp:49
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Places"
-msgctxt ""
-"@action:button accessible name for the places selector in the URL navigator"
-msgid "Places"
-msgstr "Orte"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
@@ -3943,7 +3935,7 @@ msgstr "Klicken Sie hier, um zur Verknüpfungsansicht zu wechseln"
 msgid "Click to Edit Location"
 msgstr "Klicken Sie hier, um die Adresse zu bearbeiten"
 
-#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:247
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:244
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Sie haben keine Berechtigung zum Ausführen der Datei."
@@ -3963,7 +3955,7 @@ msgstr ""
 "Der Dienst %1 kann nicht ausführbar gemacht werden, Ausführung abgebrochen.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:653
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -3998,20 +3990,18 @@ msgstr "Fehler beim Speichern des Bildes nach %1"
 msgid "Icon file too big, download aborted"
 msgstr "Symboldatei zu groß, Herunterladen abgebrochen"
 
-#: gui/filepreviewjob.cpp:294
+#: gui/filepreviewjob.cpp:281
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
-"Dateivorschauauftrag: Eine leere Datei wird übersprungen – könnte eine "
-"beschädigte symbolische Verknüpfung sein: %1"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
 msgid "No mail client found"
 msgstr "Es wurde kein E-Mail-Programm gefunden"
 
-#: gui/kprocessrunner.cpp:125
+#: gui/kprocessrunner.cpp:122
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4022,12 +4012,12 @@ msgstr ""
 "%1\n"
 "ist ungültig."
 
-#: gui/kprocessrunner.cpp:294
+#: gui/kprocessrunner.cpp:291
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 wird gestartet"
 
-#: gui/kprocessrunner.cpp:478
+#: gui/kprocessrunner.cpp:463
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -4063,7 +4053,7 @@ msgstr ""
 "Die ausführbare Datei „%1“ befinden sich auf einem fremden Dateisystem. Es "
 "wird aus Sicherheitsgründen nicht gestartet."
 
-#: gui/openurljob.cpp:420
+#: gui/openurljob.cpp:415
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4071,7 +4061,7 @@ msgstr ""
 "Aus Sicherheitsgründen ist es in diesem Kontext nicht erlaubt, eine "
 "ausführbare Datei zu starten."
 
-#: gui/openurljob.cpp:450
+#: gui/openurljob.cpp:445
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4080,7 +4070,7 @@ msgstr ""
 "Das Programm „%1“ muss die Berechtigung zum Ausführen haben, bevor es "
 "gestartet werden kann. "
 
-#: gui/openurljob.cpp:461
+#: gui/openurljob.cpp:456
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4089,12 +4079,12 @@ msgstr ""
 "Die Datei „%1“ kann nicht ausführbar gemacht werden.\n"
 "%2."
 
-#: gui/openurljob.cpp:547
+#: gui/openurljob.cpp:542
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Die Desktop-Datei %1 hat keinen Eintrag „Type=…“"
 
-#: gui/openurljob.cpp:639
+#: gui/openurljob.cpp:634
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4105,12 +4095,12 @@ msgstr ""
 "Überprüfen Sie Ihre offenen Anwendungen und den Benachrichtigungsbereich auf "
 "ausstehende Vorgänge oder Downloads."
 
-#: gui/openurljob.cpp:665
+#: gui/openurljob.cpp:660
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Die Datei kann nicht geöffnet werden."
 
-#: gui/openurljob.cpp:699
+#: gui/openurljob.cpp:694
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Das Programm „%1“ kann nicht gestartet werden."
@@ -4261,7 +4251,7 @@ msgstr "Auszuführender Befehl"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "Es werden URL(s) oder lokale Datei(en) für „befehl“ verwendet."
 
-#: kioworkers/file/file.cpp:689
+#: kioworkers/file/file.cpp:650
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4270,7 +4260,7 @@ msgstr ""
 "Berechtigungen lassen sich nicht ändern für\n"
 "%1"
 
-#: kioworkers/file/file.cpp:697
+#: kioworkers/file/file.cpp:658
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4280,39 +4270,39 @@ msgstr ""
 "Der Eigentümer und die Gruppe können nicht geändert werden für\n"
 "%1"
 
-#: kioworkers/file/file.cpp:777 kioworkers/file/file.cpp:869
+#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Temporäre Datei kann nicht geöffnet werden"
 
-#: kioworkers/file/file.cpp:801
+#: kioworkers/file/file.cpp:765
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Das Programm „mount“ wurde nicht gefunden"
 
-#: kioworkers/file/file.cpp:878
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Das Programm „umount“ wurde nicht gefunden"
 
-#: kioworkers/file/file_unix.cpp:602
+#: kioworkers/file/file_unix.cpp:601
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Die Datei kann nicht von %1 nach %2 kopiert werden. (Fehler: %3)"
 
-#: kioworkers/file/file_unix.cpp:817
+#: kioworkers/file/file_unix.cpp:815
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Kein Medium im Gerät für %1"
 
-#: kioworkers/file/file_unix.cpp:1086
+#: kioworkers/file/file_unix.cpp:1076
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 "Die Benutzerkennung für den angegebenen Benutzer %1 kann nicht ermittelt "
 "werden."
 
-#: kioworkers/file/file_unix.cpp:1097
+#: kioworkers/file/file_unix.cpp:1087
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
@@ -4366,22 +4356,22 @@ msgstr ""
 msgid "Site:"
 msgstr "Rechner:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2499
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2491
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:664
+#: kioworkers/ftp/ftp.cpp:655
 #, kde-format
 msgid "Login OK"
 msgstr "Anmeldung erfolgt"
 
-#: kioworkers/ftp/ftp.cpp:689
+#: kioworkers/ftp/ftp.cpp:680
 #, kde-format
 msgid "Could not login to %1."
 msgstr "Anmeldung nicht möglich auf %1"
 
-#: kioworkers/ftp/ftp.cpp:1045
+#: kioworkers/ftp/ftp.cpp:1036
 #, kde-format
 msgid ""
 "\n"
@@ -4390,7 +4380,7 @@ msgstr ""
 "\n"
 "Meldung vom Server: %1"
 
-#: kioworkers/ftp/ftp.cpp:2494 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2486 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4399,12 +4389,12 @@ msgstr ""
 "Sie müssen für den unten angegebenen Proxy-Server einen Benutzernamen und "
 "ein Passwort angeben, bevor Sie auf Adressen zugreifen können."
 
-#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2490 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Proxy:"
 
-#: kioworkers/ftp/ftp.cpp:2501
+#: kioworkers/ftp/ftp.cpp:2493
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Proxy-Authentifizierung fehlgeschlagen"
@@ -4469,90 +4459,90 @@ msgstr "Server-Authentifizierung"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> auf <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1397
+#: kioworkers/http/http.cpp:1396
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Anderenfalls wäre die Anforderung erfolgreich abgeschlossen worden."
 
-#: kioworkers/http/http.cpp:1400
+#: kioworkers/http/http.cpp:1399
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "Werte für Eigenschaften abfragen"
 
-#: kioworkers/http/http.cpp:1402
+#: kioworkers/http/http.cpp:1401
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "Werte für Eigenschaften festlegen"
 
-#: kioworkers/http/http.cpp:1404
+#: kioworkers/http/http.cpp:1403
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "angegebenen Ordner erstellen"
 
-#: kioworkers/http/http.cpp:1406
+#: kioworkers/http/http.cpp:1405
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "Angegebene Datei/Ordner kopieren"
 
-#: kioworkers/http/http.cpp:1408
+#: kioworkers/http/http.cpp:1407
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "angegebene Datei/Ordner verschieben"
 
-#: kioworkers/http/http.cpp:1410
+#: kioworkers/http/http.cpp:1409
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "im angegebenen Ordner suchen"
 
-#: kioworkers/http/http.cpp:1412
+#: kioworkers/http/http.cpp:1411
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "angegebene Datei/Ordner sperren"
 
-#: kioworkers/http/http.cpp:1414
+#: kioworkers/http/http.cpp:1413
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "Sperrung für angegebenen Ordner/Datei aufheben"
 
-#: kioworkers/http/http.cpp:1416
+#: kioworkers/http/http.cpp:1415
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "angegebene Datei(en) oder Ordner löschen"
 
-#: kioworkers/http/http.cpp:1418
+#: kioworkers/http/http.cpp:1417
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "Server-Eigenschaften abfragen"
 
-#: kioworkers/http/http.cpp:1420
+#: kioworkers/http/http.cpp:1419
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "Inhalt der angegebenen Datei/des Ordners übernehmen"
 
-#: kioworkers/http/http.cpp:1422
+#: kioworkers/http/http.cpp:1421
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "Einen Bericht im angegebenen Ordner ausführen"
 
-#: kioworkers/http/http.cpp:1430
+#: kioworkers/http/http.cpp:1429
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Bei der Aktion „%2“ ist der unerwartete Fehler %1 aufgetreten."
 
-#: kioworkers/http/http.cpp:1470
+#: kioworkers/http/http.cpp:1469
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4562,13 +4552,13 @@ msgstr ""
 "Es ist ein Fehler aufgetreten bei der Aktion „%1“, %2. Eine Zusammenfassung "
 "der Ursachen ist unten aufgeführt."
 
-#: kioworkers/http/http.cpp:1488 kioworkers/http/http.cpp:1632
+#: kioworkers/http/http.cpp:1487 kioworkers/http/http.cpp:1631
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Zugriff verweigert bei der Aktion „%1“"
 
-#: kioworkers/http/http.cpp:1502 kioworkers/http/http.cpp:1639
+#: kioworkers/http/http.cpp:1501 kioworkers/http/http.cpp:1638
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4577,7 +4567,7 @@ msgstr ""
 "Eine Ressource lässt sich am angegebenen Bestimmungsort nicht erstellen, bis "
 "eine oder mehrere Zwischenglieder (Ordner) erstellt wurden."
 
-#: kioworkers/http/http.cpp:1511
+#: kioworkers/http/http.cpp:1510
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4593,28 +4583,28 @@ msgstr ""
 "zuvor für unzulässig erklärt haben.\n"
 "%1"
 
-#: kioworkers/http/http.cpp:1519
+#: kioworkers/http/http.cpp:1518
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Die angeforderte Sperrung ist nicht durchführbar: %1"
 
-#: kioworkers/http/http.cpp:1525
+#: kioworkers/http/http.cpp:1524
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Der Server unterstützt den angeforderten Typ nicht."
 
-#: kioworkers/http/http.cpp:1530 kioworkers/http/http.cpp:1647
+#: kioworkers/http/http.cpp:1529 kioworkers/http/http.cpp:1646
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Ausführung der Aktion „%1“ nicht möglich, die Ressource ist gesperrt."
 
-#: kioworkers/http/http.cpp:1534
+#: kioworkers/http/http.cpp:1533
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Ausführung wurde durch einen anderen Fehler verhindert."
 
-#: kioworkers/http/http.cpp:1541 kioworkers/http/http.cpp:1654
+#: kioworkers/http/http.cpp:1540 kioworkers/http/http.cpp:1653
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4624,7 +4614,7 @@ msgstr ""
 "Aktion „%1“ nicht möglich: Der Zielserver verweigert die Annahme der Datei "
 "oder des Ordners."
 
-#: kioworkers/http/http.cpp:1550 kioworkers/http/http.cpp:1663
+#: kioworkers/http/http.cpp:1549 kioworkers/http/http.cpp:1662
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4633,18 +4623,18 @@ msgstr ""
 "Die Ziel-Ressource bietet nicht genug Speicherplatz, um den Status der "
 "Ressource nach Ausführung dieser Methode aufzuzeichnen."
 
-#: kioworkers/http/http.cpp:1603
+#: kioworkers/http/http.cpp:1602
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Die Ressource kann nicht gelöscht werden."
 
-#: kioworkers/http/http.cpp:1623
+#: kioworkers/http/http.cpp:1622
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 hochladen"
 
-#: kioworkers/http/http.cpp:1674
+#: kioworkers/http/http.cpp:1673
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -4718,7 +4708,7 @@ msgstr "Papierkorb leeren"
 msgid "Restore a trashed file to its original location"
 msgstr "Datei im Papierkorb am Ursprungsort wiederherstellen"
 
-#: kioworkers/trash/trashimpl.cpp:1305
+#: kioworkers/trash/trashimpl.cpp:1306
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
@@ -4740,7 +4730,7 @@ msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "Erneut versuchen"
 
-#: kpasswdserver/kpasswdserver.cpp:797
+#: kpasswdserver/kpasswdserver.cpp:796
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Authentifizierungsdialog"
@@ -4925,28 +4915,28 @@ msgstr "Berechnen"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Klicken Sie, um die Prüfsumme in die Zwischenablage zu kopieren."
 
-#: widgets/dropjob.cpp:192
+#: widgets/dropjob.cpp:178
 #, kde-format
 msgid "C&ancel"
 msgstr "&Abbrechen"
 
-#: widgets/dropjob.cpp:304
+#: widgets/dropjob.cpp:290
 #, kde-format
 msgid "&Move Here"
 msgstr "Hierher &verschieben"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:296
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Hier herunterladen"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:296
 #, kde-format
 msgid "&Copy Here"
 msgstr "Hierher &kopieren"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:303
 #, kde-format
 msgid "&Link Here"
 msgstr "Hierher ver&knüpfen"
@@ -4957,18 +4947,30 @@ msgctxt "@action:button Launch script"
 msgid "&Launch"
 msgstr "&Starten"
 
-#: widgets/executablefileopendialog.cpp:80
+#: widgets/executablefileopendialog.cpp:81
+#, kde-format
+msgctxt "@option:check"
+msgid "Launch executable files without asking"
+msgstr "Ausführbare Dateien ohne Bestätigung starten"
+
+#: widgets/executablefileopendialog.cpp:84
+#, kde-format
+msgctxt "@option:check Open in the associated app"
+msgid "Open executable files in the default application without asking"
+msgstr "Ausführbare Dateien ohne Bestätigung in der Standardanwendung öffnen"
+
+#: widgets/executablefileopendialog.cpp:87
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr "Was möchten Sie mit dieser Datei tun?"
 
-#: widgets/executablefileopendialog.cpp:83
+#: widgets/executablefileopendialog.cpp:90
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "Öff&nen"
 
-#: widgets/executablefileopendialog.cpp:85
+#: widgets/executablefileopendialog.cpp:92
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
@@ -4979,6 +4981,23 @@ msgstr "&Mit %1 öffnen"
 #, kde-format
 msgid "Would you like to launch this file?"
 msgstr "Möchten Sie diese Datei starten?"
+
+#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
+#: widgets/executablefileopendialog.ui:97
+#, kde-format
+msgctxt "@option:check Always open/launch executable files (dont ask again)"
+msgid "Remember for all executable files"
+msgstr "Für alle ausführbaren Dateien speichern"
+
+#. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
+#: widgets/executablefileopendialog.ui:104
+#, kde-format
+msgctxt "@info:tooltip How to undo do not ask again"
+msgid ""
+"You can undo this under \"Confirmations\" in Dolphin file manager settings."
+msgstr ""
+"Sie können dies in den Einstellungen des Dolphin-Dateimanagers unter "
+"„Bestätigungen“ rückgängig machen."
 
 #: widgets/fileundomanager.cpp:126
 #, kde-format
@@ -5368,43 +5387,43 @@ msgstr "System-Einrichtung wird aktualisiert"
 msgid "Updating system configuration…"
 msgstr "System-Einrichtung wird aktualisiert …"
 
-#: widgets/kdirmodel.cpp:1263
+#: widgets/kdirmodel.cpp:1264
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Name"
 
-#: widgets/kdirmodel.cpp:1265
+#: widgets/kdirmodel.cpp:1266
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Größe"
 
-#: widgets/kdirmodel.cpp:1267
+#: widgets/kdirmodel.cpp:1268
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Datum"
 
-#: widgets/kdirmodel.cpp:1269
+#: widgets/kdirmodel.cpp:1270
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Berechtigungen"
 
-#: widgets/kdirmodel.cpp:1271
+#: widgets/kdirmodel.cpp:1272
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Eigentümer"
 
-#: widgets/kdirmodel.cpp:1273
+#: widgets/kdirmodel.cpp:1274
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Gruppe"
 
-#: widgets/kdirmodel.cpp:1275
+#: widgets/kdirmodel.cpp:1276
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
@@ -5427,47 +5446,47 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Aktionen"
 
-#: widgets/kfileitemactions.cpp:756
+#: widgets/kfileitemactions.cpp:751
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "Ordner öff&nen mit …"
 
-#: widgets/kfileitemactions.cpp:756
+#: widgets/kfileitemactions.cpp:751
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Öff&nen mit …"
 
-#: widgets/kfileitemactions.cpp:814
+#: widgets/kfileitemactions.cpp:809
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&Ausführbare Datei starten"
 
-#: widgets/kfileitemactions.cpp:836
+#: widgets/kfileitemactions.cpp:831
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Ordner mit %1 öffnen"
 
-#: widgets/kfileitemactions.cpp:836
+#: widgets/kfileitemactions.cpp:831
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Mit %1 öffnen"
 
-#: widgets/kfileitemactions.cpp:868
+#: widgets/kfileitemactions.cpp:863
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Ordner öff&nen mit"
 
-#: widgets/kfileitemactions.cpp:868
+#: widgets/kfileitemactions.cpp:863
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Öff&nen mit"
 
-#: widgets/kfileitemactions.cpp:879
+#: widgets/kfileitemactions.cpp:874
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
@@ -5502,7 +5521,7 @@ msgstr "Inhalt:"
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
 #, kde-format
-msgid "Open with:"
+msgid "Open With:"
 msgstr "Öffnen mit:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
@@ -5580,28 +5599,25 @@ msgstr "Letzter Zugriff:"
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
 #, kde-format
-msgid "File system:"
+msgid "File System:"
 msgstr "Dateisystem:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, fuzzy, kde-format
-#| msgid "Mounted On:"
-msgid "Mounted on:"
+#, kde-format
+msgid "Mounted On:"
 msgstr "Einhängepunkt:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, fuzzy, kde-format
-#| msgid "Mounted From:"
-msgid "Mounted from:"
+#, kde-format
+msgid "Mounted From:"
 msgstr "Eingehängt von:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
-#, fuzzy, kde-format
-#| msgid "Free Space:"
-msgid "Free space:"
+#, kde-format
+msgid "Free Space:"
 msgstr "Freier Speicherplatz:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
@@ -6006,9 +6022,9 @@ msgstr ""
 "%F – Liste von Dateinamen für Programme, die mehrere auf einmal können\n"
 "%u – einzelne Adresse (URL)\n"
 "%U – Liste von Adressen (URLs)\n"
-"%i – Symbol der .desktop-Datei\n"
-"%c – Name der .desktop-Datei\n"
-"%k – Speicherort der .desktop-Datei"
+"%i - Symbol der .desktop-Datei\n"
+"%c - Name der .desktop-Datei\n"
+"%k - Speicherort der .desktop-Datei"
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:139
@@ -6050,7 +6066,7 @@ msgid ""
 "qt>"
 msgstr ""
 "<qt><p>Diese Liste sollte die Dateitypen anzeigen, mit denen Ihr Programm "
-"umgehen kann. Die Liste beruht auf <u>MIME-Typen</u>.</p>\n"
+"umgehen kann. Die Liste beruht auf <u>MIME-Typen</u>.</p> \n"
 "<p>MIME (Multipurpose Internet (E)Mail Extension) ist ein Standardprotokoll "
 "zur Identifizierung des Datentyps auf Grund von Dateierweiterungen und "
 "entsprechenden <u>MIME-Typen</u>. Beispiel: Die Buchstaben „bmp“ nach dem "
@@ -6060,10 +6076,9 @@ msgstr ""
 "informiert werden, über welche Fähigkeiten ein Programm in dieser Hinsicht "
 "verfügt.</p>\n"
 "<p>Wenn Sie ein Programm mit einem oder mehreren MIME-Typen verknüpfen "
-"möchten, die nicht in dieser Liste stehen, klicken Sie unten auf den Knopf "
-"<b>Hinzufügen</b>. Gibt es einen Dateityp in dieser Liste, mit dem das "
-"Programm nicht umgehen kann, klicken Sie unten auf den Knopf <b>Entfernen</"
-"b>.</p></qt>"
+"möchten, die nicht in der Liste stehen, dann klicken Sie auf den Knopf "
+"<b>Hinzufügen</b>. Gibt es einen Dateityp in der Liste, mit dem das Programm "
+"nicht umgehen kann, dann klicken Sie auf den Knopf <b>Entfernen</b>.</p></qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
 #: widgets/kpropertiesdesktopbase.ui:196
@@ -6624,65 +6639,65 @@ msgctxt "File permission"
 msgid "Sticky"
 msgstr "Sticky"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1679
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1666
 #, kde-format
 msgid "Link"
 msgstr "Verknüpfung"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1699
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1686
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Unterschiedlich (keine Änderung)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1810
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1797
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Die Datei verwendet erweiterte Zugriffsrechte."
 msgstr[1] "Die Dateien verwenden erweiterte Zugriffsrechte."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1832
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1819
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "Der Ordner verwendet erweiterte Zugriffsrechte."
 msgstr[1] "Diese Ordner verwenden erweiterte Zugriffsrechte."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1846
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1833
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Diese Dateien verwenden erweiterte Zugriffsrechte."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2090
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2077
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "&Prüfsummen"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2381
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2368
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Ungültige Prüfsumme."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2384
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2371
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr ""
 "Die Eingabe ist keine gültige Prüfsumme im Format MD5, SHA1 oder SHA256."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2395
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2382
 #, kde-format
 msgid "Checksums match."
 msgstr "Prüfsummen stimmen überein."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2398
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2385
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "Die berechnete und die erwartete Prüfsumme stimmen überein."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2410
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2397
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6694,46 +6709,46 @@ msgstr ""
 "die Überprüfung dann immer noch Fehler meldet, kontaktieren Sie die Quelle "
 "der Datei."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2416
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2403
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "Die berechnete und die erwartete Prüfsumme stimmen nicht überein."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2424
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2411
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "Prüfsumme wird verifiziert …"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2453
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2440
 #, kde-format
 msgid "The checksums of all files are identical."
 msgstr "Die Prüfsummen aller Dateien sind identisch."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2458
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2445
 #, kde-format
 msgid "The selected files have different checksums."
 msgstr "Die ausgewählten Dateien haben unterschiedliche Prüfsummen."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2464
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2451
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Berechnung läuft …"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2575
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2562
 #, kde-format
 msgid "U&RL"
 msgstr "&Adresse (URL)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2581
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2568
 #, kde-format
 msgid "URL:"
 msgstr "Adresse (URL):"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2650
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2921
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2637
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2908
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6741,28 +6756,28 @@ msgstr ""
 "Eigenschaften können nicht gespeichert werden. Nur Einträge für lokale "
 "Dateisysteme werden unterstützt."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2721
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2708
 #, kde-format
 msgid "&Application"
 msgstr "&Programm"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2861
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2848
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Dateityp hinzufügen für %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2862
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2849
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Einen oder mehrere Dateinamen zur Hinzufügung auswählen:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3000
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2987
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr ""
 "Es werden nur ausführbare Dateien des lokalen Dateisystems unterstützt."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3015
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3002
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Erweiterte Einstellungen für %1"
@@ -6870,19 +6885,19 @@ msgstr "Web-Kurzbefehle einrichten …"
 msgid "Open file dialog"
 msgstr "Dateiauswahl"
 
-#: widgets/paste.cpp:69
-#, kde-format
-msgctxt "A default file name excluding extension for some pasted content"
-msgid "pasted file"
-msgstr "eingefügte Datei"
-
-#: widgets/paste.cpp:79 widgets/paste.cpp:113
+#: widgets/paste.cpp:65 widgets/paste.cpp:104
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
 msgstr "Inhalt der Zwischenablage einfügen"
 
-#: widgets/paste.cpp:122
+#: widgets/paste.cpp:101
+#, kde-format
+msgctxt "A default file name excluding extension for some pasted content"
+msgid "pasted file"
+msgstr "eingefügte Datei"
+
+#: widgets/paste.cpp:113
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6892,19 +6907,19 @@ msgstr ""
 "gewünschte Datenformat ist nicht mehr verfügbar. Bitte kopieren Sie die "
 "einzufügenden Daten erneut."
 
-#: widgets/paste.cpp:250
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Einfügen (Ordner)"
 
-#: widgets/paste.cpp:250
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Einfügen (Datei)"
 
-#: widgets/paste.cpp:252
+#: widgets/paste.cpp:245
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6912,35 +6927,35 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Einfügen (1 Element)"
 msgstr[1] "Einfügen (%1 Elemente)"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:247
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Inhalt der Zwischenablage einfügen …"
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:251
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Einfügen"
 
-#: widgets/pastedialog.cpp:57
+#: widgets/pastedialog.cpp:54
 #, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Datenformat:"
 
-#: widgets/pastedialog.cpp:68
+#: widgets/pastedialog.cpp:63
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:89
+#: widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Dateiname für Inhalt der Zwischenablage:"
 
-#: widgets/pastejob.cpp:89
+#: widgets/pastejob.cpp:71
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "Dateiname für abgelegte Inhalte:"
@@ -7599,33 +7614,6 @@ msgstr "Startet das Programm:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Wenn Sie diesem Programm nicht vertrauen, drücken Sie Abbrechen"
-
-#~ msgid "Open With:"
-#~ msgstr "Öffnen mit:"
-
-#~ msgid "File System:"
-#~ msgstr "Dateisystem:"
-
-#~ msgctxt "@option:check"
-#~ msgid "Launch executable files without asking"
-#~ msgstr "Ausführbare Dateien ohne Bestätigung starten"
-
-#~ msgctxt "@option:check Open in the associated app"
-#~ msgid "Open executable files in the default application without asking"
-#~ msgstr ""
-#~ "Ausführbare Dateien ohne Bestätigung in der Standardanwendung öffnen"
-
-#~ msgctxt "@option:check Always open/launch executable files (dont ask again)"
-#~ msgid "Remember for all executable files"
-#~ msgstr "Für alle ausführbaren Dateien speichern"
-
-#~ msgctxt "@info:tooltip How to undo do not ask again"
-#~ msgid ""
-#~ "You can undo this under \"Confirmations\" in Dolphin file manager "
-#~ "settings."
-#~ msgstr ""
-#~ "Sie können dies in den Einstellungen des Dolphin-Dateimanagers unter "
-#~ "„Bestätigungen“ rückgängig machen."
 
 #~ msgid "Change Attribute"
 #~ msgstr "Attribut ändern"
@@ -9978,6 +9966,9 @@ msgstr "Wenn Sie diesem Programm nicht vertrauen, drücken Sie Abbrechen"
 #~ msgid "Read only"
 #~ msgstr "Nur lesen"
 
+#~ msgid "File system:"
+#~ msgstr "Dateisystem:"
+
 #~ msgid "Mount point (/mnt/floppy):"
 #~ msgstr "Einhängepunkt (/mnt/floppy):"
 
@@ -10521,6 +10512,9 @@ msgstr "Wenn Sie diesem Programm nicht vertrauen, drücken Sie Abbrechen"
 #~ "Das Starten der Cookie-Verwaltung ist nicht möglich.\n"
 #~ "Sie können daher die auf Ihrem Rechner gespeicherten Cookies nicht "
 #~ "verwalten."
+
+#~ msgid "Open with:"
+#~ msgstr "Öffnen mit:"
 
 #~ msgid ""
 #~ "%1.\n"
