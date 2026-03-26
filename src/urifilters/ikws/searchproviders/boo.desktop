@@ -5,6 +5,7 @@ Keys=boo,bsc
 Name=openSUSE Bugzilla
 Name[am]=openSUSE Bugzilla
 Name[ar]=أوبن سوي بَغ‌زِلّا
+Name[az]=openSUSE Bugzilla
 Name[be]=openSUSE Bugzilla
 Name[bg]=openSUSE Bugzilla
 Name[ca]=openSUSE Bugzilla
@@ -61,6 +62,7 @@ Query=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[am]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[ar]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[ast]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
+Query[az]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[be]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[bg]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}
 Query[ca]=https://bugzilla.opensuse.org/show_bug.cgi?id=\\{@}

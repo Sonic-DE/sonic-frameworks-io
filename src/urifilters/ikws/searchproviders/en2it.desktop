@@ -102,6 +102,7 @@ Name[zh_TW]=WordReference.com 翻譯: 英文至義大利文
 Query=https://www.wordreference.com/iten/\\{@}
 Query[am]=https://www.wordreference.com/iten/\\{@}
 Query[ar]=https://www.wordreference.com/iten/\\{@}
+Query[az]=https://www.wordreference.com/iten/\\{@}
 Query[bg]=https://www.wordreference.com/iten/\\{@}
 Query[ca]=https://www.wordreference.com/iten/\\{@}
 Query[ca@valencia]=https://www.wordreference.com/iten/\\{@}

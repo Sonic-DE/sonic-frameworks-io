@@ -2,6 +2,7 @@
 Name=Fedora Packages
 Name[am]=Fedora Packages
 Name[ar]=حزم فيدورا
+Name[az]=Fedora paketləri
 Name[bg]=Пакети на Fedora
 Name[ca]=Paquets Fedora
 Name[ca@valencia]=Paquets Fedora
@@ -51,6 +52,7 @@ Keys=fedora
 Query=https://packages.fedoraproject.org/search?query=\\{@}
 Query[am]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ar]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[az]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[bg]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ca]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ca@valencia]=https://packages.fedoraproject.org/search?query=\\{@}

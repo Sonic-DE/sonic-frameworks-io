@@ -102,6 +102,7 @@ Name[zh_TW]=WordReference.com 翻譯: 法文至英文
 Query=https://www.wordreference.com/fren/\\{@}
 Query[am]=https://www.wordreference.com/fren/\\{@}
 Query[ar]=https://www.wordreference.com/fren/\\{@}
+Query[az]=https://www.wordreference.com/fren/\\{@}
 Query[bg]=https://www.wordreference.com/fren/\\{@}
 Query[ca]=https://www.wordreference.com/fren/\\{@}
 Query[ca@valencia]=https://www.wordreference.com/fren/\\{@}

@@ -5,6 +5,7 @@ Keys=pypi
 Name=PyPI
 Name[am]=PyPI
 Name[ar]=PyPI
+Name[az]=PyPI
 Name[be]=PyPI
 Name[bg]=PyPI
 Name[ca]=PyPI
@@ -60,6 +61,7 @@ Query=https://pypi.org/search/?q=\\{@}
 Query[am]=https://pypi.org/search/?q=\\{@}
 Query[ar]=https://pypi.org/search/?q=\\{@}
 Query[ast]=https://pypi.org/search/?q=\\{@}
+Query[az]=https://pypi.org/search/?q=\\{@}
 Query[be]=https://pypi.org/search/?q=\\{@}
 Query[bg]=https://pypi.org/search/?q=\\{@}
 Query[ca]=https://pypi.org/search/?q=\\{@}
