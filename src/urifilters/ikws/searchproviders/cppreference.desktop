@@ -68,6 +68,7 @@ Keys=cppreference,cppref,cpp
 Query=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[am]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[ar]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
+Query[az]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[bg]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[ca]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[ca@valencia]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}

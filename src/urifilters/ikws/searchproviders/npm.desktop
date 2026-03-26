@@ -3,6 +3,7 @@ Type=Service
 Name=npm
 Name[am]=npm
 Name[ar]=npm
+Name[az]=npm
 Name[bg]=npm
 Name[ca]=npm
 Name[ca@valencia]=npm
@@ -51,6 +52,7 @@ Keys=npm,npmjs
 Query=https://www.npmjs.com/search?q=\\{@}
 Query[am]=https://www.npmjs.com/search?q=\\{@}
 Query[ar]=https://www.npmjs.com/search?q=\\{@}
+Query[az]=https://www.npmjs.com/search?q=\\{@}
 Query[bg]=https://www.npmjs.com/search?q=\\{@}
 Query[ca]=https://www.npmjs.com/search?q=\\{@}
 Query[ca@valencia]=https://www.npmjs.com/search?q=\\{@}

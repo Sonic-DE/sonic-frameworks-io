@@ -3,6 +3,7 @@ Type=Service
 Name=Nix Packages
 Name[am]=Nix Packages
 Name[ar]=حزم Nix
+Name[az]=Nix paketləri
 Name[bg]=Nix Packages
 Name[ca]=Paquets Nix
 Name[ca@valencia]=Paquets Nix
@@ -51,6 +52,7 @@ Keys=nixpkg,nixpkgs
 Query=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[am]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[ar]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[az]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[bg]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[ca]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[ca@valencia]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}

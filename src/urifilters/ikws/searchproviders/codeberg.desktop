@@ -5,6 +5,7 @@ Keys=codeberg,cb
 Name=Codeberg
 Name[am]=Codeberg
 Name[ar]=كودبيرغ
+Name[az]=Codeberg
 Name[be]=Codeberg
 Name[bg]=Codeberg
 Name[ca]=Codeberg
@@ -61,6 +62,7 @@ Query=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&onl
 Query[am]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[ar]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[ast]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
+Query[az]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[be]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[bg]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[ca]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
