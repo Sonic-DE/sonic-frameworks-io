@@ -128,6 +128,7 @@ KFileItemDelegate::Private::Private(KFileItemDelegate *parent)
     , emblemRect(QRect())
     , activeMargins(nullptr)
 {
+    (void)parent;
 }
 
 void KFileItemDelegate::Private::setActiveMargins(Qt::Orientation layout)
