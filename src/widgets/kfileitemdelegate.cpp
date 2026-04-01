@@ -452,6 +452,7 @@ QSize KFileItemDelegate::Private::displaySizeHint(const QStyleOptionViewItem &op
 
 QSize KFileItemDelegate::Private::decorationSizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    Q_UNUSED(index)
     QSize iconSize = option.icon.actualSize(option.decorationSize);
     if (!verticalLayout(option)) {
         iconSize.rwidth() = option.decorationSize.width();
@@ -1008,6 +1009,7 @@ QIcon KFileItemDelegate::Private::decoration(const QStyleOptionViewItem &option,
 
 QRect KFileItemDelegate::Private::labelRectangle(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    Q_UNUSED(index)
     QStyle *style = option.widget ? option.widget->style() : QApplication::style();
     return style->subElementRect(QStyle::SE_ItemViewItemText, &option, option.widget);
 }
