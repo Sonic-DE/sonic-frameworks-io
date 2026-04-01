@@ -53,7 +53,6 @@ Q_DECL_EXPORT int kdemain(int argc, char **argv)
     }
 
     LIBXML_TEST_VERSION
-    xmlSubstituteEntitiesDefault(1);
     xmlLoadExtDtdDefaultValue = 1;
     exsltRegisterAll();
 
