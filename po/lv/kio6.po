@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-30 00:39+0000\n"
+"POT-Creation-Date: 2026-04-07 00:40+0000\n"
 "PO-Revision-Date: 2025-08-19 17:33+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -102,7 +102,7 @@ msgid "Folder Already Exists"
 msgstr "Mape jau pastāv"
 
 #: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:371
-#: core/job_error.cpp:577 widgets/paste.cpp:48
+#: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Datne jau pastāv"
@@ -2263,17 +2263,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Nedokumentēta kļūda"
 
-#: core/kfileitem.cpp:1523
+#: core/kfileitem.cpp:1479
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Simboliskā saite uz „%1“)"
 
-#: core/kfileitem.cpp:1525
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(„%1“, saite uz „%2“)"
 
-#: core/kfileitem.cpp:1528
+#: core/kfileitem.cpp:1484
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Norāda uz „%1“)"
@@ -4252,22 +4252,22 @@ msgstr "Lai piekļūtu šai vietnei, jums jānorāda lietotājvārds un parole."
 msgid "Site:"
 msgstr "Vietne:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2491
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2500
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:655
+#: kioworkers/ftp/ftp.cpp:664
 #, kde-format
 msgid "Login OK"
 msgstr "Ierakstīšanās ir kārtībā"
 
-#: kioworkers/ftp/ftp.cpp:680
+#: kioworkers/ftp/ftp.cpp:689
 #, kde-format
 msgid "Could not login to %1."
 msgstr "Nevar ierakstīties „%1“."
 
-#: kioworkers/ftp/ftp.cpp:1036
+#: kioworkers/ftp/ftp.cpp:1045
 #, kde-format
 msgid ""
 "\n"
@@ -4276,7 +4276,7 @@ msgstr ""
 "\n"
 "Serveris atbildēja: „%1“"
 
-#: kioworkers/ftp/ftp.cpp:2486 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2495 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4285,12 +4285,12 @@ msgstr ""
 "Lai piekļūtu vietnēm, jums nepieciešams norādītā starpniekservera "
 "lietotājvārds un parole."
 
-#: kioworkers/ftp/ftp.cpp:2490 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2499 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Starpniekserveris:"
 
-#: kioworkers/ftp/ftp.cpp:2493
+#: kioworkers/ftp/ftp.cpp:2502
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Kļūdaina starpniekservera autentificēšana."
@@ -4832,30 +4832,18 @@ msgctxt "@action:button Launch script"
 msgid "&Launch"
 msgstr "&Palaist"
 
-#: widgets/executablefileopendialog.cpp:81
-#, kde-format
-msgctxt "@option:check"
-msgid "Launch executable files without asking"
-msgstr "Palaist izpildāmās datnes nevaicājot"
-
-#: widgets/executablefileopendialog.cpp:84
-#, kde-format
-msgctxt "@option:check Open in the associated app"
-msgid "Open executable files in the default application without asking"
-msgstr "Atvērt izpildāmās datnes noklusējuma programmā nevaicājot"
-
-#: widgets/executablefileopendialog.cpp:87
+#: widgets/executablefileopendialog.cpp:80
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr "Ko vēlaties darīt ar šo datni?"
 
-#: widgets/executablefileopendialog.cpp:90
+#: widgets/executablefileopendialog.cpp:83
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "&Atvērt"
 
-#: widgets/executablefileopendialog.cpp:92
+#: widgets/executablefileopendialog.cpp:85
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
@@ -4866,23 +4854,6 @@ msgstr "&Atvērt ar „%1“"
 #, kde-format
 msgid "Would you like to launch this file?"
 msgstr "Vai vēlaties palaist šo datni?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
-#: widgets/executablefileopendialog.ui:97
-#, kde-format
-msgctxt "@option:check Always open/launch executable files (dont ask again)"
-msgid "Remember for all executable files"
-msgstr "Atcerēties visām izpildāmajām datnēm"
-
-#. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
-#: widgets/executablefileopendialog.ui:104
-#, kde-format
-msgctxt "@info:tooltip How to undo do not ask again"
-msgid ""
-"You can undo this under \"Confirmations\" in Dolphin file manager settings."
-msgstr ""
-"Varat atcelt šo izvēli „Dolphin“ datņu pārvaldītāja iestatījumu "
-"„Apstiprinājumi“ sadaļā."
 
 #: widgets/fileundomanager.cpp:126
 #, kde-format
@@ -6750,7 +6721,13 @@ msgstr "Konfigurēt tīmekļa saīsnes…"
 msgid "Open file dialog"
 msgstr "Datnes atvēršanas logs"
 
-#: widgets/paste.cpp:65 widgets/paste.cpp:104
+#: widgets/paste.cpp:69
+#, kde-format
+msgctxt "A default file name excluding extension for some pasted content"
+msgid "pasted file"
+msgstr "ielīmēta datne"
+
+#: widgets/paste.cpp:79 widgets/paste.cpp:113
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Paste Clipboard Contents…"
@@ -6758,13 +6735,7 @@ msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
 msgstr "Ielīmēt starpliktuves saturu…"
 
-#: widgets/paste.cpp:101
-#, kde-format
-msgctxt "A default file name excluding extension for some pasted content"
-msgid "pasted file"
-msgstr "ielīmēta datne"
-
-#: widgets/paste.cpp:113
+#: widgets/paste.cpp:122
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6773,19 +6744,19 @@ msgstr ""
 "Starpliktuves saturs kopš ielīmēšanas izsaukšanas ir mainījies: izvēlētais "
 "datu formāts vairs nav pieejams. Nokopējiet ielīmējamo saturu vēlreiz."
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:250
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Ielīmēt vienu mapi"
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:250
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Ielīmēt vienu datni"
 
-#: widgets/paste.cpp:245
+#: widgets/paste.cpp:252
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6794,36 +6765,36 @@ msgstr[0] "Ielīmēt %1 vienumu"
 msgstr[1] "Ielīmēt %1 vienumus"
 msgstr[2] "Ielīmēt %1 vienumu"
 
-#: widgets/paste.cpp:247
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Ielīmēt starpliktuves saturu…"
 
-#: widgets/paste.cpp:251
+#: widgets/paste.cpp:258
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Ielīmēt"
 
-#: widgets/pastedialog.cpp:54
+#: widgets/pastedialog.cpp:57
 #, fuzzy, kde-format
 #| msgid "Data format:"
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Datu formāts:"
 
-#: widgets/pastedialog.cpp:63
+#: widgets/pastedialog.cpp:68
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Datnes nosaukums starpliktuves saturam:"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "Datnes nosaukums nomestajam saturam:"
@@ -7508,6 +7479,26 @@ msgstr "Šis palaidīs programmu:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ja neuzticaties šai programmai, spiediet „Atcelt“"
+
+#~ msgctxt "@option:check"
+#~ msgid "Launch executable files without asking"
+#~ msgstr "Palaist izpildāmās datnes nevaicājot"
+
+#~ msgctxt "@option:check Open in the associated app"
+#~ msgid "Open executable files in the default application without asking"
+#~ msgstr "Atvērt izpildāmās datnes noklusējuma programmā nevaicājot"
+
+#~ msgctxt "@option:check Always open/launch executable files (dont ask again)"
+#~ msgid "Remember for all executable files"
+#~ msgstr "Atcerēties visām izpildāmajām datnēm"
+
+#~ msgctxt "@info:tooltip How to undo do not ask again"
+#~ msgid ""
+#~ "You can undo this under \"Confirmations\" in Dolphin file manager "
+#~ "settings."
+#~ msgstr ""
+#~ "Varat atcelt šo izvēli „Dolphin“ datņu pārvaldītāja iestatījumu "
+#~ "„Apstiprinājumi“ sadaļā."
 
 #~ msgid "Change Attribute"
 #~ msgstr "Mainīt atribūtu"

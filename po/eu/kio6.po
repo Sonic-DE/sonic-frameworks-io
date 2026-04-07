@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-30 00:39+0000\n"
+"POT-Creation-Date: 2026-04-07 00:40+0000\n"
 "PO-Revision-Date: 2026-03-19 20:07+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -102,7 +102,7 @@ msgid "Folder Already Exists"
 msgstr "Karpeta existitzen da dagoeneko"
 
 #: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:371
-#: core/job_error.cpp:577 widgets/paste.cpp:48
+#: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fitxategia existitzen da dagoeneko"
@@ -2281,17 +2281,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Dokumentatu gabeko errorea"
 
-#: core/kfileitem.cpp:1523
+#: core/kfileitem.cpp:1479
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1(e)ra esteka sinbolikoa)"
 
-#: core/kfileitem.cpp:1525
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2(r)ako esteka)"
 
-#: core/kfileitem.cpp:1528
+#: core/kfileitem.cpp:1484
 #, kde-format
 msgid " (Points to %1)"
 msgstr "(%1(e)ra apuntatzen du)"
@@ -4279,22 +4279,22 @@ msgstr ""
 msgid "Site:"
 msgstr "Gunea:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2491
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2500
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:655
+#: kioworkers/ftp/ftp.cpp:664
 #, kde-format
 msgid "Login OK"
 msgstr "Saioa hasi da"
 
-#: kioworkers/ftp/ftp.cpp:680
+#: kioworkers/ftp/ftp.cpp:689
 #, kde-format
 msgid "Could not login to %1."
 msgstr "Ezin izan du %1(e)n saioa hasi."
 
-#: kioworkers/ftp/ftp.cpp:1036
+#: kioworkers/ftp/ftp.cpp:1045
 #, kde-format
 msgid ""
 "\n"
@@ -4303,7 +4303,7 @@ msgstr ""
 "\n"
 "Zerbitzariak esan du: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2486 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2495 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4312,12 +4312,12 @@ msgstr ""
 "Erabiltzaile-izen bat eta pasahitz bat eman behar duzu behean zerrendatuta "
 "dagoen proxy zerbitzarirako, edozein gunera sartzeko baimena izan aurretik."
 
-#: kioworkers/ftp/ftp.cpp:2490 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2499 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Proxy-a:"
 
-#: kioworkers/ftp/ftp.cpp:2493
+#: kioworkers/ftp/ftp.cpp:2502
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Proxy-aren autentifikazioak huts egin du."
@@ -4860,30 +4860,18 @@ msgctxt "@action:button Launch script"
 msgid "&Launch"
 msgstr "&Abiarazi"
 
-#: widgets/executablefileopendialog.cpp:81
-#, kde-format
-msgctxt "@option:check"
-msgid "Launch executable files without asking"
-msgstr "Abiarazi fitxategi-exekutagarriak galdetu gabe"
-
-#: widgets/executablefileopendialog.cpp:84
-#, kde-format
-msgctxt "@option:check Open in the associated app"
-msgid "Open executable files in the default application without asking"
-msgstr "Ireki fitxategi-exekutagarriak lehenetsitako aplikazioan galdetu gabe"
-
-#: widgets/executablefileopendialog.cpp:87
+#: widgets/executablefileopendialog.cpp:80
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr "Zer egin nahi duzu fitxategi honekin?"
 
-#: widgets/executablefileopendialog.cpp:90
+#: widgets/executablefileopendialog.cpp:83
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "&Ireki"
 
-#: widgets/executablefileopendialog.cpp:92
+#: widgets/executablefileopendialog.cpp:85
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
@@ -4894,23 +4882,6 @@ msgstr "&Ireki %1(r)ekin"
 #, kde-format
 msgid "Would you like to launch this file?"
 msgstr "Fitxategi hau abiarazi nahi zenuke?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
-#: widgets/executablefileopendialog.ui:97
-#, kde-format
-msgctxt "@option:check Always open/launch executable files (dont ask again)"
-msgid "Remember for all executable files"
-msgstr "Gogoratu fitxategi-exekutagarri guztietarako"
-
-#. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
-#: widgets/executablefileopendialog.ui:104
-#, kde-format
-msgctxt "@info:tooltip How to undo do not ask again"
-msgid ""
-"You can undo this under \"Confirmations\" in Dolphin file manager settings."
-msgstr ""
-"Hau desegin dezakezu Dolphin fitxategi-kudeatzailearen ezarpenetako"
-"\"Berrespenak\" barnean."
 
 #: widgets/fileundomanager.cpp:126
 #, kde-format
@@ -6777,19 +6748,19 @@ msgstr "Konfiguratu web-lasterbideak…"
 msgid "Open file dialog"
 msgstr "Ireki fitxategien elkarrizketa-koadroa"
 
-#: widgets/paste.cpp:65 widgets/paste.cpp:104
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Paste Clipboard Content"
-msgstr "Itsatsi arbelaren edukia"
-
-#: widgets/paste.cpp:101
+#: widgets/paste.cpp:69
 #, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "itsatsitako fitxategia"
 
-#: widgets/paste.cpp:113
+#: widgets/paste.cpp:79 widgets/paste.cpp:113
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Paste Clipboard Content"
+msgstr "Itsatsi arbelaren edukia"
+
+#: widgets/paste.cpp:122
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6798,19 +6769,19 @@ msgstr ""
 "Arbela aldatu egin da 'itsatsi' erabili zenuenetik: hautatutako datu-"
 "formatua ezingo da gehiago aplikatu. Kopiatu berriro itsastea nahi duzuna."
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:250
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Itsatsi karpeta bat"
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:250
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Itsatsi fitxategi bat"
 
-#: widgets/paste.cpp:245
+#: widgets/paste.cpp:252
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6818,35 +6789,35 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Itsatsi elementu bat"
 msgstr[1] "Itsatsi %1 elementu"
 
-#: widgets/paste.cpp:247
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Itsatsi arbeleko edukia…"
 
-#: widgets/paste.cpp:251
+#: widgets/paste.cpp:258
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Itsatsi"
 
-#: widgets/pastedialog.cpp:54
+#: widgets/pastedialog.cpp:57
 #, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Datu-formatua:"
 
-#: widgets/pastedialog.cpp:63
+#: widgets/pastedialog.cpp:68
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Arbelaren edukiaren fitxategi-izena:"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "Jaregindako edukiarentzako fitxategi-izena:"
@@ -7494,6 +7465,27 @@ msgstr "Honek programa abiaraziko du:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Programa honetaz ez bazara fidatzen, edin klik Utzi botoian"
+
+#~ msgctxt "@option:check"
+#~ msgid "Launch executable files without asking"
+#~ msgstr "Abiarazi fitxategi-exekutagarriak galdetu gabe"
+
+#~ msgctxt "@option:check Open in the associated app"
+#~ msgid "Open executable files in the default application without asking"
+#~ msgstr ""
+#~ "Ireki fitxategi-exekutagarriak lehenetsitako aplikazioan galdetu gabe"
+
+#~ msgctxt "@option:check Always open/launch executable files (dont ask again)"
+#~ msgid "Remember for all executable files"
+#~ msgstr "Gogoratu fitxategi-exekutagarri guztietarako"
+
+#~ msgctxt "@info:tooltip How to undo do not ask again"
+#~ msgid ""
+#~ "You can undo this under \"Confirmations\" in Dolphin file manager "
+#~ "settings."
+#~ msgstr ""
+#~ "Hau desegin dezakezu Dolphin fitxategi-kudeatzailearen ezarpenetako"
+#~ "\"Berrespenak\" barnean."
 
 #~ msgid "Change Attribute"
 #~ msgstr "Aldatu atributua"

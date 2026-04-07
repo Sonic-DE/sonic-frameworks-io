@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-30 00:39+0000\n"
+"POT-Creation-Date: 2026-04-07 00:40+0000\n"
 "PO-Revision-Date: 2022-10-23 00:30+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -96,7 +96,7 @@ msgid "Folder Already Exists"
 msgstr "Li fólder ja existe"
 
 #: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:371
-#: core/job_error.cpp:577 widgets/paste.cpp:48
+#: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Li file ja existe"
@@ -2097,17 +2097,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Índocumentat errore"
 
-#: core/kfileitem.cpp:1523
+#: core/kfileitem.cpp:1479
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(simbolic ligament a %1)"
 
-#: core/kfileitem.cpp:1525
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, ligament a %2)"
 
-#: core/kfileitem.cpp:1528
+#: core/kfileitem.cpp:1484
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (destination: %1)"
@@ -4064,22 +4064,22 @@ msgstr ""
 msgid "Site:"
 msgstr "Site:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2491
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2500
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:655
+#: kioworkers/ftp/ftp.cpp:664
 #, kde-format
 msgid "Login OK"
 msgstr "Session apertet successosimen"
 
-#: kioworkers/ftp/ftp.cpp:680
+#: kioworkers/ftp/ftp.cpp:689
 #, kde-format
 msgid "Could not login to %1."
 msgstr "Ne successat inregistrar a %1."
 
-#: kioworkers/ftp/ftp.cpp:1036
+#: kioworkers/ftp/ftp.cpp:1045
 #, kde-format
 msgid ""
 "\n"
@@ -4088,7 +4088,7 @@ msgstr ""
 "\n"
 "Li servitor respondet: «%1»"
 
-#: kioworkers/ftp/ftp.cpp:2486 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2495 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4097,12 +4097,12 @@ msgstr ""
 "Vu deve provider un nómine de usator e un contrasigne por li servitor proxy "
 "ad-infra ante que vu posse acceder quelcunc site."
 
-#: kioworkers/ftp/ftp.cpp:2490 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2499 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Proxy:"
 
-#: kioworkers/ftp/ftp.cpp:2493
+#: kioworkers/ftp/ftp.cpp:2502
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Autentication del proxy ne successat."
@@ -4639,31 +4639,19 @@ msgctxt "@action:button Launch script"
 msgid "&Launch"
 msgstr "Lansante %1"
 
-#: widgets/executablefileopendialog.cpp:81
-#, kde-format
-msgctxt "@option:check"
-msgid "Launch executable files without asking"
-msgstr ""
-
-#: widgets/executablefileopendialog.cpp:84
-#, kde-format
-msgctxt "@option:check Open in the associated app"
-msgid "Open executable files in the default application without asking"
-msgstr ""
-
-#: widgets/executablefileopendialog.cpp:87
+#: widgets/executablefileopendialog.cpp:80
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr "Quo far con ti file?"
 
-#: widgets/executablefileopendialog.cpp:90
+#: widgets/executablefileopendialog.cpp:83
 #, fuzzy, kde-format
 #| msgid "&Open"
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "&Aperter"
 
-#: widgets/executablefileopendialog.cpp:92
+#: widgets/executablefileopendialog.cpp:85
 #, fuzzy, kde-format
 #| msgid "&Open with %1"
 msgctxt "@action:button"
@@ -4676,21 +4664,6 @@ msgstr "&Aperter per %1"
 #| msgid "What do you wish to do with this file?"
 msgid "Would you like to launch this file?"
 msgstr "Quo far con ti file?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
-#: widgets/executablefileopendialog.ui:97
-#, kde-format
-msgctxt "@option:check Always open/launch executable files (dont ask again)"
-msgid "Remember for all executable files"
-msgstr ""
-
-#. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
-#: widgets/executablefileopendialog.ui:104
-#, kde-format
-msgctxt "@info:tooltip How to undo do not ask again"
-msgid ""
-"You can undo this under \"Confirmations\" in Dolphin file manager settings."
-msgstr ""
 
 #: widgets/fileundomanager.cpp:126
 #, kde-format
@@ -6570,14 +6543,7 @@ msgstr "Configurar abreviationes de web..."
 msgid "Open file dialog"
 msgstr "Aperter li dialog de file"
 
-#: widgets/paste.cpp:65 widgets/paste.cpp:104
-#, fuzzy, kde-format
-#| msgid "&Paste Clipboard Contents"
-msgctxt "@title:dialog"
-msgid "Paste Clipboard Content"
-msgstr "Coll&ar li contenete del Paperiere"
-
-#: widgets/paste.cpp:101
+#: widgets/paste.cpp:69
 #, fuzzy, kde-format
 #| msgid "&Paste File"
 #| msgid_plural "&Paste %1 Files"
@@ -6585,7 +6551,14 @@ msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "Coll&ar li file"
 
-#: widgets/paste.cpp:113
+#: widgets/paste.cpp:79 widgets/paste.cpp:113
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
+msgctxt "@title:dialog"
+msgid "Paste Clipboard Content"
+msgstr "Coll&ar li contenete del Paperiere"
+
+#: widgets/paste.cpp:122
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6594,19 +6567,19 @@ msgstr ""
 "Li Paperiere esset modificat desde vu ha selectet «Collar» e li selectet "
 "formate de data ne es plu disponibil. Ples copiar quo vu vole collar denov."
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:250
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Collar ún fólder"
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:250
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Collar ún file"
 
-#: widgets/paste.cpp:245
+#: widgets/paste.cpp:252
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6614,37 +6587,37 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Collar ún element"
 msgstr[1] "Collar %1 elementes"
 
-#: widgets/paste.cpp:247
+#: widgets/paste.cpp:254
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Coll&ar li contenete del Paperiere"
 
-#: widgets/paste.cpp:251
+#: widgets/paste.cpp:258
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Collar"
 
-#: widgets/pastedialog.cpp:54
+#: widgets/pastedialog.cpp:57
 #, fuzzy, kde-format
 #| msgid "Data format:"
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Formate de data:"
 
-#: widgets/pastedialog.cpp:63
+#: widgets/pastedialog.cpp:68
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Nómine de file por li contenete del Paperiere:"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "Nómine de file por li cadet contenete:"

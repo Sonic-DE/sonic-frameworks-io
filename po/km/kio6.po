@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-30 00:39+0000\n"
+"POT-Creation-Date: 2026-04-07 00:40+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -91,7 +91,7 @@ msgid "Folder Already Exists"
 msgstr "មាន​ថត​រួច​ហើយ"
 
 #: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:371
-#: core/job_error.cpp:577 widgets/paste.cpp:48
+#: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "មាន​ឯកសារ​រួច​ហើយ"
@@ -2236,17 +2236,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "កំហុស​ដែល​មិន​បាន​កត់​ត្រា"
 
-#: core/kfileitem.cpp:1523
+#: core/kfileitem.cpp:1479
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(តំណ​និមិត្តសញ្ញា​ទៅកាន់ %1)"
 
-#: core/kfileitem.cpp:1525
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1 តភ្ជាប់​ទៅ %2)"
 
-#: core/kfileitem.cpp:1528
+#: core/kfileitem.cpp:1484
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (ចង្អុល​ទៅ %1)"
@@ -4288,22 +4288,22 @@ msgstr "អ្នក​ត្រូវ​ផ្តល់​ឈ្មោះ​អ
 msgid "Site:"
 msgstr "តំបន់បណ្ដាញ ៖"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2491
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2500
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:655
+#: kioworkers/ftp/ftp.cpp:664
 #, kde-format
 msgid "Login OK"
 msgstr "ចូល​បាន​ហើយ"
 
-#: kioworkers/ftp/ftp.cpp:680
+#: kioworkers/ftp/ftp.cpp:689
 #, kde-format
 msgid "Could not login to %1."
 msgstr "មិន​អាច​ចូល​ %1 បានឡើយ ។"
 
-#: kioworkers/ftp/ftp.cpp:1036
+#: kioworkers/ftp/ftp.cpp:1045
 #, fuzzy, kde-format
 #| msgid "Launching %1"
 msgid ""
@@ -4311,7 +4311,7 @@ msgid ""
 "The server said: \"%1\""
 msgstr "បើក %1"
 
-#: kioworkers/ftp/ftp.cpp:2486 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2495 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4320,12 +4320,12 @@ msgstr ""
 "អ្នក​ត្រូវ​ផ្តល់​ឈ្មោះ​អ្នកប្រើ និង​ពាក្យ​សម្ងាត់ ឲ្យ​ម៉ាស៊ីន​បម្រើ​ប្រូកស៊ី​ដែល​បាន​រាយ​ខាងក្រោម មុន​ពេល​អ្នក​អាច​ចូល​"
 "ដំណើរការ​តំបន់បណ្ដាញ​ណាមួយ ។"
 
-#: kioworkers/ftp/ftp.cpp:2490 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2499 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "ប្រូកស៊ី ៖"
 
-#: kioworkers/ftp/ftp.cpp:2493
+#: kioworkers/ftp/ftp.cpp:2502
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "ការផ្ទៀងផ្ទាត់ភាព​ត្រឹមត្រូវ​ប្រូកស៊ី​បាន​បរាជ័យ ។"
@@ -4877,32 +4877,20 @@ msgctxt "@action:button Launch script"
 msgid "&Launch"
 msgstr "បើក %1"
 
-#: widgets/executablefileopendialog.cpp:81
-#, kde-format
-msgctxt "@option:check"
-msgid "Launch executable files without asking"
-msgstr ""
-
-#: widgets/executablefileopendialog.cpp:84
-#, kde-format
-msgctxt "@option:check Open in the associated app"
-msgid "Open executable files in the default application without asking"
-msgstr ""
-
-#: widgets/executablefileopendialog.cpp:87
+#: widgets/executablefileopendialog.cpp:80
 #, fuzzy, kde-format
 #| msgid "Do you wish to store the passphrase in your wallet file?"
 msgid "What do you wish to do with this file?"
 msgstr "តើ​អ្នក​ចង់​រក្សាទុក​ឃ្លា​សម្ងាត់​ក្នុង​ឯកសារ​កាបូប​របស់​អ្នក​ឬ​ទេ ?"
 
-#: widgets/executablefileopendialog.cpp:90
+#: widgets/executablefileopendialog.cpp:83
 #, fuzzy, kde-format
 #| msgid "&Open"
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "បើក"
 
-#: widgets/executablefileopendialog.cpp:92
+#: widgets/executablefileopendialog.cpp:85
 #, fuzzy, kde-format
 #| msgid "&Open with %1"
 msgctxt "@action:button"
@@ -4915,21 +4903,6 @@ msgstr "បើក​ជាមួយ %1"
 #| msgid "Do you wish to store the passphrase in your wallet file?"
 msgid "Would you like to launch this file?"
 msgstr "តើ​អ្នក​ចង់​រក្សាទុក​ឃ្លា​សម្ងាត់​ក្នុង​ឯកសារ​កាបូប​របស់​អ្នក​ឬ​ទេ ?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
-#: widgets/executablefileopendialog.ui:97
-#, kde-format
-msgctxt "@option:check Always open/launch executable files (dont ask again)"
-msgid "Remember for all executable files"
-msgstr ""
-
-#. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
-#: widgets/executablefileopendialog.ui:104
-#, kde-format
-msgctxt "@info:tooltip How to undo do not ask again"
-msgid ""
-"You can undo this under \"Confirmations\" in Dolphin file manager settings."
-msgstr ""
 
 #: widgets/fileundomanager.cpp:126
 #, kde-format
@@ -6867,14 +6840,7 @@ msgstr "ផ្លាស់ប្តូរ​គោលការណ៍..."
 msgid "Open file dialog"
 msgstr "បើក​ប្រអប់​ឯកសារ"
 
-#: widgets/paste.cpp:65 widgets/paste.cpp:104
-#, fuzzy, kde-format
-#| msgid "&Paste Clipboard Contents"
-msgctxt "@title:dialog"
-msgid "Paste Clipboard Content"
-msgstr "បិទភ្ជាប់​មាតិកា​ក្ដារ​តម្បៀត​ខ្ទាស់ "
-
-#: widgets/paste.cpp:101
+#: widgets/paste.cpp:69
 #, fuzzy, kde-format
 #| msgid "&Paste File"
 #| msgid_plural "&Paste %1 Files"
@@ -6882,7 +6848,14 @@ msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "បិទភ្ជាប់​ឯកសារ %1"
 
-#: widgets/paste.cpp:113
+#: widgets/paste.cpp:79 widgets/paste.cpp:113
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
+msgctxt "@title:dialog"
+msgid "Paste Clipboard Content"
+msgstr "បិទភ្ជាប់​មាតិកា​ក្ដារ​តម្បៀត​ខ្ទាស់ "
+
+#: widgets/paste.cpp:122
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6891,14 +6864,14 @@ msgstr ""
 "ក្ដារ​តម្បៀត​ខ្ទាស់​បាន​ផ្លាស់​ប្ដូរ​តាំង​ពី​អ្នក​បាន​ប្រើ 'បិទភ្ជាប់' ៖ ទ្រង់ទ្រាយ​ទិន្នន័យ​ដែល​បាន​ជ្រើស​មិន​អាច​"
 "អនុវត្ត​បាន​ទៀត​ទេ ។ សូម​ចម្លង​ម្ដង​ទៀត​នូវ​អ្វី​ដែល​អ្នក​ចង់បិទ​ភ្ជាប់ ។"
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:250
 #, fuzzy, kde-format
 #| msgid "Parent Folder"
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "ថត​មេ"
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:250
 #, fuzzy, kde-format
 #| msgid "&Paste File"
 #| msgid_plural "&Paste %1 Files"
@@ -6906,45 +6879,45 @@ msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "បិទភ្ជាប់​ឯកសារ %1"
 
-#: widgets/paste.cpp:245
+#: widgets/paste.cpp:252
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
 msgid_plural "Paste %1 Items"
 msgstr[0] ""
 
-#: widgets/paste.cpp:247
+#: widgets/paste.cpp:254
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "បិទភ្ជាប់​មាតិកា​ក្ដារ​តម្បៀត​ខ្ទាស់ "
 
-#: widgets/paste.cpp:251
+#: widgets/paste.cpp:258
 #, fuzzy, kde-format
 #| msgid "Paste"
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "បិទភ្ជាប់"
 
-#: widgets/pastedialog.cpp:54
+#: widgets/pastedialog.cpp:57
 #, fuzzy, kde-format
 #| msgid "Data format:"
 msgctxt "@label"
 msgid "Data format:"
 msgstr "ទ្រង់ទ្រាយ​ទិន្នន័យ ៖"
 
-#: widgets/pastedialog.cpp:63
+#: widgets/pastedialog.cpp:68
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "ឈ្មោះ​ឯកសារ​សម្រាប់​មាតិកា​ក្តារ​តម្បៀត​ខ្ទាស់ ៖"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, fuzzy, kde-format
 #| msgid "Filename for clipboard content:"
 msgid "Filename for dropped contents:"
