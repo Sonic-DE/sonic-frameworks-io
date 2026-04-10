@@ -1115,7 +1115,6 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     QRect focusRect = textBoundingRect.adjusted(-focusHMargin, -focusVMargin, +focusHMargin, +focusVMargin);
 
     painter->save();
-    painter->setRenderHint(QPainter::Antialiasing);
 
     if (progress > 0 && !(opt.state & QStyle::State_MouseOver)) {
         opt.state |= QStyle::State_MouseOver;
