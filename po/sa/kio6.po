@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-07 00:40+0000\n"
+"POT-Creation-Date: 2026-05-21 00:40+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO कार्यकर्ता निर्मातुं असमर्थः: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1008
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1008
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -59,7 +59,7 @@ msgstr ""
 "\"%1\" इति symlink निर्मातुं न शक्तम् । \n"
 "गन्तव्यसञ्चिकातन्त्रम् (%2) प्रतीकसम्बद्धानि न समर्थयति ।."
 
-#: core/copyjob.cpp:179
+#: core/copyjob.cpp:202
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -73,7 +73,7 @@ msgstr ""
 "प्रतिस्थापनं चित्वा यत्किमपि अमान्यं वर्णं (गन्तव्यपुटनाम्नि) underscore \"_\" इत्यनेन "
 "प्रतिस्थाप्यते ।."
 
-#: core/copyjob.cpp:187
+#: core/copyjob.cpp:210
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -87,23 +87,23 @@ msgstr ""
 "प्रतिस्थापनं चित्वा यत्किमपि अमान्यं वर्णं (गन्तव्यपुटनाम्नि) underscore \"_\" इत्यनेन "
 "प्रतिस्थाप्यते ।."
 
-#: core/copyjob.cpp:1403 core/job_error.cpp:588
+#: core/copyjob.cpp:1426 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "पुटं पूर्वमेव विद्यते"
 
-#: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "सञ्चिका पूर्वमेव विद्यते"
 
-#: core/copyjob.cpp:1736 core/copyjob.cpp:2441
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "पूर्वमेव पुटं इति रूपेण विद्यते"
 
-#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:295
+#: core/copyjob.cpp:1914 kioworkers/trash/kio_trash.cpp:295
 #, kde-format
 msgid "Trash"
 msgstr "पुनःप्रयोगस्य कूपः"
@@ -2460,217 +2460,217 @@ msgstr "लोपार्थं किमपि नास्ति"
 msgid "The specified folder does not exist or was not readable."
 msgstr "निर्दिष्टं पुटं नास्ति अथवा पठनीयं नासीत् ।."
 
-#: filewidgets/kdiroperator.cpp:2043
+#: filewidgets/kdiroperator.cpp:2044
 #, kde-format
 msgid "Menu"
 msgstr "विकल्पसूचि"
 
-#: filewidgets/kdiroperator.cpp:2048
+#: filewidgets/kdiroperator.cpp:2049
 #, kde-format
 msgid "Parent Folder"
 msgstr "मातापितृपुटम्"
 
-#: filewidgets/kdiroperator.cpp:2055
+#: filewidgets/kdiroperator.cpp:2056
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "प्रति गच्छतु"
 
-#: filewidgets/kdiroperator.cpp:2059
+#: filewidgets/kdiroperator.cpp:2060
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "अग्रे गच्छतु"
 
-#: filewidgets/kdiroperator.cpp:2063
+#: filewidgets/kdiroperator.cpp:2064
 #, kde-format
 msgid "Home Folder"
 msgstr "गृहपुटम्"
 
-#: filewidgets/kdiroperator.cpp:2067
+#: filewidgets/kdiroperator.cpp:2068
 #, kde-format
 msgid "Reload"
 msgstr "पुनः सम्प्रेषयति"
 
-#: filewidgets/kdiroperator.cpp:2070
+#: filewidgets/kdiroperator.cpp:2071
 #, kde-format
 msgctxt "@action"
 msgid "New Folder…"
 msgstr "नूतनं पुटम्…"
 
-#: filewidgets/kdiroperator.cpp:2080 widgets/jobuidelegate.cpp:271
+#: filewidgets/kdiroperator.cpp:2081 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
 #: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:312
 #, kde-format
 msgid "Move to Trash"
 msgstr "पुनर्चक्रणबिन् मध्ये स्थानान्तरणम्"
 
-#: filewidgets/kdiroperator.cpp:2086
+#: filewidgets/kdiroperator.cpp:2087
 #, kde-format
 msgid "Delete"
 msgstr "लोपयन्तु"
 
-#: filewidgets/kdiroperator.cpp:2093
+#: filewidgets/kdiroperator.cpp:2094
 #, kde-format
 msgid "Sorting"
 msgstr "क्रमाङ्कनम्"
 
-#: filewidgets/kdiroperator.cpp:2098
+#: filewidgets/kdiroperator.cpp:2099
 #, kde-format
 msgid "Sort by Name"
 msgstr "नाम्ना क्रमेण क्रमयन्तु"
 
-#: filewidgets/kdiroperator.cpp:2104
+#: filewidgets/kdiroperator.cpp:2105
 #, kde-format
 msgid "Sort by Size"
 msgstr "आकारेण क्रमयन्तु"
 
-#: filewidgets/kdiroperator.cpp:2110
+#: filewidgets/kdiroperator.cpp:2111
 #, kde-format
 msgid "Sort by Date"
 msgstr "तिथिनुसारं क्रमयन्तु"
 
-#: filewidgets/kdiroperator.cpp:2116
+#: filewidgets/kdiroperator.cpp:2117
 #, kde-format
 msgid "Sort by Type"
 msgstr "प्रकारेण क्रमयन्तु"
 
-#: filewidgets/kdiroperator.cpp:2125
+#: filewidgets/kdiroperator.cpp:2126
 #, kde-format
 msgid "Ascending"
 msgstr "आरोहणक्रमम्"
 
-#: filewidgets/kdiroperator.cpp:2132
+#: filewidgets/kdiroperator.cpp:2133
 #, kde-format
 msgid "Descending"
 msgstr "अवरोहणक्रमम्"
 
-#: filewidgets/kdiroperator.cpp:2139
+#: filewidgets/kdiroperator.cpp:2140
 #, kde-format
 msgid "Folders First"
 msgstr "प्रथमं पुटम्"
 
-#: filewidgets/kdiroperator.cpp:2145
+#: filewidgets/kdiroperator.cpp:2146
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "गुप्तसञ्चिकाः अन्तिमः"
 
-#: filewidgets/kdiroperator.cpp:2152
+#: filewidgets/kdiroperator.cpp:2153
 #, kde-format
 msgid "Icons View"
 msgstr "चिह्न दृश्य"
 
-#: filewidgets/kdiroperator.cpp:2159
+#: filewidgets/kdiroperator.cpp:2160
 #, kde-format
 msgid "Compact View"
 msgstr "संकुचित दृश्य"
 
-#: filewidgets/kdiroperator.cpp:2166
+#: filewidgets/kdiroperator.cpp:2167
 #, kde-format
 msgid "Details View"
 msgstr "विवरणं दृश्यम्"
 
-#: filewidgets/kdiroperator.cpp:2185
+#: filewidgets/kdiroperator.cpp:2186
 #, kde-format
 msgid "Icon Position"
 msgstr "चिह्न स्थिति"
 
-#: filewidgets/kdiroperator.cpp:2188
+#: filewidgets/kdiroperator.cpp:2189
 #, kde-format
 msgid "Next to File Name"
 msgstr "सञ्चिकानामस्य पार्श्वे"
 
-#: filewidgets/kdiroperator.cpp:2194
+#: filewidgets/kdiroperator.cpp:2195
 #, kde-format
 msgid "Above File Name"
 msgstr "सञ्चिकानामस्य उपरि"
 
-#: filewidgets/kdiroperator.cpp:2208
+#: filewidgets/kdiroperator.cpp:2209
 #, kde-format
 msgid "Short View"
 msgstr "लघुदृश्यम्"
 
-#: filewidgets/kdiroperator.cpp:2215
+#: filewidgets/kdiroperator.cpp:2216
 #, kde-format
 msgid "Detailed View"
 msgstr "विस्तृतदृश्यम्"
 
-#: filewidgets/kdiroperator.cpp:2222
+#: filewidgets/kdiroperator.cpp:2223
 #, kde-format
 msgid "Tree View"
 msgstr "वृक्षदृश्यम्"
 
-#: filewidgets/kdiroperator.cpp:2229
+#: filewidgets/kdiroperator.cpp:2230
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "विस्तृत वृक्षदृश्य"
 
-#: filewidgets/kdiroperator.cpp:2242
+#: filewidgets/kdiroperator.cpp:2243
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "विवरणदृश्ये विस्तारं अनुमन्यताम्"
 
-#: filewidgets/kdiroperator.cpp:2248
+#: filewidgets/kdiroperator.cpp:2249
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "गुप्तसञ्चिकाः दर्शयन्तु"
 
-#: filewidgets/kdiroperator.cpp:2255
+#: filewidgets/kdiroperator.cpp:2256
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "पूर्वावलोकनपटलं दर्शयतु"
 
-#: filewidgets/kdiroperator.cpp:2262
+#: filewidgets/kdiroperator.cpp:2263
 #, kde-format
 msgid "Show Preview"
 msgstr "पूर्वावलोकनम् दर्शयतु"
 
-#: filewidgets/kdiroperator.cpp:2269
+#: filewidgets/kdiroperator.cpp:2270
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "यत्र स्थितम् अस्ति तत्र पुटं उद्घाटयन्तु"
 
-#: filewidgets/kdiroperator.cpp:2276 filewidgets/kfileplacesview.cpp:1269
+#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1269
 #, kde-format
 msgid "Properties"
 msgstr "गुणाः"
 
-#: filewidgets/kdiroperator.cpp:2285
+#: filewidgets/kdiroperator.cpp:2286
 #, kde-format
 msgid "&View Mode"
 msgstr "&दृश्यविधिः"
 
-#: filewidgets/kdiroperator.cpp:2388 filewidgets/kdiroperator.cpp:2400
+#: filewidgets/kdiroperator.cpp:2389 filewidgets/kdiroperator.cpp:2401
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2389 filewidgets/kdiroperator.cpp:2401
+#: filewidgets/kdiroperator.cpp:2390 filewidgets/kdiroperator.cpp:2402
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2392
+#: filewidgets/kdiroperator.cpp:2393
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "प्राचीनतम प्रथम"
 
-#: filewidgets/kdiroperator.cpp:2393
+#: filewidgets/kdiroperator.cpp:2394
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "नवीनतमं प्रथमम्"
 
-#: filewidgets/kdiroperator.cpp:2396
+#: filewidgets/kdiroperator.cpp:2397
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "बृहत्तम प्रथम"
 
-#: filewidgets/kdiroperator.cpp:2397
+#: filewidgets/kdiroperator.cpp:2398
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -2755,7 +2755,7 @@ msgid "All Supported Files"
 msgstr "सर्वाणि समर्थितानि सञ्चिकानि"
 
 #: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:2060
+#: filewidgets/kfilewidget.cpp:2057
 #, kde-format
 msgid "All Files"
 msgstr "सर्वाणि सञ्चिकानि"
@@ -2960,18 +2960,18 @@ msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "परिवर्तनं कालमेव अभवत्"
 
-#: filewidgets/kfileplacesmodel.cpp:1127
+#: filewidgets/kfileplacesmodel.cpp:1130
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "स्थानफलके योजयितुं न शक्यते: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1134
+#: filewidgets/kfileplacesmodel.cpp:1137
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "स्थानफलके इत्यत्र केवलं पुटं योजयितुं शक्यते ।."
 
-#: filewidgets/kfileplacesmodel.cpp:1377
+#: filewidgets/kfileplacesmodel.cpp:1380
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Configure Web Shortcuts…"
@@ -2979,69 +2979,69 @@ msgctxt "@action:inmenu"
 msgid "Configure…"
 msgstr "जालसंक्षिप्तमार्गः विन्यस्तं कुर्वन्तु…"
 
-#: filewidgets/kfileplacesmodel.cpp:1413
+#: filewidgets/kfileplacesmodel.cpp:1416
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "विमोचयन्…"
 
-#: filewidgets/kfileplacesmodel.cpp:1415
+#: filewidgets/kfileplacesmodel.cpp:1418
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&विमोचनम्"
 
-#: filewidgets/kfileplacesmodel.cpp:1419
+#: filewidgets/kfileplacesmodel.cpp:1422
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "सुरक्षितरूपेण निष्कासयन्…"
 
-#: filewidgets/kfileplacesmodel.cpp:1421
+#: filewidgets/kfileplacesmodel.cpp:1424
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&सुरक्षितरूपेण निष्कासयन्तु"
 
-#: filewidgets/kfileplacesmodel.cpp:1426
+#: filewidgets/kfileplacesmodel.cpp:1429
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "असंचाद्यते…"
 
-#: filewidgets/kfileplacesmodel.cpp:1428
+#: filewidgets/kfileplacesmodel.cpp:1431
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&असंचादयति"
 
-#: filewidgets/kfileplacesmodel.cpp:1452
+#: filewidgets/kfileplacesmodel.cpp:1455
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&निष्कासनम्"
 
-#: filewidgets/kfileplacesmodel.cpp:1499
+#: filewidgets/kfileplacesmodel.cpp:1502
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "'%1' इति यन्त्रं डिस्कं नास्ति तथा च निष्कासयितुं न शक्यते ।."
 
-#: filewidgets/kfileplacesmodel.cpp:1534
+#: filewidgets/kfileplacesmodel.cpp:1538
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "'%1' इत्यस्य अभिगमनसमये त्रुटिः अभवत्, प्रणाली प्रतिक्रियाम् अददात्: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1536
+#: filewidgets/kfileplacesmodel.cpp:1540
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "'%1' इत्यस्य अभिगमने त्रुटिः अभवत् ।"
 
-#: filewidgets/kfileplacesmodel.cpp:1562
+#: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr "अस्मिन् यन्त्रे एकः वा अधिकः सञ्चिकाः अनुप्रयोगस्य अन्तः उद्घाटिताः सन्ति ।."
 
-#: filewidgets/kfileplacesmodel.cpp:1565
+#: filewidgets/kfileplacesmodel.cpp:1570
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3056,13 +3056,13 @@ msgstr[1] ""
 "अस्मिन् यन्त्रे एकः वा अधिकः सञ्चिकाः निम्नलिखित-अनुप्रयोगेषु उद्घाटिताः भवन्ति: "
 "<application>%2</application> ।."
 
-#: filewidgets/kfileplacesmodel.cpp:1568
+#: filewidgets/kfileplacesmodel.cpp:1573
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesmodel.cpp:1615
+#: filewidgets/kfileplacesmodel.cpp:1620
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
@@ -3189,33 +3189,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "विशालः (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:404
-#, fuzzy, kde-format
-#| msgid "Create Directory"
-msgid "Current Directory: %1"
-msgstr "पुटं सृजतु"
-
-#: filewidgets/kfilewidget.cpp:640
+#: filewidgets/kfilewidget.cpp:637
 #, kde-format
 msgid "You can only select one file"
 msgstr "भवन्तः केवलम् एकां सञ्चिकां चिन्वितुं शक्नुवन्ति"
 
-#: filewidgets/kfilewidget.cpp:640
+#: filewidgets/kfilewidget.cpp:637
 #, kde-format
 msgid "More than one file provided"
 msgstr "एकादशाधिकसञ्चिका प्रदत्ता"
 
-#: filewidgets/kfilewidget.cpp:816
+#: filewidgets/kfilewidget.cpp:813
 #, kde-format
 msgid "You can only select local files"
 msgstr "भवान् केवलं स्थानीयसञ्चिकाः एव चिन्वितुं शक्नोति"
 
-#: filewidgets/kfilewidget.cpp:816
+#: filewidgets/kfilewidget.cpp:813
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "दूरस्थसञ्चिकाः न स्वीकृताः"
 
-#: filewidgets/kfilewidget.cpp:823
+#: filewidgets/kfilewidget.cpp:820
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3228,22 +3222,22 @@ msgstr[0] ""
 msgstr[1] ""
 "चयनितं URL असमर्थितं योजनां उपयुङ्क्ते । कृपया निम्नलिखितयोजनासु एकां उपयोगं कुर्वन्तु: %2"
 
-#: filewidgets/kfilewidget.cpp:829
+#: filewidgets/kfilewidget.cpp:826
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "असमर्थित URL योजना"
 
-#: filewidgets/kfilewidget.cpp:850
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "\"%1\" इति सञ्चिका न लब्धा"
 
-#: filewidgets/kfilewidget.cpp:850
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "Cannot open file"
 msgstr "सञ्चिकां उद्घाटयितुं न शक्यते"
 
-#: filewidgets/kfilewidget.cpp:1219
+#: filewidgets/kfilewidget.cpp:1216
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3253,43 +3247,43 @@ msgstr ""
 "<qt>मातृपुटं प्रविष्टुं एतत् बटनं नुदन्तु।<br /><br />उदाहरणार्थं, यदि वर्तमानस्थानं file:/"
 "home/konqi अस्ति तर्हि एतत् गण्डम् क्लिक् कृत्वा भवान् file:/home इत्यत्र नेष्यति।</qt>"
 
-#: filewidgets/kfilewidget.cpp:1223
+#: filewidgets/kfilewidget.cpp:1220
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "गवेषण इतिहासे एकं पदं पश्चात् गन्तुं एतत् गण्ड नुदन्तु ।."
 
-#: filewidgets/kfilewidget.cpp:1224
+#: filewidgets/kfilewidget.cpp:1221
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "गवेषण इतिहासे एकं पदं अग्रे गन्तुं एतत् गण्ड नुदन्तु ।."
 
-#: filewidgets/kfilewidget.cpp:1226
+#: filewidgets/kfilewidget.cpp:1223
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "वर्तमानस्थानस्य सामग्रीं पुनः आरोपय कर्तुं एतत् गण्ड नुदन्तु ।."
 
-#: filewidgets/kfilewidget.cpp:1228
+#: filewidgets/kfilewidget.cpp:1225
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "नूतनं पुटं निर्मातुं एतत् गण्ड नुदन्तु ।."
 
-#: filewidgets/kfilewidget.cpp:1230
+#: filewidgets/kfilewidget.cpp:1227
 #, kde-format
 msgid "Show Places Panel"
 msgstr "स्थानानि फलकम् दर्शयतु"
 
-#: filewidgets/kfilewidget.cpp:1237
+#: filewidgets/kfilewidget.cpp:1234
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Show Quick Filter"
 msgstr "गुप्तसञ्चिकाः दर्शयन्तु"
 
-#: filewidgets/kfilewidget.cpp:1245
+#: filewidgets/kfilewidget.cpp:1242
 #, kde-format
 msgid "Options"
 msgstr "विकल्पाः"
 
-#: filewidgets/kfilewidget.cpp:1248
+#: filewidgets/kfilewidget.cpp:1245
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3303,12 +3297,12 @@ msgstr ""
 "चिह्नं सूची च सहितम्</li><li>गुप्तसञ्चिकानां प्रदर्शनम्</li><li>स्थानपटलम्</"
 "li><li>सञ्चिकापूर्वावलोकनम्</li><li>सञ्चिकाभ्यः पुटं पृथक् कुर्वन्</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1267
+#: filewidgets/kfilewidget.cpp:1264
 #, kde-format
 msgid "Bookmarks"
 msgstr "पुस्तकचिह्नम्"
 
-#: filewidgets/kfilewidget.cpp:1271
+#: filewidgets/kfilewidget.cpp:1268
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3322,38 +3316,38 @@ msgstr ""
 "पुस्तकचिह्नवत् कार्यं कुर्वन्ति ।</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1316 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1313 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&नामः:"
 
-#: filewidgets/kfilewidget.cpp:1341
+#: filewidgets/kfilewidget.cpp:1338
 #, fuzzy, kde-format
 #| msgid "Undo Changes"
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "परिवर्तनं पूर्ववत् कुर्वन्तु"
 
-#: filewidgets/kfilewidget.cpp:1396
+#: filewidgets/kfilewidget.cpp:1393
 #, fuzzy, kde-format
 #| msgid "Open Containing Folder"
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr "यत्र स्थितम् अस्ति तत्र पुटं उद्घाटयन्तु"
 
-#: filewidgets/kfilewidget.cpp:1400
+#: filewidgets/kfilewidget.cpp:1397
 #, kde-format
 msgid "Filter by name…"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1408
+#: filewidgets/kfilewidget.cpp:1405
 #, fuzzy, kde-format
 #| msgid "Hidden Files Last"
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "गुप्तसञ्चिकाः अन्तिमः"
 
-#: filewidgets/kfilewidget.cpp:1457
+#: filewidgets/kfilewidget.cpp:1454
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3365,12 +3359,12 @@ msgstr ""
 "क्लिक् कृत्वा <b>Text Completion</b> मेन्यूतः प्राधान्यं दशाम् चित्वा एतत् विशेषता "
 "नियन्त्रयितुं शक्यते ।</qt>"
 
-#: filewidgets/kfilewidget.cpp:1464
+#: filewidgets/kfilewidget.cpp:1461
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "एतत् सञ्चिकां यथा रक्षितुं नाम अस्ति ।."
 
-#: filewidgets/kfilewidget.cpp:1467
+#: filewidgets/kfilewidget.cpp:1464
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3379,73 +3373,79 @@ msgstr ""
 "एषा उद्घाटनीयानां सञ्चिकानां सूची अस्ति । एकादशाधिकसञ्चिकाः निर्दिष्टुं शक्यन्ते अनेकाः "
 "सञ्चिकाः सूचीकृत्य, रिक्तस्थानैः पृथक्कृताः ।."
 
-#: filewidgets/kfilewidget.cpp:1472
+#: filewidgets/kfilewidget.cpp:1469
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "एतत् उद्घाटयितुं सञ्चिकायाः नाम अस्ति ।."
 
-#: filewidgets/kfilewidget.cpp:1485
+#: filewidgets/kfilewidget.cpp:1482
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "स्थानाः"
 
-#: filewidgets/kfilewidget.cpp:1766
+#: filewidgets/kfilewidget.cpp:1763
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "\"%1\" इति सञ्चिका पूर्वमेव अस्ति । किं भवन्तः तस्य अधिलेखनं कर्तुम् इच्छन्ति ?"
 
-#: filewidgets/kfilewidget.cpp:1767
+#: filewidgets/kfilewidget.cpp:1764
 #, kde-format
 msgid "Overwrite File?"
 msgstr "सञ्चिकां अधिलेखयतु?"
 
-#: filewidgets/kfilewidget.cpp:1964
+#: filewidgets/kfilewidget.cpp:1961
 #, kde-format
 msgid "You can only select local files."
 msgstr "भवान् केवलं स्थानीयसञ्चिकाः एव चिन्वितुं शक्नोति ।."
 
-#: filewidgets/kfilewidget.cpp:1964
+#: filewidgets/kfilewidget.cpp:1961
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "दूरस्थसञ्चिकाः न स्वीकृताः"
 
-#: filewidgets/kfilewidget.cpp:2058
+#: filewidgets/kfilewidget.cpp:2055
 #, kde-format
 msgid "All Folders"
 msgstr "सर्वाणि पुटानि"
 
-#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:842
+#: filewidgets/kfilewidget.cpp:2079
+#, fuzzy, kde-format
+#| msgid "Create Directory"
+msgid "Current Directory: %1"
+msgstr "पुटं सृजतु"
+
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:847
 #, kde-format
 msgid "&Open"
 msgstr "&उद्घाटयतु"
 
-#: filewidgets/kfilewidget.cpp:2299
+#: filewidgets/kfilewidget.cpp:2307
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "चिह्नस्य आकारः %1 pixels"
 
-#: filewidgets/kfilewidget.cpp:2466
+#: filewidgets/kfilewidget.cpp:2474
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "सञ्चिकानाम &विस्तारं (%1) स्वयमेव चिनोतु ।"
 
-#: filewidgets/kfilewidget.cpp:2467
+#: filewidgets/kfilewidget.cpp:2475
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "<b>%1</b> इति विस्तारः"
 
-#: filewidgets/kfilewidget.cpp:2473
+#: filewidgets/kfilewidget.cpp:2481
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "स्वयमेव सञ्चिकानाम &विस्तारं चिनोतु"
 
-#: filewidgets/kfilewidget.cpp:2474
+#: filewidgets/kfilewidget.cpp:2482
 #, kde-format
 msgid "a suitable extension"
 msgstr "उपयुक्तः विस्तारः"
 
-#: filewidgets/kfilewidget.cpp:2482
+#: filewidgets/kfilewidget.cpp:2490
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3471,12 +3471,12 @@ msgstr ""
 "भविष्यति)।</li></ol>यदि अनिश्चितः अस्ति तर्हि एतत् विकल्पं सक्षमं कुर्वन्तु यतः एतेन भवतः "
 "सञ्चिकाः अधिकं प्रबन्धनीयाः भवन्ति ।."
 
-#: filewidgets/kfilewidget.cpp:2948
+#: filewidgets/kfilewidget.cpp:2956
 #, kde-format
 msgid "&File type:"
 msgstr "&सञ्चिकाप्रकारः:"
 
-#: filewidgets/kfilewidget.cpp:2952
+#: filewidgets/kfilewidget.cpp:2960
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3485,7 +3485,7 @@ msgstr ""
 "<qt>एषः सञ्चिकाप्रकारचयनकः अस्ति । सञ्चिका यस्मिन् प्रारूपे रक्षिता भविष्यति तस्य चयनार्थं "
 "तस्य उपयोगः भवति ।.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2954
+#: filewidgets/kfilewidget.cpp:2962
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the file type selector. It is used to select the format that "
@@ -3497,44 +3497,44 @@ msgstr ""
 "<qt>एषः सञ्चिकाप्रकारचयनकः अस्ति । सञ्चिका यस्मिन् प्रारूपे रक्षिता भविष्यति तस्य चयनार्थं "
 "तस्य उपयोगः भवति ।.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:518
-#, kde-format
-msgid "Sorry"
-msgstr "क्षम्यताम्‌"
-
-#: filewidgets/knewfilemenu.cpp:529
-#, kde-format
-msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
-msgstr "<qt>सारूप्यसञ्चिका <b>%1</b> नास्ति ।.</qt>"
-
-#: filewidgets/knewfilemenu.cpp:683 filewidgets/knewfilemenu.cpp:748
-#, kde-format
-msgid "Name for new link:"
-msgstr "नूतनसम्बन्धस्य नाम :"
-
-#: filewidgets/knewfilemenu.cpp:686
-#, kde-format
-msgid "Create Symlink"
-msgstr "प्रतीकसम्बद्धम् (Symlink) रचयन्तु"
-
-#: filewidgets/knewfilemenu.cpp:752
-#, kde-format
-msgid "Create link to URL"
-msgstr "URL इत्यस्य सम्बन्धम् रचयन्तु"
-
-#: filewidgets/knewfilemenu.cpp:793 filewidgets/knewfilemenu.cpp:848
-#, kde-format
-msgctxt "@item:inmenu Create New"
-msgid "%1"
-msgstr "%1"
-
-#: filewidgets/knewfilemenu.cpp:1128
+#: filewidgets/knewfilemenu.cpp:224
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "%1 सञ्चिकानाम प्रविष्टं कुर्वन्तु:"
 
-#: filewidgets/knewfilemenu.cpp:1227
+#: filewidgets/knewfilemenu.cpp:538
+#, kde-format
+msgid "Sorry"
+msgstr "क्षम्यताम्‌"
+
+#: filewidgets/knewfilemenu.cpp:549
+#, kde-format
+msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
+msgstr "<qt>सारूप्यसञ्चिका <b>%1</b> नास्ति ।.</qt>"
+
+#: filewidgets/knewfilemenu.cpp:700 filewidgets/knewfilemenu.cpp:765
+#, kde-format
+msgid "Name for new link:"
+msgstr "नूतनसम्बन्धस्य नाम :"
+
+#: filewidgets/knewfilemenu.cpp:703
+#, kde-format
+msgid "Create Symlink"
+msgstr "प्रतीकसम्बद्धम् (Symlink) रचयन्तु"
+
+#: filewidgets/knewfilemenu.cpp:769
+#, kde-format
+msgid "Create link to URL"
+msgstr "URL इत्यस्य सम्बन्धम् रचयन्तु"
+
+#: filewidgets/knewfilemenu.cpp:810 filewidgets/knewfilemenu.cpp:834
+#, kde-format
+msgctxt "@item:inmenu Create New"
+msgid "%1"
+msgstr "%1"
+
+#: filewidgets/knewfilemenu.cpp:1179
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3544,7 +3544,7 @@ msgstr ""
 "<filename>%1</filename> इति नाम उपयोक्तुं न शक्यते यतः एतत् प्रचालनतन्त्रेण उपयोगाय "
 "आरक्षितम् अस्ति ।."
 
-#: filewidgets/knewfilemenu.cpp:1235
+#: filewidgets/knewfilemenu.cpp:1187
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3554,7 +3554,7 @@ msgstr ""
 "<filename>%1</filename> इति नाम बिन्दुना आरभ्यते, अतः पूर्वनिर्धारितरूपेण गोपनीयं "
 "भविष्यति ।."
 
-#: filewidgets/knewfilemenu.cpp:1243
+#: filewidgets/knewfilemenu.cpp:1195
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3565,27 +3565,27 @@ msgstr ""
 "<filename>%1</filename> इति नाम रिक्तस्थानेन आरभ्यते, यस्य परिणामः भविष्यति यत् अन्येषु "
 "सम्भाव्यविचित्रेषु वर्णमालानुसारं क्रमणं कुर्वन् अन्यवस्तूनाम् पूर्वं दर्शितं भविष्यति ।."
 
-#: filewidgets/knewfilemenu.cpp:1261
+#: filewidgets/knewfilemenu.cpp:1213
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "पुटनामेषु स्लैशस्य (/) उपयोगेन उपपुटं निर्मास्यति, यथा:"
 
-#: filewidgets/knewfilemenu.cpp:1275
+#: filewidgets/knewfilemenu.cpp:1227
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "पुटनामेषु स्लैशस्य (/) उपयोगेन उपपुटस्य निर्माणं भविष्यति ।."
 
-#: filewidgets/knewfilemenu.cpp:1287
+#: filewidgets/knewfilemenu.cpp:1239
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "सञ्चिका-पुट-नाम्नि स्लैश (/)-इत्यस्य उपयोगः कर्तुं न शक्यते ।."
 
-#: filewidgets/knewfilemenu.cpp:1292
+#: filewidgets/knewfilemenu.cpp:1244
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "सञ्चिका-पुट-नाम्नि पृष्ठस्लैश (\\) - प्रयोगः कर्तुं न शक्यते ।."
 
-#: filewidgets/knewfilemenu.cpp:1306
+#: filewidgets/knewfilemenu.cpp:1258
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3593,7 +3593,7 @@ msgid ""
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1315
+#: filewidgets/knewfilemenu.cpp:1267
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3602,46 +3602,46 @@ msgstr ""
 "सञ्चिकायाः अथवा पुटनामस्य आरम्भः tilde इत्यनेन न अनुशंसितः यतः वस्तूनि विलोपयितुं टर्मिनल् "
 "इत्यस्य उपयोगं कुर्वन् भ्रान्तिकं वा भयङ्करं वा भवितुम् अर्हति ।."
 
-#: filewidgets/knewfilemenu.cpp:1387
+#: filewidgets/knewfilemenu.cpp:1339
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> इति नामयुक्तं पुटं पूर्वमेव अस्ति ।."
 
-#: filewidgets/knewfilemenu.cpp:1389
+#: filewidgets/knewfilemenu.cpp:1341
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> इति नाम्ना सञ्चिका पूर्वमेव अस्ति ।."
 
-#: filewidgets/knewfilemenu.cpp:1475
+#: filewidgets/knewfilemenu.cpp:1427
 #, kde-format
 msgid "Create New"
 msgstr "नूतनं सृजतु"
 
-#: filewidgets/knewfilemenu.cpp:1510
+#: filewidgets/knewfilemenu.cpp:1462
 #, kde-format
 msgid "Link to Device"
 msgstr "यन्त्रस्य सम्बन्धम् स्थापितु"
 
-#: filewidgets/knewfilemenu.cpp:1556
+#: filewidgets/knewfilemenu.cpp:1501
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "नूतनं पुटम्"
 
-#: filewidgets/knewfilemenu.cpp:1579
+#: filewidgets/knewfilemenu.cpp:1524
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "नूतनं पुटं निर्मातुम्"
 
-#: filewidgets/knewfilemenu.cpp:1581
+#: filewidgets/knewfilemenu.cpp:1526
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "%1 मध्ये नूतनं पुटं रचयन्तु:"
 
-#: filewidgets/knewfilemenu.cpp:1584 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1529 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox Prompt for new file of type"
 #| msgid "Enter %1 filename:"
@@ -3649,7 +3649,7 @@ msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "%1 सञ्चिकानाम प्रविष्टं कुर्वन्तु:"
 
-#: filewidgets/knewfilemenu.cpp:1641
+#: filewidgets/knewfilemenu.cpp:1586
 #, fuzzy, kde-format
 #| msgid "Owner (Default)"
 msgid "Default"
@@ -4094,14 +4094,14 @@ msgstr "निष्पादनार्थं आदेशः"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'command' कृते प्रयुक्ताः URL(s) अथवा स्थानीयसञ्चिका।"
 
-#: kioworkers/file/file.cpp:650
+#: kioworkers/file/file.cpp:649
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
 "%1"
 msgstr "%1 तस्य अनुमतिः परिवर्तयितुं न शक्तवान्"
 
-#: kioworkers/file/file.cpp:658
+#: kioworkers/file/file.cpp:657
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4109,18 +4109,18 @@ msgid ""
 "%1"
 msgstr "%1 तस्य कृते स्वामिनं समूहं च परिवर्तयितुं न शक्तवान्"
 
-#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
+#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "अस्थायीसञ्चिकायाः नामान्तरणं कर्तुं न शक्तवान्"
 
-#: kioworkers/file/file.cpp:765
+#: kioworkers/file/file.cpp:764
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" इति कार्यक्रमः न लब्धः ।"
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:841
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" इति कार्यक्रमः न लब्धः ।"
@@ -4191,7 +4191,7 @@ msgstr "अस्मिन् स्थले प्रवेशार्थं 
 msgid "Site:"
 msgstr "क्षेत्र (Site):"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2500
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2499
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4215,7 +4215,7 @@ msgstr ""
 "\n"
 "वितारकः अवदत् - \"%1\" इति ।"
 
-#: kioworkers/ftp/ftp.cpp:2495 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2494 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4224,12 +4224,12 @@ msgstr ""
 "भवद्भिः कस्यापि साइट्-प्रवेशस्य अनुमतिः भवितुं पूर्वं अधोलिखितस्य प्रतिनिधि-वितारकस्य कृते "
 "उपयोक्तृनाम गुप्तशब्दं च प्रदातव्यम् ।."
 
-#: kioworkers/ftp/ftp.cpp:2499 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "प्रतिनिधि:"
 
-#: kioworkers/ftp/ftp.cpp:2502
+#: kioworkers/ftp/ftp.cpp:2501
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "प्रतिनिधिस्य प्रमाणीकरणं विफलम्।."
@@ -4292,90 +4292,90 @@ msgstr "वितारक प्रमाणीकरणम्"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> इत्यत्र <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1396
+#: kioworkers/http/http.cpp:1397
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "अन्यथा अनुरोधः सफलः स्यात् ।."
 
-#: kioworkers/http/http.cpp:1399
+#: kioworkers/http/http.cpp:1400
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "गुणमूल्यानि पुनः प्राप्तुं"
 
-#: kioworkers/http/http.cpp:1401
+#: kioworkers/http/http.cpp:1402
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "गुणमूल्यानि निरूपयतु"
 
-#: kioworkers/http/http.cpp:1403
+#: kioworkers/http/http.cpp:1404
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "अनुरोधितं पुटं रचयन्तु"
 
-#: kioworkers/http/http.cpp:1405
+#: kioworkers/http/http.cpp:1406
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "निर्दिष्टसञ्चिकां वा पुटं वा प्रतिलिख्यताम्"
 
-#: kioworkers/http/http.cpp:1407
+#: kioworkers/http/http.cpp:1408
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "निर्दिष्टसञ्चिकायाः अथवा पुटस्य स्स्थानान्तर्तुम्"
 
-#: kioworkers/http/http.cpp:1409
+#: kioworkers/http/http.cpp:1410
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "निर्दिष्टे पुटे अन्वेषणं कुर्वन्तु"
 
-#: kioworkers/http/http.cpp:1411
+#: kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "निर्दिष्टां सञ्चिकां वा पुटं वा ताडयन्तु"
 
-#: kioworkers/http/http.cpp:1413
+#: kioworkers/http/http.cpp:1414
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "निर्दिष्टां सञ्चिकां वा पुटं वा मुक्तं कुर्वन्तु"
 
-#: kioworkers/http/http.cpp:1415
+#: kioworkers/http/http.cpp:1416
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "निर्दिष्टां सञ्चिकां वा पुटं वा विलोपयन्तु"
 
-#: kioworkers/http/http.cpp:1417
+#: kioworkers/http/http.cpp:1418
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "वितारकस्य क्षमतां पृच्छन्तु"
 
-#: kioworkers/http/http.cpp:1419
+#: kioworkers/http/http.cpp:1420
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "निर्दिष्टसञ्चिकायाः अथवा पुटस्य सामग्रीं पुनः प्राप्तुं शक्नुवन्ति"
 
-#: kioworkers/http/http.cpp:1421
+#: kioworkers/http/http.cpp:1422
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "निर्दिष्टपुटे एकं प्रतिवेदनं चालयन्तु"
 
-#: kioworkers/http/http.cpp:1429
+#: kioworkers/http/http.cpp:1430
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2 इत्यस्य प्रयासे अप्रत्याशितदोषः (%1) अभवत् ।."
 
-#: kioworkers/http/http.cpp:1469
+#: kioworkers/http/http.cpp:1470
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4383,13 +4383,13 @@ msgid ""
 "below."
 msgstr "%1, %2 इत्यस्य प्रयासे त्रुटिः अभवत् । कारणानां सारांशः अधः अस्ति ।."
 
-#: kioworkers/http/http.cpp:1487 kioworkers/http/http.cpp:1631
+#: kioworkers/http/http.cpp:1488 kioworkers/http/http.cpp:1632
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1 इत्यस्य प्रयासे अभिगमनं नकारितम् ।."
 
-#: kioworkers/http/http.cpp:1501 kioworkers/http/http.cpp:1638
+#: kioworkers/http/http.cpp:1502 kioworkers/http/http.cpp:1639
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4398,7 +4398,7 @@ msgstr ""
 "यावत् एकः वा अधिकः मध्यवर्ती संग्रहः (पुटः) न निर्मितः तावत् गन्तव्यस्थाने संसाधनं निर्मातुं "
 "न शक्यते ।."
 
-#: kioworkers/http/http.cpp:1510
+#: kioworkers/http/http.cpp:1511
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4412,28 +4412,28 @@ msgstr ""
 "प्रयतितवान्\n"
 "%1"
 
-#: kioworkers/http/http.cpp:1518
+#: kioworkers/http/http.cpp:1519
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "अनुरोधितं तालं अनुमोदितुं न शक्यते स्म । %1"
 
-#: kioworkers/http/http.cpp:1524
+#: kioworkers/http/http.cpp:1525
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "वितारकः सामग्रीयाः अनुरोधप्रकारं समर्थयति न ।."
 
-#: kioworkers/http/http.cpp:1529 kioworkers/http/http.cpp:1646
+#: kioworkers/http/http.cpp:1530 kioworkers/http/http.cpp:1647
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1 कर्तुं असमर्थः यतः संसाधनं ताडितम् अस्ति ।."
 
-#: kioworkers/http/http.cpp:1533
+#: kioworkers/http/http.cpp:1534
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "एतत् कर्म अन्येन दोषेण निवारितम् ।."
 
-#: kioworkers/http/http.cpp:1540 kioworkers/http/http.cpp:1653
+#: kioworkers/http/http.cpp:1541 kioworkers/http/http.cpp:1654
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4441,7 +4441,7 @@ msgid ""
 "folder."
 msgstr "%1 कर्तुं असमर्थः यतः गन्तव्यवितारकः सञ्चिकां अथवा पुटं स्वीकुर्वितुं नकारयति ।."
 
-#: kioworkers/http/http.cpp:1549 kioworkers/http/http.cpp:1662
+#: kioworkers/http/http.cpp:1550 kioworkers/http/http.cpp:1663
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4450,18 +4450,18 @@ msgstr ""
 "गन्तव्यसंसाधनस्य एतस्य पद्धतेः निष्पादनस्य अनन्तरं संसाधनस्य स्थितिं अभिलेखयितुं पर्याप्तं स्थानं "
 "नास्ति ।."
 
-#: kioworkers/http/http.cpp:1602
+#: kioworkers/http/http.cpp:1603
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "संसाधनं लोपयितुं न शक्यते।."
 
-#: kioworkers/http/http.cpp:1622
+#: kioworkers/http/http.cpp:1623
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "उपारोपण %1"
 
-#: kioworkers/http/http.cpp:1673
+#: kioworkers/http/http.cpp:1674
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -5191,43 +5191,43 @@ msgstr "सङ्गणकतन्त्राः विन्यासस्�
 msgid "Updating system configuration…"
 msgstr "सङ्गणकतन्त्राः विन्यासस्य अद्यतनीकरणम्…"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1256
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "नामः"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1258
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "आकृति"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1260
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "तिथि"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1262
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "अनुज्ञाः"
 
-#: widgets/kdirmodel.cpp:1272
+#: widgets/kdirmodel.cpp:1264
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "स्वामी"
 
-#: widgets/kdirmodel.cpp:1274
+#: widgets/kdirmodel.cpp:1266
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "समूहम्"
 
-#: widgets/kdirmodel.cpp:1276
+#: widgets/kdirmodel.cpp:1268
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
@@ -5250,48 +5250,48 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&क्रियाः"
 
-#: widgets/kfileitemactions.cpp:751
+#: widgets/kfileitemactions.cpp:756
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&एतेन सह पुटं उद्घाटयन्तु…"
 
-#: widgets/kfileitemactions.cpp:751
+#: widgets/kfileitemactions.cpp:756
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&एतेन उद्घाटयन्तु…"
 
-#: widgets/kfileitemactions.cpp:809
+#: widgets/kfileitemactions.cpp:814
 #, fuzzy, kde-format
 #| msgid "&Execute"
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&निष्पादयतु"
 
-#: widgets/kfileitemactions.cpp:831
+#: widgets/kfileitemactions.cpp:836
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&एतेन सह पुटं उद्घाटयन्तु %1"
 
-#: widgets/kfileitemactions.cpp:831
+#: widgets/kfileitemactions.cpp:836
 #, kde-format
 msgid "&Open with %1"
 msgstr "&एतेन उद्घाटयन्तु %1"
 
-#: widgets/kfileitemactions.cpp:863
+#: widgets/kfileitemactions.cpp:868
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&एतेन सह पुटं उद्घाटयन्तु"
 
-#: widgets/kfileitemactions.cpp:863
+#: widgets/kfileitemactions.cpp:868
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&एतेन उद्घाटयन्तु"
 
-#: widgets/kfileitemactions.cpp:874
+#: widgets/kfileitemactions.cpp:879
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

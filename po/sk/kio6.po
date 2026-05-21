@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-07 00:40+0000\n"
+"POT-Creation-Date: 2026-05-21 00:40+0000\n"
 "PO-Revision-Date: 2024-08-11 20:21+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 24.05.2\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nie je možné vytvoriť obsluhu KIO: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1008
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1008
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -60,7 +60,7 @@ msgstr ""
 "Nepodarilo sa vytvoriť symbolický odkaz \"%1\".\n"
 "Cieľový súborový systém (%2) nepodporuje symbolické odkazy."
 
-#: core/copyjob.cpp:179
+#: core/copyjob.cpp:202
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -75,7 +75,7 @@ msgstr ""
 "Výberom možnosti Nahradiť sa nahradia všetky neplatné znaky (v názve "
 "cieľového priečinka) podčiarkovníkom \"_\"."
 
-#: core/copyjob.cpp:187
+#: core/copyjob.cpp:210
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -90,23 +90,23 @@ msgstr ""
 "Výberom možnosti Nahradiť sa nahradia všetky neplatné znaky (v názve "
 "cieľového súboru) podčiarkovníkom \"_\"."
 
-#: core/copyjob.cpp:1403 core/job_error.cpp:588
+#: core/copyjob.cpp:1426 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Priečinok už existuje"
 
-#: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Súbor už existuje"
 
-#: core/copyjob.cpp:1736 core/copyjob.cpp:2441
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Už existuje ako priečinok"
 
-#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:295
+#: core/copyjob.cpp:1914 kioworkers/trash/kio_trash.cpp:295
 #, kde-format
 msgid "Trash"
 msgstr "Kôš"
@@ -723,7 +723,7 @@ msgstr "Súbor je príliš veľký na vyhodenie do koša."
 #: core/job_error.cpp:264
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
-msgstr ""
+msgstr "A trash folder could not be found or created for this location."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -1978,6 +1978,8 @@ msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
+"Although contact was made with the server, a response was not received "
+"within the amount of time allocated for the request."
 
 #: core/job_error.cpp:1107
 #, kde-format
@@ -2146,7 +2148,8 @@ msgid ""
 "The operation could not be completed because the source and destination file "
 "or folder are the same."
 msgstr ""
-"Operáciu sa nepodarilo dokončiť, pretože zdrojový a cieľový súbor sú rovnaké."
+"Operáciu sa nepodarilo dokončiť, pretože zdrojový a cieľový súbor alebo "
+"priečinok sú rovnaké."
 
 #: core/job_error.cpp:1220
 #, kde-format
@@ -2397,6 +2400,9 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"The security of the KIO worker for protocol ’%1’, which typically asks for "
+"elevated permissions, can not be guaranteed because users other than root "
+"have permission to modify it at %2."
 
 #: core/worker.cpp:335
 #, kde-format
@@ -2416,6 +2422,9 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"The KIO worker for protocol “%1” in %2 was not loaded because all KIO "
+"workers which are located outside of %3 and ask for elevated privileges are "
+"considered insecure."
 
 #: core/worker.cpp:365
 #, kde-format
@@ -2452,18 +2461,16 @@ msgid "&Current Session only"
 msgstr "Iba pre &aktuálne sedenia"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
-msgstr "Vytvoriť priečinok"
+msgstr "Presunúť do nového priečinka"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
-msgstr "Vytvoriť priečinok"
+msgstr "Vytvoriť nový priečinok pre tieto položky"
 
 #: filewidgets/kdiroperator.cpp:314
 #, kde-format
@@ -2496,219 +2503,217 @@ msgstr "Nie je čo vyhodiť do koša"
 msgid "The specified folder does not exist or was not readable."
 msgstr "Zadaný priečinok neexistuje alebo sa nedá prečítať."
 
-#: filewidgets/kdiroperator.cpp:2043
+#: filewidgets/kdiroperator.cpp:2044
 #, kde-format
 msgid "Menu"
 msgstr "Ponuka"
 
-#: filewidgets/kdiroperator.cpp:2048
+#: filewidgets/kdiroperator.cpp:2049
 #, kde-format
 msgid "Parent Folder"
 msgstr "Nadradený priečinok"
 
-#: filewidgets/kdiroperator.cpp:2055
+#: filewidgets/kdiroperator.cpp:2056
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Prejsť späť"
 
-#: filewidgets/kdiroperator.cpp:2059
+#: filewidgets/kdiroperator.cpp:2060
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Prejsť dopredu"
 
-#: filewidgets/kdiroperator.cpp:2063
+#: filewidgets/kdiroperator.cpp:2064
 #, kde-format
 msgid "Home Folder"
 msgstr "Domovský priečinok"
 
-#: filewidgets/kdiroperator.cpp:2067
+#: filewidgets/kdiroperator.cpp:2068
 #, kde-format
 msgid "Reload"
 msgstr "Znovu načítať"
 
-#: filewidgets/kdiroperator.cpp:2070
-#, fuzzy, kde-format
-#| msgctxt "Default name for a new folder"
-#| msgid "New Folder"
+#: filewidgets/kdiroperator.cpp:2071
+#, kde-format
 msgctxt "@action"
 msgid "New Folder…"
 msgstr "Nový priečinok"
 
-#: filewidgets/kdiroperator.cpp:2080 widgets/jobuidelegate.cpp:271
+#: filewidgets/kdiroperator.cpp:2081 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
 #: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:312
 #, kde-format
 msgid "Move to Trash"
 msgstr "Presunúť do koša"
 
-#: filewidgets/kdiroperator.cpp:2086
+#: filewidgets/kdiroperator.cpp:2087
 #, kde-format
 msgid "Delete"
 msgstr "Odstrániť"
 
-#: filewidgets/kdiroperator.cpp:2093
+#: filewidgets/kdiroperator.cpp:2094
 #, kde-format
 msgid "Sorting"
 msgstr "Triedenie"
 
-#: filewidgets/kdiroperator.cpp:2098
+#: filewidgets/kdiroperator.cpp:2099
 #, kde-format
 msgid "Sort by Name"
 msgstr "Zoradiť podľa názvu"
 
-#: filewidgets/kdiroperator.cpp:2104
+#: filewidgets/kdiroperator.cpp:2105
 #, kde-format
 msgid "Sort by Size"
 msgstr "Zoradiť podľa veľkosti"
 
-#: filewidgets/kdiroperator.cpp:2110
+#: filewidgets/kdiroperator.cpp:2111
 #, kde-format
 msgid "Sort by Date"
 msgstr "Zoradiť podľa dátumu"
 
-#: filewidgets/kdiroperator.cpp:2116
+#: filewidgets/kdiroperator.cpp:2117
 #, kde-format
 msgid "Sort by Type"
 msgstr "Zoradiť podľa typu položky"
 
-#: filewidgets/kdiroperator.cpp:2125
+#: filewidgets/kdiroperator.cpp:2126
 #, kde-format
 msgid "Ascending"
 msgstr "Vzostupne"
 
-#: filewidgets/kdiroperator.cpp:2132
+#: filewidgets/kdiroperator.cpp:2133
 #, kde-format
 msgid "Descending"
 msgstr "Zostupne"
 
-#: filewidgets/kdiroperator.cpp:2139
+#: filewidgets/kdiroperator.cpp:2140
 #, kde-format
 msgid "Folders First"
 msgstr "Najskôr priečinky"
 
-#: filewidgets/kdiroperator.cpp:2145
+#: filewidgets/kdiroperator.cpp:2146
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Skryté súbory ako posledné"
 
-#: filewidgets/kdiroperator.cpp:2152
+#: filewidgets/kdiroperator.cpp:2153
 #, kde-format
 msgid "Icons View"
 msgstr "Zobrazenie ikon"
 
-#: filewidgets/kdiroperator.cpp:2159
+#: filewidgets/kdiroperator.cpp:2160
 #, kde-format
 msgid "Compact View"
 msgstr "Stručné zobrazenie"
 
-#: filewidgets/kdiroperator.cpp:2166
+#: filewidgets/kdiroperator.cpp:2167
 #, kde-format
 msgid "Details View"
 msgstr "Zobrazenie podrobností"
 
-#: filewidgets/kdiroperator.cpp:2185
+#: filewidgets/kdiroperator.cpp:2186
 #, kde-format
 msgid "Icon Position"
 msgstr "Pozícia ikony"
 
-#: filewidgets/kdiroperator.cpp:2188
+#: filewidgets/kdiroperator.cpp:2189
 #, kde-format
 msgid "Next to File Name"
 msgstr "Vedľa názvu súboru"
 
-#: filewidgets/kdiroperator.cpp:2194
+#: filewidgets/kdiroperator.cpp:2195
 #, kde-format
 msgid "Above File Name"
 msgstr "Nad názvom súboru"
 
-#: filewidgets/kdiroperator.cpp:2208
+#: filewidgets/kdiroperator.cpp:2209
 #, kde-format
 msgid "Short View"
 msgstr "Stručné zobrazenie"
 
-#: filewidgets/kdiroperator.cpp:2215
+#: filewidgets/kdiroperator.cpp:2216
 #, kde-format
 msgid "Detailed View"
 msgstr "Podrobné zobrazenie"
 
-#: filewidgets/kdiroperator.cpp:2222
+#: filewidgets/kdiroperator.cpp:2223
 #, kde-format
 msgid "Tree View"
 msgstr "Stromové zobrazenie"
 
-#: filewidgets/kdiroperator.cpp:2229
+#: filewidgets/kdiroperator.cpp:2230
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Podrobné stromové zobrazenie"
 
-#: filewidgets/kdiroperator.cpp:2242
+#: filewidgets/kdiroperator.cpp:2243
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Povoliť rozšírenie v Zobrazení podrobností"
 
-#: filewidgets/kdiroperator.cpp:2248
+#: filewidgets/kdiroperator.cpp:2249
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Zobraziť skryté súbory"
 
-#: filewidgets/kdiroperator.cpp:2255
+#: filewidgets/kdiroperator.cpp:2256
 #, kde-format
 msgid "Show Preview Panel"
-msgstr "Zobraziť náhľad"
+msgstr "Zobraziť panel náhľadu"
 
-#: filewidgets/kdiroperator.cpp:2262
+#: filewidgets/kdiroperator.cpp:2263
 #, kde-format
 msgid "Show Preview"
 msgstr "Zobraziť náhľad"
 
-#: filewidgets/kdiroperator.cpp:2269
+#: filewidgets/kdiroperator.cpp:2270
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Otvoriť priečinok s obsahom"
 
-#: filewidgets/kdiroperator.cpp:2276 filewidgets/kfileplacesview.cpp:1269
+#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1269
 #, kde-format
 msgid "Properties"
 msgstr "Vlastnosti"
 
-#: filewidgets/kdiroperator.cpp:2285
+#: filewidgets/kdiroperator.cpp:2286
 #, kde-format
 msgid "&View Mode"
 msgstr "Režim zobrazenia"
 
-#: filewidgets/kdiroperator.cpp:2388 filewidgets/kdiroperator.cpp:2400
+#: filewidgets/kdiroperator.cpp:2389 filewidgets/kdiroperator.cpp:2401
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2389 filewidgets/kdiroperator.cpp:2401
+#: filewidgets/kdiroperator.cpp:2390 filewidgets/kdiroperator.cpp:2402
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2392
+#: filewidgets/kdiroperator.cpp:2393
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Najskôr najstaršie"
 
-#: filewidgets/kdiroperator.cpp:2393
+#: filewidgets/kdiroperator.cpp:2394
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Najskôr najnovšie"
 
-#: filewidgets/kdiroperator.cpp:2396
+#: filewidgets/kdiroperator.cpp:2397
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Najskôr najväčšie"
 
-#: filewidgets/kdiroperator.cpp:2397
+#: filewidgets/kdiroperator.cpp:2398
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -2758,9 +2763,7 @@ msgid "Root Folder"
 msgstr "Koreňový priečinok"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, fuzzy, kde-format
-#| msgctxt "@title:menu in Copy To or Move To submenu"
-#| msgid "Browse..."
+#, kde-format
 msgctxt "@action:inmenu in Copy To or Move To submenu"
 msgid "Browse…"
 msgstr "Prechádzať..."
@@ -2795,7 +2798,7 @@ msgid "All Supported Files"
 msgstr "Všetky podporované súbory"
 
 #: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:2060
+#: filewidgets/kfilewidget.cpp:2057
 #, kde-format
 msgid "All Files"
 msgstr "Všetky súbory"
@@ -2923,11 +2926,10 @@ msgid "Tags"
 msgstr "Značky"
 
 #: filewidgets/kfileplacesitem.cpp:344
-#, fuzzy, kde-format
-#| msgid "%1 (Error %2)"
+#, kde-format
 msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
-msgstr "%1 (Chyba %2)"
+msgstr "%1 (z %2)"
 
 #: filewidgets/kfileplacesmodel.cpp:158
 msgctxt "KFile System Bookmarks"
@@ -3001,88 +3003,87 @@ msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "Zmenené včera"
 
-#: filewidgets/kfileplacesmodel.cpp:1127
+#: filewidgets/kfileplacesmodel.cpp:1130
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Nepodarilo sa pridať na panel Miesta: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1134
+#: filewidgets/kfileplacesmodel.cpp:1137
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "Na panel Miesta možno pridávať iba priečinky."
 
-#: filewidgets/kfileplacesmodel.cpp:1377
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#: filewidgets/kfileplacesmodel.cpp:1380
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure…"
-msgstr "Nastaviť webové skratky..."
+msgstr "Nastaviť…"
 
-#: filewidgets/kfileplacesmodel.cpp:1413
+#: filewidgets/kfileplacesmodel.cpp:1416
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "Uvoľňuje sa..."
 
-#: filewidgets/kfileplacesmodel.cpp:1415
+#: filewidgets/kfileplacesmodel.cpp:1418
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "Uvoľniť"
 
-#: filewidgets/kfileplacesmodel.cpp:1419
+#: filewidgets/kfileplacesmodel.cpp:1422
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "Bezpečné odstraňovanie..."
 
-#: filewidgets/kfileplacesmodel.cpp:1421
+#: filewidgets/kfileplacesmodel.cpp:1424
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&Bezpečne odstrániť"
 
-#: filewidgets/kfileplacesmodel.cpp:1426
+#: filewidgets/kfileplacesmodel.cpp:1429
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Odpája sa..."
 
-#: filewidgets/kfileplacesmodel.cpp:1428
+#: filewidgets/kfileplacesmodel.cpp:1431
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&Odpojiť"
 
-#: filewidgets/kfileplacesmodel.cpp:1452
+#: filewidgets/kfileplacesmodel.cpp:1455
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&Vysunúť"
 
-#: filewidgets/kfileplacesmodel.cpp:1499
+#: filewidgets/kfileplacesmodel.cpp:1502
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "Zariadenie '%1' nie je disk a nedá sa vysunúť."
 
-#: filewidgets/kfileplacesmodel.cpp:1534
+#: filewidgets/kfileplacesmodel.cpp:1538
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "Nastala chyba pri prístupe k '%1', systém odpovedal: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1536
+#: filewidgets/kfileplacesmodel.cpp:1540
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "Nastala chyba pri prístupe k '%1'"
 
-#: filewidgets/kfileplacesmodel.cpp:1562
+#: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 "Jeden alebo viac súborov na tomto zariadení je otvorených v rámci aplikácie."
 
-#: filewidgets/kfileplacesmodel.cpp:1565
+#: filewidgets/kfileplacesmodel.cpp:1570
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3100,22 +3101,20 @@ msgstr[2] ""
 "Jeden alebo viac súborov na tomto zariadení je otvorených v nasledujúcich "
 "aplikáciách: <application>%2</application>."
 
-#: filewidgets/kfileplacesmodel.cpp:1568
+#: filewidgets/kfileplacesmodel.cpp:1573
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesmodel.cpp:1615
+#: filewidgets/kfileplacesmodel.cpp:1620
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "Preformátovať alebo upraviť so správcom partícií"
 
 #: filewidgets/kfileplacesview.cpp:343
-#, fuzzy, kde-format
-#| msgctxt "items: folders, files (size)"
-#| msgid "%1: %2"
+#, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
@@ -3235,33 +3234,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Obrovská (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:404
-#, fuzzy, kde-format
-#| msgid "Create Directory"
-msgid "Current Directory: %1"
-msgstr "Vytvoriť adresár"
-
-#: filewidgets/kfilewidget.cpp:640
+#: filewidgets/kfilewidget.cpp:637
 #, kde-format
 msgid "You can only select one file"
 msgstr "Môžete vybrať len jeden súbor"
 
-#: filewidgets/kfilewidget.cpp:640
+#: filewidgets/kfilewidget.cpp:637
 #, kde-format
 msgid "More than one file provided"
 msgstr "Zadaný viac ako jeden súbor"
 
-#: filewidgets/kfilewidget.cpp:816
+#: filewidgets/kfilewidget.cpp:813
 #, kde-format
 msgid "You can only select local files"
 msgstr "Môžete vybrať len lokálne súbory"
 
-#: filewidgets/kfilewidget.cpp:816
+#: filewidgets/kfilewidget.cpp:813
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Vzdialené súbory nie sú akceptované"
 
-#: filewidgets/kfilewidget.cpp:823
+#: filewidgets/kfilewidget.cpp:820
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3279,22 +3272,22 @@ msgstr[2] ""
 "Vybraté URL adresy používajú nepodporované schémy. Prosím, použite "
 "nasledovné schémy: %2"
 
-#: filewidgets/kfilewidget.cpp:829
+#: filewidgets/kfilewidget.cpp:826
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Nepodporovaná URL schéma"
 
-#: filewidgets/kfilewidget.cpp:850
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Nepodarilo sa nájsť súbor \"%1\""
 
-#: filewidgets/kfilewidget.cpp:850
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "Cannot open file"
 msgstr "Nie je možné otvoriť súbor"
 
-#: filewidgets/kfilewidget.cpp:1219
+#: filewidgets/kfilewidget.cpp:1216
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3305,44 +3298,43 @@ msgstr ""
 ">Napríklad, ak je aktuálne umiestnenie file:/home/konqi kliknutím na toto "
 "tlačidlo sa premiestnite do file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1223
+#: filewidgets/kfilewidget.cpp:1220
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "Kliknutím na toto tlačidlo sa presuniete v histórii o jeden krok späť."
 
-#: filewidgets/kfilewidget.cpp:1224
+#: filewidgets/kfilewidget.cpp:1221
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Kliknutím na toto tlačidlo sa presuniete v histórii o jeden krok vpred."
 
-#: filewidgets/kfilewidget.cpp:1226
+#: filewidgets/kfilewidget.cpp:1223
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "Kliknutím na toto tlačidlo obnovíte obsah aktuálneho umiestnenia."
 
-#: filewidgets/kfilewidget.cpp:1228
+#: filewidgets/kfilewidget.cpp:1225
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Kliknutím na toto tlačidlo vytvoríte nový priečinok."
 
-#: filewidgets/kfilewidget.cpp:1230
+#: filewidgets/kfilewidget.cpp:1227
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Zobraziť panel Miesta"
 
-#: filewidgets/kfilewidget.cpp:1237
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#: filewidgets/kfilewidget.cpp:1234
+#, kde-format
 msgid "Show Quick Filter"
-msgstr "Zobraziť skryté súbory"
+msgstr "Zobraziť rýchly filter"
 
-#: filewidgets/kfilewidget.cpp:1245
+#: filewidgets/kfilewidget.cpp:1242
 #, kde-format
 msgid "Options"
 msgstr "Možnosti"
 
-#: filewidgets/kfilewidget.cpp:1248
+#: filewidgets/kfilewidget.cpp:1245
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3357,12 +3349,12 @@ msgstr ""
 "li><li>navigačný panel Miesta</li><li>náhľady súborov</li><li>oddelenie "
 "priečinkov od súborov</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1267
+#: filewidgets/kfilewidget.cpp:1264
 #, kde-format
 msgid "Bookmarks"
 msgstr "Záložky"
 
-#: filewidgets/kfilewidget.cpp:1271
+#: filewidgets/kfilewidget.cpp:1268
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3376,39 +3368,35 @@ msgstr ""
 "dialog súborov, ale správajú sa ako hociktoré iné v KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1316 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1313 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Názov:"
 
-#: filewidgets/kfilewidget.cpp:1341
-#, fuzzy, kde-format
-#| msgid "Undo Changes"
+#: filewidgets/kfilewidget.cpp:1338
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "Vrátiť zmeny"
 
-#: filewidgets/kfilewidget.cpp:1396
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#: filewidgets/kfilewidget.cpp:1393
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "Otvoriť priečinok s obsahom"
+msgstr "Ponechať filter pri zmene priečinkov"
 
-#: filewidgets/kfilewidget.cpp:1400
-#, fuzzy, kde-format
-#| msgid "File name:"
+#: filewidgets/kfilewidget.cpp:1397
+#, kde-format
 msgid "Filter by name…"
 msgstr "Názov súboru:"
 
-#: filewidgets/kfilewidget.cpp:1408
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#: filewidgets/kfilewidget.cpp:1405
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
-msgstr "Skryté súbory ako posledné"
+msgstr "Skryť panel filtrovania"
 
-#: filewidgets/kfilewidget.cpp:1457
+#: filewidgets/kfilewidget.cpp:1454
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3421,12 +3409,12 @@ msgstr ""
 "tlačidla myši a vybraním preferovaného módu z menu <b>Dopĺňanie textu</b>.</"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1464
+#: filewidgets/kfilewidget.cpp:1461
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Toto je názov, pod ktorým bude súbor uložený."
 
-#: filewidgets/kfilewidget.cpp:1467
+#: filewidgets/kfilewidget.cpp:1464
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3435,73 +3423,78 @@ msgstr ""
 "Toto je zoznam súborov, ktoré budú otvorené. Viac ako jeden súbor môže byť "
 "špecifikovaný výberom súborov, oddelených medzerami."
 
-#: filewidgets/kfilewidget.cpp:1472
+#: filewidgets/kfilewidget.cpp:1469
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Toto je názov súboru, ktorý bude otvorený."
 
-#: filewidgets/kfilewidget.cpp:1485
+#: filewidgets/kfilewidget.cpp:1482
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Miesta"
 
-#: filewidgets/kfilewidget.cpp:1766
+#: filewidgets/kfilewidget.cpp:1763
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Súbor \"%1\" už existuje. Chcete ho prepísať?"
 
-#: filewidgets/kfilewidget.cpp:1767
+#: filewidgets/kfilewidget.cpp:1764
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Prepísať súbor?"
 
-#: filewidgets/kfilewidget.cpp:1964
+#: filewidgets/kfilewidget.cpp:1961
 #, kde-format
 msgid "You can only select local files."
 msgstr "Môžete vybrať len lokálne súbory."
 
-#: filewidgets/kfilewidget.cpp:1964
+#: filewidgets/kfilewidget.cpp:1961
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Vzdialené súbory nie sú akceptované"
 
-#: filewidgets/kfilewidget.cpp:2058
+#: filewidgets/kfilewidget.cpp:2055
 #, kde-format
 msgid "All Folders"
 msgstr "Všetky priečinky"
 
-#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:842
+#: filewidgets/kfilewidget.cpp:2079
+#, kde-format
+msgid "Current Directory: %1"
+msgstr "Aktuálny priečinok: %1"
+
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:847
 #, kde-format
 msgid "&Open"
 msgstr "&Otvoriť"
 
-#: filewidgets/kfilewidget.cpp:2299
+#: filewidgets/kfilewidget.cpp:2307
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Veľkosť ikony: %1 pixelov"
 
-#: filewidgets/kfilewidget.cpp:2466
+#: filewidgets/kfilewidget.cpp:2474
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Automaticky vybrať &príponu súboru (%1)"
 
-#: filewidgets/kfilewidget.cpp:2467
+#: filewidgets/kfilewidget.cpp:2475
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "prípona <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2473
+#: filewidgets/kfilewidget.cpp:2481
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Automaticky vybrať p&ríponu súboru"
 
-#: filewidgets/kfilewidget.cpp:2474
+#: filewidgets/kfilewidget.cpp:2482
 #, kde-format
 msgid "a suitable extension"
 msgstr "vhodná prípona"
 
-#: filewidgets/kfilewidget.cpp:2482
+#: filewidgets/kfilewidget.cpp:2490
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3527,12 +3520,12 @@ msgstr ""
 "automaticky odstránená).</li></ol>Ak si nie ste istý, nechajte túto voľbu "
 "zapnutú, pretože zjednodušuje správu vašich súborov."
 
-#: filewidgets/kfilewidget.cpp:2948
+#: filewidgets/kfilewidget.cpp:2956
 #, kde-format
 msgid "&File type:"
 msgstr "&Typ súboru:"
 
-#: filewidgets/kfilewidget.cpp:2952
+#: filewidgets/kfilewidget.cpp:2960
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3541,58 +3534,53 @@ msgstr ""
 "<qt>Toto je výber typu súboru. Používa sa na výber formátu, v ktorom sa "
 "súbor uloží.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2954
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#: filewidgets/kfilewidget.cpp:2962
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
-"<qt>Toto je výber typu súboru. Používa sa na výber formátu, v ktorom sa "
-"súbor uloží.</qt>"
+"<qt>Toto je výber typu súboru. Používa sa na výber formátu zobrazených "
+"súborov.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:518
+#: filewidgets/knewfilemenu.cpp:224
+#, kde-format
+msgctxt "@label:textbox Prompt for new file of type"
+msgid "Enter %1 filename:"
+msgstr "Zadajte názov súboru %1:"
+
+#: filewidgets/knewfilemenu.cpp:538
 #, kde-format
 msgid "Sorry"
 msgstr "Ľutujem"
 
-#: filewidgets/knewfilemenu.cpp:529
+#: filewidgets/knewfilemenu.cpp:549
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Súbor so šablónou <b>%1</b> neexistuje.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:683 filewidgets/knewfilemenu.cpp:748
+#: filewidgets/knewfilemenu.cpp:700 filewidgets/knewfilemenu.cpp:765
 #, kde-format
 msgid "Name for new link:"
 msgstr "Názov nového odkazu:"
 
-#: filewidgets/knewfilemenu.cpp:686
+#: filewidgets/knewfilemenu.cpp:703
 #, kde-format
 msgid "Create Symlink"
 msgstr "Vytvoriť symbolický odkaz"
 
-#: filewidgets/knewfilemenu.cpp:752
+#: filewidgets/knewfilemenu.cpp:769
 #, kde-format
 msgid "Create link to URL"
 msgstr "Vytvoriť odkaz na URL"
 
-#: filewidgets/knewfilemenu.cpp:793 filewidgets/knewfilemenu.cpp:848
+#: filewidgets/knewfilemenu.cpp:810 filewidgets/knewfilemenu.cpp:834
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1128
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
-msgctxt "@label:textbox Prompt for new file of type"
-msgid "Enter %1 filename:"
-msgstr "Zadať iný názov"
-
-#: filewidgets/knewfilemenu.cpp:1227
+#: filewidgets/knewfilemenu.cpp:1179
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3602,7 +3590,7 @@ msgstr ""
 "Názov <filename>%1</filename> nie je možné použiť, pretože je vyhradený na "
 "použitie operačným systémom."
 
-#: filewidgets/knewfilemenu.cpp:1235
+#: filewidgets/knewfilemenu.cpp:1187
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3612,7 +3600,7 @@ msgstr ""
 "Názov <filename>%1</filename> začína bodkou, preto bude adresár štandardne "
 "skrytý."
 
-#: filewidgets/knewfilemenu.cpp:1243
+#: filewidgets/knewfilemenu.cpp:1195
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3624,32 +3612,28 @@ msgstr ""
 "zobrazený pred ostatnými položkami pri abecednom zoraďovaní, okrem iných "
 "možných zvláštností."
 
-#: filewidgets/knewfilemenu.cpp:1261
+#: filewidgets/knewfilemenu.cpp:1213
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "Použitie lomiek v názvoch priečinkov vytvorí podpriečinky, napríklad:"
 
-#: filewidgets/knewfilemenu.cpp:1275
+#: filewidgets/knewfilemenu.cpp:1227
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Použitie lomiek v názvoch priečinkov vytvorí podpriečinky."
 
-#: filewidgets/knewfilemenu.cpp:1287
+#: filewidgets/knewfilemenu.cpp:1239
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Lomky nemôžu byť použité v názvoch súborov a priečinkov."
 
-#: filewidgets/knewfilemenu.cpp:1292
+#: filewidgets/knewfilemenu.cpp:1244
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Spätné lomky nemôžu byť použité v názvoch súborov a priečinkov."
 
-#: filewidgets/knewfilemenu.cpp:1306
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Could not create a folder with the name <filename>%1</filename><nl/"
-#| ">because it is reserved for use by the operating system."
+#: filewidgets/knewfilemenu.cpp:1258
+#, kde-kuit-format
 msgctxt "@error"
 msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
@@ -3658,7 +3642,7 @@ msgstr ""
 "Nepodarilo sa vytvoriť priečinok s názvom <filename>%1</filename><nl/>, "
 "pretože je vyhradený na použitie operačným systémom."
 
-#: filewidgets/knewfilemenu.cpp:1315
+#: filewidgets/knewfilemenu.cpp:1267
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3668,97 +3652,87 @@ msgstr ""
 "pretože pri odstraňovaní vecí pomocou terminálu to môže byť mätúce alebo "
 "nebezpečné."
 
-#: filewidgets/knewfilemenu.cpp:1387
+#: filewidgets/knewfilemenu.cpp:1339
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Adresár s názvom <filename>%1</filename> už existuje."
 
-#: filewidgets/knewfilemenu.cpp:1389
+#: filewidgets/knewfilemenu.cpp:1341
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Súbor s názvom <filename>%1</filename> už existuje."
 
-#: filewidgets/knewfilemenu.cpp:1475
+#: filewidgets/knewfilemenu.cpp:1427
 #, kde-format
 msgid "Create New"
 msgstr "Vytvoriť nový"
 
-#: filewidgets/knewfilemenu.cpp:1510
+#: filewidgets/knewfilemenu.cpp:1462
 #, kde-format
 msgid "Link to Device"
 msgstr "Odkaz na zariadenie"
 
-#: filewidgets/knewfilemenu.cpp:1556
+#: filewidgets/knewfilemenu.cpp:1501
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nový priečinok"
 
-#: filewidgets/knewfilemenu.cpp:1579
-#, fuzzy, kde-format
-#| msgid "Create Folder"
+#: filewidgets/knewfilemenu.cpp:1524
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Vytvoriť priečinok"
 
-#: filewidgets/knewfilemenu.cpp:1581
+#: filewidgets/knewfilemenu.cpp:1526
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Vytvoriť nový priečinok v %1:"
 
-#: filewidgets/knewfilemenu.cpp:1584 widgets/kpropertiesdialogbuiltin_p.cpp:363
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#: filewidgets/knewfilemenu.cpp:1529 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr "Zadať iný názov"
+msgstr "Zadať názov priečinka"
 
-#: filewidgets/knewfilemenu.cpp:1641
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox The default character set"
-#| msgid "Default"
+#: filewidgets/knewfilemenu.cpp:1586
+#, kde-format
 msgid "Default"
 msgstr "Predvolené"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NewFileDialog)
 #: filewidgets/knewfilemenu_newfiledialog.ui:20
-#, fuzzy, kde-format
-#| msgid "Create New File Type"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New File"
-msgstr "Vytvoriť nový typ súboru"
+msgstr "Vytvoriť nový súbor"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:57
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgid "Enter file name"
-msgstr "Zadať iný názov"
+msgstr "Zadať názov súboru"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:79
-#, fuzzy, kde-format
-#| msgid "Choose Application for %1"
+#, kde-format
 msgid "Choose custom icon or color"
-msgstr "Vyberte aplikáciu pre %1"
+msgstr "Vybrať vlastnú ikonu alebo farbu"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:129
-#, fuzzy, kde-format
-#| msgid "Choose an &icon:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
-msgstr "Vyberte &ikonu:"
+msgstr "Vybrať inú ikonu…"
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:145
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "You can change the icon later in folder properties."
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -3805,12 +3779,10 @@ msgid "Show Full Path"
 msgstr "Zobraziť celú cestu"
 
 #: filewidgets/kurlnavigator.cpp:826
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr "Nepodarilo sa preniesť <filename>%1</filename>"
+msgstr "Prejsť na ľubovoľné miesto na ceste <filename>%1</filename>"
 
 #: filewidgets/kurlnavigatorbutton.cpp:725
 #, kde-format
@@ -3822,7 +3794,7 @@ msgstr "Viac"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "Prejsť na umiestnenie na ceste"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
@@ -3894,7 +3866,7 @@ msgstr ""
 #, kde-format
 msgctxt "An error message"
 msgid "Empty command provided"
-msgstr ""
+msgstr "Bol zadaný prázdny príkaz"
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format
@@ -3915,7 +3887,7 @@ msgstr "Súbor ikony príliš veľký, stiahnutie prerušené"
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
-msgstr ""
+msgstr "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
@@ -4025,10 +3997,7 @@ msgid "The program \"%1\" could not be launched."
 msgstr "Program „%1“ sa nepodarilo spustiť."
 
 #: kioexec/kioexecd.cpp:86
-#, fuzzy, kde-kuit-format
-#| msgid ""
-#| "The file %1\n"
-#| "has been modified. Do you want to upload the changes?"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The file <filename>%1</filename><nl/>has been modified. Do you want to "
@@ -4171,7 +4140,7 @@ msgstr "Príkaz, ktorý sa má spustiť"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL alebo lokálne súbory pre 'príkaz'"
 
-#: kioworkers/file/file.cpp:650
+#: kioworkers/file/file.cpp:649
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4180,7 +4149,7 @@ msgstr ""
 "Nepodarilo sa zmeniť práva pre\n"
 "%1"
 
-#: kioworkers/file/file.cpp:658
+#: kioworkers/file/file.cpp:657
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4190,18 +4159,17 @@ msgstr ""
 "Nepodarilo sa zmeniť vlastníka a skupinu pre\n"
 "%1"
 
-#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
-#, fuzzy, kde-format
-#| msgid "Could Not Rename Temporary File"
+#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
+#, kde-format
 msgid "Could not open temporary file"
-msgstr "Nepodarilo sa premenovať dočasný súbor"
+msgstr "Nepodarilo sa otvoriť dočasný súbor"
 
-#: kioworkers/file/file.cpp:765
+#: kioworkers/file/file.cpp:764
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Nepodarilo sa nájsť program \"mount\""
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:841
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Nepodarilo sa nájsť program \"umount\""
@@ -4273,7 +4241,7 @@ msgstr "Musíte zadať užívateľské meno a heslo pre prístup k tomuto server
 msgid "Site:"
 msgstr "Server:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2500
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2499
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4297,7 +4265,7 @@ msgstr ""
 "\n"
 "Server hlási: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2495 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2494 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4306,12 +4274,12 @@ msgstr ""
 "Musíte zadať užívateľské meno a heslo pre proxy server predtým, ako získate "
 "prístup k akémukoľvek serveru."
 
-#: kioworkers/ftp/ftp.cpp:2499 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Proxy:"
 
-#: kioworkers/ftp/ftp.cpp:2502
+#: kioworkers/ftp/ftp.cpp:2501
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Overenie proxy zlyhalo."
@@ -4374,90 +4342,90 @@ msgstr "Overenie servera"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> na <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1396
+#: kioworkers/http/http.cpp:1397
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Inak by požiadavka uspela."
 
-#: kioworkers/http/http.cpp:1399
+#: kioworkers/http/http.cpp:1400
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "získať hodnoty vlastností"
 
-#: kioworkers/http/http.cpp:1401
+#: kioworkers/http/http.cpp:1402
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "nastaviť hodnoty vlastností"
 
-#: kioworkers/http/http.cpp:1403
+#: kioworkers/http/http.cpp:1404
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "vytvoriť požadovaný priečinok"
 
-#: kioworkers/http/http.cpp:1405
+#: kioworkers/http/http.cpp:1406
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "kopírovať zadaný súbor alebo priečinok"
 
-#: kioworkers/http/http.cpp:1407
+#: kioworkers/http/http.cpp:1408
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "presunúť zadaný súbor alebo priečinok"
 
-#: kioworkers/http/http.cpp:1409
+#: kioworkers/http/http.cpp:1410
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "hľadať v zadanom priečinku"
 
-#: kioworkers/http/http.cpp:1411
+#: kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "zamknúť zadaný súbor alebo priečinok"
 
-#: kioworkers/http/http.cpp:1413
+#: kioworkers/http/http.cpp:1414
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "odomknúť zadaný súbor alebo priečinok"
 
-#: kioworkers/http/http.cpp:1415
+#: kioworkers/http/http.cpp:1416
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "odstrániť zadaný súbor alebo priečinok"
 
-#: kioworkers/http/http.cpp:1417
+#: kioworkers/http/http.cpp:1418
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "zistiť možnosti servera"
 
-#: kioworkers/http/http.cpp:1419
+#: kioworkers/http/http.cpp:1420
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "získať obsah zadaného súboru alebo priečinka"
 
-#: kioworkers/http/http.cpp:1421
+#: kioworkers/http/http.cpp:1422
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "spustiť správu v zadanom priečinku"
 
-#: kioworkers/http/http.cpp:1429
+#: kioworkers/http/http.cpp:1430
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Nastala neočakávaná chyba (%1) pri pokuse o %2."
 
-#: kioworkers/http/http.cpp:1469
+#: kioworkers/http/http.cpp:1470
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4465,13 +4433,13 @@ msgid ""
 "below."
 msgstr "Nastala chyba pri pokuse o %1, %2. Nižšie je súhrn dôvodov."
 
-#: kioworkers/http/http.cpp:1487 kioworkers/http/http.cpp:1631
+#: kioworkers/http/http.cpp:1488 kioworkers/http/http.cpp:1632
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Prístup bol zamietnutý pri pokuse o %1."
 
-#: kioworkers/http/http.cpp:1501 kioworkers/http/http.cpp:1638
+#: kioworkers/http/http.cpp:1502 kioworkers/http/http.cpp:1639
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4479,7 +4447,7 @@ msgid ""
 msgstr ""
 "Zdroj nie je možné vytvoriť na cieli kým nebudú vytvorené potrebné priečinky."
 
-#: kioworkers/http/http.cpp:1510
+#: kioworkers/http/http.cpp:1511
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4494,28 +4462,28 @@ msgstr ""
 "požadovali, aby súbory nebolo možné prepísať.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1518
+#: kioworkers/http/http.cpp:1519
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Požadovaný zámok sa nepodarilo získať. %1"
 
-#: kioworkers/http/http.cpp:1524
+#: kioworkers/http/http.cpp:1525
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Server nepodporuje typ požiadavky v tele."
 
-#: kioworkers/http/http.cpp:1529 kioworkers/http/http.cpp:1646
+#: kioworkers/http/http.cpp:1530 kioworkers/http/http.cpp:1647
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Nie je možné %1, pretože prostriedok je uzamknutý."
 
-#: kioworkers/http/http.cpp:1533
+#: kioworkers/http/http.cpp:1534
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Táto akcia bola zablokovaná inou chybou."
 
-#: kioworkers/http/http.cpp:1540 kioworkers/http/http.cpp:1653
+#: kioworkers/http/http.cpp:1541 kioworkers/http/http.cpp:1654
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4525,7 +4493,7 @@ msgstr ""
 "Nie je možné %1, pretože cieľový server odmietol prijať súbor alebo "
 "priečinok."
 
-#: kioworkers/http/http.cpp:1549 kioworkers/http/http.cpp:1662
+#: kioworkers/http/http.cpp:1550 kioworkers/http/http.cpp:1663
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4534,18 +4502,18 @@ msgstr ""
 "Cieľový zdroj neobsahuje dostatok miesta pre uloženie stavu zdroja po "
 "vykonaní tejto metódy."
 
-#: kioworkers/http/http.cpp:1602
+#: kioworkers/http/http.cpp:1603
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Zdroj nie je možné odstrániť."
 
-#: kioworkers/http/http.cpp:1622
+#: kioworkers/http/http.cpp:1623
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "odoslať %1"
 
-#: kioworkers/http/http.cpp:1673
+#: kioworkers/http/http.cpp:1674
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -4829,12 +4797,10 @@ msgid "&Move Here"
 msgstr "&Presunúť sem"
 
 #: widgets/dropjob.cpp:296
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Downloads"
+#, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
-msgstr "Stiahnuté"
+msgstr "Stiahnuť sem"
 
 #: widgets/dropjob.cpp:296
 #, kde-format
@@ -4847,11 +4813,10 @@ msgid "&Link Here"
 msgstr "&Odkaz sem"
 
 #: widgets/executablefileopendialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Launching %1"
+#, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
-msgstr "Spúšťa sa %1"
+msgstr "&Spustiť"
 
 #: widgets/executablefileopendialog.cpp:80
 #, kde-format
@@ -4859,25 +4824,22 @@ msgid "What do you wish to do with this file?"
 msgstr "Čo chcete urobiť s týmto súborom?"
 
 #: widgets/executablefileopendialog.cpp:83
-#, fuzzy, kde-format
-#| msgid "&Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "&Otvoriť"
 
 #: widgets/executablefileopendialog.cpp:85
-#, fuzzy, kde-format
-#| msgid "&Open with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
 msgstr "&Otvoriť pomocou %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/executablefileopendialog.ui:26
-#, fuzzy, kde-format
-#| msgid "What do you wish to do with this file?"
+#, kde-format
 msgid "Would you like to launch this file?"
-msgstr "Čo chcete urobiť s týmto súborom?"
+msgstr "Chcete spustiť tento súbor?"
 
 #: widgets/fileundomanager.cpp:126
 #, kde-format
@@ -4895,11 +4857,9 @@ msgid "Destination"
 msgstr "Cieľ"
 
 #: widgets/fileundomanager.cpp:131
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Copying"
+#, kde-format
 msgid "Copying"
-msgstr "Kopírovanie"
+msgstr "Kopíruje sa"
 
 #: widgets/fileundomanager.cpp:140
 #, kde-format
@@ -4912,10 +4872,9 @@ msgid "Renaming"
 msgstr "Premenovanie"
 
 #: widgets/fileundomanager.cpp:147
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Moving to Trash"
-msgstr "Presunúť do koša"
+msgstr "Presúvanie do koša"
 
 #: widgets/fileundomanager.cpp:152
 #, kde-format
@@ -4975,61 +4934,52 @@ msgstr "&Späť: Hromadné premenovanie"
 #: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "&Redo"
 
 #: widgets/fileundomanager.cpp:363
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
-msgstr "&Späť: Kopírovať"
+msgstr "&Znova: Kopírovať"
 
 #: widgets/fileundomanager.cpp:365
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
-msgstr "&Späť: Odkaz"
+msgstr "&Znova: Odkaz"
 
 #: widgets/fileundomanager.cpp:367
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
-msgstr "&Späť: Presunúť"
+msgstr "&Znova: Presunúť"
 
 #: widgets/fileundomanager.cpp:369
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
-msgstr "&Späť: Premenovať"
+msgstr "&Znova: Premenovať"
 
 #: widgets/fileundomanager.cpp:371
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
-msgstr "&Späť: Kôš"
+msgstr "&Znova: Kôš"
 
 #: widgets/fileundomanager.cpp:373
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
-msgstr "&Späť: Vytvoriť priečinok"
+msgstr "&Znova: Vytvoriť priečinok"
 
 #: widgets/fileundomanager.cpp:375
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
-msgstr "&Späť: Vytvoriť priečinok(y)"
+msgstr "&Znova: Vytvoriť priečinok(y)"
 
 #: widgets/fileundomanager.cpp:377
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
-msgstr "&Späť: Vytvoriť súbor"
+msgstr "&Znova: Vytvoriť súbor"
 
 #: widgets/fileundomanager.cpp:379
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
-msgstr "&Späť: Hromadné premenovanie"
+msgstr "&Znova: Hromadné premenovanie"
 
 #: widgets/fileundomanager.cpp:906
 #, kde-format
@@ -5131,15 +5081,13 @@ msgstr[2] "Naozaj chcete presunúť tieto položky %1 do koša?"
 #, kde-format
 msgctxt "@action:button"
 msgid "Add…"
-msgstr ""
+msgstr "Pridať…"
 
 #: widgets/kacleditwidget.cpp:75
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Edit…"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit…"
-msgstr "&Upraviť..."
+msgstr "&Upraviť"
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -5157,7 +5105,7 @@ msgstr "Vlastník"
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Owning Group"
-msgstr "Skupina vlastníkov"
+msgstr "Vlastnícka skupina"
 
 #: widgets/kacleditwidget.cpp:235 widgets/kacleditwidget.cpp:247
 #, kde-format
@@ -5276,48 +5224,47 @@ msgid "Updating System Configuration"
 msgstr "Aktualizuje sa systémové nastavenie"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:30
-#, fuzzy, kde-format
-#| msgid "Updating system configuration."
+#, kde-format
 msgid "Updating system configuration…"
 msgstr "Aktualizuje sa systémové nastavenie."
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1256
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Názov"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1258
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Veľkosť"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1260
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Dátum"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1262
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Práva"
 
-#: widgets/kdirmodel.cpp:1272
+#: widgets/kdirmodel.cpp:1264
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Vlastník"
 
-#: widgets/kdirmodel.cpp:1274
+#: widgets/kdirmodel.cpp:1266
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Skupina"
 
-#: widgets/kdirmodel.cpp:1276
+#: widgets/kdirmodel.cpp:1268
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
@@ -5340,55 +5287,48 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Akcie"
 
-#: widgets/kfileitemactions.cpp:751
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#: widgets/kfileitemactions.cpp:756
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "&Otvoriť priečinok pomocou"
+msgstr "&Otvoriť priečinok pomocou…"
 
-#: widgets/kfileitemactions.cpp:751
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open With"
+#: widgets/kfileitemactions.cpp:756
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
-msgstr "&Otvoriť pomocou"
+msgstr "&Otvoriť pomocou…"
 
-#: widgets/kfileitemactions.cpp:809
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#: widgets/kfileitemactions.cpp:814
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "S&pustiť"
 
-#: widgets/kfileitemactions.cpp:831
+#: widgets/kfileitemactions.cpp:836
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Otvoriť priečinok s %1"
 
-#: widgets/kfileitemactions.cpp:831
+#: widgets/kfileitemactions.cpp:836
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Otvoriť pomocou %1"
 
-#: widgets/kfileitemactions.cpp:863
+#: widgets/kfileitemactions.cpp:868
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Otvoriť priečinok pomocou"
 
-#: widgets/kfileitemactions.cpp:863
+#: widgets/kfileitemactions.cpp:868
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Otvoriť pomocou"
 
-#: widgets/kfileitemactions.cpp:874
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu Open With"
-#| msgid "&Other Application..."
+#: widgets/kfileitemactions.cpp:879
+#, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
 msgstr "&Iná aplikácia..."
@@ -5448,7 +5388,7 @@ msgstr "Veľkosť:"
 #: widgets/kfilepropspluginwidget.ui:282
 #, kde-format
 msgid "Determine the folder size"
-msgstr ""
+msgstr "Zistiť veľkosť priečinka"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:289
@@ -5460,7 +5400,7 @@ msgstr "Zastaviť"
 #: widgets/kfilepropspluginwidget.ui:295
 #, kde-format
 msgid "Stop determining the folder size"
-msgstr ""
+msgstr "Zastaviť zisťovanie veľkosti priečinka"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:302
@@ -5476,8 +5416,7 @@ msgstr "Ukazuje na:"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
 #: widgets/kfilepropspluginwidget.ui:361
-#, fuzzy, kde-format
-#| msgid "Show a Warning"
+#, kde-format
 msgid "Show target"
 msgstr "Zobraziť upozornenie"
 
@@ -5825,32 +5764,24 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
 msgstr ""
-"Sem zadajte popis tejto aplikácie podľa jej použitia. Napríklad: pre "
-"pripojenie na internet (KPPP) to bude \"Nástroj pre pripojenie na Internet\"."
+"Sem zadajte všeobecný názov aplikácie. Napríklad: aplikácia na prezeranie "
+"obrázkov bude mať názov \"Prehliadač obrázkov\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgctxt "@title:tab File properties"
-#| msgid "&General"
+#, kde-format
 msgid "&Generic name:"
-msgstr "&Všeobecné"
+msgstr "&Užívateľské meno:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
@@ -5866,8 +5797,7 @@ msgstr "Kom&entár:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, fuzzy, kde-format
-#| msgid "Environment Variables:"
+#, kde-format
 msgid "Environment variables:"
 msgstr "Premenné prostredia:"
 
@@ -6087,9 +6017,7 @@ msgid "&General"
 msgstr "&Všeobecné"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:363
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
 msgstr "Zadať iný názov"
@@ -6110,16 +6038,14 @@ msgstr "Obnoviť"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
-msgstr ""
+msgstr "Zadajte cieľové umiestnenie"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:452
 #: widgets/kpropertiesdialogbuiltin_p.cpp:455
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr "Nepodarilo sa preniesť <filename>%1</filename>"
+msgstr "Zobraziť <filename>%1</filename>"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:561
 #, kde-format
@@ -6200,7 +6126,7 @@ msgstr "Zmeniť…"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
-msgstr ""
+msgstr "Change the default application for opening files of type “%1”."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1076
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1077
@@ -6214,7 +6140,7 @@ msgstr "Môže iba čítať"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1076
 msgid "Can View & Modify"
-msgstr "Môže zobraziť a meniť obsah"
+msgstr "Môže zobraziť a meniť"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1077
 msgid "Can Only View Content"
@@ -6291,28 +6217,24 @@ msgstr ""
 "skupiny ani vlastníci."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1225
-#, fuzzy, kde-format
-#| msgid "Only own&er can rename and delete folder content"
+#, kde-format
 msgid "Only own&er can delete or rename contents"
 msgstr "Iba &vlastník môže premenovať a odstrániť obsah priečinka"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1225
-#, fuzzy, kde-format
-#| msgid "Enable this flag to allow executing the file as a program."
+#, kde-format
 msgid "Allow &executing file as program"
-msgstr "Tento príznak umožňuje spúšťanie súboru ako program."
+msgstr "Povoliť &spúšťanie súboru ako program"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1227
-#, fuzzy, kde-format
-#| msgid "Default user name:"
+#, kde-format
 msgid "Delete or rename:"
-msgstr "Predvolené meno užívateľa:"
+msgstr "Vymazať alebo premenovať:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1227
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "Execute:"
-msgstr "S&pustiť"
+msgstr "Spustiť:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1228
 #, kde-format
@@ -6621,29 +6543,23 @@ msgid "The computed checksum and the expected checksum differ."
 msgstr "Vypočítaný kontrolný súčet a očakávaný kontrolný súčet sa líšia."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2411
-#, fuzzy, kde-format
-#| msgctxt "notify the user about a computation in the background"
-#| msgid "Verifying checksum..."
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "Overujem kontrolný súčet..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2440
-#, fuzzy, kde-format
-#| msgid "The files are <b>identical</b>."
+#, kde-format
 msgid "The checksums of all files are identical."
-msgstr "Súbory sú <b>identické</b>."
+msgstr "Kontrolné súčty všetkých súborov sú zhodné."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2445
-#, fuzzy, kde-format
-#| msgid "The files are <b>different</b>."
+#, kde-format
 msgid "The selected files have different checksums."
-msgstr "Súbory sú <b>rôzne</b>."
+msgstr "Vybrané súbory majú rôzne kontrolné súčty."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2451
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Calculating..."
+#, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Vypočítava sa..."
@@ -6789,8 +6705,7 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, fuzzy, kde-format
-#| msgid "Configure Web Shortcuts..."
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure Web Shortcuts…"
 msgstr "Nastaviť webové skratky..."
@@ -6801,20 +6716,16 @@ msgid "Open file dialog"
 msgstr "Dialóg pre otvorenie súboru"
 
 #: widgets/paste.cpp:69
-#, fuzzy, kde-format
-#| msgid "&Paste File"
-#| msgid_plural "&Paste %1 Files"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "&Vložiť súbor"
 
 #: widgets/paste.cpp:79 widgets/paste.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
-msgstr "Vložiť obsah schránky..."
+msgstr "Vložiť obsah schránky"
 
 #: widgets/paste.cpp:122
 #, kde-format
@@ -6859,8 +6770,7 @@ msgid "Paste"
 msgstr "Vložiť"
 
 #: widgets/pastedialog.cpp:57
-#, fuzzy, kde-format
-#| msgid "Data format:"
+#, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Formát dát:"
@@ -6896,12 +6806,7 @@ msgid "Appl&y to All"
 msgstr "Použiť na všetk&y"
 
 #: widgets/renamedialog.cpp:280
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "folder conflicts for the remainder of the current job.\n"
-#| "Unless you press Skip you will still be prompted in case of a conflict "
-#| "with an existing file in the directory."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
@@ -6914,10 +6819,7 @@ msgstr ""
 "konfliktu s existujúcim súborom v adresári."
 
 #: widgets/renamedialog.cpp:284
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "conflicts for the remainder of the current job."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
@@ -7057,8 +6959,7 @@ msgstr ""
 "začiatku, v strede a na konci rovnaký."
 
 #: widgets/renamedialog.cpp:518
-#, fuzzy, kde-format
-#| msgid "Copy Files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
 msgstr "Kopírovať súbory"
@@ -7090,21 +6991,16 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Premenovať položku <filename>%1</filename> na:"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "Súbor s názvom <filename>%1</filename> už existuje."
 
 #: widgets/renamefiledialog.cpp:144
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr ""
-"Zdá sa, že súbor <filename>%1</filename> nie je spustiteľným programom."
+msgstr "Súbor <filename>%1</filename> nie je platný názov súboru."
 
 #: widgets/renamefiledialog.cpp:164
 #, kde-format
@@ -7136,12 +7032,11 @@ msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
+"Invalid filename: The new name should contain one sequence of #, unless all "
+"the files have different file extensions."
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
@@ -7150,37 +7045,34 @@ msgstr[1] "Premenovať %1 vybraté položky na:"
 msgstr[2] "Premenovať %1 vybratých položiek na:"
 
 #: widgets/renamefiledialog.cpp:314
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "Nahradiť"
+msgstr "Nahradzujem:"
 
 #: widgets/renamefiledialog.cpp:316
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
-msgstr ""
+msgstr "Vzor"
 
 #: widgets/renamefiledialog.cpp:320
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr "Otvoriť s:"
+msgstr "S:"
 
 #: widgets/renamefiledialog.cpp:322
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr "Nahradiť"
+msgstr "Náhrada"
 
 #: widgets/renamefiledialog.cpp:369
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr ""
+msgstr "No file name contains the pattern."
 
 #: widgets/renamefiledialog.cpp:378
 #, kde-kuit-format
@@ -7189,12 +7081,11 @@ msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 msgstr ""
+"Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
+"to have an empty file name."
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
@@ -7206,29 +7097,25 @@ msgstr[2] "Premenovať %1 vybratých položiek na:"
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "Pridať Text:"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "Text na pridanie"
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "Zadať iný názov"
+msgstr "Pred názvom súboru"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a Different Name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "Zadať iný názov"
+msgstr "Za názvom súboru"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7249,46 +7136,40 @@ msgid "&Rename"
 msgstr "Premenovať"
 
 #: widgets/renamefiledialog.cpp:552
-#, fuzzy, kde-format
-#| msgid "Default user name:"
+#, kde-format
 msgctxt "@info"
 msgid "How to rename:"
-msgstr "Predvolené meno užívateľa:"
+msgstr "Ako premenovať:"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
-msgstr ""
+msgstr "Enumerate"
 
 #: widgets/renamefiledialog.cpp:555
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
-msgstr "Nahradiť"
+msgstr "Nahradiť text"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "Pridať text"
 
 #: widgets/renamefiledialog.cpp:567
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
-msgstr "Zobraziť náhľad"
+msgstr "Náhľad:"
 
 #: widgets/renamefiledialog.cpp:691
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr ""
-"Zdá sa, že súbor <filename>%1</filename> nie je spustiteľným programom."
+msgstr "Súbor <filename>%1</filename> nemožno premenovať na prázdny názov."
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
@@ -7443,12 +7324,7 @@ msgstr[2] ""
 "strong='true'>Táto akcia sa nedá vrátiť.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this file. Permanently delete it instead?<nl/"
@@ -7460,16 +7336,7 @@ msgstr ""
 "><emphasis strong='true'>Táto akcia sa nedá vrátiť späť.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this %1 file. Permanently delete it instead?"
@@ -7492,12 +7359,7 @@ msgstr[2] ""
 "akcia sa nedá vrátiť späť.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
@@ -7509,16 +7371,7 @@ msgstr ""
 "><emphasis strong='true'>Táto akcia sa nedá vrátiť späť.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7729,7 +7582,6 @@ msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
 #~ msgstr "Zobraziť tlačidlo záložiek"
 
 #, fuzzy
-#~| msgid "File Changed"
 #~ msgctxt "Reason why standby is blocked"
 #~ msgid "Files are being moved"
 #~ msgstr "Súbor zmenený"
@@ -7822,8 +7674,6 @@ msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
 #~ msgstr "Vložiť obsah schránky..."
 
 #, fuzzy
-#~| msgctxt "@title:window"
-#~| msgid "New Folder"
 #~ msgctxt "@title:window"
 #~ msgid "New File"
 #~ msgstr "Nový priečinok"
@@ -9208,22 +9058,6 @@ msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
 #~ msgstr "Neznámy HTTP príkaz."
 
 #, fuzzy
-#~| msgid ""
-#~| "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
-#~| "using the HTTP protocol (like Konqueror) store on your computer, "
-#~| "initiated by a remote Internet server. This means that a web server can "
-#~| "store information about you and your browsing activities on your machine "
-#~| "for later use. You might consider this an invasion of privacy.</p><p> "
-#~| "However, cookies are useful in certain situations. For example, they are "
-#~| "often used by Internet shops, so you can 'put things into a shopping "
-#~| "basket'. Some sites require you have a browser that supports cookies.</"
-#~| "p><p> Because most people want a compromise between privacy and the "
-#~| "benefits cookies offer, the HTTP kioslave offers you the ability to "
-#~| "customize the way it handles cookies. So you might want to set the "
-#~| "default policy to ask you whenever a server wants to set a cookie, "
-#~| "allowing you to decide. For your favorite shopping web sites that you "
-#~| "trust, you might want to set the policy to accept, then you can access "
-#~| "the web sites without being prompted every time a cookie is received.</p>"
 #~ msgid ""
 #~ "<h1>Cookies</h1><p>Cookies contain information that KDE applications "
 #~ "using the HTTP protocol (like Konqueror) store on your computer, "
@@ -9335,14 +9169,6 @@ msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
 #~ "servery proxy poskytujú obe služby.</p>"
 
 #, fuzzy
-#~| msgid ""
-#~| "<h1>Windows Shares</h1><p>Applications using the SMB kioslave (like "
-#~| "Konqueror) are able to access shared Microsoft Windows file systems, if "
-#~| "properly configured.</p><p>You can specify here the credentials used to "
-#~| "access the shared resources. Passwords will be stored locally, and "
-#~| "scrambled so as to render them unreadable to the human eye. For security "
-#~| "reasons, you may not want to do that, as entries with passwords are "
-#~| "clearly indicated as such.</p>"
 #~ msgid ""
 #~ "<h1>Windows Shares</h1><p>Applications using the SMB KIO worker (like "
 #~ "Konqueror) are able to access shared Microsoft Windows file systems, if "
@@ -9367,14 +9193,6 @@ msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
 #~ msgstr "Nastaviť rozšírené funkcie prehliadania"
 
 #, fuzzy
-#~| msgid ""
-#~| "<h1>Enhanced Browsing</h1> In this module you can configure some "
-#~| "enhanced browsing features of KDE. <h2>Web Shortcuts</h2>Web Shortcuts "
-#~| "are a quick way of using Web search engines. For example, type "
-#~| "\"duckduckgo:frobozz\" or \"dd:frobozz\" and your web browser will do a "
-#~| "search on DuckDuckGo for \"frobozz\". Even easier: just press Alt+F2 (if "
-#~| "you have not changed this keyboard shortcut) and enter the shortcut in "
-#~| "the Run Command dialog."
 #~ msgid ""
 #~ "<h1>Enhanced Browsing</h1> In this module you can configure some enhanced "
 #~ "browsing features of KDE. <h2>Web Search Keywords</h2>Web Search Keywords "
@@ -9392,16 +9210,6 @@ msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
 #~ "klávesovú skratku) a zadajte skratku do dialógu \"Spustiť príkaz\"."
 
 #, fuzzy
-#~| msgctxt "@info:whatsthis"
-#~| msgid ""
-#~| "<para>In this module you can configure the web shortcuts feature. Web "
-#~| "shortcuts allow you to quickly search or lookup words on the Internet. "
-#~| "For example, to search for information about the KDE project using the "
-#~| "Google engine, you simply type <emphasis>gg:KDE</emphasis> or "
-#~| "<emphasis>google:KDE</emphasis>.</para><para>If you select a default "
-#~| "search engine, then you can search for normal words or phrases by simply "
-#~| "typing them into the input widget of applications that have built-in "
-#~| "support for such a feature, e.g Konqueror.</para>"
 #~ msgctxt "@info:whatsthis"
 #~ msgid ""
 #~ "<para>In this module you can configure the web search keywords feature. "
@@ -9510,11 +9318,6 @@ msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
 #~ msgstr "Zvuk"
 
 #, fuzzy
-#~| msgctxt "@info"
-#~| msgid ""
-#~| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#~| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone."
-#~| "</emphasis>"
 #~ msgctxt "@info"
 #~ msgid ""
 #~ "Do you really want to permanently delete this item?<nl/><filename>%1</"
@@ -9540,27 +9343,22 @@ msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
 #~ msgstr "Otvoriť %1 v karte"
 
 #, fuzzy
-#~| msgid "You are not authorized to execute this file."
 #~ msgid "Authentication is required to delete this file."
 #~ msgstr "Nemáte práva na spustenie tohto súboru."
 
 #, fuzzy
-#~| msgid "Click this button to create a new folder."
 #~ msgid "Authentication is required to create a folder."
 #~ msgstr "Kliknutím na toto tlačidlo vytvoríte nový priečinok."
 
 #, fuzzy
-#~| msgid "Failed to open the file."
 #~ msgid "Authentication is required to open this file."
 #~ msgstr "Nepodarilo sa otvoriť súbor."
 
 #, fuzzy
-#~| msgid "You are not authorized to execute this file."
 #~ msgid "Authentication is required to rename this file."
 #~ msgstr "Nemáte práva na spustenie tohto súboru."
 
 #, fuzzy
-#~| msgid "You are not authorized to execute this file."
 #~ msgid "Authentication is required to delete this folder."
 #~ msgstr "Nemáte práva na spustenie tohto súboru."
 
@@ -9946,13 +9744,6 @@ msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
 #~ msgstr "Pridať sieťový priečinok"
 
 #, fuzzy
-#~| msgctxt "@info"
-#~| msgid ""
-#~| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#~| "strong='true'>This action cannot be undone.</emphasis>"
-#~| msgid_plural ""
-#~| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#~| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 #~ msgctxt "@info"
 #~ msgid ""
 #~ "Do you really want to permanently delete these %1 items?<nl/><nl/"
@@ -9962,8 +9753,6 @@ msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
 #~ "strong='true'>Táto akcia sa nedá vrátiť späť.</emphasis>"
 
 #, fuzzy
-#~| msgid "Do you really want to move this item to the Trash?"
-#~| msgid_plural "Do you really want to move these %1 items to the Trash?"
 #~ msgctxt "@info"
 #~ msgid "Do you really want to move these %1 items to the Trash?"
 #~ msgstr "Naozaj chcete presunúť túto položku do koša?"
@@ -9996,7 +9785,6 @@ msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
 #~ "v Systémových nastaveniach KDE."
 
 #, fuzzy
-#~| msgid "A folder named %1 already exists."
 #~ msgid "A folder named \"%1\" already exists."
 #~ msgstr "Priečinok s názvom %1 už existuje."
 
@@ -10352,12 +10140,10 @@ msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
 #~ msgstr "&Iný..."
 
 #, fuzzy
-#~| msgid "C&ontinue"
 #~ msgid "Continue"
 #~ msgstr "&Pokračovať"
 
 #, fuzzy
-#~| msgid "C&ancel"
 #~ msgid "Cancel"
 #~ msgstr "&Zrušiť"
 
@@ -10365,7 +10151,6 @@ msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
 #~ msgstr "<qt>Súbor alebo priečinok <b>%1</b> neexistuje.</qt>"
 
 #, fuzzy
-#~| msgid "Ad&vanced Options"
 #~ msgid "Advanced options"
 #~ msgstr "&Pokročilé možnosti"
 

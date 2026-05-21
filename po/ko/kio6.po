@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-07 00:40+0000\n"
+"POT-Creation-Date: 2026-05-21 00:40+0000\n"
 "PO-Revision-Date: 2026-02-04 00:17+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO 워커를 만들 수 없음: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1008
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1008
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -60,7 +60,7 @@ msgstr ""
 "심볼릭 링크 \"%1\"을(를) 만들 수 없습니다.\n"
 "대상 파일 시스템(%2)에서 심볼릭 링크를 지원하지 않습니다."
 
-#: core/copyjob.cpp:179
+#: core/copyjob.cpp:202
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -74,7 +74,7 @@ msgstr ""
 "바꾸기를 선택하면 (대상 폴더 이름에) 사용할 수 없는 글자를 밑줄(\"_\")로 대체"
 "합니다."
 
-#: core/copyjob.cpp:187
+#: core/copyjob.cpp:210
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -88,23 +88,23 @@ msgstr ""
 "바꾸기를 선택하면 (대상 파일 이름에) 사용할 수 없는 글자를 밑줄(\"_\")로 대체"
 "합니다."
 
-#: core/copyjob.cpp:1403 core/job_error.cpp:588
+#: core/copyjob.cpp:1426 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "폴더가 이미 존재함"
 
-#: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "파일이 이미 존재함"
 
-#: core/copyjob.cpp:1736 core/copyjob.cpp:2441
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "이미 폴더로 존재함"
 
-#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:295
+#: core/copyjob.cpp:1914 kioworkers/trash/kio_trash.cpp:295
 #, kde-format
 msgid "Trash"
 msgstr "휴지통"
@@ -2455,217 +2455,217 @@ msgstr "버릴 것 없음"
 msgid "The specified folder does not exist or was not readable."
 msgstr "지정한 폴더가 없거나 읽을 수 없습니다."
 
-#: filewidgets/kdiroperator.cpp:2043
+#: filewidgets/kdiroperator.cpp:2044
 #, kde-format
 msgid "Menu"
 msgstr "메뉴"
 
-#: filewidgets/kdiroperator.cpp:2048
+#: filewidgets/kdiroperator.cpp:2049
 #, kde-format
 msgid "Parent Folder"
 msgstr "부모 폴더"
 
-#: filewidgets/kdiroperator.cpp:2055
+#: filewidgets/kdiroperator.cpp:2056
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "뒤로 이동"
 
-#: filewidgets/kdiroperator.cpp:2059
+#: filewidgets/kdiroperator.cpp:2060
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "앞으로 이동"
 
-#: filewidgets/kdiroperator.cpp:2063
+#: filewidgets/kdiroperator.cpp:2064
 #, kde-format
 msgid "Home Folder"
 msgstr "홈 폴더"
 
-#: filewidgets/kdiroperator.cpp:2067
+#: filewidgets/kdiroperator.cpp:2068
 #, kde-format
 msgid "Reload"
 msgstr "새로 고침"
 
-#: filewidgets/kdiroperator.cpp:2070
+#: filewidgets/kdiroperator.cpp:2071
 #, kde-format
 msgctxt "@action"
 msgid "New Folder…"
 msgstr "새 폴더…"
 
-#: filewidgets/kdiroperator.cpp:2080 widgets/jobuidelegate.cpp:271
+#: filewidgets/kdiroperator.cpp:2081 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
 #: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:312
 #, kde-format
 msgid "Move to Trash"
 msgstr "휴지통으로 이동"
 
-#: filewidgets/kdiroperator.cpp:2086
+#: filewidgets/kdiroperator.cpp:2087
 #, kde-format
 msgid "Delete"
 msgstr "삭제"
 
-#: filewidgets/kdiroperator.cpp:2093
+#: filewidgets/kdiroperator.cpp:2094
 #, kde-format
 msgid "Sorting"
 msgstr "정렬"
 
-#: filewidgets/kdiroperator.cpp:2098
+#: filewidgets/kdiroperator.cpp:2099
 #, kde-format
 msgid "Sort by Name"
 msgstr "이름순으로 정렬"
 
-#: filewidgets/kdiroperator.cpp:2104
+#: filewidgets/kdiroperator.cpp:2105
 #, kde-format
 msgid "Sort by Size"
 msgstr "크기순으로 정렬"
 
-#: filewidgets/kdiroperator.cpp:2110
+#: filewidgets/kdiroperator.cpp:2111
 #, kde-format
 msgid "Sort by Date"
 msgstr "날짜순으로 정렬"
 
-#: filewidgets/kdiroperator.cpp:2116
+#: filewidgets/kdiroperator.cpp:2117
 #, kde-format
 msgid "Sort by Type"
 msgstr "형식순으로 정렬"
 
-#: filewidgets/kdiroperator.cpp:2125
+#: filewidgets/kdiroperator.cpp:2126
 #, kde-format
 msgid "Ascending"
 msgstr "오름차순"
 
-#: filewidgets/kdiroperator.cpp:2132
+#: filewidgets/kdiroperator.cpp:2133
 #, kde-format
 msgid "Descending"
 msgstr "내림차순"
 
-#: filewidgets/kdiroperator.cpp:2139
+#: filewidgets/kdiroperator.cpp:2140
 #, kde-format
 msgid "Folders First"
 msgstr "폴더 우선"
 
-#: filewidgets/kdiroperator.cpp:2145
+#: filewidgets/kdiroperator.cpp:2146
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "숨김 파일 마지막에"
 
-#: filewidgets/kdiroperator.cpp:2152
+#: filewidgets/kdiroperator.cpp:2153
 #, kde-format
 msgid "Icons View"
 msgstr "아이콘 보기"
 
-#: filewidgets/kdiroperator.cpp:2159
+#: filewidgets/kdiroperator.cpp:2160
 #, kde-format
 msgid "Compact View"
 msgstr "축소된 보기"
 
-#: filewidgets/kdiroperator.cpp:2166
+#: filewidgets/kdiroperator.cpp:2167
 #, kde-format
 msgid "Details View"
 msgstr "자세히 보기"
 
-#: filewidgets/kdiroperator.cpp:2185
+#: filewidgets/kdiroperator.cpp:2186
 #, kde-format
 msgid "Icon Position"
 msgstr "아이콘 위치"
 
-#: filewidgets/kdiroperator.cpp:2188
+#: filewidgets/kdiroperator.cpp:2189
 #, kde-format
 msgid "Next to File Name"
 msgstr "파일 이름 옆"
 
-#: filewidgets/kdiroperator.cpp:2194
+#: filewidgets/kdiroperator.cpp:2195
 #, kde-format
 msgid "Above File Name"
 msgstr "파일 이름 위"
 
-#: filewidgets/kdiroperator.cpp:2208
+#: filewidgets/kdiroperator.cpp:2209
 #, kde-format
 msgid "Short View"
 msgstr "간단히 보기"
 
-#: filewidgets/kdiroperator.cpp:2215
+#: filewidgets/kdiroperator.cpp:2216
 #, kde-format
 msgid "Detailed View"
 msgstr "자세히 보기"
 
-#: filewidgets/kdiroperator.cpp:2222
+#: filewidgets/kdiroperator.cpp:2223
 #, kde-format
 msgid "Tree View"
 msgstr "트리 보기"
 
-#: filewidgets/kdiroperator.cpp:2229
+#: filewidgets/kdiroperator.cpp:2230
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "자세한 트리 보기"
 
-#: filewidgets/kdiroperator.cpp:2242
+#: filewidgets/kdiroperator.cpp:2243
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "자세히 보기 확장 허용"
 
-#: filewidgets/kdiroperator.cpp:2248
+#: filewidgets/kdiroperator.cpp:2249
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "숨겨진 파일 표시"
 
-#: filewidgets/kdiroperator.cpp:2255
+#: filewidgets/kdiroperator.cpp:2256
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "미리 보기 패널 표시"
 
-#: filewidgets/kdiroperator.cpp:2262
+#: filewidgets/kdiroperator.cpp:2263
 #, kde-format
 msgid "Show Preview"
 msgstr "미리 보기 표시"
 
-#: filewidgets/kdiroperator.cpp:2269
+#: filewidgets/kdiroperator.cpp:2270
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "포함하는 폴더 열기"
 
-#: filewidgets/kdiroperator.cpp:2276 filewidgets/kfileplacesview.cpp:1269
+#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1269
 #, kde-format
 msgid "Properties"
 msgstr "속성"
 
-#: filewidgets/kdiroperator.cpp:2285
+#: filewidgets/kdiroperator.cpp:2286
 #, kde-format
 msgid "&View Mode"
 msgstr "보기 모드(&V)"
 
-#: filewidgets/kdiroperator.cpp:2388 filewidgets/kdiroperator.cpp:2400
+#: filewidgets/kdiroperator.cpp:2389 filewidgets/kdiroperator.cpp:2401
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "힣-가"
 
-#: filewidgets/kdiroperator.cpp:2389 filewidgets/kdiroperator.cpp:2401
+#: filewidgets/kdiroperator.cpp:2390 filewidgets/kdiroperator.cpp:2402
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "가-힣"
 
-#: filewidgets/kdiroperator.cpp:2392
+#: filewidgets/kdiroperator.cpp:2393
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "오래된 항목 먼저"
 
-#: filewidgets/kdiroperator.cpp:2393
+#: filewidgets/kdiroperator.cpp:2394
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "새 항목 먼저"
 
-#: filewidgets/kdiroperator.cpp:2396
+#: filewidgets/kdiroperator.cpp:2397
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "큰 항목 먼저"
 
-#: filewidgets/kdiroperator.cpp:2397
+#: filewidgets/kdiroperator.cpp:2398
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -2750,7 +2750,7 @@ msgid "All Supported Files"
 msgstr "모든 지원하는 파일"
 
 #: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:2060
+#: filewidgets/kfilewidget.cpp:2057
 #, kde-format
 msgid "All Files"
 msgstr "모든 파일"
@@ -2955,86 +2955,86 @@ msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "어제 수정됨"
 
-#: filewidgets/kfileplacesmodel.cpp:1127
+#: filewidgets/kfileplacesmodel.cpp:1130
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "위치 패널에 추가할 수 없음: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1134
+#: filewidgets/kfileplacesmodel.cpp:1137
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "폴더만 위치 패널에 추가할 수 있습니다."
 
-#: filewidgets/kfileplacesmodel.cpp:1377
+#: filewidgets/kfileplacesmodel.cpp:1380
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure…"
 msgstr "설정…"
 
-#: filewidgets/kfileplacesmodel.cpp:1413
+#: filewidgets/kfileplacesmodel.cpp:1416
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "해제 중…"
 
-#: filewidgets/kfileplacesmodel.cpp:1415
+#: filewidgets/kfileplacesmodel.cpp:1418
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "놓기(&R)"
 
-#: filewidgets/kfileplacesmodel.cpp:1419
+#: filewidgets/kfileplacesmodel.cpp:1422
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "안전하게 제거 중…"
 
-#: filewidgets/kfileplacesmodel.cpp:1421
+#: filewidgets/kfileplacesmodel.cpp:1424
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "안전하게 제거(&S)"
 
-#: filewidgets/kfileplacesmodel.cpp:1426
+#: filewidgets/kfileplacesmodel.cpp:1429
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "마운트 해제 중…"
 
-#: filewidgets/kfileplacesmodel.cpp:1428
+#: filewidgets/kfileplacesmodel.cpp:1431
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "마운트 해제(&U)"
 
-#: filewidgets/kfileplacesmodel.cpp:1452
+#: filewidgets/kfileplacesmodel.cpp:1455
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "꺼내기(&E)"
 
-#: filewidgets/kfileplacesmodel.cpp:1499
+#: filewidgets/kfileplacesmodel.cpp:1502
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "'%1' 장치는 디스크가 아니므로 꺼낼 수 없습니다."
 
-#: filewidgets/kfileplacesmodel.cpp:1534
+#: filewidgets/kfileplacesmodel.cpp:1538
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "'%1'에 접근하는 중 오류가 발생했습니다. 시스템 응답: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1536
+#: filewidgets/kfileplacesmodel.cpp:1540
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "'%1'에 접근하는 중 오류가 발생했습니다"
 
-#: filewidgets/kfileplacesmodel.cpp:1562
+#: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr "이 장치에 있는 하나 이상의 파일이 다른 앱에서 열려 있습니다."
 
-#: filewidgets/kfileplacesmodel.cpp:1565
+#: filewidgets/kfileplacesmodel.cpp:1570
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3046,13 +3046,13 @@ msgstr[0] ""
 "이 장치에 있는 하나 이상의 파일이 다음 앱에서 열려 있습니다: <application>"
 "%2</application>."
 
-#: filewidgets/kfileplacesmodel.cpp:1568
+#: filewidgets/kfileplacesmodel.cpp:1573
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesmodel.cpp:1615
+#: filewidgets/kfileplacesmodel.cpp:1620
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
@@ -3179,32 +3179,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "매우 크게(%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:404
-#, kde-format
-msgid "Current Directory: %1"
-msgstr "현재 디렉터리: %1"
-
-#: filewidgets/kfilewidget.cpp:640
+#: filewidgets/kfilewidget.cpp:637
 #, kde-format
 msgid "You can only select one file"
 msgstr "한 파일만 선택할 수 있습니다"
 
-#: filewidgets/kfilewidget.cpp:640
+#: filewidgets/kfilewidget.cpp:637
 #, kde-format
 msgid "More than one file provided"
 msgstr "하나 이상의 파일 선택됨"
 
-#: filewidgets/kfilewidget.cpp:816
+#: filewidgets/kfilewidget.cpp:813
 #, kde-format
 msgid "You can only select local files"
 msgstr "로컬 파일만 선택할 수 있습니다"
 
-#: filewidgets/kfilewidget.cpp:816
+#: filewidgets/kfilewidget.cpp:813
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "원격 파일을 사용할 수 없음"
 
-#: filewidgets/kfilewidget.cpp:823
+#: filewidgets/kfilewidget.cpp:820
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3214,22 +3209,22 @@ msgid_plural ""
 "schemes: %2"
 msgstr[0] "선택한 URL 형식은 지원하지 않습니다. 다음 형식을 사용하십시오: %2"
 
-#: filewidgets/kfilewidget.cpp:829
+#: filewidgets/kfilewidget.cpp:826
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "지원하지 않는 URL 형식"
 
-#: filewidgets/kfilewidget.cpp:850
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "\"%1\" 파일을 찾을 수 없습니다"
 
-#: filewidgets/kfilewidget.cpp:850
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "Cannot open file"
 msgstr "파일을 열 수 없음"
 
-#: filewidgets/kfilewidget.cpp:1219
+#: filewidgets/kfilewidget.cpp:1216
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3240,42 +3235,42 @@ msgstr ""
 "치가 file:/home/konqi이면 이 단추를 클릭했을 때 file:/home으로 이동합니다.</"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1223
+#: filewidgets/kfilewidget.cpp:1220
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "이 단추를 클릭하면 탐색 기록의 이후 단계로 이동합니다."
 
-#: filewidgets/kfilewidget.cpp:1224
+#: filewidgets/kfilewidget.cpp:1221
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "이 단추를 클릭하면 탐색 기록의 이전 단계로 이동합니다."
 
-#: filewidgets/kfilewidget.cpp:1226
+#: filewidgets/kfilewidget.cpp:1223
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "이 단추를 클릭하면 현재 위치의 내용물을 다시 읽어 옵니다."
 
-#: filewidgets/kfilewidget.cpp:1228
+#: filewidgets/kfilewidget.cpp:1225
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "새 폴더를 만들려면 이 단추를 클릭하십시오."
 
-#: filewidgets/kfilewidget.cpp:1230
+#: filewidgets/kfilewidget.cpp:1227
 #, kde-format
 msgid "Show Places Panel"
 msgstr "위치 패널 표시"
 
-#: filewidgets/kfilewidget.cpp:1237
+#: filewidgets/kfilewidget.cpp:1234
 #, kde-format
 msgid "Show Quick Filter"
 msgstr "빠른 필터 표시"
 
-#: filewidgets/kfilewidget.cpp:1245
+#: filewidgets/kfilewidget.cpp:1242
 #, kde-format
 msgid "Options"
 msgstr "옵션"
 
-#: filewidgets/kfilewidget.cpp:1248
+#: filewidgets/kfilewidget.cpp:1245
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3289,12 +3284,12 @@ msgstr ""
 "아이콘과 목록 등 보기 종류</li><li>숨김 파일 표시 여부</li><li>위치 패널</"
 "li><li>파일 미리 보기</li><li>파일과 폴더 분리</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1267
+#: filewidgets/kfilewidget.cpp:1264
 #, kde-format
 msgid "Bookmarks"
 msgstr "책갈피"
 
-#: filewidgets/kfilewidget.cpp:1271
+#: filewidgets/kfilewidget.cpp:1268
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3308,35 +3303,35 @@ msgstr ""
 "니다.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1316 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1313 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "이름(&N):"
 
-#: filewidgets/kfilewidget.cpp:1341
+#: filewidgets/kfilewidget.cpp:1338
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "파일 이름 바꾸기 실행 취소"
 
-#: filewidgets/kfilewidget.cpp:1396
+#: filewidgets/kfilewidget.cpp:1393
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr "폴더 변경 시 필터 유지"
 
-#: filewidgets/kfilewidget.cpp:1400
+#: filewidgets/kfilewidget.cpp:1397
 #, kde-format
 msgid "Filter by name…"
 msgstr "이름으로 필터…"
 
-#: filewidgets/kfilewidget.cpp:1408
+#: filewidgets/kfilewidget.cpp:1405
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "필터 표시줄 숨기기"
 
-#: filewidgets/kfilewidget.cpp:1457
+#: filewidgets/kfilewidget.cpp:1454
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3348,12 +3343,12 @@ msgstr ""
 "우스 오른쪽 단추를 클릭한 다음 <b>텍스트 완성</b> 메뉴에서 제어할 수 있습니"
 "다.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1464
+#: filewidgets/kfilewidget.cpp:1461
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "다른 이름으로 저장할 파일의 이름입니다."
 
-#: filewidgets/kfilewidget.cpp:1467
+#: filewidgets/kfilewidget.cpp:1464
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3362,73 +3357,78 @@ msgstr ""
 "열 파일의 목록입니다. 공백으로 구분해서 하나 이상의 파일을 지정할 수 있습니"
 "다."
 
-#: filewidgets/kfilewidget.cpp:1472
+#: filewidgets/kfilewidget.cpp:1469
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "열 파일의 이름입니다."
 
-#: filewidgets/kfilewidget.cpp:1485
+#: filewidgets/kfilewidget.cpp:1482
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "위치"
 
-#: filewidgets/kfilewidget.cpp:1766
+#: filewidgets/kfilewidget.cpp:1763
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "\"%1\" 파일이 이미 존재합니다. 덮어쓰시겠습니까?"
 
-#: filewidgets/kfilewidget.cpp:1767
+#: filewidgets/kfilewidget.cpp:1764
 #, kde-format
 msgid "Overwrite File?"
 msgstr "파일을 덮어쓰시겠습니까?"
 
-#: filewidgets/kfilewidget.cpp:1964
+#: filewidgets/kfilewidget.cpp:1961
 #, kde-format
 msgid "You can only select local files."
 msgstr "로컬 파일만 선택할 수 있습니다."
 
-#: filewidgets/kfilewidget.cpp:1964
+#: filewidgets/kfilewidget.cpp:1961
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "원격 파일을 사용할 수 없음"
 
-#: filewidgets/kfilewidget.cpp:2058
+#: filewidgets/kfilewidget.cpp:2055
 #, kde-format
 msgid "All Folders"
 msgstr "모든 폴더"
 
-#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:842
+#: filewidgets/kfilewidget.cpp:2079
+#, kde-format
+msgid "Current Directory: %1"
+msgstr "현재 디렉터리: %1"
+
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:847
 #, kde-format
 msgid "&Open"
 msgstr "열기(&O)"
 
-#: filewidgets/kfilewidget.cpp:2299
+#: filewidgets/kfilewidget.cpp:2307
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "아이콘 크기: %1픽셀"
 
-#: filewidgets/kfilewidget.cpp:2466
+#: filewidgets/kfilewidget.cpp:2474
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "파일 이름 확장자(%1) 자동 선택(&X)"
 
-#: filewidgets/kfilewidget.cpp:2467
+#: filewidgets/kfilewidget.cpp:2475
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "확장자 <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2473
+#: filewidgets/kfilewidget.cpp:2481
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "자동으로 파일 확장자 붙이기(&X)"
 
-#: filewidgets/kfilewidget.cpp:2474
+#: filewidgets/kfilewidget.cpp:2482
 #, kde-format
 msgid "a suitable extension"
 msgstr "적당한 확장자"
 
-#: filewidgets/kfilewidget.cpp:2482
+#: filewidgets/kfilewidget.cpp:2490
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3453,12 +3453,12 @@ msgstr ""
 "억제할 수 있습니다(점은 자동으로 삭제됨).</li></ol>확실하지 않은 경우 이 옵션"
 "을 사용하면 파일을 보다 쉽게 관리할 수 있습니다."
 
-#: filewidgets/kfilewidget.cpp:2948
+#: filewidgets/kfilewidget.cpp:2956
 #, kde-format
 msgid "&File type:"
 msgstr "파일 형식(&F):"
 
-#: filewidgets/kfilewidget.cpp:2952
+#: filewidgets/kfilewidget.cpp:2960
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3466,7 +3466,7 @@ msgid ""
 msgstr ""
 "<qt>파일 형식 선택기입니다. 저장할 파일 형식을 선택할 수 있습니다.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2954
+#: filewidgets/kfilewidget.cpp:2962
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
@@ -3474,44 +3474,44 @@ msgid ""
 msgstr ""
 "<qt>파일 형식 선택기입니다. 표시할 파일 형식을 선택할 수 있습니다.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:518
-#, kde-format
-msgid "Sorry"
-msgstr "죄송합니다"
-
-#: filewidgets/knewfilemenu.cpp:529
-#, kde-format
-msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
-msgstr "<qt>서식 파일 <b>%1</b>이(가) 없습니다.</qt>"
-
-#: filewidgets/knewfilemenu.cpp:683 filewidgets/knewfilemenu.cpp:748
-#, kde-format
-msgid "Name for new link:"
-msgstr "새 링크 이름:"
-
-#: filewidgets/knewfilemenu.cpp:686
-#, kde-format
-msgid "Create Symlink"
-msgstr "심볼릭 링크 만들기"
-
-#: filewidgets/knewfilemenu.cpp:752
-#, kde-format
-msgid "Create link to URL"
-msgstr "URL로 향한 링크 만들기"
-
-#: filewidgets/knewfilemenu.cpp:793 filewidgets/knewfilemenu.cpp:848
-#, kde-format
-msgctxt "@item:inmenu Create New"
-msgid "%1"
-msgstr "%1"
-
-#: filewidgets/knewfilemenu.cpp:1128
+#: filewidgets/knewfilemenu.cpp:224
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "%1 파일 이름 입력:"
 
-#: filewidgets/knewfilemenu.cpp:1227
+#: filewidgets/knewfilemenu.cpp:538
+#, kde-format
+msgid "Sorry"
+msgstr "죄송합니다"
+
+#: filewidgets/knewfilemenu.cpp:549
+#, kde-format
+msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
+msgstr "<qt>서식 파일 <b>%1</b>이(가) 없습니다.</qt>"
+
+#: filewidgets/knewfilemenu.cpp:700 filewidgets/knewfilemenu.cpp:765
+#, kde-format
+msgid "Name for new link:"
+msgstr "새 링크 이름:"
+
+#: filewidgets/knewfilemenu.cpp:703
+#, kde-format
+msgid "Create Symlink"
+msgstr "심볼릭 링크 만들기"
+
+#: filewidgets/knewfilemenu.cpp:769
+#, kde-format
+msgid "Create link to URL"
+msgstr "URL로 향한 링크 만들기"
+
+#: filewidgets/knewfilemenu.cpp:810 filewidgets/knewfilemenu.cpp:834
+#, kde-format
+msgctxt "@item:inmenu Create New"
+msgid "%1"
+msgstr "%1"
+
+#: filewidgets/knewfilemenu.cpp:1179
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3521,7 +3521,7 @@ msgstr ""
 "<filename>%1</filename> 이름을 사용할 수 없습니다. 운영 체제에서 예약된 이름"
 "입니다."
 
-#: filewidgets/knewfilemenu.cpp:1235
+#: filewidgets/knewfilemenu.cpp:1187
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3530,7 +3530,7 @@ msgid ""
 msgstr ""
 "<filename>%1</filename> 이름이 점으로 시작하므로 기본적으로 숨겨집니다."
 
-#: filewidgets/knewfilemenu.cpp:1243
+#: filewidgets/knewfilemenu.cpp:1195
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3541,27 +3541,27 @@ msgstr ""
 "<filename>%1</filename> 이름이 공백으로 시작합니다. 가나다순으로 정렬했을 때 "
 "다른 항목보다 더 먼저 표시될 수 있습니다."
 
-#: filewidgets/knewfilemenu.cpp:1261
+#: filewidgets/knewfilemenu.cpp:1213
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "폴더 이름에 슬래시를 사용하면 다음과 같이 하위 폴더가 생성됨:"
 
-#: filewidgets/knewfilemenu.cpp:1275
+#: filewidgets/knewfilemenu.cpp:1227
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "폴더 이름에 슬래시를 사용하면 하위 폴더가 생성됩니다."
 
-#: filewidgets/knewfilemenu.cpp:1287
+#: filewidgets/knewfilemenu.cpp:1239
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "파일이나 폴더 이름에 슬래시를 사용할 수 없습니다."
 
-#: filewidgets/knewfilemenu.cpp:1292
+#: filewidgets/knewfilemenu.cpp:1244
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "파일이나 폴더 이름에 백슬래시를 사용할 수 없습니다."
 
-#: filewidgets/knewfilemenu.cpp:1306
+#: filewidgets/knewfilemenu.cpp:1258
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3571,7 +3571,7 @@ msgstr ""
 "이름이 <filename>%1</filename>인 폴더를 만들 수 없습니다. 사용자의 홈 폴더 위"
 "치와 겹칠 수 있습니다."
 
-#: filewidgets/knewfilemenu.cpp:1315
+#: filewidgets/knewfilemenu.cpp:1267
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3580,52 +3580,52 @@ msgstr ""
 "파일이나 폴더 이름을 물결표(~)로 시작하는 것은 추천하지 않습니다. 혼동할 가능"
 "성이 있으며 터미널에서 항목을 삭제할 때 위험할 수 있습니다."
 
-#: filewidgets/knewfilemenu.cpp:1387
+#: filewidgets/knewfilemenu.cpp:1339
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "이름이 <filename>%1</filename>인 디렉터리가 이미 존재합니다."
 
-#: filewidgets/knewfilemenu.cpp:1389
+#: filewidgets/knewfilemenu.cpp:1341
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "이름이 <filename>%1</filename>인 파일이 이미 존재합니다."
 
-#: filewidgets/knewfilemenu.cpp:1475
+#: filewidgets/knewfilemenu.cpp:1427
 #, kde-format
 msgid "Create New"
 msgstr "새로 만들기"
 
-#: filewidgets/knewfilemenu.cpp:1510
+#: filewidgets/knewfilemenu.cpp:1462
 #, kde-format
 msgid "Link to Device"
 msgstr "장치로 향한 링크"
 
-#: filewidgets/knewfilemenu.cpp:1556
+#: filewidgets/knewfilemenu.cpp:1501
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "새 폴더"
 
-#: filewidgets/knewfilemenu.cpp:1579
+#: filewidgets/knewfilemenu.cpp:1524
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "새 폴더 만들기"
 
-#: filewidgets/knewfilemenu.cpp:1581
+#: filewidgets/knewfilemenu.cpp:1526
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "%1에 새 폴더 만들기:"
 
-#: filewidgets/knewfilemenu.cpp:1584 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1529 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "폴더 이름 입력"
 
-#: filewidgets/knewfilemenu.cpp:1641
+#: filewidgets/knewfilemenu.cpp:1586
 #, kde-format
 msgid "Default"
 msgstr "기본값"
@@ -4064,7 +4064,7 @@ msgstr "실행할 명령"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'command'에 사용할 URL이나 로컬 파일"
 
-#: kioworkers/file/file.cpp:650
+#: kioworkers/file/file.cpp:649
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4073,7 +4073,7 @@ msgstr ""
 "%1\n"
 "의 권한을 바꿀 수 없습니다"
 
-#: kioworkers/file/file.cpp:658
+#: kioworkers/file/file.cpp:657
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4083,17 +4083,17 @@ msgstr ""
 "%1\n"
 "의 소유자와 그룹을 변경할 수 없습니다"
 
-#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
+#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "임시 파일을 열 수 없음"
 
-#: kioworkers/file/file.cpp:765
+#: kioworkers/file/file.cpp:764
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" 프로그램을 찾을 수 없음"
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:841
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" 프로그램을 찾을 수 없음"
@@ -4165,7 +4165,7 @@ msgstr "이 사이트에 연결하려면 사용자 이름과 암호가 필요합
 msgid "Site:"
 msgstr "사이트:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2500
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2499
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4189,7 +4189,7 @@ msgstr ""
 "\n"
 "서버 응답: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2495 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2494 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4198,12 +4198,12 @@ msgstr ""
 "모든 사이트에 접근하려면 아래에 나열된 프록시 서버에 대한 사용자 이름과 암호"
 "를 입력해야 합니다."
 
-#: kioworkers/ftp/ftp.cpp:2499 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "프록시:"
 
-#: kioworkers/ftp/ftp.cpp:2502
+#: kioworkers/ftp/ftp.cpp:2501
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "프록시 인증이 실패했습니다."
@@ -4266,90 +4266,90 @@ msgstr "서버 인증"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%2</b>의 <b>%1</b>"
 
-#: kioworkers/http/http.cpp:1396
+#: kioworkers/http/http.cpp:1397
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "그렇지 않다면 요청이 성공했을 수도 있습니다."
 
-#: kioworkers/http/http.cpp:1399
+#: kioworkers/http/http.cpp:1400
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "속성 값 가져오기"
 
-#: kioworkers/http/http.cpp:1401
+#: kioworkers/http/http.cpp:1402
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "속성 값 설정"
 
-#: kioworkers/http/http.cpp:1403
+#: kioworkers/http/http.cpp:1404
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "요청한 폴더 만들기"
 
-#: kioworkers/http/http.cpp:1405
+#: kioworkers/http/http.cpp:1406
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "지정한 파일이나 디렉터리 복사"
 
-#: kioworkers/http/http.cpp:1407
+#: kioworkers/http/http.cpp:1408
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "지정한 파일이나 디렉터리 이동"
 
-#: kioworkers/http/http.cpp:1409
+#: kioworkers/http/http.cpp:1410
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "지정한 폴더에서 검색"
 
-#: kioworkers/http/http.cpp:1411
+#: kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "지정한 파일이나 폴더 잠그기"
 
-#: kioworkers/http/http.cpp:1413
+#: kioworkers/http/http.cpp:1414
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "지정한 파일이나 폴더 잠금 풀기"
 
-#: kioworkers/http/http.cpp:1415
+#: kioworkers/http/http.cpp:1416
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "지정한 파일이나 폴더 지우기"
 
-#: kioworkers/http/http.cpp:1417
+#: kioworkers/http/http.cpp:1418
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "서버의 기능 조회"
 
-#: kioworkers/http/http.cpp:1419
+#: kioworkers/http/http.cpp:1420
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "지정한 파일이나 폴더의 내용 가져오기"
 
-#: kioworkers/http/http.cpp:1421
+#: kioworkers/http/http.cpp:1422
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "지정한 폴더에서 보고서 실행"
 
-#: kioworkers/http/http.cpp:1429
+#: kioworkers/http/http.cpp:1430
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2을(를) 시도하는 동안 예기치 않은 오류(%1)가 발생했습니다."
 
-#: kioworkers/http/http.cpp:1469
+#: kioworkers/http/http.cpp:1470
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4359,13 +4359,13 @@ msgstr ""
 "%1, %2을(를) 시도하는 동안 오류가 발생했습니다. 이유에 대한 요약은 다음과 같"
 "습니다."
 
-#: kioworkers/http/http.cpp:1487 kioworkers/http/http.cpp:1631
+#: kioworkers/http/http.cpp:1488 kioworkers/http/http.cpp:1632
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1에 접근하려는 시도가 거부되었습니다."
 
-#: kioworkers/http/http.cpp:1501 kioworkers/http/http.cpp:1638
+#: kioworkers/http/http.cpp:1502 kioworkers/http/http.cpp:1639
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4374,7 +4374,7 @@ msgstr ""
 "하나 이상의 중간 모음집(폴더)이 생성될 때까지 대상에 리소스를 생성할 수 없습"
 "니다."
 
-#: kioworkers/http/http.cpp:1510
+#: kioworkers/http/http.cpp:1511
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4389,28 +4389,28 @@ msgstr ""
 "겹쳐 쓰려고 했습니다.\n"
 "%1"
 
-#: kioworkers/http/http.cpp:1518
+#: kioworkers/http/http.cpp:1519
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "요청한 잠금이 허가되지 않았습니다. %1"
 
-#: kioworkers/http/http.cpp:1524
+#: kioworkers/http/http.cpp:1525
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "서버가 본문의 요청 형식을 지원하지 않습니다."
 
-#: kioworkers/http/http.cpp:1529 kioworkers/http/http.cpp:1646
+#: kioworkers/http/http.cpp:1530 kioworkers/http/http.cpp:1647
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "리소스가 잠겨 %1을(를) 사용할 수 없습니다."
 
-#: kioworkers/http/http.cpp:1533
+#: kioworkers/http/http.cpp:1534
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "이 작업은 다른 오류로 인해 차단되었습니다."
 
-#: kioworkers/http/http.cpp:1540 kioworkers/http/http.cpp:1653
+#: kioworkers/http/http.cpp:1541 kioworkers/http/http.cpp:1654
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4418,7 +4418,7 @@ msgid ""
 "folder."
 msgstr "대상 서버가 파일이나 폴더를 받아들일 수 없기 때문에 %1할 수 없습니다."
 
-#: kioworkers/http/http.cpp:1549 kioworkers/http/http.cpp:1662
+#: kioworkers/http/http.cpp:1550 kioworkers/http/http.cpp:1663
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4426,18 +4426,18 @@ msgid ""
 msgstr ""
 "대상 리소스에 이 방법을 실행한 후, 리소스 상태를 기록할 공간이 부족합니다."
 
-#: kioworkers/http/http.cpp:1602
+#: kioworkers/http/http.cpp:1603
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "리소스를 삭제할 수 없습니다."
 
-#: kioworkers/http/http.cpp:1622
+#: kioworkers/http/http.cpp:1623
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 업로드"
 
-#: kioworkers/http/http.cpp:1673
+#: kioworkers/http/http.cpp:1674
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -5142,43 +5142,43 @@ msgstr "시스템 설정 업데이트 중"
 msgid "Updating system configuration…"
 msgstr "시스템 설정 업데이트 중…"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1256
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "이름"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1258
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "크기"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1260
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "날짜"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1262
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "권한"
 
-#: widgets/kdirmodel.cpp:1272
+#: widgets/kdirmodel.cpp:1264
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "소유자"
 
-#: widgets/kdirmodel.cpp:1274
+#: widgets/kdirmodel.cpp:1266
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "그룹"
 
-#: widgets/kdirmodel.cpp:1276
+#: widgets/kdirmodel.cpp:1268
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
@@ -5201,48 +5201,48 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "작업(&A)"
 
-#: widgets/kfileitemactions.cpp:751
+#: widgets/kfileitemactions.cpp:756
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "다음으로 폴더 열기(&O)…"
 
-#: widgets/kfileitemactions.cpp:751
+#: widgets/kfileitemactions.cpp:756
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "다음으로 열기(&O)…"
 
-#: widgets/kfileitemactions.cpp:809
+#: widgets/kfileitemactions.cpp:814
 #, fuzzy, kde-format
 #| msgid "&Run Executable"
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "파일 실행(&R)"
 
-#: widgets/kfileitemactions.cpp:831
+#: widgets/kfileitemactions.cpp:836
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "%1(으)로 폴더 열기(&O)|/|%1$[으 %1]로 폴더 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:831
+#: widgets/kfileitemactions.cpp:836
 #, kde-format
 msgid "&Open with %1"
 msgstr "%1(으)로 열기(&O)|/|%1$[으 %1]로 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:863
+#: widgets/kfileitemactions.cpp:868
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "다음으로 폴더 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:863
+#: widgets/kfileitemactions.cpp:868
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "다음으로 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:874
+#: widgets/kfileitemactions.cpp:879
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

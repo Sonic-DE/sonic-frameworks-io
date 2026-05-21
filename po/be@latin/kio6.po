@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-07 00:40+0000\n"
+"POT-Creation-Date: 2026-05-21 00:40+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Niemahčyma stvaryć io-slave: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1008
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1008
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "The first arg is the path to the symlink that couldnt be created, the "
@@ -70,7 +70,7 @@ msgstr ""
 "Nie ŭdalosia stvaryć simvaličnuju spasylku \"%1\".\n"
 "Metavaja fajlavaja sistema (%2) nie padtrymlivaje simvaličnych spasylak."
 
-#: core/copyjob.cpp:179
+#: core/copyjob.cpp:202
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -85,7 +85,7 @@ msgstr ""
 "Kali abrać \"Zamianić\", to ŭsio nieprydatnyja simvaly ŭ nazvach zamieniacca "
 "simvalam \"_\"."
 
-#: core/copyjob.cpp:187
+#: core/copyjob.cpp:210
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -100,23 +100,23 @@ msgstr ""
 "Kali abrać \"Zamianić\", to ŭsio nieprydatnyja simvaly ŭ nazvach zamieniacca "
 "simvalam \"_\"."
 
-#: core/copyjob.cpp:1403 core/job_error.cpp:588
+#: core/copyjob.cpp:1426 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Kataloh užo isnuje"
 
-#: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fajl užo isnuje"
 
-#: core/copyjob.cpp:1736 core/copyjob.cpp:2441
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Užo isnuje kataloh z takoj nazvaj"
 
-#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:295
+#: core/copyjob.cpp:1914 kioworkers/trash/kio_trash.cpp:295
 #, kde-format
 msgid "Trash"
 msgstr "Smietnica"
@@ -2595,39 +2595,39 @@ msgstr "Niama čaho pieramiaščać u smietnicu"
 msgid "The specified folder does not exist or was not readable."
 msgstr "Vyznačany kataloh nie isnuje abo jaho niemahčyma pračytać."
 
-#: filewidgets/kdiroperator.cpp:2043
+#: filewidgets/kdiroperator.cpp:2044
 #, kde-format
 msgid "Menu"
 msgstr "Mieniu"
 
-#: filewidgets/kdiroperator.cpp:2048
+#: filewidgets/kdiroperator.cpp:2049
 #, kde-format
 msgid "Parent Folder"
 msgstr "Baćkoŭski kataloh"
 
-#: filewidgets/kdiroperator.cpp:2055
+#: filewidgets/kdiroperator.cpp:2056
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Nazad"
 
-#: filewidgets/kdiroperator.cpp:2059
+#: filewidgets/kdiroperator.cpp:2060
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Napierad"
 
-#: filewidgets/kdiroperator.cpp:2063
+#: filewidgets/kdiroperator.cpp:2064
 #, kde-format
 msgid "Home Folder"
 msgstr "Chatni kataloh"
 
-#: filewidgets/kdiroperator.cpp:2067
+#: filewidgets/kdiroperator.cpp:2068
 #, kde-format
 msgid "Reload"
 msgstr "Pierazahruzić"
 
-#: filewidgets/kdiroperator.cpp:2070
+#: filewidgets/kdiroperator.cpp:2071
 #, fuzzy, kde-format
 #| msgctxt "Default name for a new folder"
 #| msgid "New Folder"
@@ -2635,179 +2635,179 @@ msgctxt "@action"
 msgid "New Folder…"
 msgstr "Novy kataloh"
 
-#: filewidgets/kdiroperator.cpp:2080 widgets/jobuidelegate.cpp:271
+#: filewidgets/kdiroperator.cpp:2081 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
 #: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:312
 #, kde-format
 msgid "Move to Trash"
 msgstr "Pieramiascić u smietnicu"
 
-#: filewidgets/kdiroperator.cpp:2086
+#: filewidgets/kdiroperator.cpp:2087
 #, kde-format
 msgid "Delete"
 msgstr "Vydalić"
 
-#: filewidgets/kdiroperator.cpp:2093
+#: filewidgets/kdiroperator.cpp:2094
 #, kde-format
 msgid "Sorting"
 msgstr "Sartavannie"
 
-#: filewidgets/kdiroperator.cpp:2098
+#: filewidgets/kdiroperator.cpp:2099
 #, kde-format
 msgid "Sort by Name"
 msgstr "Sartavać pa nazvie"
 
-#: filewidgets/kdiroperator.cpp:2104
+#: filewidgets/kdiroperator.cpp:2105
 #, kde-format
 msgid "Sort by Size"
 msgstr "Sartavać pa pamiery"
 
-#: filewidgets/kdiroperator.cpp:2110
+#: filewidgets/kdiroperator.cpp:2111
 #, kde-format
 msgid "Sort by Date"
 msgstr "Sartavać pa dacie"
 
-#: filewidgets/kdiroperator.cpp:2116
+#: filewidgets/kdiroperator.cpp:2117
 #, kde-format
 msgid "Sort by Type"
 msgstr "Sartavać pa typu"
 
-#: filewidgets/kdiroperator.cpp:2125
+#: filewidgets/kdiroperator.cpp:2126
 #, kde-format
 msgid "Ascending"
 msgstr "Pa pavieličenni"
 
-#: filewidgets/kdiroperator.cpp:2132
+#: filewidgets/kdiroperator.cpp:2133
 #, kde-format
 msgid "Descending"
 msgstr "Pa pamianšenni"
 
-#: filewidgets/kdiroperator.cpp:2139
+#: filewidgets/kdiroperator.cpp:2140
 #, kde-format
 msgid "Folders First"
 msgstr "Spačatku katalohi"
 
-#: filewidgets/kdiroperator.cpp:2145
+#: filewidgets/kdiroperator.cpp:2146
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Schavanyja fajly ŭ kancy"
 
-#: filewidgets/kdiroperator.cpp:2152
+#: filewidgets/kdiroperator.cpp:2153
 #, kde-format
 msgid "Icons View"
 msgstr "Znački"
 
-#: filewidgets/kdiroperator.cpp:2159
+#: filewidgets/kdiroperator.cpp:2160
 #, kde-format
 msgid "Compact View"
 msgstr "Kampaktny vyhliad"
 
-#: filewidgets/kdiroperator.cpp:2166
+#: filewidgets/kdiroperator.cpp:2167
 #, kde-format
 msgid "Details View"
 msgstr "Padrabiazny vyhliad"
 
-#: filewidgets/kdiroperator.cpp:2185
+#: filewidgets/kdiroperator.cpp:2186
 #, kde-format
 msgid "Icon Position"
 msgstr "Pazicyja značkoŭ"
 
-#: filewidgets/kdiroperator.cpp:2188
+#: filewidgets/kdiroperator.cpp:2189
 #, kde-format
 msgid "Next to File Name"
 msgstr "Paslia nazvy fajla"
 
-#: filewidgets/kdiroperator.cpp:2194
+#: filewidgets/kdiroperator.cpp:2195
 #, kde-format
 msgid "Above File Name"
 msgstr "Nad nazvaj fajla"
 
-#: filewidgets/kdiroperator.cpp:2208
+#: filewidgets/kdiroperator.cpp:2209
 #, kde-format
 msgid "Short View"
 msgstr "Scisly vyhliad"
 
-#: filewidgets/kdiroperator.cpp:2215
+#: filewidgets/kdiroperator.cpp:2216
 #, kde-format
 msgid "Detailed View"
 msgstr "Padrabiazny vyhliad"
 
-#: filewidgets/kdiroperator.cpp:2222
+#: filewidgets/kdiroperator.cpp:2223
 #, kde-format
 msgid "Tree View"
 msgstr "U vyhliadzie dreva"
 
-#: filewidgets/kdiroperator.cpp:2229
+#: filewidgets/kdiroperator.cpp:2230
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Padrabiazny ŭ vyhliadzie dreva"
 
-#: filewidgets/kdiroperator.cpp:2242
+#: filewidgets/kdiroperator.cpp:2243
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Dazvolić razhortvannie ŭ padrabiaznym vyhliadzie"
 
-#: filewidgets/kdiroperator.cpp:2248
+#: filewidgets/kdiroperator.cpp:2249
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Pakazvać schavanyja fajly"
 
-#: filewidgets/kdiroperator.cpp:2255
+#: filewidgets/kdiroperator.cpp:2256
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Pakazvać paneĺ papiaredniaha prahliadu"
 
-#: filewidgets/kdiroperator.cpp:2262
+#: filewidgets/kdiroperator.cpp:2263
 #, kde-format
 msgid "Show Preview"
 msgstr "Pakazvać papiaredni prahliad"
 
-#: filewidgets/kdiroperator.cpp:2269
+#: filewidgets/kdiroperator.cpp:2270
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Adkryć kataloh zmiesciva"
 
-#: filewidgets/kdiroperator.cpp:2276 filewidgets/kfileplacesview.cpp:1269
+#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1269
 #, kde-format
 msgid "Properties"
 msgstr "Ulascivasci"
 
-#: filewidgets/kdiroperator.cpp:2285
+#: filewidgets/kdiroperator.cpp:2286
 #, kde-format
 msgid "&View Mode"
 msgstr "&Vyhliad"
 
-#: filewidgets/kdiroperator.cpp:2388 filewidgets/kdiroperator.cpp:2400
+#: filewidgets/kdiroperator.cpp:2389 filewidgets/kdiroperator.cpp:2401
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Ja-A"
 
-#: filewidgets/kdiroperator.cpp:2389 filewidgets/kdiroperator.cpp:2401
+#: filewidgets/kdiroperator.cpp:2390 filewidgets/kdiroperator.cpp:2402
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Ja"
 
-#: filewidgets/kdiroperator.cpp:2392
+#: filewidgets/kdiroperator.cpp:2393
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Spačatku starejšyja"
 
-#: filewidgets/kdiroperator.cpp:2393
+#: filewidgets/kdiroperator.cpp:2394
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Spačatku naviejšyja"
 
-#: filewidgets/kdiroperator.cpp:2396
+#: filewidgets/kdiroperator.cpp:2397
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Spačatku boĺšyja"
 
-#: filewidgets/kdiroperator.cpp:2397
+#: filewidgets/kdiroperator.cpp:2398
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -2894,7 +2894,7 @@ msgid "All Supported Files"
 msgstr "Usie fajly, jakija padtrymlivajucca"
 
 #: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:2060
+#: filewidgets/kfilewidget.cpp:2057
 #, kde-format
 msgid "All Files"
 msgstr "Usie fajly"
@@ -3106,25 +3106,25 @@ msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "Zmieniena ŭčora"
 
-#: filewidgets/kfileplacesmodel.cpp:1127
+#: filewidgets/kfileplacesmodel.cpp:1130
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Nie ŭdalosia dadać paneĺ razmiaščenniaŭ: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1134
+#: filewidgets/kfileplacesmodel.cpp:1137
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "Na paneĺ razmiaščenniaŭ možna dadavać toĺki katalohi."
 
-#: filewidgets/kfileplacesmodel.cpp:1377
+#: filewidgets/kfileplacesmodel.cpp:1380
 #, fuzzy, kde-format
 #| msgid "Configure Web Shortcuts..."
 msgctxt "@action:inmenu"
 msgid "Configure…"
 msgstr "Naladžvannie sieciŭnych skarotaŭ..."
 
-#: filewidgets/kfileplacesmodel.cpp:1413
+#: filewidgets/kfileplacesmodel.cpp:1416
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "&Release"
@@ -3132,13 +3132,13 @@ msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "&Vypusk"
 
-#: filewidgets/kfileplacesmodel.cpp:1415
+#: filewidgets/kfileplacesmodel.cpp:1418
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&Vypusk"
 
-#: filewidgets/kfileplacesmodel.cpp:1419
+#: filewidgets/kfileplacesmodel.cpp:1422
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "&Safely Remove"
@@ -3146,13 +3146,13 @@ msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "&Biaspiečnaje vymannie"
 
-#: filewidgets/kfileplacesmodel.cpp:1421
+#: filewidgets/kfileplacesmodel.cpp:1424
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&Biaspiečnaje vymannie"
 
-#: filewidgets/kfileplacesmodel.cpp:1426
+#: filewidgets/kfileplacesmodel.cpp:1429
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Unmounting"
@@ -3160,43 +3160,43 @@ msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Admantavannie"
 
-#: filewidgets/kfileplacesmodel.cpp:1428
+#: filewidgets/kfileplacesmodel.cpp:1431
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&Admantavać"
 
-#: filewidgets/kfileplacesmodel.cpp:1452
+#: filewidgets/kfileplacesmodel.cpp:1455
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&Vyniać"
 
-#: filewidgets/kfileplacesmodel.cpp:1499
+#: filewidgets/kfileplacesmodel.cpp:1502
 #, fuzzy, kde-format
 #| msgid "The device %1 is not a disk and cannot be ejected."
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "Prylada \"%1\" - nie dysk, tamu nieĺha vykanać vymannie."
 
-#: filewidgets/kfileplacesmodel.cpp:1534
+#: filewidgets/kfileplacesmodel.cpp:1538
 #, fuzzy, kde-format
 #| msgid "An error occurred while accessing %1, the system responded: %2"
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr ""
 "Padčas sproby atrymać dostup da \"%1\" adbylasia pamylka. Adkaz sistemy: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1536
+#: filewidgets/kfileplacesmodel.cpp:1540
 #, fuzzy, kde-format
 #| msgid "An error occurred while accessing %1"
 msgid "An error occurred while accessing '%1'"
 msgstr "Padčas sproby atrymać dostup da \"%1\" adbylasia pamylka"
 
-#: filewidgets/kfileplacesmodel.cpp:1562
+#: filewidgets/kfileplacesmodel.cpp:1567
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1565
+#: filewidgets/kfileplacesmodel.cpp:1570
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3209,13 +3209,13 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: filewidgets/kfileplacesmodel.cpp:1568
+#: filewidgets/kfileplacesmodel.cpp:1573
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1615
+#: filewidgets/kfileplacesmodel.cpp:1620
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
@@ -3347,33 +3347,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "Vializnyja (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:404
-#, fuzzy, kde-format
-#| msgid "Create Directory"
-msgid "Current Directory: %1"
-msgstr "Stvaryć kataloh"
-
-#: filewidgets/kfilewidget.cpp:640
+#: filewidgets/kfilewidget.cpp:637
 #, kde-format
 msgid "You can only select one file"
 msgstr "Vy možacie abrać toĺki adzin fajl"
 
-#: filewidgets/kfilewidget.cpp:640
+#: filewidgets/kfilewidget.cpp:637
 #, kde-format
 msgid "More than one file provided"
 msgstr "Padadziena boĺš za adzin fajl"
 
-#: filewidgets/kfilewidget.cpp:816
+#: filewidgets/kfilewidget.cpp:813
 #, kde-format
 msgid "You can only select local files"
 msgstr "Vy možacie abrać toĺki lakaĺnyja fajly"
 
-#: filewidgets/kfilewidget.cpp:816
+#: filewidgets/kfilewidget.cpp:813
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "Adliehlyja fajly nie dapuskajucca"
 
-#: filewidgets/kfilewidget.cpp:823
+#: filewidgets/kfilewidget.cpp:820
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3394,22 +3388,22 @@ msgstr[3] ""
 "Abrany URL vykarystoŭvaje schiemu, jakaja nie padtrymlivajecca. Kali laska, "
 "vykarystoŭvajcie nastupnyja schiemy: %2"
 
-#: filewidgets/kfilewidget.cpp:829
+#: filewidgets/kfilewidget.cpp:826
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "Schiema URL nie padtrymlivajecca"
 
-#: filewidgets/kfilewidget.cpp:850
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "Nie ŭdalosia znajsci fajl \"%1\""
 
-#: filewidgets/kfilewidget.cpp:850
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "Cannot open file"
 msgstr "Nie ŭdalosia adkryć fajl"
 
-#: filewidgets/kfilewidget.cpp:1219
+#: filewidgets/kfilewidget.cpp:1216
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3420,49 +3414,49 @@ msgstr ""
 ">Napryklad, kali biahučaje razmiaščennie file:/home/konqi, to nacisnuŭšy "
 "knopku, vy piarojdziecie ŭ file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1223
+#: filewidgets/kfilewidget.cpp:1220
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Nacisnicie hetuju knopku, kab pierajsci na adzin krok nazad u historyi "
 "prahliadu."
 
-#: filewidgets/kfilewidget.cpp:1224
+#: filewidgets/kfilewidget.cpp:1221
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Nacisnicie hetuju knopku, kab pierajsci na adzin krok upierad u historyi "
 "prahliadu."
 
-#: filewidgets/kfilewidget.cpp:1226
+#: filewidgets/kfilewidget.cpp:1223
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
 "Nacisnicie hetuju knopku, kab pierazahruzić zmiesciva biahučaha "
 "razmiaščennia."
 
-#: filewidgets/kfilewidget.cpp:1228
+#: filewidgets/kfilewidget.cpp:1225
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Nacisnicie hetuju knopku, kab stvaryć novy kataloh."
 
-#: filewidgets/kfilewidget.cpp:1230
+#: filewidgets/kfilewidget.cpp:1227
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Pakazvać paneĺ razmiaščenniaŭ"
 
-#: filewidgets/kfilewidget.cpp:1237
+#: filewidgets/kfilewidget.cpp:1234
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Show Quick Filter"
 msgstr "Pakazvać schavanyja fajly"
 
-#: filewidgets/kfilewidget.cpp:1245
+#: filewidgets/kfilewidget.cpp:1242
 #, kde-format
 msgid "Options"
 msgstr "Paramietry"
 
-#: filewidgets/kfilewidget.cpp:1248
+#: filewidgets/kfilewidget.cpp:1245
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3477,12 +3471,12 @@ msgstr ""
 "razmiaščenniaŭ</li><li>prahliad fajlaŭ</li><li>addzialiennie katalohaŭ ad "
 "fajlaŭ</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1267
+#: filewidgets/kfilewidget.cpp:1264
 #, kde-format
 msgid "Bookmarks"
 msgstr "Zakladki"
 
-#: filewidgets/kfilewidget.cpp:1271
+#: filewidgets/kfilewidget.cpp:1268
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3497,39 +3491,39 @@ msgstr ""
 "inšych miescach u KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1316 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1313 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Nazva:"
 
-#: filewidgets/kfilewidget.cpp:1341
+#: filewidgets/kfilewidget.cpp:1338
 #, fuzzy, kde-format
 #| msgid "Undo Changes"
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "Adrabić zmieny"
 
-#: filewidgets/kfilewidget.cpp:1396
+#: filewidgets/kfilewidget.cpp:1393
 #, fuzzy, kde-format
 #| msgid "Open Containing Folder"
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr "Adkryć kataloh zmiesciva"
 
-#: filewidgets/kfilewidget.cpp:1400
+#: filewidgets/kfilewidget.cpp:1397
 #, fuzzy, kde-format
 #| msgid "Devices"
 msgid "Filter by name…"
 msgstr "Prylady"
 
-#: filewidgets/kfilewidget.cpp:1408
+#: filewidgets/kfilewidget.cpp:1405
 #, fuzzy, kde-format
 #| msgid "Hidden Files Last"
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "Schavanyja fajly ŭ kancy"
 
-#: filewidgets/kfilewidget.cpp:1457
+#: filewidgets/kfilewidget.cpp:1454
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3542,12 +3536,12 @@ msgstr ""
 "abraŭšy patrebny režym z mieniu <b>Aŭtamatyčnaje zapaŭniennie tekstu</b>.</"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1464
+#: filewidgets/kfilewidget.cpp:1461
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Heta nazva, z jakoj treba zachavać fajl."
 
-#: filewidgets/kfilewidget.cpp:1467
+#: filewidgets/kfilewidget.cpp:1464
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3556,74 +3550,80 @@ msgstr ""
 "Heta spis fajlaŭ, jakija treba adkryć. Možna paznačyć niekaĺki fajlaŭ, "
 "razdzialiŭšy ich nazvy prahalami."
 
-#: filewidgets/kfilewidget.cpp:1472
+#: filewidgets/kfilewidget.cpp:1469
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Heta nazva fajla, jaki treba adkryć."
 
-#: filewidgets/kfilewidget.cpp:1485
+#: filewidgets/kfilewidget.cpp:1482
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Adrasy"
 
-#: filewidgets/kfilewidget.cpp:1766
+#: filewidgets/kfilewidget.cpp:1763
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Fajl \"%1\" užo isnuje. Chočacie pierazapisać?"
 
-#: filewidgets/kfilewidget.cpp:1767
+#: filewidgets/kfilewidget.cpp:1764
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Pierazapisać fajl?"
 
-#: filewidgets/kfilewidget.cpp:1964
+#: filewidgets/kfilewidget.cpp:1961
 #, kde-format
 msgid "You can only select local files."
 msgstr "Vy možacie abrać toĺki lakaĺnyja fajly."
 
-#: filewidgets/kfilewidget.cpp:1964
+#: filewidgets/kfilewidget.cpp:1961
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Adliehlyja fajly nie dapuskajucca"
 
-#: filewidgets/kfilewidget.cpp:2058
+#: filewidgets/kfilewidget.cpp:2055
 #, fuzzy, kde-format
 #| msgid "*|All Folders"
 msgid "All Folders"
 msgstr "*|Usie katalohi"
 
-#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:842
+#: filewidgets/kfilewidget.cpp:2079
+#, fuzzy, kde-format
+#| msgid "Create Directory"
+msgid "Current Directory: %1"
+msgstr "Stvaryć kataloh"
+
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:847
 #, kde-format
 msgid "&Open"
 msgstr "&Adkryć"
 
-#: filewidgets/kfilewidget.cpp:2299
+#: filewidgets/kfilewidget.cpp:2307
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Pamier značka: %1 piksieliaŭ"
 
-#: filewidgets/kfilewidget.cpp:2466
+#: filewidgets/kfilewidget.cpp:2474
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Aŭtamatyčna abirać p&ašyrennie (%1) dlia nazvy fajla"
 
-#: filewidgets/kfilewidget.cpp:2467
+#: filewidgets/kfilewidget.cpp:2475
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "pašyrennie <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2473
+#: filewidgets/kfilewidget.cpp:2481
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Aŭtamatyčna abirać p&ašyrennie dlia nazvy fajla"
 
-#: filewidgets/kfilewidget.cpp:2474
+#: filewidgets/kfilewidget.cpp:2482
 #, kde-format
 msgid "a suitable extension"
 msgstr "prydatnaje pašyrennie"
 
-#: filewidgets/kfilewidget.cpp:2482
+#: filewidgets/kfilewidget.cpp:2490
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3651,12 +3651,12 @@ msgstr ""
 "pakińcie hety paramietr ŭkliučanym, bo jon dapamahaje paliepšyć kiravannie "
 "vašymi fajlami."
 
-#: filewidgets/kfilewidget.cpp:2948
+#: filewidgets/kfilewidget.cpp:2956
 #, kde-format
 msgid "&File type:"
 msgstr "&Typ fajla:"
 
-#: filewidgets/kfilewidget.cpp:2952
+#: filewidgets/kfilewidget.cpp:2960
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3665,7 +3665,7 @@ msgstr ""
 "<qt>Heta srodak vybaru typu fajla. Jon vykarystoŭvajecca dlia vybaru "
 "farmatu, u jakim budzie zachavany fajl.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2954
+#: filewidgets/kfilewidget.cpp:2962
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the file type selector. It is used to select the format that "
@@ -3677,45 +3677,45 @@ msgstr ""
 "<qt>Heta srodak vybaru typu fajla. Jon vykarystoŭvajecca dlia vybaru "
 "farmatu, u jakim budzie zachavany fajl.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:518
-#, kde-format
-msgid "Sorry"
-msgstr "Vybačajcie"
-
-#: filewidgets/knewfilemenu.cpp:529
-#, kde-format
-msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
-msgstr "<qt>Fajl šablona <b>%1</b> nie isnuje.</qt>"
-
-#: filewidgets/knewfilemenu.cpp:683 filewidgets/knewfilemenu.cpp:748
-#, kde-format
-msgid "Name for new link:"
-msgstr "Nazva dlia novaj spasylki:"
-
-#: filewidgets/knewfilemenu.cpp:686
-#, kde-format
-msgid "Create Symlink"
-msgstr "Stvaryć simvaličnuju spasylku"
-
-#: filewidgets/knewfilemenu.cpp:752
-#, kde-format
-msgid "Create link to URL"
-msgstr "Stvaryć spasylku na URL"
-
-#: filewidgets/knewfilemenu.cpp:793 filewidgets/knewfilemenu.cpp:848
-#, kde-format
-msgctxt "@item:inmenu Create New"
-msgid "%1"
-msgstr "%1"
-
-#: filewidgets/knewfilemenu.cpp:1128
+#: filewidgets/knewfilemenu.cpp:224
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Vy&kanać jak inšy karystaĺnik"
 
-#: filewidgets/knewfilemenu.cpp:1227
+#: filewidgets/knewfilemenu.cpp:538
+#, kde-format
+msgid "Sorry"
+msgstr "Vybačajcie"
+
+#: filewidgets/knewfilemenu.cpp:549
+#, kde-format
+msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
+msgstr "<qt>Fajl šablona <b>%1</b> nie isnuje.</qt>"
+
+#: filewidgets/knewfilemenu.cpp:700 filewidgets/knewfilemenu.cpp:765
+#, kde-format
+msgid "Name for new link:"
+msgstr "Nazva dlia novaj spasylki:"
+
+#: filewidgets/knewfilemenu.cpp:703
+#, kde-format
+msgid "Create Symlink"
+msgstr "Stvaryć simvaličnuju spasylku"
+
+#: filewidgets/knewfilemenu.cpp:769
+#, kde-format
+msgid "Create link to URL"
+msgstr "Stvaryć spasylku na URL"
+
+#: filewidgets/knewfilemenu.cpp:810 filewidgets/knewfilemenu.cpp:834
+#, kde-format
+msgctxt "@item:inmenu Create New"
+msgid "%1"
+msgstr "%1"
+
+#: filewidgets/knewfilemenu.cpp:1179
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3725,7 +3725,7 @@ msgstr ""
 "Nazvu <filename>%1</filename> nieĺha vykarystoŭvać, bo jana zareziervavanaja "
 "dlia vykarystannia apieracyjnaj sistemaj."
 
-#: filewidgets/knewfilemenu.cpp:1235
+#: filewidgets/knewfilemenu.cpp:1187
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3735,7 +3735,7 @@ msgstr ""
 "Nazva <filename>%1</filename> pačynajecca z kropki, tamu pradvyznačana fajl "
 "budzie schavany."
 
-#: filewidgets/knewfilemenu.cpp:1243
+#: filewidgets/knewfilemenu.cpp:1195
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3747,32 +3747,32 @@ msgstr ""
 "što pry sartavanni ŭ alfavitnym paradku eliemient budzie pakazvacca pierad "
 "inšymi eliemientami."
 
-#: filewidgets/knewfilemenu.cpp:1261
+#: filewidgets/knewfilemenu.cpp:1213
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "Pry vykarystanni kasoj rysy ŭ nazvach katalohaŭ buduć stvaracca ŭkladzienyja "
 "katalohi, napryklad:"
 
-#: filewidgets/knewfilemenu.cpp:1275
+#: filewidgets/knewfilemenu.cpp:1227
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 "Pry vykarystanni kasoj rysy ŭ nazvach katalohaŭ buduć stvaracca ŭkladzienyja "
 "katalohi."
 
-#: filewidgets/knewfilemenu.cpp:1287
+#: filewidgets/knewfilemenu.cpp:1239
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Kasyja rysy nieĺha vykarystoŭvać u nazvach fajlaŭ i katalohaŭ."
 
-#: filewidgets/knewfilemenu.cpp:1292
+#: filewidgets/knewfilemenu.cpp:1244
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 "Advarotnyja kasyja rysy nieĺha vykarystoŭvać u nazvach fajlaŭ i katalohaŭ."
 
-#: filewidgets/knewfilemenu.cpp:1306
+#: filewidgets/knewfilemenu.cpp:1258
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3780,7 +3780,7 @@ msgid ""
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1315
+#: filewidgets/knewfilemenu.cpp:1267
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3789,54 +3789,54 @@ msgstr ""
 "Nie rekamiendujecca pačynać nazvu fajla abo kataloha z \"~\", bo takaja "
 "nazva moža kanfliktavać z funkcyjami emuliatara terminala."
 
-#: filewidgets/knewfilemenu.cpp:1387
+#: filewidgets/knewfilemenu.cpp:1339
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Kataloh z nazvaj <filename>%1</filename> užo isnuje."
 
-#: filewidgets/knewfilemenu.cpp:1389
+#: filewidgets/knewfilemenu.cpp:1341
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Fajl z nazvaj <filename>%1</filename> užo isnuje."
 
-#: filewidgets/knewfilemenu.cpp:1475
+#: filewidgets/knewfilemenu.cpp:1427
 #, kde-format
 msgid "Create New"
 msgstr "Stvaryć"
 
-#: filewidgets/knewfilemenu.cpp:1510
+#: filewidgets/knewfilemenu.cpp:1462
 #, kde-format
 msgid "Link to Device"
 msgstr "Spasylka na pryladu"
 
-#: filewidgets/knewfilemenu.cpp:1556
+#: filewidgets/knewfilemenu.cpp:1501
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Novy kataloh"
 
-#: filewidgets/knewfilemenu.cpp:1579
+#: filewidgets/knewfilemenu.cpp:1524
 #, fuzzy, kde-format
 #| msgid "Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Stvaryć kataloh"
 
-#: filewidgets/knewfilemenu.cpp:1581
+#: filewidgets/knewfilemenu.cpp:1526
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Stvaryć novy kataloh u %1:"
 
-#: filewidgets/knewfilemenu.cpp:1584 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1529 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Vy&kanać jak inšy karystaĺnik"
 
-#: filewidgets/knewfilemenu.cpp:1641
+#: filewidgets/knewfilemenu.cpp:1586
 #, fuzzy, kde-format
 #| msgctxt "@item:inlistbox The default character set"
 #| msgid "Default"
@@ -4292,7 +4292,7 @@ msgstr "Zahad dlia vykanannia"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL-adras(y) abo lakaĺny(ja) fajl(y) dlia \"command\""
 
-#: kioworkers/file/file.cpp:650
+#: kioworkers/file/file.cpp:649
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4301,7 +4301,7 @@ msgstr ""
 "Nie ŭdalosia zmianić pravy dostupu dlia\n"
 "%1"
 
-#: kioworkers/file/file.cpp:658
+#: kioworkers/file/file.cpp:657
 #, fuzzy, kde-format
 #| msgid "Could not change ownership for %1."
 msgctxt "@info"
@@ -4310,18 +4310,18 @@ msgid ""
 "%1"
 msgstr "Nie ŭdalosia zmianić ulasnika dlia %1."
 
-#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
+#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "Nie ŭdalosia zmianić nazvu časovaha fajla"
 
-#: kioworkers/file/file.cpp:765
+#: kioworkers/file/file.cpp:764
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Nie ŭdalosia znajsci prahramu \"mount\""
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:841
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Nie ŭdalosia znajsci prahramu \"umount\""
@@ -4396,7 +4396,7 @@ msgstr ""
 msgid "Site:"
 msgstr "Sajt:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2500
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2499
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4420,7 +4420,7 @@ msgstr ""
 "\n"
 "Adkaz sierviera: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2495 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2494 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4429,12 +4429,12 @@ msgstr ""
 "Pierš čym vam budzie dazvolieny dostup da roznych sajtaŭ, treba paznačyć "
 "imia karystaĺnika i paroĺ dlia sierviera proksi."
 
-#: kioworkers/ftp/ftp.cpp:2499 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Proksi:"
 
-#: kioworkers/ftp/ftp.cpp:2502
+#: kioworkers/ftp/ftp.cpp:2501
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Pamylka aŭtentyfikacyi proksi."
@@ -4497,66 +4497,66 @@ msgstr "Aŭtentyfikacyja sierviera"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> na <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1396
+#: kioworkers/http/http.cpp:1397
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Inakš zapyt byŭ by ŭdalym."
 
-#: kioworkers/http/http.cpp:1399
+#: kioworkers/http/http.cpp:1400
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "atrymać značenni ŭlascivasciaŭ"
 
-#: kioworkers/http/http.cpp:1401
+#: kioworkers/http/http.cpp:1402
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "vyznačyć značenni ŭlascivasciaŭ"
 
-#: kioworkers/http/http.cpp:1403
+#: kioworkers/http/http.cpp:1404
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "stvaryć zapytany kataloh"
 
-#: kioworkers/http/http.cpp:1405
+#: kioworkers/http/http.cpp:1406
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "skapijavać vyznačany fajl abo kataloh"
 
-#: kioworkers/http/http.cpp:1407
+#: kioworkers/http/http.cpp:1408
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "pieramiascić vyznačany fajl abo kataloh"
 
-#: kioworkers/http/http.cpp:1409
+#: kioworkers/http/http.cpp:1410
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "šukać u vyznačanym katalozie"
 
-#: kioworkers/http/http.cpp:1411
+#: kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "zablakavać vyznačany fajl abo kataloh"
 
-#: kioworkers/http/http.cpp:1413
+#: kioworkers/http/http.cpp:1414
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "razblakavać vyznačany fajl abo kataloh"
 
-#: kioworkers/http/http.cpp:1415
+#: kioworkers/http/http.cpp:1416
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "vydalić vyznačany fajl abo kataloh"
 
-#: kioworkers/http/http.cpp:1417
+#: kioworkers/http/http.cpp:1418
 #, fuzzy, kde-format
 #| msgctxt "request type"
 #| msgid "query the servers capabilities"
@@ -4564,25 +4564,25 @@ msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "zapytać mahčymasci sierviera"
 
-#: kioworkers/http/http.cpp:1419
+#: kioworkers/http/http.cpp:1420
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "atrymać zmiesciva vyznačanaha fajla abo kataloha"
 
-#: kioworkers/http/http.cpp:1421
+#: kioworkers/http/http.cpp:1422
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "zapuscić stvarennie spravazdačy ŭ vyznačanym katalozie"
 
-#: kioworkers/http/http.cpp:1429
+#: kioworkers/http/http.cpp:1430
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Padčas sproby %2 adbylasia niečakanaja pamylka (%1)."
 
-#: kioworkers/http/http.cpp:1469
+#: kioworkers/http/http.cpp:1470
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4590,13 +4590,13 @@ msgid ""
 "below."
 msgstr "Padčas sproby %2 adbylasia pamylka %1. Zvodka znachodzicca nižej."
 
-#: kioworkers/http/http.cpp:1487 kioworkers/http/http.cpp:1631
+#: kioworkers/http/http.cpp:1488 kioworkers/http/http.cpp:1632
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Padčas sproby %1 bylo admoŭliena ŭ dostupie."
 
-#: kioworkers/http/http.cpp:1501 kioworkers/http/http.cpp:1638
+#: kioworkers/http/http.cpp:1502 kioworkers/http/http.cpp:1639
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4605,7 +4605,7 @@ msgstr ""
 "Niemahčyma stvaryć resurs u miescy pryznačennia, pakuĺ nie budzie stvoranaja "
 "adna abo boĺš kaliekcyj (katalohaŭ)."
 
-#: kioworkers/http/http.cpp:1510
+#: kioworkers/http/http.cpp:1511
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4620,28 +4620,28 @@ msgstr ""
 "hetyja fajly nie pierazapisvajucca.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1518
+#: kioworkers/http/http.cpp:1519
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Niemahčyma vykanać zapytanaje blakavannie. %1"
 
-#: kioworkers/http/http.cpp:1524
+#: kioworkers/http/http.cpp:1525
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Siervier nie padtrymlivaje typ zapytu ciela."
 
-#: kioworkers/http/http.cpp:1529 kioworkers/http/http.cpp:1646
+#: kioworkers/http/http.cpp:1530 kioworkers/http/http.cpp:1647
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Nie ŭdalosia %1, bo resurs zablakavany."
 
-#: kioworkers/http/http.cpp:1533
+#: kioworkers/http/http.cpp:1534
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Hetaje dziejannie pierarvana inšaj pamylkaj."
 
-#: kioworkers/http/http.cpp:1540 kioworkers/http/http.cpp:1653
+#: kioworkers/http/http.cpp:1541 kioworkers/http/http.cpp:1654
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4650,7 +4650,7 @@ msgid ""
 msgstr ""
 "Nie ŭdalosia %1, bo metavy siervier admaŭliajecca pryniać fajl abo kataloh."
 
-#: kioworkers/http/http.cpp:1549 kioworkers/http/http.cpp:1662
+#: kioworkers/http/http.cpp:1550 kioworkers/http/http.cpp:1663
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4659,18 +4659,18 @@ msgstr ""
 "Metavy resurs nie maje miesca dlia zapisu stanu resursu paslia vykanannia "
 "hetaha mietadu."
 
-#: kioworkers/http/http.cpp:1602
+#: kioworkers/http/http.cpp:1603
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Nie ŭdalosia vydalić resurs."
 
-#: kioworkers/http/http.cpp:1622
+#: kioworkers/http/http.cpp:1623
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "zapampavać %1"
 
-#: kioworkers/http/http.cpp:1673
+#: kioworkers/http/http.cpp:1674
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -5437,43 +5437,43 @@ msgstr "Abnaŭliennie kanfihuracyi sistemy"
 msgid "Updating system configuration…"
 msgstr "Abnaŭliennie kanfihuracyi sistemy."
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1256
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nazva"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1258
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Pamier"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1260
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Data"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1262
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Pravy dostupu"
 
-#: widgets/kdirmodel.cpp:1272
+#: widgets/kdirmodel.cpp:1264
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Ulasnik"
 
-#: widgets/kdirmodel.cpp:1274
+#: widgets/kdirmodel.cpp:1266
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Hrupa"
 
-#: widgets/kdirmodel.cpp:1276
+#: widgets/kdirmodel.cpp:1268
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
@@ -5496,7 +5496,7 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Dziejanni"
 
-#: widgets/kfileitemactions.cpp:751
+#: widgets/kfileitemactions.cpp:756
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open Folder With"
@@ -5504,7 +5504,7 @@ msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "Adkryć &kataloh z dapamohaj"
 
-#: widgets/kfileitemactions.cpp:751
+#: widgets/kfileitemactions.cpp:756
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -5512,36 +5512,36 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Adkryć z dapamohaj"
 
-#: widgets/kfileitemactions.cpp:809
+#: widgets/kfileitemactions.cpp:814
 #, fuzzy, kde-format
 #| msgid "&Execute"
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&Vykanannie"
 
-#: widgets/kfileitemactions.cpp:831
+#: widgets/kfileitemactions.cpp:836
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "Adkryć &kataloh z dapamohaj %1"
 
-#: widgets/kfileitemactions.cpp:831
+#: widgets/kfileitemactions.cpp:836
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Adkryć z dapamohaj %1"
 
-#: widgets/kfileitemactions.cpp:863
+#: widgets/kfileitemactions.cpp:868
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Adkryć &kataloh z dapamohaj"
 
-#: widgets/kfileitemactions.cpp:863
+#: widgets/kfileitemactions.cpp:868
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Adkryć z dapamohaj"
 
-#: widgets/kfileitemactions.cpp:874
+#: widgets/kfileitemactions.cpp:879
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Open With"
 #| msgid "&Other Application..."
