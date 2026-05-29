@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-21 00:40+0000\n"
+"POT-Creation-Date: 2026-05-29 00:39+0000\n"
 "PO-Revision-Date: 2024-12-21 00:27+0000\n"
 "Last-Translator: Kizito Birabwa <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda\n"
@@ -2311,17 +2311,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Wazzewo kiremya ataliko kunyonyola"
 
-#: core/kfileitem.cpp:1479
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Nyunzi eyeyawudde egguka ku %1)"
 
-#: core/kfileitem.cpp:1481
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, Nyunzi egguka ku %2)"
 
-#: core/kfileitem.cpp:1484
+#: core/kfileitem.cpp:1486
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Egguka ku %1)"
@@ -2341,7 +2341,7 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Nnemedwa okuzuula kika kya fayiro %1"
 
-#: core/openwith.cpp:90
+#: core/openwith.cpp:91
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2350,13 +2350,13 @@ msgstr ""
 "Sirabye linnya lya puloguramu mu '%1', wandika erinnya nga ddala lya "
 "puloguramu."
 
-#: core/openwith.cpp:142
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "<filename>%1</filename> kirabika ssi linnya lya puloguramu."
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3871,6 +3871,15 @@ msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
 msgstr "Genda awantu ku Kkubo"
 
+#: filewidgets/kurlnavigatorplacesselector.cpp:49
+#, fuzzy, kde-format
+#| msgctxt "@item"
+#| msgid "Places"
+msgctxt ""
+"@action:button accessible name for the places selector in the URL navigator"
+msgid "Places"
+msgstr "Bifo"
+
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
 msgctxt "@item:inmenu"
@@ -4674,7 +4683,7 @@ msgstr "Gyawo ebiri mu bisuulidwa byonna"
 msgid "Restore a trashed file to its original location"
 msgstr "Komyawo fayiro okuva mu bisuulidwa"
 
-#: kioworkers/trash/trashimpl.cpp:1306
+#: kioworkers/trash/trashimpl.cpp:1305
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Bisuulidwa nzijjuvu. Gikunkumule oba giyingire olondeko by'ogyawo."
@@ -4876,28 +4885,28 @@ msgstr "Gibale"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Koona wano ennamba enkuumi eterekebwe awaterekebwa ebikoppedwa."
 
-#: widgets/dropjob.cpp:178
+#: widgets/dropjob.cpp:192
 #, kde-format
 msgid "C&ancel"
 msgstr "S&azzamu"
 
-#: widgets/dropjob.cpp:290
+#: widgets/dropjob.cpp:304
 #, kde-format
 msgid "&Move Here"
 msgstr "&Leeta Wano"
 
-#: widgets/dropjob.cpp:296
+#: widgets/dropjob.cpp:310
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Ebiwanulidwa Biteeke Wano"
 
-#: widgets/dropjob.cpp:296
+#: widgets/dropjob.cpp:310
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Teeka Wano Kkopi"
 
-#: widgets/dropjob.cpp:303
+#: widgets/dropjob.cpp:317
 #, kde-format
 msgid "&Link Here"
 msgstr "&Kolawo Nyunzi Egguka wano"
@@ -6923,12 +6932,12 @@ msgstr "Kika kya data:"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:75
+#: widgets/pastejob.cpp:89
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Teekawo erinnya lya fayiro oba ebiri awaterekebwa ebikoppedwa:"
 
-#: widgets/pastejob.cpp:75
+#: widgets/pastejob.cpp:89
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "Erinnya erinaatuumibwa ebipaatiikidwa:"

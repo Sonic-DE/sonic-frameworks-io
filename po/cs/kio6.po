@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-21 00:40+0000\n"
+"POT-Creation-Date: 2026-05-29 00:39+0000\n"
 "PO-Revision-Date: 2025-10-01 17:44+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -2240,17 +2240,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Nedokumentovaná chyba"
 
-#: core/kfileitem.cpp:1479
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Symbolický odkaz na %1)"
 
-#: core/kfileitem.cpp:1481
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, odkaz na %2)"
 
-#: core/kfileitem.cpp:1484
+#: core/kfileitem.cpp:1486
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Odkazuje na: %1)"
@@ -2270,20 +2270,20 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr ""
 
-#: core/openwith.cpp:90
+#: core/openwith.cpp:91
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
 "name."
 msgstr "Nelze získat název programu z '%1', prosím zadejte platný název."
 
-#: core/openwith.cpp:142
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr ""
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3756,6 +3756,15 @@ msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
 msgstr ""
 
+#: filewidgets/kurlnavigatorplacesselector.cpp:49
+#, fuzzy, kde-format
+#| msgctxt "@item"
+#| msgid "Places"
+msgctxt ""
+"@action:button accessible name for the places selector in the URL navigator"
+msgid "Places"
+msgstr "Místa"
+
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
 msgctxt "@item:inmenu"
@@ -4533,7 +4542,7 @@ msgstr "Vyprázdnit obsah koše"
 msgid "Restore a trashed file to its original location"
 msgstr "Obnovit vyhozený soubor na původní místo"
 
-#: kioworkers/trash/trashimpl.cpp:1306
+#: kioworkers/trash/trashimpl.cpp:1305
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
@@ -4732,28 +4741,28 @@ msgstr "Spočítat"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Klikněte pro zkopírování součtu do schránky."
 
-#: widgets/dropjob.cpp:178
+#: widgets/dropjob.cpp:192
 #, kde-format
 msgid "C&ancel"
 msgstr "Z&rušit"
 
-#: widgets/dropjob.cpp:290
+#: widgets/dropjob.cpp:304
 #, kde-format
 msgid "&Move Here"
 msgstr "Přesunout se&m"
 
-#: widgets/dropjob.cpp:296
+#: widgets/dropjob.cpp:310
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "Z&de stáhnout"
 
-#: widgets/dropjob.cpp:296
+#: widgets/dropjob.cpp:310
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Kopírovat sem"
 
-#: widgets/dropjob.cpp:303
+#: widgets/dropjob.cpp:317
 #, kde-format
 msgid "&Link Here"
 msgstr "Vytvořit &odkaz zde"
@@ -6708,12 +6717,12 @@ msgstr "Formát dat:"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:75
+#: widgets/pastejob.cpp:89
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Název souboru pro obsah schránky:"
 
-#: widgets/pastejob.cpp:75
+#: widgets/pastejob.cpp:89
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "Název souboru pro upuštěný obsah:"

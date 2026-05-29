@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-21 00:40+0000\n"
+"POT-Creation-Date: 2026-05-29 00:39+0000\n"
 "PO-Revision-Date: 2026-05-09 16:23+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -2253,17 +2253,17 @@ msgstr "Sformatuj napęd docelowy na format, który obsługuje tak duże pliki."
 msgid "Undocumented Error"
 msgstr "Nieudokumentowany błąd"
 
-#: core/kfileitem.cpp:1479
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Symboliczne dowiązanie do %1)"
 
-#: core/kfileitem.cpp:1481
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, dowiązanie do %2)"
 
-#: core/kfileitem.cpp:1484
+#: core/kfileitem.cpp:1486
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Wskazuje na: %1)"
@@ -2283,7 +2283,7 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Nie można określić rodzaju pliku dla %1"
 
-#: core/openwith.cpp:90
+#: core/openwith.cpp:91
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2292,13 +2292,13 @@ msgstr ""
 "Nie można znaleźć nazwy pliku wykonywalnego w \"%1\". Proszę podać poprawną "
 "nazwę programu."
 
-#: core/openwith.cpp:142
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "<filename>%1</filename> nie wygląda na plik wykonywalny."
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3801,6 +3801,15 @@ msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
 msgstr "Przejdź do miejsca w ścieżce"
 
+#: filewidgets/kurlnavigatorplacesselector.cpp:49
+#, fuzzy, kde-format
+#| msgctxt "@item"
+#| msgid "Places"
+msgctxt ""
+"@action:button accessible name for the places selector in the URL navigator"
+msgid "Places"
+msgstr "Miejsca"
+
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
 msgctxt "@item:inmenu"
@@ -4598,7 +4607,7 @@ msgstr "Opróżnij zawartość kosza"
 msgid "Restore a trashed file to its original location"
 msgstr "Przywróć plik z kosza do jego pierwotnej lokalizacji"
 
-#: kioworkers/trash/trashimpl.cpp:1306
+#: kioworkers/trash/trashimpl.cpp:1305
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Kosz jest pełen. Opróżnij go lub ręcznie usuń z niego rzeczy."
@@ -4799,28 +4808,28 @@ msgstr "Oblicz"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Kliknij, aby skopiować sumę sprawdzającą do schowka."
 
-#: widgets/dropjob.cpp:178
+#: widgets/dropjob.cpp:192
 #, kde-format
 msgid "C&ancel"
 msgstr "&Anuluj"
 
-#: widgets/dropjob.cpp:290
+#: widgets/dropjob.cpp:304
 #, kde-format
 msgid "&Move Here"
 msgstr "&Przenieś tutaj"
 
-#: widgets/dropjob.cpp:296
+#: widgets/dropjob.cpp:310
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Pobierz tutaj"
 
-#: widgets/dropjob.cpp:296
+#: widgets/dropjob.cpp:310
 #, kde-format
 msgid "&Copy Here"
 msgstr "S&kopiuj tutaj"
 
-#: widgets/dropjob.cpp:303
+#: widgets/dropjob.cpp:317
 #, kde-format
 msgid "&Link Here"
 msgstr "&Dowiąż tutaj"
@@ -6791,12 +6800,12 @@ msgstr "Format danych:"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:75
+#: widgets/pastejob.cpp:89
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Nazwa pliku dla zawartości schowka:"
 
-#: widgets/pastejob.cpp:75
+#: widgets/pastejob.cpp:89
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "Nazwa pliku dla upuszczonej zawartości:"

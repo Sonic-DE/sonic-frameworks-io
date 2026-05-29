@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-21 00:40+0000\n"
+"POT-Creation-Date: 2026-05-29 00:39+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -2280,17 +2280,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Ralat Tidak Didokumentasikan"
 
-#: core/kfileitem.cpp:1479
+#: core/kfileitem.cpp:1481
 #, fuzzy, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "Pautan Simbolik"
 
-#: core/kfileitem.cpp:1481
+#: core/kfileitem.cpp:1483
 #, fuzzy, kde-format
 msgid "(%1, Link to %2)"
 msgstr "Pautan ke %1 (%2)"
 
-#: core/kfileitem.cpp:1484
+#: core/kfileitem.cpp:1486
 #, fuzzy, kde-format
 msgid " (Points to %1)"
 msgstr "Tuding ke:"
@@ -2310,20 +2310,20 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr ""
 
-#: core/openwith.cpp:90
+#: core/openwith.cpp:91
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
 "name."
 msgstr ""
 
-#: core/openwith.cpp:142
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr ""
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3817,6 +3817,13 @@ msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
 msgstr ""
 
+#: filewidgets/kurlnavigatorplacesselector.cpp:49
+#, fuzzy, kde-format
+msgctxt ""
+"@action:button accessible name for the places selector in the URL navigator"
+msgid "Places"
+msgstr "Ganti"
+
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, fuzzy, kde-format
 msgctxt "@item:inmenu"
@@ -4577,7 +4584,7 @@ msgstr ""
 msgid "Restore a trashed file to its original location"
 msgstr ""
 
-#: kioworkers/trash/trashimpl.cpp:1306
+#: kioworkers/trash/trashimpl.cpp:1305
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
@@ -4778,28 +4785,28 @@ msgstr "Kira"
 msgid "Click to copy the checksum to the clipboard."
 msgstr ""
 
-#: widgets/dropjob.cpp:178
+#: widgets/dropjob.cpp:192
 #, kde-format
 msgid "C&ancel"
 msgstr ""
 
-#: widgets/dropjob.cpp:290
+#: widgets/dropjob.cpp:304
 #, kde-format
 msgid "&Move Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:296
+#: widgets/dropjob.cpp:310
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:296
+#: widgets/dropjob.cpp:310
 #, kde-format
 msgid "&Copy Here"
 msgstr ""
 
-#: widgets/dropjob.cpp:303
+#: widgets/dropjob.cpp:317
 #, kde-format
 msgid "&Link Here"
 msgstr ""
@@ -6776,12 +6783,12 @@ msgstr "Format datas"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:75
+#: widgets/pastejob.cpp:89
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Nama fail untuk kandungan papan klip"
 
-#: widgets/pastejob.cpp:75
+#: widgets/pastejob.cpp:89
 #, fuzzy, kde-format
 msgid "Filename for dropped contents:"
 msgstr "Nama fail untuk kandungan papan klip"

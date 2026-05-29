@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-21 00:40+0000\n"
+"POT-Creation-Date: 2026-05-29 00:39+0000\n"
 "PO-Revision-Date: 2026-03-19 20:07+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -2281,17 +2281,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Dokumentatu gabeko errorea"
 
-#: core/kfileitem.cpp:1479
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1(e)ra esteka sinbolikoa)"
 
-#: core/kfileitem.cpp:1481
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2(r)ako esteka)"
 
-#: core/kfileitem.cpp:1484
+#: core/kfileitem.cpp:1486
 #, kde-format
 msgid " (Points to %1)"
 msgstr "(%1(e)ra apuntatzen du)"
@@ -2311,7 +2311,7 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Ezin du zehaztu %1(r)en fitxategi-mota"
 
-#: core/openwith.cpp:90
+#: core/openwith.cpp:91
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2320,13 +2320,13 @@ msgstr ""
 "Ezin izan du «%1»(e)tik exekutagarria erauzi, mesedez, tekleatu baliozko "
 "programa-izen bat."
 
-#: core/openwith.cpp:142
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "Ez du ematen <filename>%1</filename> programa exekutagarria denik."
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3828,6 +3828,15 @@ msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
 msgstr "Joan bilde-izeneko kokalekura"
 
+#: filewidgets/kurlnavigatorplacesselector.cpp:49
+#, fuzzy, kde-format
+#| msgctxt "@item"
+#| msgid "Places"
+msgctxt ""
+"@action:button accessible name for the places selector in the URL navigator"
+msgid "Places"
+msgstr "Lekuak"
+
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
 msgctxt "@item:inmenu"
@@ -4627,7 +4636,7 @@ msgstr "Hustu zakarrontzia"
 msgid "Restore a trashed file to its original location"
 msgstr "Leheneratu zakarrontziko fitxategi bat bere jatorrizko kokalekura"
 
-#: kioworkers/trash/trashimpl.cpp:1306
+#: kioworkers/trash/trashimpl.cpp:1305
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Zakarrontzia beteta dago. Hustu edo kendu elementuak eskuz."
@@ -4828,28 +4837,28 @@ msgstr "Kalkulatu"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Klik egin egiaztapen-batura arbelera kopiatzeko."
 
-#: widgets/dropjob.cpp:178
+#: widgets/dropjob.cpp:192
 #, kde-format
 msgid "C&ancel"
 msgstr "&Utzi"
 
-#: widgets/dropjob.cpp:290
+#: widgets/dropjob.cpp:304
 #, kde-format
 msgid "&Move Here"
 msgstr "&Mugitu hona"
 
-#: widgets/dropjob.cpp:296
+#: widgets/dropjob.cpp:310
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Zama-jaitsi hemen"
 
-#: widgets/dropjob.cpp:296
+#: widgets/dropjob.cpp:310
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Kopiatu hona"
 
-#: widgets/dropjob.cpp:303
+#: widgets/dropjob.cpp:317
 #, kde-format
 msgid "&Link Here"
 msgstr "Es&tekatu hona"
@@ -6812,12 +6821,12 @@ msgstr "Datu-formatua:"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:75
+#: widgets/pastejob.cpp:89
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Arbelaren edukiaren fitxategi-izena:"
 
-#: widgets/pastejob.cpp:75
+#: widgets/pastejob.cpp:89
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "Jaregindako edukiarentzako fitxategi-izena:"
