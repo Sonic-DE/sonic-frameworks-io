@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:39+0000\n"
+"POT-Creation-Date: 2026-06-04 00:40+0000\n"
 "PO-Revision-Date: 2023-06-08 11:57+0330\n"
 "Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -3896,7 +3896,7 @@ msgstr "برای ناوش مکان کلیک کنید"
 msgid "Click to Edit Location"
 msgstr "برای ویرایش مکان کلیک کنید"
 
-#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:244
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:247
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "مجاز به اجرای این پرونده نیستید."
@@ -3957,7 +3957,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr "کارخواه نامه‌ای یافت نشد"
 
-#: gui/kprocessrunner.cpp:122
+#: gui/kprocessrunner.cpp:125
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3968,12 +3968,12 @@ msgstr ""
 "%1\n"
 "نامعتبر است."
 
-#: gui/kprocessrunner.cpp:291
+#: gui/kprocessrunner.cpp:294
 #, kde-format
 msgid "Launching %1"
 msgstr "راه‌اندازی %1"
 
-#: gui/kprocessrunner.cpp:463
+#: gui/kprocessrunner.cpp:478
 #, fuzzy, kde-kuit-format
 #| msgid "The file \"%1\" could not be found"
 msgctxt "@info"
@@ -5296,43 +5296,43 @@ msgstr "به‌روزرسانی پیکربندی سامانه"
 msgid "Updating system configuration…"
 msgstr "به‌روزرسانی پیکربندی سامانه."
 
-#: widgets/kdirmodel.cpp:1256
+#: widgets/kdirmodel.cpp:1258
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "نام"
 
-#: widgets/kdirmodel.cpp:1258
+#: widgets/kdirmodel.cpp:1260
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "اندازه"
 
-#: widgets/kdirmodel.cpp:1260
+#: widgets/kdirmodel.cpp:1262
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "تاریخ"
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1264
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "اجازه‌ها"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1266
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "مالک"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1268
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "گروه"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1270
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

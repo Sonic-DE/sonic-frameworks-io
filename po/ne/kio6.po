@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:39+0000\n"
+"POT-Creation-Date: 2026-06-04 00:40+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -4022,7 +4022,7 @@ msgstr "स्थान नेभिगेसनका लागि क्लि
 msgid "Click to Edit Location"
 msgstr "स्थान सम्पादन गर्न क्लिक गर्नुहोस्"
 
-#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:244
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:247
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "तपाईँ यो फाइल कार्यान्वयन गर्न आधिकारिक हुनुहुन्न ।"
@@ -4086,7 +4086,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr "%1 का लागि यन्त्रमा मिडिया छैन"
 
-#: gui/kprocessrunner.cpp:122
+#: gui/kprocessrunner.cpp:125
 #, fuzzy, kde-format
 #| msgid ""
 #| "The desktop entry of type\n"
@@ -4101,12 +4101,12 @@ msgstr ""
 "%1\n"
 "प्रकार अज्ञात छ ।"
 
-#: gui/kprocessrunner.cpp:291
+#: gui/kprocessrunner.cpp:294
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 सुरु गर्दै"
 
-#: gui/kprocessrunner.cpp:463
+#: gui/kprocessrunner.cpp:478
 #, fuzzy, kde-kuit-format
 #| msgid "The requested lock could not be granted. %1"
 msgctxt "@info"
@@ -5493,49 +5493,49 @@ msgstr "प्रणाली कन्फिगरेसन अद्याव�
 msgid "Updating system configuration…"
 msgstr "प्रणाली कन्फिगरेसन अद्यावधिक गर्दै ।"
 
-#: widgets/kdirmodel.cpp:1256
+#: widgets/kdirmodel.cpp:1258
 #, fuzzy, kde-format
 #| msgid "Name"
 msgctxt "@title:column"
 msgid "Name"
 msgstr "नाम"
 
-#: widgets/kdirmodel.cpp:1258
+#: widgets/kdirmodel.cpp:1260
 #, fuzzy, kde-format
 #| msgid "Size"
 msgctxt "@title:column"
 msgid "Size"
 msgstr "साइज"
 
-#: widgets/kdirmodel.cpp:1260
+#: widgets/kdirmodel.cpp:1262
 #, fuzzy, kde-format
 #| msgid "Date"
 msgctxt "@title:column"
 msgid "Date"
 msgstr "मिति"
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1264
 #, fuzzy, kde-format
 #| msgid "Permissions"
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "अनुमति"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1266
 #, fuzzy, kde-format
 #| msgid "Owner"
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "मालिक"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1268
 #, fuzzy, kde-format
 #| msgid "Group"
 msgctxt "@title:column"
 msgid "Group"
 msgstr "समूह"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1270
 #, fuzzy, kde-format
 #| msgid "Type"
 msgctxt "@title:column"

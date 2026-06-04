@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:39+0000\n"
+"POT-Creation-Date: 2026-06-04 00:40+0000\n"
 "PO-Revision-Date: 2026-05-29 23:32+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -3914,7 +3914,7 @@ msgstr "Fai clic per la navigazione del percorso"
 msgid "Click to Edit Location"
 msgstr "Fai clic per modificare il percorso"
 
-#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:244
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:247
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Non sei autorizzato ad eseguire questo file."
@@ -3973,13 +3973,15 @@ msgstr "File dell'icona troppo grande, scaricamento interrotto"
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
+"FilePreviewJob: viene saltato un file vuoto, potrebbe essere un collegamento "
+"simbolico rotto: %1"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
 msgid "No mail client found"
 msgstr "Nessun client di posta elettronica trovato"
 
-#: gui/kprocessrunner.cpp:122
+#: gui/kprocessrunner.cpp:125
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3990,12 +3992,12 @@ msgstr ""
 "%1\n"
 "non è valido."
 
-#: gui/kprocessrunner.cpp:291
+#: gui/kprocessrunner.cpp:294
 #, kde-format
 msgid "Launching %1"
 msgstr "Avvio in corso di %1"
 
-#: gui/kprocessrunner.cpp:463
+#: gui/kprocessrunner.cpp:478
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -5322,43 +5324,43 @@ msgstr "Aggiornamento della configurazione di sistema"
 msgid "Updating system configuration…"
 msgstr "Aggiornamento della configurazione di sistema…"
 
-#: widgets/kdirmodel.cpp:1256
+#: widgets/kdirmodel.cpp:1258
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nome"
 
-#: widgets/kdirmodel.cpp:1258
+#: widgets/kdirmodel.cpp:1260
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Dimensione"
 
-#: widgets/kdirmodel.cpp:1260
+#: widgets/kdirmodel.cpp:1262
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Data"
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1264
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Permessi"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1266
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Proprietario"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1268
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Gruppo"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1270
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

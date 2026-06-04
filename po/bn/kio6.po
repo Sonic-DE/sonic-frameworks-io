@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:39+0000\n"
+"POT-Creation-Date: 2026-06-04 00:40+0000\n"
 "PO-Revision-Date: 2009-01-09 21:08-0800\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: en_US <kde-translation@bengalinux.org>\n"
@@ -3647,7 +3647,7 @@ msgstr ""
 msgid "Click to Edit Location"
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:244
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:247
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "আপনার এই ফাইলটি চালাবার অনুমতি নেই।"
@@ -3709,7 +3709,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr ""
 
-#: gui/kprocessrunner.cpp:122
+#: gui/kprocessrunner.cpp:125
 #, fuzzy, kde-format
 #| msgid ""
 #| "The desktop entry of type\n"
@@ -3723,12 +3723,12 @@ msgstr ""
 "%1\n"
 "ধরনের ডেস্কটপ এন্ট্রিটি অজানা।"
 
-#: gui/kprocessrunner.cpp:291
+#: gui/kprocessrunner.cpp:294
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 চালানো হচ্ছে"
 
-#: gui/kprocessrunner.cpp:463
+#: gui/kprocessrunner.cpp:478
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -5024,43 +5024,43 @@ msgstr "সিস্টেম কনফিগারেশন আপডেট ক
 msgid "Updating system configuration…"
 msgstr "সিস্টেম কনফিগারেশন আপডেট করা হচ্ছে।"
 
-#: widgets/kdirmodel.cpp:1256
+#: widgets/kdirmodel.cpp:1258
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "নাম"
 
-#: widgets/kdirmodel.cpp:1258
+#: widgets/kdirmodel.cpp:1260
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "মাপ"
 
-#: widgets/kdirmodel.cpp:1260
+#: widgets/kdirmodel.cpp:1262
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "তারিখ"
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1264
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "অনুমতি"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1266
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "মালিক"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1268
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "গ্রুপ"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1270
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Type"

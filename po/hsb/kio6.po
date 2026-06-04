@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmsocks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:39+0000\n"
+"POT-Creation-Date: 2026-06-04 00:40+0000\n"
 "PO-Revision-Date: 2021-11-08 14:26+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -3923,7 +3923,7 @@ msgstr ""
 msgid "Click to Edit Location"
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:244
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:247
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Nimaće prawo tutu dataju wuwjesć."
@@ -3987,7 +3987,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr "Žadyn medij w graće %1"
 
-#: gui/kprocessrunner.cpp:122
+#: gui/kprocessrunner.cpp:125
 #, fuzzy, kde-format
 #| msgid ""
 #| "The desktop entry of type\n"
@@ -3999,12 +3999,12 @@ msgid ""
 "is not valid."
 msgstr "Desktop entry družiny %1 njeje znaty."
 
-#: gui/kprocessrunner.cpp:291
+#: gui/kprocessrunner.cpp:294
 #, kde-format
 msgid "Launching %1"
 msgstr "Startuju %1"
 
-#: gui/kprocessrunner.cpp:463
+#: gui/kprocessrunner.cpp:478
 #, fuzzy, kde-kuit-format
 #| msgid "The requested lock could not be granted. %1"
 msgctxt "@info"
@@ -5352,43 +5352,43 @@ msgstr "Aktualizuju konfiguraciju systema"
 msgid "Updating system configuration…"
 msgstr "Aktualizuju konfiguraciju systema."
 
-#: widgets/kdirmodel.cpp:1256
+#: widgets/kdirmodel.cpp:1258
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Mjeno"
 
-#: widgets/kdirmodel.cpp:1258
+#: widgets/kdirmodel.cpp:1260
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Wulkosć"
 
-#: widgets/kdirmodel.cpp:1260
+#: widgets/kdirmodel.cpp:1262
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Datum"
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1264
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Prawa"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1266
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Wobsydnik"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1268
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Skupina"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1270
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:39+0000\n"
+"POT-Creation-Date: 2026-06-04 00:40+0000\n"
 "PO-Revision-Date: 2026-05-28 08:34+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -3763,7 +3763,7 @@ msgstr "לחיצה לניווט בין מקומות"
 msgid "Click to Edit Location"
 msgstr "לחיצה לעריכת המקום"
 
-#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:244
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:247
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "אין לך הרשאה להפעיל קובץ זה."
@@ -3826,7 +3826,7 @@ msgstr "FilePreviewJob: מדלג על קובץ ריק, כנראה קישור ס�
 msgid "No mail client found"
 msgstr "לא נמצאה תוכנית לקוח דוא״ל"
 
-#: gui/kprocessrunner.cpp:122
+#: gui/kprocessrunner.cpp:125
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3837,12 +3837,12 @@ msgstr ""
 "%1\n"
 "פגומה."
 
-#: gui/kprocessrunner.cpp:291
+#: gui/kprocessrunner.cpp:294
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 מופעל"
 
-#: gui/kprocessrunner.cpp:463
+#: gui/kprocessrunner.cpp:478
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -5151,43 +5151,43 @@ msgstr "הגדרות המערכת מתעדכנות"
 msgid "Updating system configuration…"
 msgstr "הגדרות המערכת מתעדכנות…"
 
-#: widgets/kdirmodel.cpp:1256
+#: widgets/kdirmodel.cpp:1258
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "שם"
 
-#: widgets/kdirmodel.cpp:1258
+#: widgets/kdirmodel.cpp:1260
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "גודל"
 
-#: widgets/kdirmodel.cpp:1260
+#: widgets/kdirmodel.cpp:1262
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "תאריך"
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1264
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "הרשאות"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1266
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "בעלים"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1268
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "קבוצה"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1270
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

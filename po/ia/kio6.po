@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-29 00:39+0000\n"
+"POT-Creation-Date: 2026-06-04 00:40+0000\n"
 "PO-Revision-Date: 2026-04-30 17:11+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -3887,7 +3887,7 @@ msgstr "Pulsa pro navigation de location"
 msgid "Click to Edit Location"
 msgstr "Pulsa pro editar location"
 
-#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:244
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:247
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Tu non es autorisate a exequer iste file."
@@ -3953,7 +3953,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr "Nulle cliente de posta trovate"
 
-#: gui/kprocessrunner.cpp:122
+#: gui/kprocessrunner.cpp:125
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3964,12 +3964,12 @@ msgstr ""
 "%1\n"
 "non es valide."
 
-#: gui/kprocessrunner.cpp:291
+#: gui/kprocessrunner.cpp:294
 #, kde-format
 msgid "Launching %1"
 msgstr "Il es lanceante %1"
 
-#: gui/kprocessrunner.cpp:463
+#: gui/kprocessrunner.cpp:478
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -5298,43 +5298,43 @@ msgstr "Il actualisa configuration de systema"
 msgid "Updating system configuration…"
 msgstr "Actualisanjte configuration de systema…"
 
-#: widgets/kdirmodel.cpp:1256
+#: widgets/kdirmodel.cpp:1258
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nomine"
 
-#: widgets/kdirmodel.cpp:1258
+#: widgets/kdirmodel.cpp:1260
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Dimension"
 
-#: widgets/kdirmodel.cpp:1260
+#: widgets/kdirmodel.cpp:1262
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Data"
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1264
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Permissiones"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1266
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Proprietario"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1268
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Gruppo"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1270
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
