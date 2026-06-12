@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-14 00:39+0000\n"
+"POT-Creation-Date: 2026-06-12 00:40+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -93,13 +93,13 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "फोल्डर पहिल्यै अवस्थित छ"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "फाइल पहिल्यै अवस्थित छ"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "फोल्डरको रूपमा पहिल्यै अवस्थित छ"
@@ -2301,17 +2301,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "कागजात नगरिएको त्रुटि"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1 मा साङ्केतिक लिङ्क)"
 
-#: core/kfileitem.cpp:1485
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2 मा लिङ्क)"
 
-#: core/kfileitem.cpp:1488
+#: core/kfileitem.cpp:1486
 #, fuzzy, kde-format
 #| msgid "Points to:"
 msgid " (Points to %1)"
@@ -4074,7 +4074,7 @@ msgstr ""
 msgid "Icon file too big, download aborted"
 msgstr ""
 
-#: gui/filepreviewjob.cpp:294
+#: gui/filepreviewjob.cpp:285
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -5645,9 +5645,10 @@ msgstr "सामाग्रीहरू:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
-#, kde-format
-msgid "Open with:"
-msgstr "यससँग खोल्नुहोस्:"
+#, fuzzy, kde-format
+#| msgid "Open With"
+msgid "Open With:"
+msgstr "यससँग खोल्नुहोस्"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:192
@@ -5725,28 +5726,29 @@ msgstr "पहुँच प्राप्त भयो:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
-#, kde-format
-msgid "File system:"
+#, fuzzy, kde-format
+#| msgid "File system:"
+msgid "File System:"
 msgstr "फाइल प्रणाली:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
-msgid "Mounted on:"
+msgid "Mounted On:"
 msgstr "यसमा माउन्ट गरिएको:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
-msgid "Mounted from:"
+msgid "Mounted From:"
 msgstr "यसमा माउन्ट गरिएको:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
 #, kde-format
-msgid "Free space:"
+msgid "Free Space:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
@@ -7777,16 +7779,6 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Open With"
-#~ msgid "Open With:"
-#~ msgstr "यससँग खोल्नुहोस्"
-
-#, fuzzy
-#~| msgid "File system:"
-#~ msgid "File System:"
-#~ msgstr "फाइल प्रणाली:"
 
 #~ msgid "Delete Files"
 #~ msgstr "फाइलहरू मेट्नुहोस्"
@@ -9871,6 +9863,9 @@ msgstr ""
 #~ msgid "Read only"
 #~ msgstr "पढ्ने मात्र"
 
+#~ msgid "File system:"
+#~ msgstr "फाइल प्रणाली:"
+
 #~ msgid "Mount point (/mnt/floppy):"
 #~ msgstr "माउन्ट बिन्दु (/mnt/फ्लपी):"
 
@@ -10319,6 +10314,9 @@ msgstr ""
 #~ msgstr ""
 #~ "कुकी ह्यान्डलर सेवा सुरु गर्न अक्षम ।\n"
 #~ "तपाईँको कम्प्युटरमा भण्डारण गरिएका कुकीहरू प्रबन्ध गर्न तपाईँ सक्षम हुन पर्ने हुदैन ।"
+
+#~ msgid "Open with:"
+#~ msgstr "यससँग खोल्नुहोस्:"
 
 #~ msgid ""
 #~ "%1.\n"

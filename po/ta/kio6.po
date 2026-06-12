@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-14 00:39+0000\n"
+"POT-Creation-Date: 2026-06-12 00:40+0000\n"
 "PO-Revision-Date: 2026-04-12 18:17+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -101,13 +101,13 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "அடைவு ஏற்கனவே உள்ளது"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "கோப்பு ஏற்கனவே உள்ளது"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "ஏற்கனவே அடைவாக உள்ளது"
@@ -2230,17 +2230,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "தெரியாத பிழை"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1 -க்கான குறியிணைப்பு)"
 
-#: core/kfileitem.cpp:1485
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2 -க்கு இணைப்பு)"
 
-#: core/kfileitem.cpp:1488
+#: core/kfileitem.cpp:1486
 #, kde-format
 msgid " (Points to %1)"
 msgstr "(%1 -ஐ சுட்டுகிறது)"
@@ -3858,7 +3858,7 @@ msgstr "%1-க்கு படத்தை சேமிப்பதில் ப
 msgid "Icon file too big, download aborted"
 msgstr "சின்னம் கோப்பு பெரிதாக உள்ளதால் பதிவிறக்கம் கைவிடப்பட்டது"
 
-#: gui/filepreviewjob.cpp:294
+#: gui/filepreviewjob.cpp:285
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -5331,7 +5331,7 @@ msgstr "உள்ளடக்கம்:"
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
 #, kde-format
-msgid "Open with:"
+msgid "Open With:"
 msgstr "இதனால் திற:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
@@ -5409,28 +5409,25 @@ msgstr "அணுகியது:"
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
 #, kde-format
-msgid "File system:"
+msgid "File System:"
 msgstr "கோப்பு முறைமை:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, fuzzy, kde-format
-#| msgid "Mounted On:"
-msgid "Mounted on:"
+#, kde-format
+msgid "Mounted On:"
 msgstr "இங்கு ஏற்றப்பட்டுள்ளது:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, fuzzy, kde-format
-#| msgid "Mounted From:"
-msgid "Mounted from:"
+#, kde-format
+msgid "Mounted From:"
 msgstr "இங்கிருந்து ஏற்றப்பட்டுள்ளது:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
-#, fuzzy, kde-format
-#| msgid "Free Space:"
-msgid "Free space:"
+#, kde-format
+msgid "Free Space:"
 msgstr "காலி இடம்:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
@@ -7383,12 +7380,6 @@ msgstr "இது கீழ்கண்ட நிரலை இயக்கும
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "இந்த நிரல் நம்பகமானது இல்லையெனில் ரத்து செய்யுங்கள்"
-
-#~ msgid "Open With:"
-#~ msgstr "இதனால் திற:"
-
-#~ msgid "File System:"
-#~ msgstr "கோப்பு முறைமை:"
 
 #~ msgctxt "@option:check"
 #~ msgid "Launch executable files without asking"
@@ -9649,6 +9640,9 @@ msgstr "இந்த நிரல் நம்பகமானது இல்ல
 #~ msgid "Read only"
 #~ msgstr "படித்தல் மட்டும்"
 
+#~ msgid "File system:"
+#~ msgstr "கோப்பு முறைமை:"
+
 #~ msgid "Mount point (/mnt/floppy):"
 #~ msgstr "ஏற்ற மையம் (/mnt/floppy):"
 
@@ -10091,6 +10085,9 @@ msgstr "இந்த நிரல் நம்பகமானது இல்ல
 #~ msgstr ""
 #~ "திடீர் நிரல்கள் கையாளு சேவையை தொடங்க இயலவில்லை.\n"
 #~ "உங்கள் கணினியில் சேமிக்கப்பட்டுள்ள திடீர் நிரல்களை உங்களால் கையால இயலாது."
+
+#~ msgid "Open with:"
+#~ msgstr "இதனால் திற:"
 
 #~ msgid ""
 #~ "%1.\n"

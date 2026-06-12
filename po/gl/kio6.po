@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-14 00:39+0000\n"
+"POT-Creation-Date: 2026-06-12 00:40+0000\n"
 "PO-Revision-Date: 2025-06-22 15:42+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -106,13 +106,13 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "O cartafol xa existe"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "O ficheiro xa existe"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Xa existe como un cartafol"
@@ -2290,17 +2290,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Erro non documentado"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Ligazón simbólica con %1)"
 
-#: core/kfileitem.cpp:1485
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, ligazón para %2)"
 
-#: core/kfileitem.cpp:1488
+#: core/kfileitem.cpp:1486
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Apunta a %1)"
@@ -3937,7 +3937,7 @@ msgstr "Produciuse un erro ao gardar a imaxe en %1"
 msgid "Icon file too big, download aborted"
 msgstr "O ficheiro de icona é grande de máis, interrompeuse a descarga."
 
-#: gui/filepreviewjob.cpp:294
+#: gui/filepreviewjob.cpp:285
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -5434,7 +5434,7 @@ msgstr "Contido:"
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
 #, kde-format
-msgid "Open with:"
+msgid "Open With:"
 msgstr "Abrir con:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
@@ -5512,28 +5512,25 @@ msgstr "Accedido o:"
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
 #, kde-format
-msgid "File system:"
+msgid "File System:"
 msgstr "Sistema de ficheiros:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, fuzzy, kde-format
-#| msgid "Mounted On:"
-msgid "Mounted on:"
+#, kde-format
+msgid "Mounted On:"
 msgstr "Montado en:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, fuzzy, kde-format
-#| msgid "Mounted From:"
-msgid "Mounted from:"
+#, kde-format
+msgid "Mounted From:"
 msgstr "Montado desde:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
-#, fuzzy, kde-format
-#| msgid "Free Space:"
-msgid "Free space:"
+#, kde-format
+msgid "Free Space:"
 msgstr "Espazo libre:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
@@ -7557,12 +7554,6 @@ msgstr "Isto iniciará o programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Se non confía neste programa, prema Cancelar"
-
-#~ msgid "Open With:"
-#~ msgstr "Abrir con:"
-
-#~ msgid "File System:"
-#~ msgstr "Sistema de ficheiros:"
 
 #~ msgctxt "@option:check"
 #~ msgid "Launch executable files without asking"
@@ -9927,6 +9918,9 @@ msgstr "Se non confía neste programa, prema Cancelar"
 #~ msgid "Read only"
 #~ msgstr "Só lectura"
 
+#~ msgid "File system:"
+#~ msgstr "Sistema de ficheiros:"
+
 #~ msgid "Mount point (/mnt/floppy):"
 #~ msgstr "Punto de montaxe (/mnt/floppy):"
 
@@ -10464,6 +10458,9 @@ msgstr "Se non confía neste programa, prema Cancelar"
 #~ msgstr ""
 #~ "Non foi posíbel comezar o servizo de xestión das cookies.\n"
 #~ "Non será capaz de xestionar as cookies que están gardadas no ordenador."
+
+#~ msgid "Open with:"
+#~ msgstr "Abrir con:"
 
 #~ msgid ""
 #~ "%1.\n"
