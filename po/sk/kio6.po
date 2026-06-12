@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-14 00:39+0000\n"
+"POT-Creation-Date: 2026-06-12 00:40+0000\n"
 "PO-Revision-Date: 2024-08-11 20:21+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -95,13 +95,13 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "Priečinok už existuje"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Súbor už existuje"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Už existuje ako priečinok"
@@ -2252,17 +2252,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Nedokumentovaná chyba"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Symbolický odkaz na %1)"
 
-#: core/kfileitem.cpp:1485
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, Odkaz na %2)"
 
-#: core/kfileitem.cpp:1488
+#: core/kfileitem.cpp:1486
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Ukazuje na %1)"
@@ -3890,7 +3890,7 @@ msgstr "Chyba sťahovania obrázku do %1"
 msgid "Icon file too big, download aborted"
 msgstr "Súbor ikony príliš veľký, stiahnutie prerušené"
 
-#: gui/filepreviewjob.cpp:294
+#: gui/filepreviewjob.cpp:285
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -5370,8 +5370,8 @@ msgstr "Obsah:"
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
 #, kde-format
-msgid "Open with:"
-msgstr "Otvoriť pomocou:"
+msgid "Open With:"
+msgstr "Otvoriť s:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:192
@@ -5448,28 +5448,25 @@ msgstr "Prístup:"
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
 #, kde-format
-msgid "File system:"
+msgid "File System:"
 msgstr "Súborový systém:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, fuzzy, kde-format
-#| msgid "Mounted On:"
-msgid "Mounted on:"
+#, kde-format
+msgid "Mounted On:"
 msgstr "Pripojené do:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, fuzzy, kde-format
-#| msgid "Mounted From:"
-msgid "Mounted from:"
+#, kde-format
+msgid "Mounted From:"
 msgstr "Pripojené z:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
-#, fuzzy, kde-format
-#| msgid "Free Space:"
-msgid "Free space:"
+#, kde-format
+msgid "Free Space:"
 msgstr "Voľné miesto:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
@@ -7457,12 +7454,6 @@ msgstr "Spustí sa program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
-
-#~ msgid "Open With:"
-#~ msgstr "Otvoriť s:"
-
-#~ msgid "File System:"
-#~ msgstr "Súborový systém:"
 
 #~ msgid "Change Attribute"
 #~ msgstr "Zmeniť vlastnosť"
@@ -9737,6 +9728,9 @@ msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
 #~ msgid "Read only"
 #~ msgstr "Len na čítanie"
 
+#~ msgid "File system:"
+#~ msgstr "Súborový systém:"
+
 #~ msgid "Mount point (/mnt/floppy):"
 #~ msgstr "Bod pripojenia (/mnt/floppy):"
 
@@ -10237,6 +10231,9 @@ msgstr "Ak nedôverujete tomuto programu, kliknite Zrušiť"
 #~ msgstr ""
 #~ "Nepodarilo sa spustiť službu pre správu cookies.\n"
 #~ "Nebude možné spravovať cookies, ktoré sú uložené na vašom počítači."
+
+#~ msgid "Open with:"
+#~ msgstr "Otvoriť pomocou:"
 
 #~ msgid ""
 #~ "%1.\n"

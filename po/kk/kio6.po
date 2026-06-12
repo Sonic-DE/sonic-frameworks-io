@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-14 00:39+0000\n"
+"POT-Creation-Date: 2026-06-12 00:40+0000\n"
 "PO-Revision-Date: 2012-12-31 04:15+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -99,13 +99,13 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "Бұндай қапшық бар екен"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Бұндай файл атауы қолданыста бар"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Бұл қапшық атауы ретінде бар екен"
@@ -2278,17 +2278,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Беймәлім қате"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1 дегенге символдық сілтеме)"
 
-#: core/kfileitem.cpp:1485
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "( %1, %2 дегенге сілтеме)"
 
-#: core/kfileitem.cpp:1488
+#: core/kfileitem.cpp:1486
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Көрсететіні %1)"
@@ -3987,7 +3987,7 @@ msgstr ""
 msgid "Icon file too big, download aborted"
 msgstr ""
 
-#: gui/filepreviewjob.cpp:294
+#: gui/filepreviewjob.cpp:285
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -5523,9 +5523,10 @@ msgstr "Мазмұны:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
-#, kde-format
-msgid "Open with:"
-msgstr "Мынамен ашу:"
+#, fuzzy, kde-format
+#| msgid "Open With"
+msgid "Open With:"
+msgstr "Мынамен ашу"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:192
@@ -5604,28 +5605,29 @@ msgstr "Ашылған кезі:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
-#, kde-format
-msgid "File system:"
+#, fuzzy, kde-format
+#| msgid "File system:"
+msgid "File System:"
 msgstr "Файл жүйесі:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
-msgid "Mounted on:"
+msgid "Mounted On:"
 msgstr "Тіркеу нүктесі:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
-msgid "Mounted from:"
+msgid "Mounted From:"
 msgstr "Тіркеу нүктесі:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
 #, kde-format
-msgid "Free space:"
+msgid "Free Space:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
@@ -7690,16 +7692,6 @@ msgstr "Жегілетін бағдарлама:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Бағдарлама күдікті десеңіз 'Қайту' дегенді басыңыз"
 
-#, fuzzy
-#~| msgid "Open With"
-#~ msgid "Open With:"
-#~ msgstr "Мынамен ашу"
-
-#, fuzzy
-#~| msgid "File system:"
-#~ msgid "File System:"
-#~ msgstr "Файл жүйесі:"
-
 #~ msgid "Delete Files"
 #~ msgstr "Файлдарды өшіру"
 
@@ -9706,6 +9698,9 @@ msgstr "Бағдарлама күдікті десеңіз 'Қайту' деге
 #~ msgid "Read only"
 #~ msgstr "Тек оқу үшін"
 
+#~ msgid "File system:"
+#~ msgstr "Файл жүйесі:"
+
 #~ msgid "Mount point (/mnt/floppy):"
 #~ msgstr "Тіркеу нүктесі (/mnt/floppy):"
 
@@ -10154,6 +10149,9 @@ msgstr "Бағдарлама күдікті десеңіз 'Қайту' деге
 #~ msgstr ""
 #~ "Cookie файлдармен айналысатын қызмет жегілмеді.\n"
 #~ "Компьютеріңізде сақталған cookie файлдарды басқара алмайсыз."
+
+#~ msgid "Open with:"
+#~ msgstr "Мынамен ашу:"
 
 #~ msgid ""
 #~ "%1.\n"

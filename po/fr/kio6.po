@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-14 00:39+0000\n"
+"POT-Creation-Date: 2026-06-12 00:40+0000\n"
 "PO-Revision-Date: 2026-05-28 14:13+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
@@ -114,13 +114,13 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "Le dossier existe déjà"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Le fichier existe déjà"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Existe déjà en tant que dossier"
@@ -2336,17 +2336,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Problème non documenté"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Lien symbolique vers %1)"
 
-#: core/kfileitem.cpp:1485
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1 pointe vers %2)"
 
-#: core/kfileitem.cpp:1488
+#: core/kfileitem.cpp:1486
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (pointe vers %1)"
@@ -4001,7 +4001,7 @@ msgstr "Erreur pendant l'enregistrement de l'image dans %1"
 msgid "Icon file too big, download aborted"
 msgstr "Fichier d'icône trop volumineux, téléchargement annulé."
 
-#: gui/filepreviewjob.cpp:294
+#: gui/filepreviewjob.cpp:285
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -5503,7 +5503,7 @@ msgstr "Contenu :"
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
 #, kde-format
-msgid "Open with:"
+msgid "Open With:"
 msgstr "Ouvrir avec :"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
@@ -5581,28 +5581,25 @@ msgstr "Accès :"
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
 #, kde-format
-msgid "File system:"
+msgid "File System:"
 msgstr "Système de fichiers :"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, fuzzy, kde-format
-#| msgid "Mounted On:"
-msgid "Mounted on:"
+#, kde-format
+msgid "Mounted On:"
 msgstr "Monté sur :"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, fuzzy, kde-format
-#| msgid "Mounted From:"
-msgid "Mounted from:"
+#, kde-format
+msgid "Mounted From:"
 msgstr "Monté à partir de :"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
-#, fuzzy, kde-format
-#| msgid "Free Space:"
-msgid "Free space:"
+#, kde-format
+msgid "Free Space:"
 msgstr "Espace libre :"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
@@ -7600,12 +7597,6 @@ msgstr "Ceci va démarrer le programme :"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si vous ne faites pas confiance à ce programme, cliquez sur Annuler"
-
-#~ msgid "Open With:"
-#~ msgstr "Ouvrir avec :"
-
-#~ msgid "File System:"
-#~ msgstr "Système de fichiers :"
 
 #~ msgctxt "@option:check"
 #~ msgid "Launch executable files without asking"
@@ -10044,6 +10035,9 @@ msgstr "Si vous ne faites pas confiance à ce programme, cliquez sur Annuler"
 #~ msgid "Read only"
 #~ msgstr "Lecture seule"
 
+#~ msgid "File system:"
+#~ msgstr "Système de fichiers :"
+
 #~ msgid "Mount point (/mnt/floppy):"
 #~ msgstr "Point de montage (/mnt/floppy) :"
 
@@ -10579,6 +10573,9 @@ msgstr "Si vous ne faites pas confiance à ce programme, cliquez sur Annuler"
 #~ msgstr ""
 #~ "Impossible de démarrer le gestionnaire de cookies.\n"
 #~ "Vous ne pourrez pas gérer les cookies enregistrés sur votre ordinateur."
+
+#~ msgid "Open with:"
+#~ msgstr "Ouvrir avec :"
 
 #~ msgid ""
 #~ "%1.\n"

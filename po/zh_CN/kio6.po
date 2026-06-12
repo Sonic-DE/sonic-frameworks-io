@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-14 00:39+0000\n"
+"POT-Creation-Date: 2026-06-12 00:40+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -93,13 +93,13 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "文件夹已存在"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "文件已存在"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2463
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "已存在同名文件夹"
@@ -2139,17 +2139,17 @@ msgstr "请将目标驱动器重新格式化为支持此大小文件的文件系
 msgid "Undocumented Error"
 msgstr "程序文档中没有提及的错误"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(指向 %1 的符号链接)"
 
-#: core/kfileitem.cpp:1485
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1，链接到 %2)"
 
-#: core/kfileitem.cpp:1488
+#: core/kfileitem.cpp:1486
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (指向 %1)"
@@ -3727,7 +3727,7 @@ msgstr "保存图像到 %1 时出错"
 msgid "Icon file too big, download aborted"
 msgstr "图标文件太大，下载已中止"
 
-#: gui/filepreviewjob.cpp:294
+#: gui/filepreviewjob.cpp:285
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -5179,9 +5179,8 @@ msgstr "内容："
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
-#, fuzzy, kde-format
-#| msgid "Open With:"
-msgid "Open with:"
+#, kde-format
+msgid "Open With:"
 msgstr "打开方式："
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
@@ -5258,30 +5257,26 @@ msgstr "访问时间："
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
-#, fuzzy, kde-format
-#| msgid "File System:"
-msgid "File system:"
+#, kde-format
+msgid "File System:"
 msgstr "文件系统："
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, fuzzy, kde-format
-#| msgid "Mounted On:"
-msgid "Mounted on:"
+#, kde-format
+msgid "Mounted On:"
 msgstr "挂载位置："
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, fuzzy, kde-format
-#| msgid "Mounted From:"
-msgid "Mounted from:"
+#, kde-format
+msgid "Mounted From:"
 msgstr "挂载来源："
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
-#, fuzzy, kde-format
-#| msgid "Free Space:"
-msgid "Free space:"
+#, kde-format
+msgid "Free Space:"
 msgstr "剩余空间："
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
