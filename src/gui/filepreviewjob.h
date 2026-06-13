@@ -16,6 +16,15 @@
 #include <kfileitem.h>
 #include <kio/job.h>
 
+class QTimer;
+class FilePreviewJobTest;
+
+#ifdef BUILD_TESTING
+#define KIOGUI_TEST_EXPORT KIOGUI_EXPORT
+#else
+#define KIOGUI_TEST_EXPORT
+#endif
+
 namespace KIO
 {
 
@@ -86,7 +95,7 @@ static constexpr int s_kioFuseMountTimeout = 10000;
  *
  * We then return the result, whatever it may be.
  */
-class FilePreviewJob : public KIO::Job
+class KIOGUI_TEST_EXPORT FilePreviewJob : public KIO::Job
 {
     Q_OBJECT
 
@@ -107,14 +116,14 @@ public:
     static QList<KPluginMetaData> loadAvailablePlugins();
     static QList<KPluginMetaData> standardThumbnailers();
 
-protected:
-    void timerEvent(QTimerEvent *event) override;
-
 private Q_SLOTS:
     void slotStatFile(KJob *job);
     void slotGetOrCreateThumbnail(KJob *job);
+    void slotTimeout();
 
 private:
+    friend class ::FilePreviewJobTest;
+
     enum CachePolicy {
         Prevent,
         Allow,
@@ -158,7 +167,7 @@ private:
     bool m_standardThumbnailer = false;
     KPluginMetaData m_plugin;
 
-    int m_timeoutTimer = -1;
+    QTimer *m_timeoutTimer = nullptr;
 
     KIO::TransferJob *m_transferjob = nullptr;
     KIO::StandardThumbnailJob *m_standardThumbnailJob = nullptr;
