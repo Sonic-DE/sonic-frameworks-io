@@ -5,30 +5,31 @@
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
 # SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Vit Pelcak <vit@pelcak.org>
 #
+# SPDX-FileCopyrightText: 2026 Jan Papez (honyczek)
 msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-04 00:40+0000\n"
-"PO-Revision-Date: 2025-10-01 17:44+0200\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
-"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
+"POT-Creation-Date: 2026-06-14 00:39+0000\n"
+"PO-Revision-Date: 2026-06-10 23:33+0200\n"
+"Last-Translator: Jan Papez (honyczek) <honyczek@centrum.cz>\n"
+"Language-Team: Czech <kde-i18n-cs@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Lukáš Tinkl, Vít Pelčák"
+msgstr "Lukáš Tinkl, Vít Pelčák, Jan Papež (honyczek)"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "lukas@kde.org, vit@pelcak.org"
+msgstr "lukas@kde.org, vit@pelcak.org, honyczek@centrum.cz"
 
 #: core/chmodjob.cpp:197
 #, kde-format
@@ -49,7 +50,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nelze vytvořit nástroj KIO: '%1'"
 
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1008
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1007
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -70,6 +71,11 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "folder name) with an underscore \"_\"."
 msgstr ""
+"Nelze vytvořit „%1“.\n"
+"Cílový souborový systém (%2) neumožňuje následující znaky v názvech složek: "
+"%3\n"
+"Výběrem Nahradit dojde k nahrazení jakýchkoliv neplatných znaků (v cílovém "
+"názvu složky) podtržítkem „_“."
 
 #: core/copyjob.cpp:210
 #, kde-format
@@ -80,19 +86,24 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "file name) with an underscore \"_\"."
 msgstr ""
+"Nelze vytvořit „%1“.\n"
+"Cílový souborový systém (%2) neumožňuje následující znaky v názvech souborů: "
+"%3\n"
+"Výběrem Nahradit dojde k nahrazení jakýchkoliv neplatných znaků (v cílovém "
+"názvu souboru) podtržítkem „_“."
 
 #: core/copyjob.cpp:1426 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Složka již existuje"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2463 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2476 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Soubor již existuje"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2463
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2476
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Již existuje jako složka"
@@ -105,7 +116,7 @@ msgstr "Koš"
 #: core/desktopexecparser.cpp:335
 #, kde-format
 msgid "No Exec field in %1"
-msgstr ""
+msgstr "Žádné pole Exec v %1"
 
 #: core/desktopexecparser.cpp:360
 #, kde-format
@@ -116,22 +127,22 @@ msgstr "Nelze nalézt program '%1'"
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
-msgstr ""
+msgstr "Program ‚%1‘ byl nalezen v ‚%2‘, ale postrádá oprávnění ke spuštění."
 
 #: core/desktopexecparser.cpp:365
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
-msgstr ""
+msgstr "Programu ‚%1‘ chybí oprávnění ke spuštění."
 
 #: core/desktopexecparser.cpp:379
 #, kde-format
 msgid "Syntax error in command %1 coming from %2"
-msgstr ""
+msgstr "Syntaktická chyba v příkazu %1 pocházejícího z %2"
 
 #: core/desktopexecparser.cpp:509
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
-msgstr ""
+msgstr "Terminál %1 nenalezen při pokusu spustit %2"
 
 #: core/desktopexecparser.cpp:526
 #, kde-format
@@ -630,6 +641,8 @@ msgid ""
 "Cannot create symlinks at %1.\n"
 "The destination filesystem doesn't support symlinks."
 msgstr ""
+"Nelze vytvořit symbolické odkazy na %1.\n"
+"Cílový souborový systém nepodporuje symbolické odkazy."
 
 #: core/job_error.cpp:220
 #, kde-format
@@ -698,6 +711,9 @@ msgid ""
 "'%1' is owned by the current user.\n"
 "Please retry after changing permissions."
 msgstr ""
+"Povýšení práv není nutné, protože ‚%1‘\n"
+"je ve vlastnictví současného uživatele.\n"
+"Zkuste to prosím znovu poté, co upravíte oprávnění."
 
 #: core/job_error.cpp:261
 #, kde-format
@@ -707,7 +723,7 @@ msgstr "Soubor je příliš velký pro vyhození do koše."
 #: core/job_error.cpp:264
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
-msgstr ""
+msgstr "Složka Koš nemohla být pro toto umístění nalezena nebo vytvořena."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -1973,6 +1989,8 @@ msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
+"Přestože se navázal kontakt se serverem, v přidělené době na požadavek "
+"nebyla obdržena odpověď."
 
 #: core/job_error.cpp:1107
 #, kde-format
@@ -2211,6 +2229,9 @@ msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
+"klauncher nemohl najít nebo spustit zásuvný modul, který poskytuje tento "
+"protokol. To znamená, že máte pravděpodobně zastaralou verzi zásuvného "
+"modulu."
 
 #: core/job_error.cpp:1260
 #, kde-kuit-format
@@ -2234,23 +2255,25 @@ msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr ""
+"Přeformátujte cílovou jednotku na souborový systém, který podporuje takto "
+"velké soubory."
 
 #: core/job_error.cpp:1270
 #, kde-format
 msgid "Undocumented Error"
 msgstr "Nedokumentovaná chyba"
 
-#: core/kfileitem.cpp:1481
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Symbolický odkaz na %1)"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1485
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, odkaz na %2)"
 
-#: core/kfileitem.cpp:1486
+#: core/kfileitem.cpp:1488
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Odkazuje na: %1)"
@@ -2268,7 +2291,7 @@ msgstr ""
 #: core/mimetypefinderjob.cpp:224
 #, kde-format
 msgid "Unable to determine the type of file for %1"
-msgstr ""
+msgstr "Pro %1 se nepodařilo určit typ souboru"
 
 #: core/openwith.cpp:91
 #, kde-format
@@ -2281,7 +2304,7 @@ msgstr "Nelze získat název programu z '%1', prosím zadejte platný název."
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
-msgstr ""
+msgstr "<filename>%1</filename> se nezdá být jako spustitelný program."
 
 #: core/openwith.cpp:144
 #, kde-kuit-format
@@ -2290,6 +2313,8 @@ msgid ""
 "<filename>%1</filename> was not found; please enter a valid path to an "
 "executable program."
 msgstr ""
+"<filename>%1</filename> nebyl nalezen; zadejte prosím platnou cestu ke "
+"spustitelnému programu."
 
 #: core/slavebase.cpp:806
 #, kde-format
@@ -2441,13 +2466,13 @@ msgstr "Pouze &aktuální sezení"
 #, kde-format
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
-msgstr ""
+msgstr "Přesunout do nové složky"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
-msgstr ""
+msgstr "Vytvořit novou složku pro tyto položky"
 
 #: filewidgets/kdiroperator.cpp:314
 #, kde-format
@@ -2628,7 +2653,7 @@ msgstr "Podrobný stromový pohled"
 #: filewidgets/kdiroperator.cpp:2243
 #, kde-format
 msgid "Allow Expansion in Details View"
-msgstr ""
+msgstr "Povolit rozbalítko v podrobném pohledu"
 
 #: filewidgets/kdiroperator.cpp:2249
 #, kde-format
@@ -2650,7 +2675,7 @@ msgstr "Zobrazit náhled"
 msgid "Open Containing Folder"
 msgstr "Otevřít odpovídající složku"
 
-#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1269
+#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1270
 #, kde-format
 msgid "Properties"
 msgstr "Vlastnosti"
@@ -2780,17 +2805,17 @@ msgstr "Všechny podporované soubory"
 msgid "All Files"
 msgstr "Všechny soubory"
 
-#: filewidgets/kfileplaceeditdialog.cpp:66
+#: filewidgets/kfileplaceeditdialog.cpp:68
 #, kde-format
 msgid "Add Places Entry"
 msgstr "Přidat položku míst"
 
-#: filewidgets/kfileplaceeditdialog.cpp:68
+#: filewidgets/kfileplaceeditdialog.cpp:70
 #, kde-format
 msgid "Edit Places Entry"
 msgstr "Upravit položku míst"
 
-#: filewidgets/kfileplaceeditdialog.cpp:78
+#: filewidgets/kfileplaceeditdialog.cpp:80
 #, kde-format
 msgid ""
 "<qt>This is the text that will appear in the Places panel.<br /><br />The "
@@ -2802,17 +2827,17 @@ msgstr ""
 "měl skládat z jednoho či dvou slov, které vám pomohou zapamatovat si, kam se "
 "položka odkazuje. Pokud nezadáte popisek, bude odvozen z URL umístění.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:84
+#: filewidgets/kfileplaceeditdialog.cpp:86
 #, kde-format
 msgid "L&abel:"
 msgstr "Popis&ek:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:86
+#: filewidgets/kfileplaceeditdialog.cpp:88
 #, kde-format
 msgid "Enter descriptive label here"
 msgstr "Zde zadejte popisek"
 
-#: filewidgets/kfileplaceeditdialog.cpp:91
+#: filewidgets/kfileplaceeditdialog.cpp:93
 #, kde-format
 msgid ""
 "<qt>This is the location associated with the entry. Any valid URL may be "
@@ -2825,12 +2850,12 @@ msgstr ""
 "ftp.kde.org/pub/kde/stable<br /> <br />Kliknutím na tlačítko vedle "
 "editačního pole můžete vybrat požadované URL.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:98
+#: filewidgets/kfileplaceeditdialog.cpp:100
 #, kde-format
 msgid "&Location:"
 msgstr "&Umístění:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:105
+#: filewidgets/kfileplaceeditdialog.cpp:107
 #, kde-format
 msgid ""
 "<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
@@ -2839,17 +2864,17 @@ msgstr ""
 "<qt>Toto je ikona, která se objeví v Panelu míst.<br /><br />Kliknutím na "
 "toto tlačítko vyberete jinou ikonu.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:126
+#: filewidgets/kfileplaceeditdialog.cpp:128
 #, kde-format
 msgid "Choose an &icon:"
 msgstr "Vyberte &ikonu:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:136
+#: filewidgets/kfileplaceeditdialog.cpp:138
 #, kde-format
 msgid "&Only show when using this application (%1)"
 msgstr "Z&obrazovat pouze pro tuto aplikaci (%1)"
 
-#: filewidgets/kfileplaceeditdialog.cpp:139
+#: filewidgets/kfileplaceeditdialog.cpp:141
 #, kde-format
 msgid ""
 "<qt>Select this setting if you want this entry to show only when using the "
@@ -2908,159 +2933,159 @@ msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
 msgstr "%1 (od: %2)"
 
-#: filewidgets/kfileplacesmodel.cpp:158
+#: filewidgets/kfileplacesmodel.cpp:162
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr "Všechny značky"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:254
+#: filewidgets/kfileplacesmodel.cpp:258
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "Domovská složka"
 
-#: filewidgets/kfileplacesmodel.cpp:263
+#: filewidgets/kfileplacesmodel.cpp:267
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "Pracovní plocha"
 
-#: filewidgets/kfileplacesmodel.cpp:270
+#: filewidgets/kfileplacesmodel.cpp:274
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "Dokumenty"
 
-#: filewidgets/kfileplacesmodel.cpp:277
+#: filewidgets/kfileplacesmodel.cpp:281
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr "Stahování"
 
-#: filewidgets/kfileplacesmodel.cpp:282
+#: filewidgets/kfileplacesmodel.cpp:286
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "Síť"
 
-#: filewidgets/kfileplacesmodel.cpp:287
+#: filewidgets/kfileplacesmodel.cpp:291
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "Koš"
 
-#: filewidgets/kfileplacesmodel.cpp:348
+#: filewidgets/kfileplacesmodel.cpp:352
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "Hudba"
 
-#: filewidgets/kfileplacesmodel.cpp:355
+#: filewidgets/kfileplacesmodel.cpp:359
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "Obrázky"
 
-#: filewidgets/kfileplacesmodel.cpp:364
+#: filewidgets/kfileplacesmodel.cpp:368
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "Videa"
 
-#: filewidgets/kfileplacesmodel.cpp:391
+#: filewidgets/kfileplacesmodel.cpp:395
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "Nedávné soubory"
 
-#: filewidgets/kfileplacesmodel.cpp:396
+#: filewidgets/kfileplacesmodel.cpp:400
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "Nedávná umístění"
 
-#: filewidgets/kfileplacesmodel.cpp:419
+#: filewidgets/kfileplacesmodel.cpp:423
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "Změněno dnes"
 
-#: filewidgets/kfileplacesmodel.cpp:423
+#: filewidgets/kfileplacesmodel.cpp:427
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "Změněno včera"
 
-#: filewidgets/kfileplacesmodel.cpp:1130
+#: filewidgets/kfileplacesmodel.cpp:1134
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
-msgstr ""
+msgstr "Nelze přidat na panel Místa: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1137
+#: filewidgets/kfileplacesmodel.cpp:1141
 #, kde-format
 msgid "Only folders can be added to the Places panel."
-msgstr ""
+msgstr "Na panel Místa je možné přidat pouze složky."
 
-#: filewidgets/kfileplacesmodel.cpp:1380
+#: filewidgets/kfileplacesmodel.cpp:1384
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure…"
 msgstr "Nastavit…"
 
-#: filewidgets/kfileplacesmodel.cpp:1416
+#: filewidgets/kfileplacesmodel.cpp:1420
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr ""
+msgstr "Uvolňování..."
 
-#: filewidgets/kfileplacesmodel.cpp:1418
+#: filewidgets/kfileplacesmodel.cpp:1422
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "Vy&dání"
 
-#: filewidgets/kfileplacesmodel.cpp:1422
+#: filewidgets/kfileplacesmodel.cpp:1426
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "Bezpečně odstraňuji"
 
-#: filewidgets/kfileplacesmodel.cpp:1424
+#: filewidgets/kfileplacesmodel.cpp:1428
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "Bezpečně od&stranit"
 
-#: filewidgets/kfileplacesmodel.cpp:1429
+#: filewidgets/kfileplacesmodel.cpp:1433
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Odpojuji..."
 
-#: filewidgets/kfileplacesmodel.cpp:1431
+#: filewidgets/kfileplacesmodel.cpp:1435
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "Odpo&jit"
 
-#: filewidgets/kfileplacesmodel.cpp:1455
+#: filewidgets/kfileplacesmodel.cpp:1459
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&Vysunout"
 
-#: filewidgets/kfileplacesmodel.cpp:1502
+#: filewidgets/kfileplacesmodel.cpp:1506
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "Zařízení '%1' není disk a nelze jej vysunout."
 
-#: filewidgets/kfileplacesmodel.cpp:1538
+#: filewidgets/kfileplacesmodel.cpp:1542
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "Nastala chyba při přístupu k '%1', systém odpověděl: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1540
+#: filewidgets/kfileplacesmodel.cpp:1544
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "Nastala chyba při přístupu k '%1'"
 
-#: filewidgets/kfileplacesmodel.cpp:1567
+#: filewidgets/kfileplacesmodel.cpp:1571
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 "Jeden nebo více souborů z toho zařízení je používáno některou aplikací."
 
-#: filewidgets/kfileplacesmodel.cpp:1570
+#: filewidgets/kfileplacesmodel.cpp:1574
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3078,108 +3103,108 @@ msgstr[2] ""
 "Jeden nebo více souborů z toho zařízení je používáno těmito aplikacemi: "
 "<application>%2</application>."
 
-#: filewidgets/kfileplacesmodel.cpp:1573
+#: filewidgets/kfileplacesmodel.cpp:1577
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesmodel.cpp:1620
+#: filewidgets/kfileplacesmodel.cpp:1624
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "Přeformátovat nebo upravit pomocí Správce diskových oddílů"
 
-#: filewidgets/kfileplacesview.cpp:343
+#: filewidgets/kfileplacesview.cpp:344
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:360
+#: filewidgets/kfileplacesview.cpp:361
 #: widgets/kpropertiesdialogbuiltin_p.cpp:676
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 volné z %2 (%3% použito)"
 
-#: filewidgets/kfileplacesview.cpp:673
+#: filewidgets/kfileplacesview.cpp:674
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (skryté)"
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1228
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Vyprázdnit koš"
 
-#: filewidgets/kfileplacesview.cpp:1252
+#: filewidgets/kfileplacesview.cpp:1253
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Připojit"
 
-#: filewidgets/kfileplacesview.cpp:1262
+#: filewidgets/kfileplacesview.cpp:1263
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Otevřít v nové kartě"
 
-#: filewidgets/kfileplacesview.cpp:1265
+#: filewidgets/kfileplacesview.cpp:1266
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Otevřít v novém okně"
 
-#: filewidgets/kfileplacesview.cpp:1274
+#: filewidgets/kfileplacesview.cpp:1275
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Přidat položku…"
 
-#: filewidgets/kfileplacesview.cpp:1280
+#: filewidgets/kfileplacesview.cpp:1281
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Upravit…"
 
-#: filewidgets/kfileplacesview.cpp:1285
+#: filewidgets/kfileplacesview.cpp:1286
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Odstranit z míst"
 
-#: filewidgets/kfileplacesview.cpp:1289
+#: filewidgets/kfileplacesview.cpp:1290
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Skrýt"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1298
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Skrýt oddíl '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1298
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Skrýt oddíl"
 
-#: filewidgets/kfileplacesview.cpp:1305
+#: filewidgets/kfileplacesview.cpp:1306
 #, kde-format
 msgid "&Show All Entries"
 msgstr "Zo&brazit všechny položky"
 
-#: filewidgets/kfileplacesview.cpp:1310
+#: filewidgets/kfileplacesview.cpp:1311
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Velikost ikon"
 
-#: filewidgets/kfileplacesview.cpp:1431
+#: filewidgets/kfileplacesview.cpp:1432
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3187,25 +3212,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Automaticky změnit velikost"
 
-#: filewidgets/kfileplacesview.cpp:1451
+#: filewidgets/kfileplacesview.cpp:1452
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Malé (%1x%)"
 
-#: filewidgets/kfileplacesview.cpp:1454
+#: filewidgets/kfileplacesview.cpp:1455
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Střední (%1x%)"
 
-#: filewidgets/kfileplacesview.cpp:1457
+#: filewidgets/kfileplacesview.cpp:1458
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Velké (%1x%)"
 
-#: filewidgets/kfileplacesview.cpp:1460
+#: filewidgets/kfileplacesview.cpp:1461
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -3240,8 +3265,14 @@ msgid_plural ""
 "The selected URL uses an unsupported scheme. Please use one of the following "
 "schemes: %2"
 msgstr[0] ""
+"Vybraná adresa URL používá nepodporované schéma. Prosím použijte následující "
+"schéma: %2"
 msgstr[1] ""
+"Vybraná adresa URL používá nepodporované schéma. Prosím použijte jedno z "
+"následujících schémat: %2"
 msgstr[2] ""
+"Vybraná adresa URL používá nepodporované schéma. Prosím použijte jedno z "
+"následujících schémat: %2"
 
 #: filewidgets/kfilewidget.cpp:826
 #, kde-format
@@ -3347,7 +3378,7 @@ msgstr "&Název:"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
-msgstr ""
+msgstr "Vrátit změnu souboru"
 
 #: filewidgets/kfilewidget.cpp:1393
 #, kde-format
@@ -3431,39 +3462,39 @@ msgstr "Všechny složky"
 #: filewidgets/kfilewidget.cpp:2079
 #, kde-format
 msgid "Current Directory: %1"
-msgstr ""
+msgstr "Aktuální adresář: %1"
 
 #: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:847
 #, kde-format
 msgid "&Open"
 msgstr "&Otevřít"
 
-#: filewidgets/kfilewidget.cpp:2307
+#: filewidgets/kfilewidget.cpp:2315
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Velikost ikony: %1 pixelů"
 
-#: filewidgets/kfilewidget.cpp:2474
+#: filewidgets/kfilewidget.cpp:2482
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Auto&maticky zvolit příponu souboru (%1)"
 
-#: filewidgets/kfilewidget.cpp:2475
+#: filewidgets/kfilewidget.cpp:2483
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "přípona <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2481
+#: filewidgets/kfilewidget.cpp:2489
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Auto&maticky zvolit příponu souboru"
 
-#: filewidgets/kfilewidget.cpp:2482
+#: filewidgets/kfilewidget.cpp:2490
 #, kde-format
 msgid "a suitable extension"
 msgstr "vhodná přípona"
 
-#: filewidgets/kfilewidget.cpp:2490
+#: filewidgets/kfilewidget.cpp:2498
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3489,63 +3520,63 @@ msgstr ""
 "automaticky později odstraněna.</li></ol> Pokud si nejste jisti, ponechte "
 "zapnuté - soubory tak lze lépe spravovat."
 
-#: filewidgets/kfilewidget.cpp:2956
+#: filewidgets/kfilewidget.cpp:2964
 #, kde-format
 msgid "&File type:"
 msgstr "T&yp souboru:"
 
-#: filewidgets/kfilewidget.cpp:2960
+#: filewidgets/kfilewidget.cpp:2968
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2962
+#: filewidgets/kfilewidget.cpp:2970
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:224
+#: filewidgets/knewfilemenu.cpp:235
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Zadejte %1 název souboru:"
 
-#: filewidgets/knewfilemenu.cpp:538
+#: filewidgets/knewfilemenu.cpp:543
 #, kde-format
 msgid "Sorry"
 msgstr "Lituji"
 
-#: filewidgets/knewfilemenu.cpp:549
+#: filewidgets/knewfilemenu.cpp:554
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Soubor <b>%1</b> se šablonami neexistuje.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:700 filewidgets/knewfilemenu.cpp:765
+#: filewidgets/knewfilemenu.cpp:705 filewidgets/knewfilemenu.cpp:770
 #, kde-format
 msgid "Name for new link:"
 msgstr "Název pro nový odkaz:"
 
-#: filewidgets/knewfilemenu.cpp:703
+#: filewidgets/knewfilemenu.cpp:708
 #, kde-format
 msgid "Create Symlink"
 msgstr "Vytvořit symbolický odkaz"
 
-#: filewidgets/knewfilemenu.cpp:769
+#: filewidgets/knewfilemenu.cpp:774
 #, kde-format
 msgid "Create link to URL"
 msgstr "Vytvořit odkaz na URL"
 
-#: filewidgets/knewfilemenu.cpp:810 filewidgets/knewfilemenu.cpp:834
+#: filewidgets/knewfilemenu.cpp:815 filewidgets/knewfilemenu.cpp:839
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1179
+#: filewidgets/knewfilemenu.cpp:1184
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3555,7 +3586,7 @@ msgstr ""
 "Název nelze použít <filename>%1</filename><nl/>protože je rezervován pro "
 "použití operačním systémem."
 
-#: filewidgets/knewfilemenu.cpp:1187
+#: filewidgets/knewfilemenu.cpp:1192
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3565,7 +3596,7 @@ msgstr ""
 "Název <filename>%1</filename> začíná tečkou, tudíž bude adresář ve výchozím "
 "stavu skryt."
 
-#: filewidgets/knewfilemenu.cpp:1195
+#: filewidgets/knewfilemenu.cpp:1200
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3577,27 +3608,27 @@ msgstr ""
 "povede k tomu, že bude zobrazeno před ostatními položkami při řazení podle "
 "abecedy."
 
-#: filewidgets/knewfilemenu.cpp:1213
+#: filewidgets/knewfilemenu.cpp:1218
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1227
+#: filewidgets/knewfilemenu.cpp:1232
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1239
+#: filewidgets/knewfilemenu.cpp:1244
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Lomítka nelze v názvech složek použít."
 
-#: filewidgets/knewfilemenu.cpp:1244
+#: filewidgets/knewfilemenu.cpp:1249
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Zpětná lomítka nelze v názvech složek použít."
 
-#: filewidgets/knewfilemenu.cpp:1258
+#: filewidgets/knewfilemenu.cpp:1263
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3605,59 +3636,59 @@ msgid ""
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1267
+#: filewidgets/knewfilemenu.cpp:1272
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1339
+#: filewidgets/knewfilemenu.cpp:1344
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Složka s názvem <filename>%1</filename> již existuje."
 
-#: filewidgets/knewfilemenu.cpp:1341
+#: filewidgets/knewfilemenu.cpp:1346
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Soubor s názvem <filename>%1</filename> již existuje."
 
-#: filewidgets/knewfilemenu.cpp:1427
+#: filewidgets/knewfilemenu.cpp:1432
 #, kde-format
 msgid "Create New"
 msgstr "Vytvořit nový"
 
-#: filewidgets/knewfilemenu.cpp:1462
+#: filewidgets/knewfilemenu.cpp:1467
 #, kde-format
 msgid "Link to Device"
 msgstr "Odkaz na zařízení"
 
-#: filewidgets/knewfilemenu.cpp:1501
+#: filewidgets/knewfilemenu.cpp:1506
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nová složka"
 
-#: filewidgets/knewfilemenu.cpp:1524
+#: filewidgets/knewfilemenu.cpp:1529
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Vytvořit novou složku"
 
-#: filewidgets/knewfilemenu.cpp:1526
+#: filewidgets/knewfilemenu.cpp:1531
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Vytvořit novou složku v %1:"
 
-#: filewidgets/knewfilemenu.cpp:1529 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1534 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Zadejte název složky"
 
-#: filewidgets/knewfilemenu.cpp:1586
+#: filewidgets/knewfilemenu.cpp:1591
 #, kde-format
 msgid "Default"
 msgstr "Výchozí"
@@ -3698,7 +3729,7 @@ msgstr "Ikonu lze změnit i později ve vlastnostech složky."
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:606 widgets/checksumswidget.ui:145
+#: filewidgets/kurlnavigator.cpp:609 widgets/checksumswidget.ui:145
 #: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
 #: widgets/checksumswidget.ui:286
 #, kde-format
@@ -3706,39 +3737,39 @@ msgid "Copy"
 msgstr "Kopírovat"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:610 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:613 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "Vložit"
 
-#: filewidgets/kurlnavigator.cpp:630
+#: filewidgets/kurlnavigator.cpp:633
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Otevřít \"%1\" v nové kartě"
 
-#: filewidgets/kurlnavigator.cpp:638
+#: filewidgets/kurlnavigator.cpp:641
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Otevřít \"%1\" v novém okně"
 
-#: filewidgets/kurlnavigator.cpp:647
+#: filewidgets/kurlnavigator.cpp:650
 #, kde-format
 msgid "Edit"
 msgstr "Upravit"
 
-#: filewidgets/kurlnavigator.cpp:650
+#: filewidgets/kurlnavigator.cpp:653
 #, kde-format
 msgid "Navigate"
 msgstr "Přejít"
 
-#: filewidgets/kurlnavigator.cpp:665
+#: filewidgets/kurlnavigator.cpp:668
 #, kde-format
 msgid "Show Full Path"
 msgstr "Zobrazit celou cestu"
 
-#: filewidgets/kurlnavigator.cpp:826
+#: filewidgets/kurlnavigator.cpp:829
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -3754,12 +3785,10 @@ msgstr "Více"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "Přejít na umístění v cestě"
 
 #: filewidgets/kurlnavigatorplacesselector.cpp:49
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Places"
+#, kde-format
 msgctxt ""
 "@action:button accessible name for the places selector in the URL navigator"
 msgid "Places"
@@ -3833,12 +3862,12 @@ msgstr ""
 #, kde-format
 msgctxt "An error message"
 msgid "Empty command provided"
-msgstr ""
+msgstr "Byl zadán prázdný příkaz"
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format
 msgid "No favicon found for %1"
-msgstr ""
+msgstr "Nebyla nalezena ikona oblíbené položky %1"
 
 #: gui/faviconrequestjob.cpp:156
 #, kde-format
@@ -3850,7 +3879,7 @@ msgstr "Chyba během ukládání obrázku do %1"
 msgid "Icon file too big, download aborted"
 msgstr "Soubor ikony je příliš velký. Stahování bylo přerušeno"
 
-#: gui/filepreviewjob.cpp:285
+#: gui/filepreviewjob.cpp:294
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -3886,7 +3915,7 @@ msgstr "Příkaz <command>%1</command> nelze najít."
 #: gui/kterminallauncherjob.cpp:130
 #, kde-format
 msgid "No terminal emulator found"
-msgstr ""
+msgstr "Nebyl nalezen žádný emulátor terminálu"
 
 #: gui/openurljob.cpp:163
 #, kde-format
@@ -4132,22 +4161,22 @@ msgstr "Nelze nalézt program \"mount\"."
 msgid "Could not find program \"umount\""
 msgstr "Nelze nalézt program \"umount\"."
 
-#: kioworkers/file/file_unix.cpp:601
+#: kioworkers/file/file_unix.cpp:600
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nelze kopírovat soubor z %1 do %2 (chyba č. %3)."
 
-#: kioworkers/file/file_unix.cpp:815
+#: kioworkers/file/file_unix.cpp:814
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Žádné médium v zařízení pro %1"
 
-#: kioworkers/file/file_unix.cpp:1076
+#: kioworkers/file/file_unix.cpp:1075
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nelze získat ID uživatele pro uživatele %1"
 
-#: kioworkers/file/file_unix.cpp:1087
+#: kioworkers/file/file_unix.cpp:1086
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nelze získat ID skupiny pro skupinu %1"
@@ -4545,7 +4574,7 @@ msgstr "Obnovit vyhozený soubor na původní místo"
 #: kioworkers/trash/trashimpl.cpp:1305
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
-msgstr ""
+msgstr "Koš je plný. Vyprázdněte jej nebo z něj ručně odstraňte položky."
 
 #: kpasswdserver/kpasswdserver.cpp:529
 #, kde-format
@@ -4683,7 +4712,7 @@ msgstr ""
 #: widgets/checksumswidget.ui:32
 #, kde-format
 msgid "Expected checksum (MD5, SHA1, SHA256 or SHA512)..."
-msgstr ""
+msgstr "Očekávané kontrolní součty (MD5, SHA1, SHA256 or SHA512)..."
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pasteButton)
 #: widgets/checksumswidget.ui:39
@@ -4771,7 +4800,7 @@ msgstr "Vytvořit &odkaz zde"
 #, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
-msgstr ""
+msgstr "_Spustit"
 
 #: widgets/executablefileopendialog.cpp:80
 #, kde-format
@@ -4788,13 +4817,13 @@ msgstr "&Otevřít"
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
-msgstr ""
+msgstr "&Otevřít pomocí %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/executablefileopendialog.ui:26
 #, kde-format
 msgid "Would you like to launch this file?"
-msgstr ""
+msgstr "Přejete si spustit tento soubor?"
 
 #: widgets/fileundomanager.cpp:126
 #, kde-format
@@ -4829,7 +4858,7 @@ msgstr "Přejmenovávám"
 #: widgets/fileundomanager.cpp:147
 #, kde-format
 msgid "Moving to Trash"
-msgstr ""
+msgstr "Přesouvání do koše"
 
 #: widgets/fileundomanager.cpp:152
 #, kde-format
@@ -5184,43 +5213,43 @@ msgstr "Aktualizuje se nastavení systému"
 msgid "Updating system configuration…"
 msgstr "Aktualizuje se nastavení systému..."
 
-#: widgets/kdirmodel.cpp:1258
+#: widgets/kdirmodel.cpp:1263
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Jméno"
 
-#: widgets/kdirmodel.cpp:1260
+#: widgets/kdirmodel.cpp:1265
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Velikost"
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1267
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Datum"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1269
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Oprávnění"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1271
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Vlastník"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1273
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Skupina"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1275
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
@@ -5256,11 +5285,10 @@ msgid "&Open With…"
 msgstr "&Otevřít pomocí…"
 
 #: widgets/kfileitemactions.cpp:814
-#, fuzzy, kde-format
-#| msgid "Execute:"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
-msgstr "Spustit:"
+msgstr "&Spustit"
 
 #: widgets/kfileitemactions.cpp:836
 #, kde-format
@@ -5320,7 +5348,7 @@ msgstr "Obsah:"
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
 #, kde-format
-msgid "Open With:"
+msgid "Open with:"
 msgstr "Otevřít pomocí:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
@@ -5345,7 +5373,7 @@ msgstr "Velikost:"
 #: widgets/kfilepropspluginwidget.ui:282
 #, kde-format
 msgid "Determine the folder size"
-msgstr ""
+msgstr "Zjistit velikost složky"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:289
@@ -5357,7 +5385,7 @@ msgstr "Zastavit"
 #: widgets/kfilepropspluginwidget.ui:295
 #, kde-format
 msgid "Stop determining the folder size"
-msgstr ""
+msgstr "Zastavit zjišťování velikosti složky"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:302
@@ -5398,25 +5426,28 @@ msgstr "Poslední přístup:"
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
 #, kde-format
-msgid "File System:"
+msgid "File system:"
 msgstr "Souborový systém:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, kde-format
-msgid "Mounted On:"
+#, fuzzy, kde-format
+#| msgid "Mounted On:"
+msgid "Mounted on:"
 msgstr "Místo připojení:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, kde-format
-msgid "Mounted From:"
+#, fuzzy, kde-format
+#| msgid "Mounted From:"
+msgid "Mounted from:"
 msgstr "Připojeno od:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
-#, kde-format
-msgid "Free Space:"
+#, fuzzy, kde-format
+#| msgid "Free Space:"
+msgid "Free space:"
 msgstr "Volné místo:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
@@ -5563,7 +5594,7 @@ msgstr "Nez&avírat po ukončení příkazu"
 #: widgets/kopenwithdialog.cpp:796
 #, kde-format
 msgid "Get more Apps from Discover"
-msgstr ""
+msgstr "Získat více aplikací z Discoveru"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
 #: widgets/kpropertiesdesktopadvbase.ui:17
@@ -5724,7 +5755,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:42
 #, kde-format
 msgid "&Generic name:"
-msgstr ""
+msgstr "&Obecný název:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
@@ -5745,7 +5776,7 @@ msgstr "Kom&entář:"
 #: widgets/kpropertiesdesktopbase.ui:79
 #, kde-format
 msgid "Environment variables:"
-msgstr ""
+msgstr "Proměnné prostředí:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
@@ -5963,13 +5994,13 @@ msgstr "&Obecné"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
-msgstr ""
+msgstr "Zadejte název souboru"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:428
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
-msgstr ""
+msgstr "Prozkoumat v %1"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:439
 #: widgets/kpropertiesdialogbuiltin_p.cpp:716
@@ -5981,7 +6012,7 @@ msgstr "Obnovit"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
-msgstr ""
+msgstr "Zadejte cílové umístění"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:452
 #: widgets/kpropertiesdialogbuiltin_p.cpp:455
@@ -6046,12 +6077,12 @@ msgstr "Nový název souboru je prázdný."
 #: widgets/kpropertiesdialogbuiltin_p.cpp:992
 #, kde-format
 msgid "No registered file type"
-msgstr ""
+msgstr "Žádný registrovaný typ souboru"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:994
 #, kde-format
 msgid "No associated application"
-msgstr ""
+msgstr "Žádná přiřazená aplikace"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1000
 #, kde-format
@@ -6069,7 +6100,7 @@ msgstr "Změnit…"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
-msgstr ""
+msgstr "Změnit výchozí aplikaci pro otevírání souborů typu „%1“."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1076
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1077
@@ -6452,7 +6483,7 @@ msgstr "Neplatný kontrolní součet."
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
-msgstr ""
+msgstr "Zadaný vstup není platným kontrolním součtem MD5, SHA1 nebo SHA256."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2382
 #, kde-format
@@ -6463,7 +6494,7 @@ msgstr "Kontrolní součty odpovídají."
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
-msgstr ""
+msgstr "Kontrolní součet byl vypočítání a očekávaný kontrolní součet odpovídá."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2397
 #, kde-format
@@ -6477,7 +6508,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
-msgstr ""
+msgstr "Kontrolní součet byl vypočítání a očekávaný kontrolní součet se liší."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2411
 #, kde-format
@@ -6488,12 +6519,12 @@ msgstr "Ověřování kontrolního součtu…"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2440
 #, kde-format
 msgid "The checksums of all files are identical."
-msgstr ""
+msgstr "Kontrolní součty všech souborů jsou stejné."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2445
 #, kde-format
 msgid "The selected files have different checksums."
-msgstr ""
+msgstr "Vybrané soubory mají rozdílné kontrolní součty."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2451
 #, kde-format
@@ -6653,15 +6684,13 @@ msgstr "Otevřít souborový dialog"
 #, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
-msgstr ""
+msgstr "vložený soubor"
 
 #: widgets/paste.cpp:79 widgets/paste.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
-msgstr "Vložit obsah schránky…"
+msgstr "Vložit obsah schránky"
 
 #: widgets/paste.cpp:122
 #, kde-format
@@ -6706,8 +6735,7 @@ msgid "Paste"
 msgstr "Vložit"
 
 #: widgets/pastedialog.cpp:57
-#, fuzzy, kde-format
-#| msgid "Data format:"
+#, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Formát dat:"
@@ -6819,7 +6847,7 @@ msgstr ""
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
-msgstr ""
+msgstr "Přepsat starší s&oubory"
 
 #: widgets/renamedialog.cpp:323
 #, kde-format
@@ -6900,11 +6928,10 @@ msgid ""
 msgstr ""
 
 #: widgets/renamedialog.cpp:518
-#, fuzzy, kde-format
-#| msgid "Compact View"
+#, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
-msgstr "Kompaktní zobrazení"
+msgstr "Porovnat soubory"
 
 #: widgets/renamedialog.cpp:531
 #, kde-format
