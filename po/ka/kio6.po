@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-04 00:40+0000\n"
-"PO-Revision-Date: 2026-05-27 06:47+0200\n"
+"POT-Creation-Date: 2026-06-14 00:39+0000\n"
+"PO-Revision-Date: 2026-06-14 04:16+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO დამხმარე პროცესის შექმნის შეცდომა: %1"
 
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1008
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1007
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -94,13 +94,13 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "საქაღალდე უკვე არსებობს"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2463 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2476 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "ფაილი უკვე არსებობს"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2463
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2476
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "უკვე არსებობს საქაღალდეში"
@@ -2257,17 +2257,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "არადოკუმენტირებული შეცდომა"
 
-#: core/kfileitem.cpp:1481
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(სიმბმული %1-მდე)"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1485
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, ბმული %2-მდე)"
 
-#: core/kfileitem.cpp:1486
+#: core/kfileitem.cpp:1488
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (მიუთითებს %1-ზე)"
@@ -2678,7 +2678,7 @@ msgstr "გადახედვის ჩვენება"
 msgid "Open Containing Folder"
 msgstr "შემცველი საქაღალდის გახსნა"
 
-#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1269
+#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1270
 #, kde-format
 msgid "Properties"
 msgstr "პარამეტრები"
@@ -2808,17 +2808,17 @@ msgstr "ყველა მხარდაჭერილი ფაილი"
 msgid "All Files"
 msgstr "ყველა ფაილი"
 
-#: filewidgets/kfileplaceeditdialog.cpp:66
+#: filewidgets/kfileplaceeditdialog.cpp:68
 #, kde-format
 msgid "Add Places Entry"
 msgstr "მდებარეობის ელემენტის დამატება"
 
-#: filewidgets/kfileplaceeditdialog.cpp:68
+#: filewidgets/kfileplaceeditdialog.cpp:70
 #, kde-format
 msgid "Edit Places Entry"
 msgstr "მდებარეობის ელემენტის ჩასწორება"
 
-#: filewidgets/kfileplaceeditdialog.cpp:78
+#: filewidgets/kfileplaceeditdialog.cpp:80
 #, kde-format
 msgid ""
 "<qt>This is the text that will appear in the Places panel.<br /><br />The "
@@ -2830,17 +2830,17 @@ msgstr ""
 "შედგებოდეს ერთი ან ორი სიტყვისგან, რომელიც დაგეხმარებათ, რას ეხება ეს "
 "ელემენტი. თუ ჭდეს არ შეიყვანთ, ის მდებარეობის URL-დან განისაზღვრება.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:84
+#: filewidgets/kfileplaceeditdialog.cpp:86
 #, kde-format
 msgid "L&abel:"
 msgstr "&ჭდე:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:86
+#: filewidgets/kfileplaceeditdialog.cpp:88
 #, kde-format
 msgid "Enter descriptive label here"
 msgstr "შეიყვანეთ აღმწერი ჭდე"
 
-#: filewidgets/kfileplaceeditdialog.cpp:91
+#: filewidgets/kfileplaceeditdialog.cpp:93
 #, kde-format
 msgid ""
 "<qt>This is the location associated with the entry. Any valid URL may be "
@@ -2853,12 +2853,12 @@ msgstr ""
 "org/pub/kde/stable<br /><br /> ტექსტური რედაქტორთან მდებარე ღილაკზე "
 "დაწკაპუნებით შეგიძლიათ შესაბამის URL-ზე გადახვიდეთ.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:98
+#: filewidgets/kfileplaceeditdialog.cpp:100
 #, kde-format
 msgid "&Location:"
 msgstr "&მდებარეობა:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:105
+#: filewidgets/kfileplaceeditdialog.cpp:107
 #, kde-format
 msgid ""
 "<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
@@ -2867,17 +2867,17 @@ msgstr ""
 "<qt>ეს ხატულა მდებარეობების პანელში გამოჩნდება.<br /><br />სხვა ხატულის "
 "ასარჩევად ღილაკზე დააწკაპუნეთ.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:126
+#: filewidgets/kfileplaceeditdialog.cpp:128
 #, kde-format
 msgid "Choose an &icon:"
 msgstr "აირჩიეთ ხა&ტულა:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:136
+#: filewidgets/kfileplaceeditdialog.cpp:138
 #, kde-format
 msgid "&Only show when using this application (%1)"
 msgstr "მხოლოდ ამ აპლიკაციის (%1) &გამოყენების დროს"
 
-#: filewidgets/kfileplaceeditdialog.cpp:139
+#: filewidgets/kfileplaceeditdialog.cpp:141
 #, kde-format
 msgid ""
 "<qt>Select this setting if you want this entry to show only when using the "
@@ -2936,158 +2936,158 @@ msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
 msgstr "%1 (%2-დან)"
 
-#: filewidgets/kfileplacesmodel.cpp:158
+#: filewidgets/kfileplacesmodel.cpp:162
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr "ყველა ჭდე"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:254
+#: filewidgets/kfileplacesmodel.cpp:258
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "სახლი"
 
-#: filewidgets/kfileplacesmodel.cpp:263
+#: filewidgets/kfileplacesmodel.cpp:267
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "სამუშაო მაგიდა"
 
-#: filewidgets/kfileplacesmodel.cpp:270
+#: filewidgets/kfileplacesmodel.cpp:274
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "დოკუმენტები"
 
-#: filewidgets/kfileplacesmodel.cpp:277
+#: filewidgets/kfileplacesmodel.cpp:281
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr "გადმოწერები"
 
-#: filewidgets/kfileplacesmodel.cpp:282
+#: filewidgets/kfileplacesmodel.cpp:286
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "ქსელი"
 
-#: filewidgets/kfileplacesmodel.cpp:287
+#: filewidgets/kfileplacesmodel.cpp:291
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "ნაგავი"
 
-#: filewidgets/kfileplacesmodel.cpp:348
+#: filewidgets/kfileplacesmodel.cpp:352
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "მუსიკა"
 
-#: filewidgets/kfileplacesmodel.cpp:355
+#: filewidgets/kfileplacesmodel.cpp:359
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "სურათები"
 
-#: filewidgets/kfileplacesmodel.cpp:364
+#: filewidgets/kfileplacesmodel.cpp:368
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "ვიდეო"
 
-#: filewidgets/kfileplacesmodel.cpp:391
+#: filewidgets/kfileplacesmodel.cpp:395
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "ბოლო ფაილები"
 
-#: filewidgets/kfileplacesmodel.cpp:396
+#: filewidgets/kfileplacesmodel.cpp:400
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "ბოლო მდებარეობები"
 
-#: filewidgets/kfileplacesmodel.cpp:419
+#: filewidgets/kfileplacesmodel.cpp:423
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "შეცვლილია დღეს"
 
-#: filewidgets/kfileplacesmodel.cpp:423
+#: filewidgets/kfileplacesmodel.cpp:427
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "შეცვლილია გუშინ"
 
-#: filewidgets/kfileplacesmodel.cpp:1130
+#: filewidgets/kfileplacesmodel.cpp:1134
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Places პანელის დამატების შეცდომა: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1137
+#: filewidgets/kfileplacesmodel.cpp:1141
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "ადგილების პანელზე მხოლოდ საქაღალდეების დამატება შეგიძლიათ."
 
-#: filewidgets/kfileplacesmodel.cpp:1380
+#: filewidgets/kfileplacesmodel.cpp:1384
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure…"
 msgstr "მორგება…"
 
-#: filewidgets/kfileplacesmodel.cpp:1416
+#: filewidgets/kfileplacesmodel.cpp:1420
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "გათავისუფლება…"
 
-#: filewidgets/kfileplacesmodel.cpp:1418
+#: filewidgets/kfileplacesmodel.cpp:1422
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&გათავისუფლება"
 
-#: filewidgets/kfileplacesmodel.cpp:1422
+#: filewidgets/kfileplacesmodel.cpp:1426
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "უსაფრთხოდ მოცილება…"
 
-#: filewidgets/kfileplacesmodel.cpp:1424
+#: filewidgets/kfileplacesmodel.cpp:1428
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&უსაფრთხოდ მოცილება"
 
-#: filewidgets/kfileplacesmodel.cpp:1429
+#: filewidgets/kfileplacesmodel.cpp:1433
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "მოხსნა…"
 
-#: filewidgets/kfileplacesmodel.cpp:1431
+#: filewidgets/kfileplacesmodel.cpp:1435
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&მიმაგრების მოხსნა (unmount)"
 
-#: filewidgets/kfileplacesmodel.cpp:1455
+#: filewidgets/kfileplacesmodel.cpp:1459
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&გამოღება"
 
-#: filewidgets/kfileplacesmodel.cpp:1502
+#: filewidgets/kfileplacesmodel.cpp:1506
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "მოწყობილობა '%1' დისკი არაა და მისი გამოღება შეუძლებელია."
 
-#: filewidgets/kfileplacesmodel.cpp:1538
+#: filewidgets/kfileplacesmodel.cpp:1542
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "შეცდომა \"%1\"-სთან წვდომისას. სისტემის პასუხია: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1540
+#: filewidgets/kfileplacesmodel.cpp:1544
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "შეცდომა \"%1\"-სთან წვდომისას"
 
-#: filewidgets/kfileplacesmodel.cpp:1567
+#: filewidgets/kfileplacesmodel.cpp:1571
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr "აპლიკაციას ამ მოწყობილობაზე მდებარე ერთი ან მეტი ფაილი აქვს გახსნილი."
 
-#: filewidgets/kfileplacesmodel.cpp:1570
+#: filewidgets/kfileplacesmodel.cpp:1574
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3102,108 +3102,108 @@ msgstr[1] ""
 "ამ მოწყობილობაზე ერთი ან მეტი ფაილი გახსნილია აპლიკაციებში <application>"
 "\"%2\"</application>."
 
-#: filewidgets/kfileplacesmodel.cpp:1573
+#: filewidgets/kfileplacesmodel.cpp:1577
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesmodel.cpp:1620
+#: filewidgets/kfileplacesmodel.cpp:1624
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "დააფორმატეთ ან ჩაასწორეთ დანაყოფების მმართველით"
 
-#: filewidgets/kfileplacesview.cpp:343
+#: filewidgets/kfileplacesview.cpp:344
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:360
+#: filewidgets/kfileplacesview.cpp:361
 #: widgets/kpropertiesdialogbuiltin_p.cpp:676
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%2-დან %1 თავისუფალია (გამოყენებულია %3%)"
 
-#: filewidgets/kfileplacesview.cpp:673
+#: filewidgets/kfileplacesview.cpp:674
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (დამალული)"
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1228
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "ნაგვის დაცარიელება"
 
-#: filewidgets/kfileplacesview.cpp:1252
+#: filewidgets/kfileplacesview.cpp:1253
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "მიმაგრება"
 
-#: filewidgets/kfileplacesview.cpp:1262
+#: filewidgets/kfileplacesview.cpp:1263
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "ახალ ჩანართში გახსნა"
 
-#: filewidgets/kfileplacesview.cpp:1265
+#: filewidgets/kfileplacesview.cpp:1266
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "ახალ ფანჯარაში გახსნა"
 
-#: filewidgets/kfileplacesview.cpp:1274
+#: filewidgets/kfileplacesview.cpp:1275
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "ელემენტის დამატება…"
 
-#: filewidgets/kfileplacesview.cpp:1280
+#: filewidgets/kfileplacesview.cpp:1281
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&ჩასწორება…"
 
-#: filewidgets/kfileplacesview.cpp:1285
+#: filewidgets/kfileplacesview.cpp:1286
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "ადგილებიდან წაშლა"
 
-#: filewidgets/kfileplacesview.cpp:1289
+#: filewidgets/kfileplacesview.cpp:1290
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&დამალვა"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1298
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "სექციის დამალვა %1"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1298
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "სექციის დამალვა"
 
-#: filewidgets/kfileplacesview.cpp:1305
+#: filewidgets/kfileplacesview.cpp:1306
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&ყველა ელემენტის ჩვენება"
 
-#: filewidgets/kfileplacesview.cpp:1310
+#: filewidgets/kfileplacesview.cpp:1311
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "ხატულების ზომა"
 
-#: filewidgets/kfileplacesview.cpp:1431
+#: filewidgets/kfileplacesview.cpp:1432
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3211,25 +3211,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "ზომის ავტომატური შეცვლა"
 
-#: filewidgets/kfileplacesview.cpp:1451
+#: filewidgets/kfileplacesview.cpp:1452
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "პატარა (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1454
+#: filewidgets/kfileplacesview.cpp:1455
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "საშუალო (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1457
+#: filewidgets/kfileplacesview.cpp:1458
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "დიდი (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1460
+#: filewidgets/kfileplacesview.cpp:1461
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -3466,32 +3466,32 @@ msgstr "მიმდინარე საქაღალდე: %1"
 msgid "&Open"
 msgstr "&გახსნა"
 
-#: filewidgets/kfilewidget.cpp:2307
+#: filewidgets/kfilewidget.cpp:2315
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "ხატულის ზომა: %1 პიქსელი"
 
-#: filewidgets/kfilewidget.cpp:2474
+#: filewidgets/kfilewidget.cpp:2482
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "ფაილის გაფართოების ავტომატური მითითება (%1)"
 
-#: filewidgets/kfilewidget.cpp:2475
+#: filewidgets/kfilewidget.cpp:2483
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "გაფართოება <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2481
+#: filewidgets/kfilewidget.cpp:2489
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "ფაილის გაფართოების ავტომატური მითითება"
 
-#: filewidgets/kfilewidget.cpp:2482
+#: filewidgets/kfilewidget.cpp:2490
 #, kde-format
 msgid "a suitable extension"
 msgstr "შესატყვისი გაფართოება"
 
-#: filewidgets/kfilewidget.cpp:2490
+#: filewidgets/kfilewidget.cpp:2498
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3518,12 +3518,12 @@ msgstr ""
 "ბრძანდებით, რა ქნათ, დატოვეთ ჩართული, რადგან ის ფაილების მართვაში "
 "დაგეხმარებათ."
 
-#: filewidgets/kfilewidget.cpp:2956
+#: filewidgets/kfilewidget.cpp:2964
 #, kde-format
 msgid "&File type:"
 msgstr "&ფაილის ტიპი:"
 
-#: filewidgets/kfilewidget.cpp:2960
+#: filewidgets/kfilewidget.cpp:2968
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3532,7 +3532,7 @@ msgstr ""
 "<qt>ეს ფაილის ტიპის ამრჩევია. ის გამოიყენება იმ ფორმატის არჩევისთვის, "
 "რომელშიც ეს ფაილი შეინახება.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2962
+#: filewidgets/kfilewidget.cpp:2970
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
@@ -3541,44 +3541,44 @@ msgstr ""
 "<qt>ეს ფაილის ტიპის ამრჩევია. ის ნაჩვენები ფაილების ფორმატის ასარჩევად "
 "გამოიყენება.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:224
+#: filewidgets/knewfilemenu.cpp:235
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "შეიყვანეთ %1 ფაილის სახელი:"
 
-#: filewidgets/knewfilemenu.cpp:538
+#: filewidgets/knewfilemenu.cpp:543
 #, kde-format
 msgid "Sorry"
 msgstr "უკაცრავად"
 
-#: filewidgets/knewfilemenu.cpp:549
+#: filewidgets/knewfilemenu.cpp:554
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>ნიმუშის ფაილი <b>%1</b> არ არსებობს.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:700 filewidgets/knewfilemenu.cpp:765
+#: filewidgets/knewfilemenu.cpp:705 filewidgets/knewfilemenu.cpp:770
 #, kde-format
 msgid "Name for new link:"
 msgstr "ახალი ბმულის სახელი:"
 
-#: filewidgets/knewfilemenu.cpp:703
+#: filewidgets/knewfilemenu.cpp:708
 #, kde-format
 msgid "Create Symlink"
 msgstr "სიმბმულის შექმნა"
 
-#: filewidgets/knewfilemenu.cpp:769
+#: filewidgets/knewfilemenu.cpp:774
 #, kde-format
 msgid "Create link to URL"
 msgstr "URL-მდე ბმულის შექმნა"
 
-#: filewidgets/knewfilemenu.cpp:810 filewidgets/knewfilemenu.cpp:834
+#: filewidgets/knewfilemenu.cpp:815 filewidgets/knewfilemenu.cpp:839
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1179
+#: filewidgets/knewfilemenu.cpp:1184
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3588,7 +3588,7 @@ msgstr ""
 "სახელის: <filename>%1</filename> გამოყენება შეუძლებელია; ის ოპერაციული "
 "სისტემის მიერაა დარეზერვებულია."
 
-#: filewidgets/knewfilemenu.cpp:1187
+#: filewidgets/knewfilemenu.cpp:1192
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3598,7 +3598,7 @@ msgstr ""
 "სახელი: <filename>%1</filename> წერტილით იწყება, რაც ნიშნავს, რომ "
 "ნაგულისხმევად ის დამალული იქნება."
 
-#: filewidgets/knewfilemenu.cpp:1195
+#: filewidgets/knewfilemenu.cpp:1200
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3609,28 +3609,28 @@ msgstr ""
 "სახელი <filename>%1</filename> გამოტოვებით იწყება, რაც სხვა უცნაურობებთან "
 "ერთად იმასაც გამოიწვევს, რომ ის სიაში ყოველთვის პირველი იქნება."
 
-#: filewidgets/knewfilemenu.cpp:1213
+#: filewidgets/knewfilemenu.cpp:1218
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "საქაღალდის სახელში დახრილი ხაზის გამოყენება ქვესაქაღალდეებს შექმნის. მაგ:"
 
-#: filewidgets/knewfilemenu.cpp:1227
+#: filewidgets/knewfilemenu.cpp:1232
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "საქაღალდის სახელში დახრილი ხაზის გამოყენება ქვესაქაღალდეებს შექმნის."
 
-#: filewidgets/knewfilemenu.cpp:1239
+#: filewidgets/knewfilemenu.cpp:1244
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "ფაილისა და საქაღალდის სახელებში დახრილ ხაზს ვერ გამოიყენებთ."
 
-#: filewidgets/knewfilemenu.cpp:1244
+#: filewidgets/knewfilemenu.cpp:1249
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "ფაილისა და საქაღალდის სახელებში უკუღმა დახრილ ხაზს ვერ გამოიყენებთ."
 
-#: filewidgets/knewfilemenu.cpp:1258
+#: filewidgets/knewfilemenu.cpp:1263
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3640,7 +3640,7 @@ msgstr ""
 "ფაილის ან საქაღალდის შექმნა სახელით <filename>%1</filename> შეუძლებელია, "
 "რადგან ის მომხმარებლის საწყის საქაღალდეს გადაფარავდა."
 
-#: filewidgets/knewfilemenu.cpp:1267
+#: filewidgets/knewfilemenu.cpp:1272
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3649,52 +3649,52 @@ msgstr ""
 "ფაილის ან საქაღალდის სახელის ტილდით დაწყება რეკომენდებული არაა, რადგან ის "
 "დამაბნეველია და საშიშია, როცა ფაილების წასაშლელად ტერმინალს იყენებთ."
 
-#: filewidgets/knewfilemenu.cpp:1339
+#: filewidgets/knewfilemenu.cpp:1344
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "საქაღალდე სახელით <filename>%1</filename> უკვე არსებობს."
 
-#: filewidgets/knewfilemenu.cpp:1341
+#: filewidgets/knewfilemenu.cpp:1346
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "ფაილი სახელით<filename>%1</filename> უკვე არსებობს."
 
-#: filewidgets/knewfilemenu.cpp:1427
+#: filewidgets/knewfilemenu.cpp:1432
 #, kde-format
 msgid "Create New"
 msgstr "ახლის შექმნა"
 
-#: filewidgets/knewfilemenu.cpp:1462
+#: filewidgets/knewfilemenu.cpp:1467
 #, kde-format
 msgid "Link to Device"
 msgstr "კავშირი მოწყობილობასთან"
 
-#: filewidgets/knewfilemenu.cpp:1501
+#: filewidgets/knewfilemenu.cpp:1506
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "ახალი საქაღალდე"
 
-#: filewidgets/knewfilemenu.cpp:1524
+#: filewidgets/knewfilemenu.cpp:1529
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "ახალი საქაღალდის შექმნა"
 
-#: filewidgets/knewfilemenu.cpp:1526
+#: filewidgets/knewfilemenu.cpp:1531
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "ახალი საქაღალდის შექმნა %1-ში:"
 
-#: filewidgets/knewfilemenu.cpp:1529 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1534 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "შეიყვანეთ საქაღალდის სახელი"
 
-#: filewidgets/knewfilemenu.cpp:1586
+#: filewidgets/knewfilemenu.cpp:1591
 #, kde-format
 msgid "Default"
 msgstr "ნაგულისხმევი"
@@ -3735,7 +3735,7 @@ msgstr "ხატულას შეცვლა მოგვიანები�
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:606 widgets/checksumswidget.ui:145
+#: filewidgets/kurlnavigator.cpp:609 widgets/checksumswidget.ui:145
 #: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
 #: widgets/checksumswidget.ui:286
 #, kde-format
@@ -3743,39 +3743,39 @@ msgid "Copy"
 msgstr "კოპირება"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:610 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:613 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "ჩასმა"
 
-#: filewidgets/kurlnavigator.cpp:630
+#: filewidgets/kurlnavigator.cpp:633
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "%1-ის ახალ ჩანართში გახსნა"
 
-#: filewidgets/kurlnavigator.cpp:638
+#: filewidgets/kurlnavigator.cpp:641
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "%1-ის ახალ ფანჯარაში გახსნა"
 
-#: filewidgets/kurlnavigator.cpp:647
+#: filewidgets/kurlnavigator.cpp:650
 #, kde-format
 msgid "Edit"
 msgstr "ჩასწორება"
 
-#: filewidgets/kurlnavigator.cpp:650
+#: filewidgets/kurlnavigator.cpp:653
 #, kde-format
 msgid "Navigate"
 msgstr "ნავიგაცია"
 
-#: filewidgets/kurlnavigator.cpp:665
+#: filewidgets/kurlnavigator.cpp:668
 #, kde-format
 msgid "Show Full Path"
 msgstr "მთლიანი ბილიკის ჩვენება"
 
-#: filewidgets/kurlnavigator.cpp:826
+#: filewidgets/kurlnavigator.cpp:829
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -3887,7 +3887,7 @@ msgstr "გამოსახულების %1-ში ჩაწერის 
 msgid "Icon file too big, download aborted"
 msgstr "ხატულის ფაილი მეტისმეტად დიდია. გადმოწერა შეწყვეტილია"
 
-#: gui/filepreviewjob.cpp:285
+#: gui/filepreviewjob.cpp:294
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4177,22 +4177,22 @@ msgstr "ვერ ვიპოვე პროგრამა \"mount\""
 msgid "Could not find program \"umount\""
 msgstr "ვერ ვიპოვე პროგრამა \"umount\""
 
-#: kioworkers/file/file_unix.cpp:601
+#: kioworkers/file/file_unix.cpp:600
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1-ის %2-ში კოპირების შეცდომა. (შეცდომის კოდი: %3)"
 
-#: kioworkers/file/file_unix.cpp:815
+#: kioworkers/file/file_unix.cpp:814
 #, kde-format
 msgid "No media in device for %1"
 msgstr "მოწყობილობაში მედია არ დევს %1-თვის"
 
-#: kioworkers/file/file_unix.cpp:1076
+#: kioworkers/file/file_unix.cpp:1075
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "მომხმარებლის, %1, uid-ის მოძებნის შეცდომა"
 
-#: kioworkers/file/file_unix.cpp:1087
+#: kioworkers/file/file_unix.cpp:1086
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ჯგუფის, %1, gid-ის მოძებნის შეცდომა"
@@ -5230,43 +5230,43 @@ msgstr "სისტემის კონფიგურაციის გა�
 msgid "Updating system configuration…"
 msgstr "სისტემის კონფიგურაციის განახლება…"
 
-#: widgets/kdirmodel.cpp:1258
+#: widgets/kdirmodel.cpp:1263
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "სახელი"
 
-#: widgets/kdirmodel.cpp:1260
+#: widgets/kdirmodel.cpp:1265
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "ზომა"
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1267
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "თარიღი"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1269
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "წვდომები"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1271
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "მფლობელი"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1273
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "ფენათა მენიუჯგუფი"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1275
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
@@ -5364,7 +5364,7 @@ msgstr "შემცველობა:"
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
 #, kde-format
-msgid "Open With:"
+msgid "Open with:"
 msgstr "გამხსნელი პროგრამა:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
@@ -5442,25 +5442,25 @@ msgstr "ბოლო წვდომა:"
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
 #, kde-format
-msgid "File System:"
+msgid "File system:"
 msgstr "ფაილური სისტემა:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
 #, kde-format
-msgid "Mounted On:"
-msgstr "მიმაგრებულია:"
+msgid "Mounted on:"
+msgstr "მიმაგრ. წრტ:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
 #, kde-format
-msgid "Mounted From:"
+msgid "Mounted from:"
 msgstr "დამაგრების წყარო:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
 #, kde-format
-msgid "Free Space:"
+msgid "Free space:"
 msgstr "თავისუფალი ადგილი:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
