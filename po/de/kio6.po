@@ -5501,8 +5501,7 @@ msgstr "Inhalt:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
-#, fuzzy, kde-format
-#| msgid "Open with:"
+#, kde-format
 msgid "Open with:"
 msgstr "Öffnen mit:"
 
@@ -5580,8 +5579,7 @@ msgstr "Letzter Zugriff:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
-#, fuzzy, kde-format
-#| msgid "File system:"
+#, kde-format
 msgid "File system:"
 msgstr "Dateisystem:"
 
