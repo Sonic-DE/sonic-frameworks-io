@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-04 00:40+0000\n"
+"POT-Creation-Date: 2026-06-16 00:40+0000\n"
 "PO-Revision-Date: 2026-05-04 17:15+0300\n"
 "Last-Translator: Wesenseged <kde-i18n-de@kde.org>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "የKIO ሰራተኛን መፍጠር አልተቻለም፦ %1"
 
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1008
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1010
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -86,23 +86,23 @@ msgstr ""
 "\"ተካ\" የሚለውን መምረጥ ማንኛውንም የማይፈቀዱ ቁምፊዎችን (በመድረሻው ፋይል ስም ውስጥ ያሉትን) በታች መስመር \"_"
 "\" ይተካቸዋል።"
 
-#: core/copyjob.cpp:1426 core/job_error.cpp:588
+#: core/copyjob.cpp:1429 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "አቃፊ አስቀድሞ አለ"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2463 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1764 core/copyjob.cpp:2480 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "ፋይል አስቀድሞ አለ"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2463
+#: core/copyjob.cpp:1764 core/copyjob.cpp:2480
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "እንደ አቃፊ አስቀድሞ አለ"
 
-#: core/copyjob.cpp:1914 kioworkers/trash/kio_trash.cpp:295
+#: core/copyjob.cpp:1918 kioworkers/trash/kio_trash.cpp:295
 #, kde-format
 msgid "Trash"
 msgstr "መጣያ"
@@ -2175,17 +2175,17 @@ msgstr "ትላልቅ ፋይሎችን የሚደግፍ የፋይል ስርዓት �
 msgid "Undocumented Error"
 msgstr "ሰነድ አልባ ስህተት"
 
-#: core/kfileitem.cpp:1481
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(ተምሳሌታዊ አገናኝ ወደ %1)"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1485
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1፣ አገናኝ ወደ %2)"
 
-#: core/kfileitem.cpp:1486
+#: core/kfileitem.cpp:1488
 #, kde-format
 msgid " (Points to %1)"
 msgstr "(ወደ %1 ይጠቁማል)"
@@ -2590,7 +2590,7 @@ msgstr "ቅድመ እይታ አሳይ"
 msgid "Open Containing Folder"
 msgstr "የያዘ አቃፊ ይክፈቱ"
 
-#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1269
+#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1270
 #, kde-format
 msgid "Properties"
 msgstr "ባህሪዎች"
@@ -2720,17 +2720,17 @@ msgstr "ሁሉም የተደገፉ ፋይሎች"
 msgid "All Files"
 msgstr "ሁሉም ፋይሎች"
 
-#: filewidgets/kfileplaceeditdialog.cpp:66
+#: filewidgets/kfileplaceeditdialog.cpp:68
 #, kde-format
 msgid "Add Places Entry"
 msgstr "የመግቢያ ቦታዎችን ያክሉ"
 
-#: filewidgets/kfileplaceeditdialog.cpp:68
+#: filewidgets/kfileplaceeditdialog.cpp:70
 #, kde-format
 msgid "Edit Places Entry"
 msgstr "ቦታዎች ማስገቢያ አርትዕ"
 
-#: filewidgets/kfileplaceeditdialog.cpp:78
+#: filewidgets/kfileplaceeditdialog.cpp:80
 #, kde-format
 msgid ""
 "<qt>This is the text that will appear in the Places panel.<br /><br />The "
@@ -2742,17 +2742,17 @@ msgstr ""
 "ለማስታወስ የሚረዱዎት አንድ ወይም ሁለት ቃላትን መያዝ አለበት። መለያ ካላስገቡ፣ ከአካባቢው URL የሚወጣ ይሆናል።</"
 "qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:84
+#: filewidgets/kfileplaceeditdialog.cpp:86
 #, kde-format
 msgid "L&abel:"
 msgstr "መለያ(&A)፦"
 
-#: filewidgets/kfileplaceeditdialog.cpp:86
+#: filewidgets/kfileplaceeditdialog.cpp:88
 #, kde-format
 msgid "Enter descriptive label here"
 msgstr "ገላጭ መለያ እዚህ ያስገቡ"
 
-#: filewidgets/kfileplaceeditdialog.cpp:91
+#: filewidgets/kfileplaceeditdialog.cpp:93
 #, kde-format
 msgid ""
 "<qt>This is the location associated with the entry. Any valid URL may be "
@@ -2764,12 +2764,12 @@ msgstr ""
 "><br />%1<br />http://www.kde.org<br />ftp://ftp.kde.org/pub/kde/stable<br /"
 "><br />ከጽሑፍ አርትዖት ሳጥኑ አጠገብ ያለውን አዝራር ጠቅ በማድረግ ወደ ተገቢው URL ማሰስ ይችላሉ።</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:98
+#: filewidgets/kfileplaceeditdialog.cpp:100
 #, kde-format
 msgid "&Location:"
 msgstr "መገኛ(&L)፦"
 
-#: filewidgets/kfileplaceeditdialog.cpp:105
+#: filewidgets/kfileplaceeditdialog.cpp:107
 #, kde-format
 msgid ""
 "<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
@@ -2778,17 +2778,17 @@ msgstr ""
 "<qt>ይህ በቦታዎች ፓነል ውስጥ የሚታየው አዶ ነው።<br /><br />የተለየ አዶ ለመምረጥ አዝራሩን ጠቅ ያድርጉ።</"
 "qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:126
+#: filewidgets/kfileplaceeditdialog.cpp:128
 #, kde-format
 msgid "Choose an &icon:"
 msgstr "አዶ ይምረጡ(&I)፦"
 
-#: filewidgets/kfileplaceeditdialog.cpp:136
+#: filewidgets/kfileplaceeditdialog.cpp:138
 #, kde-format
 msgid "&Only show when using this application (%1)"
 msgstr "ይህን መተግበሪያ ሲጠቀሙ ብቻ አሳይ (%1) (&O)"
 
-#: filewidgets/kfileplaceeditdialog.cpp:139
+#: filewidgets/kfileplaceeditdialog.cpp:141
 #, kde-format
 msgid ""
 "<qt>Select this setting if you want this entry to show only when using the "
@@ -2846,158 +2846,158 @@ msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
 msgstr "%1 (ከ%2)"
 
-#: filewidgets/kfileplacesmodel.cpp:158
+#: filewidgets/kfileplacesmodel.cpp:162
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr "ሁሉንም መለያዎች"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:254
+#: filewidgets/kfileplacesmodel.cpp:258
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "መነሻ"
 
-#: filewidgets/kfileplacesmodel.cpp:263
+#: filewidgets/kfileplacesmodel.cpp:267
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "ዴስክቶፕ"
 
-#: filewidgets/kfileplacesmodel.cpp:270
+#: filewidgets/kfileplacesmodel.cpp:274
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "ሰነዶች"
 
-#: filewidgets/kfileplacesmodel.cpp:277
+#: filewidgets/kfileplacesmodel.cpp:281
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr "ውርዶች"
 
-#: filewidgets/kfileplacesmodel.cpp:282
+#: filewidgets/kfileplacesmodel.cpp:286
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "አውታረ መረብ"
 
-#: filewidgets/kfileplacesmodel.cpp:287
+#: filewidgets/kfileplacesmodel.cpp:291
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "መጣያ"
 
-#: filewidgets/kfileplacesmodel.cpp:348
+#: filewidgets/kfileplacesmodel.cpp:352
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "ሙዚቃ"
 
-#: filewidgets/kfileplacesmodel.cpp:355
+#: filewidgets/kfileplacesmodel.cpp:359
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "ምስሎች"
 
-#: filewidgets/kfileplacesmodel.cpp:364
+#: filewidgets/kfileplacesmodel.cpp:368
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "ቪዲዮዎች"
 
-#: filewidgets/kfileplacesmodel.cpp:391
+#: filewidgets/kfileplacesmodel.cpp:395
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "የቅርብ ፋይሎች"
 
-#: filewidgets/kfileplacesmodel.cpp:396
+#: filewidgets/kfileplacesmodel.cpp:400
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "የቅርብ ጊዜ ቦታዎች"
 
-#: filewidgets/kfileplacesmodel.cpp:419
+#: filewidgets/kfileplacesmodel.cpp:423
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "ዛሬ ተሻሽሏል"
 
-#: filewidgets/kfileplacesmodel.cpp:423
+#: filewidgets/kfileplacesmodel.cpp:427
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "ትላንት ተሻሽሏል"
 
-#: filewidgets/kfileplacesmodel.cpp:1130
+#: filewidgets/kfileplacesmodel.cpp:1134
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "ወደ የቦታዎች ፓነል መጨመር አልተቻለም፦ %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1137
+#: filewidgets/kfileplacesmodel.cpp:1141
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "አቃፊዎች ብቻ ወደ የቦታዎች ፓነል ሊታከሉ ይችላሉ።"
 
-#: filewidgets/kfileplacesmodel.cpp:1380
+#: filewidgets/kfileplacesmodel.cpp:1384
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure…"
 msgstr "አዋቅር…"
 
-#: filewidgets/kfileplacesmodel.cpp:1416
+#: filewidgets/kfileplacesmodel.cpp:1420
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "በመልቀቅ ላይ…"
 
-#: filewidgets/kfileplacesmodel.cpp:1418
+#: filewidgets/kfileplacesmodel.cpp:1422
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "መልቀቅ(&R)"
 
-#: filewidgets/kfileplacesmodel.cpp:1422
+#: filewidgets/kfileplacesmodel.cpp:1426
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "በጥንቃቄ በማስወገድ ላይ…"
 
-#: filewidgets/kfileplacesmodel.cpp:1424
+#: filewidgets/kfileplacesmodel.cpp:1428
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "በጥንቃቄ አስውግድ(&S)"
 
-#: filewidgets/kfileplacesmodel.cpp:1429
+#: filewidgets/kfileplacesmodel.cpp:1433
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "በማራገፍ ላይ…"
 
-#: filewidgets/kfileplacesmodel.cpp:1431
+#: filewidgets/kfileplacesmodel.cpp:1435
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "አራግፍ(&U)"
 
-#: filewidgets/kfileplacesmodel.cpp:1455
+#: filewidgets/kfileplacesmodel.cpp:1459
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "አውጣ(&E)"
 
-#: filewidgets/kfileplacesmodel.cpp:1502
+#: filewidgets/kfileplacesmodel.cpp:1506
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "'%1' የሚለው መሣሪያ ዲስክ አይደለም እና ሊወጣ አይችልም።"
 
-#: filewidgets/kfileplacesmodel.cpp:1538
+#: filewidgets/kfileplacesmodel.cpp:1542
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "'%1'ን በመድረስ ላይ ሳለ ስህተት ተከስቷል፣ ስርዓቱም የሚከተለውን ምላሽ ሰጥቷል፦ %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1540
+#: filewidgets/kfileplacesmodel.cpp:1544
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "'%1'ን በመድረስ ላይ ሳለ አንድ ስህተት ተከስቷል"
 
-#: filewidgets/kfileplacesmodel.cpp:1567
+#: filewidgets/kfileplacesmodel.cpp:1571
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr "በዚህ መሣሪያ ላይ አንድ ወይም ከዚያ በላይ ፋይሎች በአንድ መተግበሪያ ውስጥ ተከፍተዋል።"
 
-#: filewidgets/kfileplacesmodel.cpp:1570
+#: filewidgets/kfileplacesmodel.cpp:1574
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3012,108 +3012,108 @@ msgstr[1] ""
 "በዚህ መሣሪያ ላይ አንድ ወይም ከዚያ በላይ ፋይሎች በሚከተሉት መተግበሪያዎች ውስጥ ይከፈታሉ፦ <application>%2</"
 "application>።"
 
-#: filewidgets/kfileplacesmodel.cpp:1573
+#: filewidgets/kfileplacesmodel.cpp:1577
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr "፣"
 
-#: filewidgets/kfileplacesmodel.cpp:1620
+#: filewidgets/kfileplacesmodel.cpp:1624
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "በክፍል አስተዳዳሪ ለመቅረጽ ወይም ለማርትዕ ጠቅ ያድርጉ"
 
-#: filewidgets/kfileplacesview.cpp:343
+#: filewidgets/kfileplacesview.cpp:344
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1፦ %2"
 
-#: filewidgets/kfileplacesview.cpp:360
+#: filewidgets/kfileplacesview.cpp:361
 #: widgets/kpropertiesdialogbuiltin_p.cpp:676
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 ከ%2 ነፃ (%3% ጥቅም ላይ የዋለ)"
 
-#: filewidgets/kfileplacesview.cpp:673
+#: filewidgets/kfileplacesview.cpp:674
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (የተደበቀ)"
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1228
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "ባዶ መጣያ"
 
-#: filewidgets/kfileplacesview.cpp:1252
+#: filewidgets/kfileplacesview.cpp:1253
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "መጫን"
 
-#: filewidgets/kfileplacesview.cpp:1262
+#: filewidgets/kfileplacesview.cpp:1263
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "በአዲስ ታብ ክፈት"
 
-#: filewidgets/kfileplacesview.cpp:1265
+#: filewidgets/kfileplacesview.cpp:1266
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "በአዲስ ዊንዶ ክፈት"
 
-#: filewidgets/kfileplacesview.cpp:1274
+#: filewidgets/kfileplacesview.cpp:1275
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "መግቢያ አክል…"
 
-#: filewidgets/kfileplacesview.cpp:1280
+#: filewidgets/kfileplacesview.cpp:1281
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "አርትዕ(&E)…"
 
-#: filewidgets/kfileplacesview.cpp:1285
+#: filewidgets/kfileplacesview.cpp:1286
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "ከቦታዎች አስውግድ"
 
-#: filewidgets/kfileplacesview.cpp:1289
+#: filewidgets/kfileplacesview.cpp:1290
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "ደብቅ(&H)"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1298
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "ክፍል '%1' ደብቅ"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1298
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "ክፍልን ደብቅ"
 
-#: filewidgets/kfileplacesview.cpp:1305
+#: filewidgets/kfileplacesview.cpp:1306
 #, kde-format
 msgid "&Show All Entries"
 msgstr "ሁሉንም ግቤቶች አሳይ(&S)"
 
-#: filewidgets/kfileplacesview.cpp:1310
+#: filewidgets/kfileplacesview.cpp:1311
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "የአዶ መጠን"
 
-#: filewidgets/kfileplacesview.cpp:1431
+#: filewidgets/kfileplacesview.cpp:1432
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3121,25 +3121,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "መጠን በራስ-ሰር ቀይር"
 
-#: filewidgets/kfileplacesview.cpp:1451
+#: filewidgets/kfileplacesview.cpp:1452
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "ትንሽ (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1454
+#: filewidgets/kfileplacesview.cpp:1455
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "መካከለኛ (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1457
+#: filewidgets/kfileplacesview.cpp:1458
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "ትልቅ (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1460
+#: filewidgets/kfileplacesview.cpp:1461
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -3366,32 +3366,32 @@ msgstr "አሁኑ ያላህበት ማውጫ፦ %1"
 msgid "&Open"
 msgstr "ክፈት(&O)"
 
-#: filewidgets/kfilewidget.cpp:2307
+#: filewidgets/kfilewidget.cpp:2315
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "የአዶ መጠን፦ %1 ፒክስሎች"
 
-#: filewidgets/kfilewidget.cpp:2474
+#: filewidgets/kfilewidget.cpp:2482
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "የፋይል ስም ቅጥያ (%1) በራስ-ሰር ምረጥ(%X)"
 
-#: filewidgets/kfilewidget.cpp:2475
+#: filewidgets/kfilewidget.cpp:2483
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "ቅጥያው <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2481
+#: filewidgets/kfilewidget.cpp:2489
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "የፋይል ስም ቅጥያውን በራስ-ሰር ይምረጡ"
 
-#: filewidgets/kfilewidget.cpp:2482
+#: filewidgets/kfilewidget.cpp:2490
 #, kde-format
 msgid "a suitable extension"
 msgstr "ተስማሚ ቅጥያ"
 
-#: filewidgets/kfilewidget.cpp:2490
+#: filewidgets/kfilewidget.cpp:2498
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3414,63 +3414,63 @@ msgstr ""
 "በፋይል ስሙ መጨረሻ ላይ ነጥብ (.) በመጨመር ማፈን ይችላሉ (ወቅቱ በራስ-ሰር ይወገዳል)።</li></ol>እርግጠኛ "
 "ካልሆኑ፣ ይህ አማራጭ ፋይሎችዎን የበለጠ ማስተዳደር ስለሚያስችል እንዲነቃ ያድርጉት።"
 
-#: filewidgets/kfilewidget.cpp:2956
+#: filewidgets/kfilewidget.cpp:2964
 #, kde-format
 msgid "&File type:"
 msgstr "የፋይል አይነት(&F)፦"
 
-#: filewidgets/kfilewidget.cpp:2960
+#: filewidgets/kfilewidget.cpp:2968
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr "<qt>ይህ የፋይል አይነት መምረጫ ነው። ፋይሉ የሚቀመጥበትን ቅርጸት ለመምረጥ ይጠቀማል።</qt>"
 
-#: filewidgets/kfilewidget.cpp:2962
+#: filewidgets/kfilewidget.cpp:2970
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr "<qt>ይህ የፋይል አይነት መራጭ ነው። የሚታዩትን ፋይሎች ቅርጸት ለመምረጥ ይጠቅማል።</qt>"
 
-#: filewidgets/knewfilemenu.cpp:224
+#: filewidgets/knewfilemenu.cpp:235
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "%1 የፋይል ስም አስገባ፦"
 
-#: filewidgets/knewfilemenu.cpp:538
+#: filewidgets/knewfilemenu.cpp:543
 #, kde-format
 msgid "Sorry"
 msgstr "ይቅርታ"
 
-#: filewidgets/knewfilemenu.cpp:549
+#: filewidgets/knewfilemenu.cpp:554
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>የአብነት ፋይሉ <b>%1</b> የለም።</qt>"
 
-#: filewidgets/knewfilemenu.cpp:700 filewidgets/knewfilemenu.cpp:765
+#: filewidgets/knewfilemenu.cpp:705 filewidgets/knewfilemenu.cpp:770
 #, kde-format
 msgid "Name for new link:"
 msgstr "ለአዲስ ማገናኛ ስም፦"
 
-#: filewidgets/knewfilemenu.cpp:703
+#: filewidgets/knewfilemenu.cpp:708
 #, kde-format
 msgid "Create Symlink"
 msgstr "ሲምሊንክ ፍጠር"
 
-#: filewidgets/knewfilemenu.cpp:769
+#: filewidgets/knewfilemenu.cpp:774
 #, kde-format
 msgid "Create link to URL"
 msgstr "ወደ URL አገናኝ ፍጠር"
 
-#: filewidgets/knewfilemenu.cpp:810 filewidgets/knewfilemenu.cpp:834
+#: filewidgets/knewfilemenu.cpp:815 filewidgets/knewfilemenu.cpp:839
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1179
+#: filewidgets/knewfilemenu.cpp:1184
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3480,7 +3480,7 @@ msgstr ""
 "<filename>%1</filename> የሚለው ስም በኦፕሬቲንግ ሲስተሙ ጥቅም ላይ እንዲውል የተያዘ ስለሆነ ጥቅም ላይ "
 "ሊውል አይችልም።"
 
-#: filewidgets/knewfilemenu.cpp:1187
+#: filewidgets/knewfilemenu.cpp:1192
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3488,7 +3488,7 @@ msgid ""
 "default."
 msgstr "<filename>%1</filename> የሚለው ስም በነጥብ ይጀምራል፣ ስለዚህ የተደበቀ ነው።"
 
-#: filewidgets/knewfilemenu.cpp:1195
+#: filewidgets/knewfilemenu.cpp:1200
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3499,27 +3499,27 @@ msgstr ""
 "<filename>%1</filename> የሚለው ስም የሚጀምረው በክፍት ቦታ ሲሆን ይህም በፊደል ቅደም ተከተል ሲደረደሩ "
 "ከሌሎች ነገሮች በፊት እንዲታይ ያደርጋል፣ ይህም ከሌሎች ሊሆኑ ከሚችሉ እንግዳ ነገሮች ጋር።"
 
-#: filewidgets/knewfilemenu.cpp:1213
+#: filewidgets/knewfilemenu.cpp:1218
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "በአቃፊ ስሞች ውስጥ አግድም ሰረዝን መጠቀም ንዑስ አቃፊዎችን ይፈጥራል፣ እንደዚህ ያሉ፦"
 
-#: filewidgets/knewfilemenu.cpp:1227
+#: filewidgets/knewfilemenu.cpp:1232
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "በአቃፊ ስሞች ውስጥ አግድም ሰረዝን መጠቀም ንዑስ አቃፊዎችን ይፈጥራል።"
 
-#: filewidgets/knewfilemenu.cpp:1239
+#: filewidgets/knewfilemenu.cpp:1244
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "አግድም ሰረዝን በፋይል እና በአቃፊ ስሞች ውስጥ መጠቀም አይቻልም።"
 
-#: filewidgets/knewfilemenu.cpp:1244
+#: filewidgets/knewfilemenu.cpp:1249
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "የኋላ አግድም ሰረዝን በፋይል እና በአቃፊ ስሞች ውስጥ መጠቀም አይቻልም።"
 
-#: filewidgets/knewfilemenu.cpp:1258
+#: filewidgets/knewfilemenu.cpp:1263
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3529,7 +3529,7 @@ msgstr ""
 "<filename>%1</filename> የሚል ፋይል ወይም አቃፊ መፍጠር ከተጠቃሚው የመነሻ አቃፊ ቦታ ጋር ስለሚደራረብ "
 "አይቻልም።"
 
-#: filewidgets/knewfilemenu.cpp:1267
+#: filewidgets/knewfilemenu.cpp:1272
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3538,52 +3538,52 @@ msgstr ""
 "የፋይል ወይም የአቃፊ ስም በቲልዴ መጀመር አይመከርም ምክንያቱም ነገሮችን ለመሰረዝ ተርሚናል ሲጠቀሙ ግራ የሚያጋባ ወይም "
 "አደገኛ ሊሆን ይችላል።"
 
-#: filewidgets/knewfilemenu.cpp:1339
+#: filewidgets/knewfilemenu.cpp:1344
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "ይሄ ስም <filename>%1</filename> ያለው ማውጫ አስቀድሞ አለ።"
 
-#: filewidgets/knewfilemenu.cpp:1341
+#: filewidgets/knewfilemenu.cpp:1346
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "ስም <filename>%1</filename> ያለው ፋይል አስቀድሞ አለ።"
 
-#: filewidgets/knewfilemenu.cpp:1427
+#: filewidgets/knewfilemenu.cpp:1432
 #, kde-format
 msgid "Create New"
 msgstr "አዲስ ፍጠር"
 
-#: filewidgets/knewfilemenu.cpp:1462
+#: filewidgets/knewfilemenu.cpp:1467
 #, kde-format
 msgid "Link to Device"
 msgstr "ወደ መሣሪያ አገናኝ"
 
-#: filewidgets/knewfilemenu.cpp:1501
+#: filewidgets/knewfilemenu.cpp:1506
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "አዲስ አቃፊ"
 
-#: filewidgets/knewfilemenu.cpp:1524
+#: filewidgets/knewfilemenu.cpp:1529
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "አዲስ አቃፊ ይፍጠሩ"
 
-#: filewidgets/knewfilemenu.cpp:1526
+#: filewidgets/knewfilemenu.cpp:1531
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "በ%1 ውስጥ አዲስ አቃፊ ይፍጠሩ፦"
 
-#: filewidgets/knewfilemenu.cpp:1529 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1534 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "የአቃፊ ስም አስገባ"
 
-#: filewidgets/knewfilemenu.cpp:1586
+#: filewidgets/knewfilemenu.cpp:1591
 #, kde-format
 msgid "Default"
 msgstr "ነባሪ"
@@ -3624,7 +3624,7 @@ msgstr "አዶውን በኋላ በአቃፊ ባህሪያት ውስጥ መቀየ�
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:606 widgets/checksumswidget.ui:145
+#: filewidgets/kurlnavigator.cpp:609 widgets/checksumswidget.ui:145
 #: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
 #: widgets/checksumswidget.ui:286
 #, kde-format
@@ -3632,39 +3632,39 @@ msgid "Copy"
 msgstr "ቅዳ"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:610 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:613 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "ገልብጥ"
 
-#: filewidgets/kurlnavigator.cpp:630
+#: filewidgets/kurlnavigator.cpp:633
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "\"%1\"ን በአዲስ ታብ ክፈት"
 
-#: filewidgets/kurlnavigator.cpp:638
+#: filewidgets/kurlnavigator.cpp:641
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "በአዲስ መስኮት ውስጥ \"%1\" ክፈት"
 
-#: filewidgets/kurlnavigator.cpp:647
+#: filewidgets/kurlnavigator.cpp:650
 #, kde-format
 msgid "Edit"
 msgstr "አርትዕ"
 
-#: filewidgets/kurlnavigator.cpp:650
+#: filewidgets/kurlnavigator.cpp:653
 #, kde-format
 msgid "Navigate"
 msgstr "ማሰስ"
 
-#: filewidgets/kurlnavigator.cpp:665
+#: filewidgets/kurlnavigator.cpp:668
 #, kde-format
 msgid "Show Full Path"
 msgstr "ሙሉ ዱካን አሳይ"
 
-#: filewidgets/kurlnavigator.cpp:826
+#: filewidgets/kurlnavigator.cpp:829
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -3776,7 +3776,7 @@ msgstr "ምስል ወደ %1 ማስቀመጥ ላይ ስህተት"
 msgid "Icon file too big, download aborted"
 msgstr "የአዶ ፋይል በጣም ትልቅ ነው፣ ማውረድ ተቋርጧል"
 
-#: gui/filepreviewjob.cpp:285
+#: gui/filepreviewjob.cpp:294
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4026,7 +4026,7 @@ msgstr "ለማስፈጸም ትእዛዝ"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "ለ'ትዕዛዝ' ጥቅም ላይ የዋሉ URL(ዎች) ወይም አካባቢያዊ ፋይሎች"
 
-#: kioworkers/file/file.cpp:649
+#: kioworkers/file/file.cpp:684
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4035,7 +4035,7 @@ msgstr ""
 "ፈቃዶችን መቀየር አልተቻለም ለ\n"
 "%1"
 
-#: kioworkers/file/file.cpp:657
+#: kioworkers/file/file.cpp:692
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4045,37 +4045,37 @@ msgstr ""
 "ባለቤት እና ቡድን መቀየር አልተቻለም ለ\n"
 "%1"
 
-#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
+#: kioworkers/file/file.cpp:772 kioworkers/file/file.cpp:864
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "ጊዜያዊ ፋይል መክፈት አልተቻለም"
 
-#: kioworkers/file/file.cpp:764
+#: kioworkers/file/file.cpp:796
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" የተባለውን ፕሮግራም ማግኘት አልተቻለም"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:873
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" የተባለውን ፕሮግራም ማግኘት አልተቻለም"
 
-#: kioworkers/file/file_unix.cpp:601
+#: kioworkers/file/file_unix.cpp:602
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "ፋይሉን ከ%1 ወደ %2 መቅዳት አይቻልም። (የስህተት ቁጥር፦ %3)"
 
-#: kioworkers/file/file_unix.cpp:815
+#: kioworkers/file/file_unix.cpp:817
 #, kde-format
 msgid "No media in device for %1"
 msgstr "ለ%1 በመሳሪያው ውስጥ ምንም ሚዲያ የለም"
 
-#: kioworkers/file/file_unix.cpp:1076
+#: kioworkers/file/file_unix.cpp:1078
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ለተጠቀሰው የተጠቃሚ ስም %1 የተጠቃሚ ID ማግኘት አልተቻለም"
 
-#: kioworkers/file/file_unix.cpp:1087
+#: kioworkers/file/file_unix.cpp:1089
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ለቡድን ስም %1 የቡድን ID ማግኘት አልተቻለም"
@@ -5102,43 +5102,43 @@ msgstr "የስርዓት ውቅርን በማዘመን ላይ"
 msgid "Updating system configuration…"
 msgstr "የስርዓት ውቅርን በማዘመን ላይ…"
 
-#: widgets/kdirmodel.cpp:1258
+#: widgets/kdirmodel.cpp:1263
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "ስም"
 
-#: widgets/kdirmodel.cpp:1260
+#: widgets/kdirmodel.cpp:1265
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "መጠን"
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1267
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "ቀን"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1269
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "ፍቃድ"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1271
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "ባለቤት"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1273
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "ቡድን"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1275
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
@@ -5235,8 +5235,9 @@ msgstr "ይዘት፦"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
-#, kde-format
-msgid "Open With:"
+#, fuzzy, kde-format
+#| msgid "Open With:"
+msgid "Open with:"
 msgstr "ክፈት በ፦"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
@@ -5313,26 +5314,30 @@ msgstr "የተደረሰበት፦"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
-#, kde-format
-msgid "File System:"
+#, fuzzy, kde-format
+#| msgid "File System:"
+msgid "File system:"
 msgstr "የፋይል ስርዓት፦"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, kde-format
-msgid "Mounted On:"
+#, fuzzy, kde-format
+#| msgid "Mounted On:"
+msgid "Mounted on:"
 msgstr "በ ላይ ተጭኗል፦"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, kde-format
-msgid "Mounted From:"
+#, fuzzy, kde-format
+#| msgid "Mounted From:"
+msgid "Mounted from:"
 msgstr "የተጫነው ከ፦"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
-#, kde-format
-msgid "Free Space:"
+#, fuzzy, kde-format
+#| msgid "Free Space:"
+msgid "Free space:"
 msgstr "ነፃ ቦታ፦"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
