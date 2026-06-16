@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmsocks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-12 00:40+0000\n"
+"POT-Creation-Date: 2026-06-16 00:40+0000\n"
 "PO-Revision-Date: 2021-11-08 14:26+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Njemóžach io-slave stworić: %1"
 
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1007
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1010
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -80,23 +80,23 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1426 core/job_error.cpp:588
+#: core/copyjob.cpp:1429 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Zapisk hižo eksistuje"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2463 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1764 core/copyjob.cpp:2480 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Dataja hižo eksistuje"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2463
+#: core/copyjob.cpp:1764 core/copyjob.cpp:2480
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Eksistuje hižo jako zapisk"
 
-#: core/copyjob.cpp:1914 kioworkers/trash/kio_trash.cpp:295
+#: core/copyjob.cpp:1918 kioworkers/trash/kio_trash.cpp:295
 #, kde-format
 msgid "Trash"
 msgstr "Papjernik"
@@ -2235,17 +2235,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Njedokumentowany zmylk"
 
-#: core/kfileitem.cpp:1481
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Symboliski wotkaz na %1)"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1485
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, wotkaz na %2)"
 
-#: core/kfileitem.cpp:1486
+#: core/kfileitem.cpp:1488
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (wotkazuje na %1)"
@@ -3975,7 +3975,7 @@ msgstr ""
 msgid "Icon file too big, download aborted"
 msgstr ""
 
-#: gui/filepreviewjob.cpp:285
+#: gui/filepreviewjob.cpp:294
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4220,7 +4220,7 @@ msgstr ""
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr ""
 
-#: kioworkers/file/file.cpp:649
+#: kioworkers/file/file.cpp:684
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4229,7 +4229,7 @@ msgstr ""
 "Njemóžach přistupne prawa změnić za\n"
 "%1"
 
-#: kioworkers/file/file.cpp:657
+#: kioworkers/file/file.cpp:692
 #, fuzzy, kde-format
 #| msgid "Could not change ownership for %1."
 msgctxt "@info"
@@ -4238,39 +4238,39 @@ msgid ""
 "%1"
 msgstr "Njemóžach wobsydnika změnić za %1."
 
-#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
+#: kioworkers/file/file.cpp:772 kioworkers/file/file.cpp:864
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "Njemóžach temporarnu dataju přemjenować"
 
-#: kioworkers/file/file.cpp:764
+#: kioworkers/file/file.cpp:796
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Njemóžach program 'mount' namakać"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:873
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Njemóžach program 'umount' namakać."
 
-#: kioworkers/file/file_unix.cpp:600
+#: kioworkers/file/file_unix.cpp:602
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:814
+#: kioworkers/file/file_unix.cpp:817
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Žadyn medij w graće %1"
 
-#: kioworkers/file/file_unix.cpp:1075
+#: kioworkers/file/file_unix.cpp:1078
 #, fuzzy, kde-format
 #| msgid "Could not enter folder %1."
 msgid "Could not get user id for given user name %1"
 msgstr "Njemóžach do zapiska %1 hić"
 
-#: kioworkers/file/file_unix.cpp:1086
+#: kioworkers/file/file_unix.cpp:1089
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
@@ -5497,10 +5497,9 @@ msgstr "Wobsah:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
-#, fuzzy, kde-format
-#| msgid "Open With"
-msgid "Open With:"
-msgstr "Wočinić z"
+#, kde-format
+msgid "Open with:"
+msgstr "Wočinić z:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:192
@@ -5580,25 +5579,28 @@ msgstr "Wopytane:"
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
 #, kde-format
-msgid "File System:"
+msgid "File system:"
 msgstr "Datajowy system:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, kde-format
-msgid "Mounted On:"
+#, fuzzy, kde-format
+#| msgid "Mounted On:"
+msgid "Mounted on:"
 msgstr "Montowane na:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, kde-format
-msgid "Mounted From:"
+#, fuzzy, kde-format
+#| msgid "Mounted From:"
+msgid "Mounted from:"
 msgstr "Montowane z:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
-#, kde-format
-msgid "Free Space:"
+#, fuzzy, kde-format
+#| msgid "Free Space:"
+msgid "Free space:"
 msgstr "Swobodne:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
@@ -7594,6 +7596,14 @@ msgstr ""
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
 
+#, fuzzy
+#~| msgid "Open With"
+#~ msgid "Open With:"
+#~ msgstr "Wočinić z"
+
+#~ msgid "File System:"
+#~ msgstr "Datajowy system:"
+
 #~ msgid "Delete Files"
 #~ msgstr "Dataje zničić"
 
@@ -9388,9 +9398,6 @@ msgstr ""
 #~ msgid "Read only"
 #~ msgstr "Jenož čitać"
 
-#~ msgid "File system:"
-#~ msgstr "Datajowy system:"
-
 #~ msgid "Mount point (/mnt/floppy):"
 #~ msgstr "Cil montowanja (/mnt/floppy):"
 
@@ -9761,9 +9768,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Njemóžu plackowu słužbu startować.\n"
 #~ "Njemóžeće placki rjadować, kiž su na Wašim kompjuteru składowane."
-
-#~ msgid "Open with:"
-#~ msgstr "Wočinić z:"
 
 #~ msgid ""
 #~ "%1.\n"
