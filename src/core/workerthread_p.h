@@ -13,6 +13,11 @@
 #include <pthread.h>
 #endif
 
+#ifdef BUILD_TESTING
+#include "kiocore_export.h"
+#include <QSemaphore>
+#endif
+
 class QPluginLoader;
 
 namespace KIO
@@ -54,6 +59,10 @@ private:
     KIO::SlaveBase *m_worker = nullptr;
 #ifdef Q_OS_UNIX
     pthread_t m_nativeHandle = {};
+#endif
+#ifdef BUILD_TESTING
+    static bool s_testExitGateEnabled;
+    static QSemaphore s_testExitGate;
 #endif
 };
 
