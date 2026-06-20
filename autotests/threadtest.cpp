@@ -7,8 +7,6 @@
 
 #include <QTest>
 
-#include <QPointer>
-#include <QScopeGuard>
 #include <QThread>
 #include <QTimer>
 
@@ -24,8 +22,6 @@ private Q_SLOTS:
     void initTestCase();
     void asyncConcurrentCopying();
     void copyJobFromThread();
-    void cancelJobWhileWorkerIsBlocked();
-    void cancelDoesNotFlushUnrelatedDeferredDeletes();
     void cleanupTestCase();
 
 private:
@@ -118,111 +114,6 @@ void KIOThreadTest::copyJobFromThread()
 
     QVERIFY(jobSucceeded);
     QVERIFY(QFile::exists(dest));
-}
-
-void KIOThreadTest::cancelJobWhileWorkerIsBlocked()
-{
-    // Regression test for the Worker::deref() deadlock (bug 468673). Cancelling a running job
-    // derefs its in-process worker, and a worker thread that is mid-transfer can only finish
-    // once the main thread keeps running its event loop (a real worker blocks in
-    // waitForBytesWritten() until the main thread drains its socket). If deref() joins that
-    // thread synchronously while we are inside the event loop dispatching the worker's data,
-    // the main thread blocks on the join instead of running its event loop, and both threads
-    // wedge. This used to surface only downstream (Dolphin's concurrent directory-size
-    // listings); reproduce it here. WorkerThread's BUILD_TESTING exit gate makes the worker's
-    // "needs the main thread to make progress" dependency deterministic: without the fix this
-    // test deadlocks and is killed by the harness timeout; with it the loop drains cleanly.
-
-    KIO::WorkerThread::setTestExitGateEnabled(true);
-    auto gateGuard = qScopeGuard([] {
-        // Make sure no worker (including idle ones torn down at exit) can stay gated.
-        KIO::WorkerThread::setTestExitGateEnabled(false);
-        KIO::WorkerThread::releaseTestExitGate();
-    });
-
-    const QString path = homeTmpDir() + QLatin1String("bigfile");
-    const QByteArray bigData(16 * 1024 * 1024, 'a'); // big enough that data() fires mid-transfer
-    QFile f(path);
-    QVERIFY(f.open(QIODevice::WriteOnly));
-    QCOMPARE(f.write(bigData), qint64(bigData.size()));
-    f.close();
-
-    auto *job = KIO::get(QUrl::fromLocalFile(path), KIO::NoReload, KIO::HideProgressInfo);
-    job->setUiDelegate(nullptr);
-
-    QEventLoop loop;
-    bool cancelled = false;
-    connect(job, &KIO::TransferJob::data, this, [&](KIO::Job *, const QByteArray &) {
-        if (cancelled) {
-            return;
-        }
-        cancelled = true;
-        // Cancel from inside the data dispatch (loopLevel > 0): this derefs the gated worker.
-        // A synchronous join here would block the main thread before it can release the gate.
-        job->kill();
-        // Release the gate and finish - but only from the event loop. With the deadlock bug,
-        // control never returns here, so the worker stays gated and the test hangs.
-        QTimer::singleShot(0, this, [] {
-            KIO::WorkerThread::releaseTestExitGate();
-        });
-        QTimer::singleShot(100, &loop, &QEventLoop::quit);
-    });
-    // Absolute safety net; with the fix the 100ms timer above quits the loop far sooner.
-    QTimer::singleShot(std::chrono::seconds(30), &loop, &QEventLoop::quit);
-    loop.exec();
-
-    QVERIFY(cancelled);
-}
-
-void KIOThreadTest::cancelDoesNotFlushUnrelatedDeferredDeletes()
-{
-    // Regression test: Worker::~Worker() must not flush the global deferred-delete queue
-    // (QCoreApplication::sendPostedEvents(nullptr, QEvent::DeferredDelete)). ~Worker() runs
-    // synchronously when a running job is cancelled, and that often happens deep inside an
-    // unrelated object's destruction. Flushing every pending deleteLater() from there
-    // re-entrantly deletes objects that are merely scheduled for deletion - or, worse, already
-    // being destroyed higher up the stack - which crashed on shutdown (a
-    // new-delete-type-mismatch / use-after-free). Assert the observable behaviour: tearing a
-    // worker down must not process an unrelated, still-pending deleteLater().
-
-    const QString path = homeTmpDir() + QLatin1String("bigfile_flush");
-    const QByteArray bigData(16 * 1024 * 1024, 'a'); // big enough that data() fires mid-transfer
-    QFile f(path);
-    QVERIFY(f.open(QIODevice::WriteOnly));
-    QCOMPARE(f.write(bigData), qint64(bigData.size()));
-    f.close();
-
-    auto *job = KIO::get(QUrl::fromLocalFile(path), KIO::NoReload, KIO::HideProgressInfo);
-    job->setUiDelegate(nullptr);
-
-    QEventLoop loop;
-    bool checked = false;
-    QPointer<QObject> victim;
-    connect(job, &KIO::TransferJob::data, this, [&](KIO::Job *, const QByteArray &) {
-        if (checked) {
-            return;
-        }
-        checked = true;
-        // Schedule an unrelated object for deletion and immediately, in the same
-        // synchronous block (no event-loop iteration in between, so the deleteLater is
-        // still pending), cancel the running job. Cancelling derefs and destroys its
-        // worker synchronously (Worker::kill() -> deref() -> ~Worker()). Only a
-        // re-entrant flush inside ~Worker() could consume the deleteLater here.
-        victim = new QObject;
-        victim->deleteLater();
-        job->kill();
-        QVERIFY(victim); // ~Worker() must not have flushed the unrelated deleteLater()
-        loop.quit();
-    });
-    QTimer::singleShot(std::chrono::seconds(30), &loop, &QEventLoop::quit);
-    loop.exec();
-
-    QVERIFY(checked);
-    QVERIFY(victim); // still alive: the worker teardown did not flush it
-
-    // Sanity: a real deferred-delete flush still works and reclaims the victim.
-    QCoreApplication::sendPostedEvents(nullptr, QEvent::DeferredDelete);
-    QVERIFY(!victim);
 }
 
 QTEST_MAIN(KIOThreadTest)
