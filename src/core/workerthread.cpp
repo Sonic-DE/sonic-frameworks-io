@@ -11,19 +11,46 @@
 #include "workerfactory.h"
 #include "workerthread_p.h"
 
+#include <QPluginLoader>
+
 namespace KIO
 {
 
-WorkerThread::WorkerThread(QObject *parent, WorkerFactory *factory, const QByteArray &appSocket)
+#ifdef BUILD_TESTING
+bool WorkerThread::s_testExitGateEnabled = false;
+QSemaphore WorkerThread::s_testExitGate;
+
+void WorkerThread::setTestExitGateEnabled(bool enabled)
+{
+    s_testExitGateEnabled = enabled;
+}
+
+void WorkerThread::releaseTestExitGate()
+{
+    s_testExitGate.release();
+}
+#endif
+
+WorkerThread::WorkerThread(QObject *parent, WorkerFactory *factory, const QByteArray &appSocket, QPluginLoader *pluginLoader)
     : QThread(parent)
     , m_factory(factory)
     , m_appSocket(appSocket)
+    , m_pluginLoader(pluginLoader)
 {
 }
 
 WorkerThread::~WorkerThread()
 {
     wait();
+#ifdef Q_OS_UNIX
+    if (m_nativeHandle) {
+        pthread_join(m_nativeHandle, nullptr);
+    }
+#endif
+    if (m_pluginLoader) {
+        m_pluginLoader->unload();
+        delete m_pluginLoader;
+    }
 }
 
 void WorkerThread::abort()
@@ -36,6 +63,9 @@ void WorkerThread::abort()
 
 void WorkerThread::run()
 {
+#ifdef Q_OS_UNIX
+    m_nativeHandle = pthread_self();
+#endif
     qCDebug(KIO_CORE) << QThread::currentThreadId() << "Creating threaded worker";
 
     auto worker = m_factory->createWorker({}, m_appSocket);
@@ -47,6 +77,14 @@ void WorkerThread::run()
     base->dispatchLoop();
 
     setWorker(nullptr); // before the actual deletion
+
+#ifdef BUILD_TESTING
+    if (s_testExitGateEnabled) {
+        // Block here until the main thread releases us through its event loop, so a
+        // synchronous join in Worker::deref() deadlocks deterministically (see header).
+        s_testExitGate.acquire();
+    }
+#endif
 }
 
 void WorkerThread::setWorker(SlaveBase *worker)
