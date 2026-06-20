@@ -9,6 +9,10 @@
 #include <QMutex>
 #include <QThread>
 
+#ifdef Q_OS_UNIX
+#include <pthread.h>
+#endif
+
 class QPluginLoader;
 
 namespace KIO
@@ -48,9 +52,8 @@ private:
 
     QMutex m_workerMutex; // protects m_worker, accessed by both threads
     KIO::SlaveBase *m_worker = nullptr;
-#ifdef BUILD_TESTING
-    static bool s_testExitGateEnabled;
-    static QSemaphore s_testExitGate;
+#ifdef Q_OS_UNIX
+    pthread_t m_nativeHandle = {};
 #endif
 };
 
