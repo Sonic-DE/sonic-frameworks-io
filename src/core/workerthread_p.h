@@ -9,11 +9,6 @@
 #include <QMutex>
 #include <QThread>
 
-#ifdef BUILD_TESTING
-#include "kiocore_export.h"
-#include <QSemaphore>
-#endif
-
 class QPluginLoader;
 
 namespace KIO
