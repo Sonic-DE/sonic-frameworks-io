@@ -125,8 +125,26 @@ void Worker::deref()
             WorkerThread *workerThread = nullptr;
             std::swap(workerThread, m_workerThread);
             workerThread->setParent(nullptr);
-            connect(workerThread, &QThread::finished, workerThread, &QThread::deleteLater);
+            // Close the socket so dispatchLoop()'s waitForReadyRead()/waitForBytesWritten()
+            // unblocks and the thread can exit on its own.
+            m_connection->close();
             workerThread->quit();
+            if (QThread::currentThread()->loopLevel() > 0) {
+                // We are inside a running event loop, dispatching data: deref() routinely runs
+                // while a thread is dispatching a worker's data, because handling that data can
+                // cancel and delete another job (and thus deref its worker). A worker that is
+                // delivering data blocks in waitForBytesWritten() once its socket buffer fills,
+                // and needs this thread to keep draining the socket to make progress. Joining
+                // here would deadlock this thread against the worker (bug 468673), so delete the
+                // thread asynchronously once it has finished instead.
+                connect(workerThread, &QThread::finished, workerThread, &QThread::deleteLater);
+            } else {
+                // No event loop is running on this thread, e.g. during scheduler/thread-storage
+                // teardown at exit. No data dispatch can be in flight, so joining the worker
+                // thread cannot deadlock; delete it synchronously. A queued deleteLater() would
+                // never be processed without an event loop and would leak the thread.
+                delete workerThread;
+            }
         }
         delete this; // yes it reads funny, but it's too late for a deleteLater() here, no event loop anymore
     }
@@ -429,3 +447,4 @@ void KIO::Worker::setTestWorkerFactory(const std::weak_ptr<KIO::WorkerFactory> &
 #endif
 
 #include "moc_worker_p.cpp"
+
