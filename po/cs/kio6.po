@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-25 00:40+0000\n"
+"POT-Creation-Date: 2026-06-29 00:40+0000\n"
 "PO-Revision-Date: 2026-06-10 23:33+0200\n"
 "Last-Translator: Jan Papez (honyczek) <honyczek@centrum.cz>\n"
 "Language-Team: Czech <kde-i18n-cs@kde.org>\n"
@@ -3539,44 +3539,44 @@ msgid ""
 "files shown.</qt>"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:235
+#: filewidgets/knewfilemenu.cpp:221
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Zadejte %1 název souboru:"
 
-#: filewidgets/knewfilemenu.cpp:543
+#: filewidgets/knewfilemenu.cpp:529
 #, kde-format
 msgid "Sorry"
 msgstr "Lituji"
 
-#: filewidgets/knewfilemenu.cpp:554
+#: filewidgets/knewfilemenu.cpp:540
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Soubor <b>%1</b> se šablonami neexistuje.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:705 filewidgets/knewfilemenu.cpp:770
+#: filewidgets/knewfilemenu.cpp:691 filewidgets/knewfilemenu.cpp:756
 #, kde-format
 msgid "Name for new link:"
 msgstr "Název pro nový odkaz:"
 
-#: filewidgets/knewfilemenu.cpp:708
+#: filewidgets/knewfilemenu.cpp:694
 #, kde-format
 msgid "Create Symlink"
 msgstr "Vytvořit symbolický odkaz"
 
-#: filewidgets/knewfilemenu.cpp:774
+#: filewidgets/knewfilemenu.cpp:760
 #, kde-format
 msgid "Create link to URL"
 msgstr "Vytvořit odkaz na URL"
 
-#: filewidgets/knewfilemenu.cpp:815 filewidgets/knewfilemenu.cpp:839
+#: filewidgets/knewfilemenu.cpp:800 filewidgets/knewfilemenu.cpp:824
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1184
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3586,7 +3586,7 @@ msgstr ""
 "Název nelze použít <filename>%1</filename><nl/>protože je rezervován pro "
 "použití operačním systémem."
 
-#: filewidgets/knewfilemenu.cpp:1192
+#: filewidgets/knewfilemenu.cpp:1172
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3596,7 +3596,7 @@ msgstr ""
 "Název <filename>%1</filename> začíná tečkou, tudíž bude adresář ve výchozím "
 "stavu skryt."
 
-#: filewidgets/knewfilemenu.cpp:1200
+#: filewidgets/knewfilemenu.cpp:1180
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3608,27 +3608,27 @@ msgstr ""
 "povede k tomu, že bude zobrazeno před ostatními položkami při řazení podle "
 "abecedy."
 
-#: filewidgets/knewfilemenu.cpp:1218
+#: filewidgets/knewfilemenu.cpp:1198
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1232
+#: filewidgets/knewfilemenu.cpp:1212
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1244
+#: filewidgets/knewfilemenu.cpp:1224
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Lomítka nelze v názvech složek použít."
 
-#: filewidgets/knewfilemenu.cpp:1249
+#: filewidgets/knewfilemenu.cpp:1229
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Zpětná lomítka nelze v názvech složek použít."
 
-#: filewidgets/knewfilemenu.cpp:1263
+#: filewidgets/knewfilemenu.cpp:1243
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3636,59 +3636,59 @@ msgid ""
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1272
+#: filewidgets/knewfilemenu.cpp:1252
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1344
+#: filewidgets/knewfilemenu.cpp:1324
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Složka s názvem <filename>%1</filename> již existuje."
 
-#: filewidgets/knewfilemenu.cpp:1346
+#: filewidgets/knewfilemenu.cpp:1326
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Soubor s názvem <filename>%1</filename> již existuje."
 
-#: filewidgets/knewfilemenu.cpp:1432
+#: filewidgets/knewfilemenu.cpp:1412
 #, kde-format
 msgid "Create New"
 msgstr "Vytvořit nový"
 
-#: filewidgets/knewfilemenu.cpp:1467
+#: filewidgets/knewfilemenu.cpp:1447
 #, kde-format
 msgid "Link to Device"
 msgstr "Odkaz na zařízení"
 
-#: filewidgets/knewfilemenu.cpp:1506
+#: filewidgets/knewfilemenu.cpp:1486
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nová složka"
 
-#: filewidgets/knewfilemenu.cpp:1529
+#: filewidgets/knewfilemenu.cpp:1509
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Vytvořit novou složku"
 
-#: filewidgets/knewfilemenu.cpp:1531
+#: filewidgets/knewfilemenu.cpp:1511
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Vytvořit novou složku v %1:"
 
-#: filewidgets/knewfilemenu.cpp:1534 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1514 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Zadejte název složky"
 
-#: filewidgets/knewfilemenu.cpp:1591
+#: filewidgets/knewfilemenu.cpp:1571
 #, kde-format
 msgid "Default"
 msgstr "Výchozí"
@@ -4127,7 +4127,7 @@ msgstr "Příkaz ke spuštění"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL nebo lokální soubor pro 'příkaz'"
 
-#: kioworkers/file/file.cpp:684
+#: kioworkers/file/file.cpp:689
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4136,7 +4136,7 @@ msgstr ""
 "Nelze změnit přístupová práva\n"
 "k %1"
 
-#: kioworkers/file/file.cpp:692
+#: kioworkers/file/file.cpp:697
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4146,17 +4146,17 @@ msgstr ""
 "Nelze změnit vlastníka a skupinu pro\n"
 "%1"
 
-#: kioworkers/file/file.cpp:772 kioworkers/file/file.cpp:864
+#: kioworkers/file/file.cpp:777 kioworkers/file/file.cpp:869
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Nelze otevřít dočasný soubor"
 
-#: kioworkers/file/file.cpp:796
+#: kioworkers/file/file.cpp:801
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Nelze nalézt program \"mount\"."
 
-#: kioworkers/file/file.cpp:873
+#: kioworkers/file/file.cpp:878
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Nelze nalézt program \"umount\"."
@@ -6437,17 +6437,17 @@ msgctxt "File permission"
 msgid "Sticky"
 msgstr "Sticky"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1666
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1679
 #, kde-format
 msgid "Link"
 msgstr "Odkaz"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1686
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1699
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Různé (beze změny)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1797
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1810
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
@@ -6455,7 +6455,7 @@ msgstr[0] "Tento soubor používá pokročilá oprávnění."
 msgstr[1] "Tyto soubory používají pokročilá oprávnění."
 msgstr[2] "Tyto soubory používají pokročilá oprávnění."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1819
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1832
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
@@ -6463,40 +6463,40 @@ msgstr[0] "Tato složka používá pokročilá oprávnění."
 msgstr[1] "Tyto složky používají pokročilá oprávnění."
 msgstr[2] "Tyto složky používají pokročilá oprávnění."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1833
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1846
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Tyto soubory používají pokročilá oprávnění."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2077
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2090
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "Kontro&lní součty"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2368
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2381
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Neplatný kontrolní součet."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2371
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2384
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "Zadaný vstup není platným kontrolním součtem MD5, SHA1 nebo SHA256."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2382
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2395
 #, kde-format
 msgid "Checksums match."
 msgstr "Kontrolní součty odpovídají."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2385
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2398
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "Kontrolní součet byl vypočítání a očekávaný kontrolní součet odpovídá."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2397
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2410
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6504,46 +6504,46 @@ msgid ""
 "source of the file."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2403
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2416
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "Kontrolní součet byl vypočítání a očekávaný kontrolní součet se liší."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2411
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2424
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "Ověřování kontrolního součtu…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2440
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2453
 #, kde-format
 msgid "The checksums of all files are identical."
 msgstr "Kontrolní součty všech souborů jsou stejné."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2445
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2458
 #, kde-format
 msgid "The selected files have different checksums."
 msgstr "Vybrané soubory mají rozdílné kontrolní součty."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2451
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2464
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Počítám…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2562
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2575
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2568
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2581
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2637
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2908
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2650
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2921
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6551,27 +6551,27 @@ msgstr ""
 "Vlastnosti nelze uložit. Jsou podporovány pouze položky na lokálním "
 "souborovém systému."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2708
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2721
 #, kde-format
 msgid "&Application"
 msgstr "&Aplikace"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2848
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2861
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Přidat typ souboru pro %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2849
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2862
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Vyberte jeden nebo více typů souborů k přidání:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2987
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3000
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Jsou podporovány pouze programy na lokálním souborovém systému."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3002
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3015
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Pokročilé možnosti pro %1"

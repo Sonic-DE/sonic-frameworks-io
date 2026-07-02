@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-25 00:40+0000\n"
+"POT-Creation-Date: 2026-06-29 00:40+0000\n"
 "PO-Revision-Date: 2026-06-14 09:42+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -3597,44 +3597,44 @@ msgstr ""
 "<qt>Aquest és el selector de tipus de fitxer. Es fa servir per a seleccionar "
 "el format dels fitxers què es mostraran.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:235
+#: filewidgets/knewfilemenu.cpp:221
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Introduïu el nom del fitxer %1:"
 
-#: filewidgets/knewfilemenu.cpp:543
+#: filewidgets/knewfilemenu.cpp:529
 #, kde-format
 msgid "Sorry"
 msgstr "Ho sento"
 
-#: filewidgets/knewfilemenu.cpp:554
+#: filewidgets/knewfilemenu.cpp:540
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>El fitxer de plantilla <b>%1</b> no existeix.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:705 filewidgets/knewfilemenu.cpp:770
+#: filewidgets/knewfilemenu.cpp:691 filewidgets/knewfilemenu.cpp:756
 #, kde-format
 msgid "Name for new link:"
 msgstr "Nom per a l'enllaç nou:"
 
-#: filewidgets/knewfilemenu.cpp:708
+#: filewidgets/knewfilemenu.cpp:694
 #, kde-format
 msgid "Create Symlink"
 msgstr "Creació d'un enllaç simbòlic"
 
-#: filewidgets/knewfilemenu.cpp:774
+#: filewidgets/knewfilemenu.cpp:760
 #, kde-format
 msgid "Create link to URL"
 msgstr "Crea un enllaç a l'URL"
 
-#: filewidgets/knewfilemenu.cpp:815 filewidgets/knewfilemenu.cpp:839
+#: filewidgets/knewfilemenu.cpp:800 filewidgets/knewfilemenu.cpp:824
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1184
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3644,7 +3644,7 @@ msgstr ""
 "No es pot usar el nom <filename>%1</filename> perquè està reservat per a "
 "l'ús del sistema operatiu."
 
-#: filewidgets/knewfilemenu.cpp:1192
+#: filewidgets/knewfilemenu.cpp:1172
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3654,7 +3654,7 @@ msgstr ""
 "El nom <filename>%1</filename> comença amb un punt, per tant, estarà ocult "
 "per defecte."
 
-#: filewidgets/knewfilemenu.cpp:1200
+#: filewidgets/knewfilemenu.cpp:1180
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3666,27 +3666,27 @@ msgstr ""
 "a què es mostri abans que altres elements en ordenar alfabèticament, entre "
 "altres efectes potencials."
 
-#: filewidgets/knewfilemenu.cpp:1218
+#: filewidgets/knewfilemenu.cpp:1198
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "L'ús de barres als noms de les carpetes crearà subcarpetes, així:"
 
-#: filewidgets/knewfilemenu.cpp:1232
+#: filewidgets/knewfilemenu.cpp:1212
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "L'ús de barres als noms de les carpetes crearà subcarpetes."
 
-#: filewidgets/knewfilemenu.cpp:1244
+#: filewidgets/knewfilemenu.cpp:1224
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "No es poden usar barres en els noms de fitxers o carpetes."
 
-#: filewidgets/knewfilemenu.cpp:1249
+#: filewidgets/knewfilemenu.cpp:1229
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "No es poden usar barres inverses en els noms de fitxers o carpetes."
 
-#: filewidgets/knewfilemenu.cpp:1263
+#: filewidgets/knewfilemenu.cpp:1243
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3697,7 +3697,7 @@ msgstr ""
 "possible, ja que se superposaria amb la ubicació d'una carpeta d'inici "
 "d'usuari."
 
-#: filewidgets/knewfilemenu.cpp:1272
+#: filewidgets/knewfilemenu.cpp:1252
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3706,52 +3706,52 @@ msgstr ""
 "No es recomana iniciar el nom d'un fitxer o una carpeta amb una titlla "
 "perquè pot ser confús o perillós en usar el terminal per a suprimir coses."
 
-#: filewidgets/knewfilemenu.cpp:1344
+#: filewidgets/knewfilemenu.cpp:1324
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Ja existeix un directori amb nom <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1346
+#: filewidgets/knewfilemenu.cpp:1326
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Ja existeix un fitxer amb nom <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1432
+#: filewidgets/knewfilemenu.cpp:1412
 #, kde-format
 msgid "Create New"
 msgstr "Crea nou"
 
-#: filewidgets/knewfilemenu.cpp:1467
+#: filewidgets/knewfilemenu.cpp:1447
 #, kde-format
 msgid "Link to Device"
 msgstr "Enllaç a dispositiu"
 
-#: filewidgets/knewfilemenu.cpp:1506
+#: filewidgets/knewfilemenu.cpp:1486
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Carpeta nova"
 
-#: filewidgets/knewfilemenu.cpp:1529
+#: filewidgets/knewfilemenu.cpp:1509
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Crea una carpeta nova"
 
-#: filewidgets/knewfilemenu.cpp:1531
+#: filewidgets/knewfilemenu.cpp:1511
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Crea una carpeta nova a %1:"
 
-#: filewidgets/knewfilemenu.cpp:1534 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1514 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Introduïu el nom de la carpeta"
 
-#: filewidgets/knewfilemenu.cpp:1591
+#: filewidgets/knewfilemenu.cpp:1571
 #, kde-format
 msgid "Default"
 msgstr "Predeterminat"
@@ -4206,7 +4206,7 @@ msgstr "Ordre a executar"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "El/s URL o fitxer/s local/s usat/s per l'«ordre»"
 
-#: kioworkers/file/file.cpp:684
+#: kioworkers/file/file.cpp:689
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4215,7 +4215,7 @@ msgstr ""
 "No s'han pogut canviar els permisos per a\n"
 "%1"
 
-#: kioworkers/file/file.cpp:692
+#: kioworkers/file/file.cpp:697
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4225,17 +4225,17 @@ msgstr ""
 "No s'ha pogut canviar el propietari ni el grup per a\n"
 "%1"
 
-#: kioworkers/file/file.cpp:772 kioworkers/file/file.cpp:864
+#: kioworkers/file/file.cpp:777 kioworkers/file/file.cpp:869
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "No s'ha pogut obrir un fitxer temporal"
 
-#: kioworkers/file/file.cpp:796
+#: kioworkers/file/file.cpp:801
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "No s'ha pogut trobar el programa «mount»"
 
-#: kioworkers/file/file.cpp:873
+#: kioworkers/file/file.cpp:878
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "No s'ha pogut trobar el programa «umount»"
@@ -6544,65 +6544,65 @@ msgctxt "File permission"
 msgid "Sticky"
 msgstr "Apegalós"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1666
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1679
 #, kde-format
 msgid "Link"
 msgstr "Enllaç"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1686
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1699
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Variant (Sense canvis)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1797
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1810
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Aquest fitxer usa permisos avançats"
 msgstr[1] "Aquests fitxers usen permisos avançats."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1819
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1832
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "Aquesta carpeta usa permisos avançats."
 msgstr[1] "Aquestes carpetes usen permisos avançats."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1833
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1846
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Aquests fitxers usen permisos avançats."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2077
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2090
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "Sumes de verifi&cació"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2368
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2381
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Suma de verificació no vàlida."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2371
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2384
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr ""
 "L'entrada indicada no és cap suma de verificació vàlida MD5, SHA1 o SHA256."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2382
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2395
 #, kde-format
 msgid "Checksums match."
 msgstr "Les sumes de verificació coincideixen."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2385
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2398
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "La suma de verificació calculada i l'esperada coincideixen."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2397
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2410
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6613,46 +6613,46 @@ msgstr ""
 "baixada fallida. Intenteu tornar a baixar el fitxer.<br/>Si la verificació "
 "encara falla, contacteu amb l'origen del fitxer."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2403
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2416
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "La suma de verificació calculada i l'esperada difereixen."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2411
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2424
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "S'està comprovant la suma de verificació…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2440
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2453
 #, kde-format
 msgid "The checksums of all files are identical."
 msgstr "Les sumes de verificació de tots els fitxers són idèntiques."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2445
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2458
 #, kde-format
 msgid "The selected files have different checksums."
 msgstr "Els fitxers seleccionats tenen sumes de verificació diferents."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2451
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2464
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "S'està calculant…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2562
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2575
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2568
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2581
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2637
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2908
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2650
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2921
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6660,27 +6660,27 @@ msgstr ""
 "No s'han pogut desar les propietats. Només s'accepten entrades en el sistema "
 "de fitxers local."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2708
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2721
 #, kde-format
 msgid "&Application"
 msgstr "&Aplicació"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2848
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2861
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Afegeix un tipus de fitxer per a %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2849
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2862
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Seleccioneu un o més tipus de fitxer a afegir:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2987
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3000
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Només s'accepten executables al sistema de fitxers local."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3002
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3015
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Opcions avançades per a %1"

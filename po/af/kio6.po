@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-25 00:40+0000\n"
+"POT-Creation-Date: 2026-06-29 00:40+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -3765,20 +3765,20 @@ msgid ""
 "files shown.</qt>"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:235
+#: filewidgets/knewfilemenu.cpp:221
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Hardloop as 'n ander gebruiker"
 
-#: filewidgets/knewfilemenu.cpp:543
+#: filewidgets/knewfilemenu.cpp:529
 #, fuzzy, kde-format
 #| msgid "Store"
 msgid "Sorry"
 msgstr "Stoor"
 
-#: filewidgets/knewfilemenu.cpp:554
+#: filewidgets/knewfilemenu.cpp:540
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
@@ -3788,30 +3788,30 @@ msgstr ""
 "<qt>Kon nie die gespesifiseerde opdrag uitvoer nie. Die lêer of gids <b>%1</"
 "b> bestaan nie.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:705 filewidgets/knewfilemenu.cpp:770
+#: filewidgets/knewfilemenu.cpp:691 filewidgets/knewfilemenu.cpp:756
 #, kde-format
 msgid "Name for new link:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:708
+#: filewidgets/knewfilemenu.cpp:694
 #, fuzzy, kde-format
 #| msgid "Could Not Create Symbolic Link"
 msgid "Create Symlink"
 msgstr "Kon Nie Skep Simboliese Skakel"
 
-#: filewidgets/knewfilemenu.cpp:774
+#: filewidgets/knewfilemenu.cpp:760
 #, fuzzy, kde-format
 msgid "Create link to URL"
 msgstr "Bestemming:"
 
-#: filewidgets/knewfilemenu.cpp:815 filewidgets/knewfilemenu.cpp:839
+#: filewidgets/knewfilemenu.cpp:800 filewidgets/knewfilemenu.cpp:824
 #, fuzzy, kde-format
 #| msgid "%1 B"
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1 B"
 
-#: filewidgets/knewfilemenu.cpp:1184
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3819,7 +3819,7 @@ msgid ""
 "use by the operating system."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1192
+#: filewidgets/knewfilemenu.cpp:1172
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3827,7 +3827,7 @@ msgid ""
 "default."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1200
+#: filewidgets/knewfilemenu.cpp:1180
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3836,27 +3836,27 @@ msgid ""
 "potential oddities."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1218
+#: filewidgets/knewfilemenu.cpp:1198
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1232
+#: filewidgets/knewfilemenu.cpp:1212
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1244
+#: filewidgets/knewfilemenu.cpp:1224
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1249
+#: filewidgets/knewfilemenu.cpp:1229
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1263
+#: filewidgets/knewfilemenu.cpp:1243
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3864,53 +3864,53 @@ msgid ""
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1272
+#: filewidgets/knewfilemenu.cpp:1252
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1344
+#: filewidgets/knewfilemenu.cpp:1324
 #, fuzzy, kde-kuit-format
 #| msgid "An older item named '%1' already exists."
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "'n ouer item genaamd '%1' alreeds bestaan."
 
-#: filewidgets/knewfilemenu.cpp:1346
+#: filewidgets/knewfilemenu.cpp:1326
 #, fuzzy, kde-kuit-format
 #| msgid "A file named %1 already exists."
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "'n lêer genaamd %1 alreeds bestaan."
 
-#: filewidgets/knewfilemenu.cpp:1432
+#: filewidgets/knewfilemenu.cpp:1412
 #, fuzzy, kde-format
 #| msgid "C&reate"
 msgid "Create New"
 msgstr "Skep"
 
-#: filewidgets/knewfilemenu.cpp:1467
+#: filewidgets/knewfilemenu.cpp:1447
 #, fuzzy, kde-format
 msgid "Link to Device"
 msgstr "Toestel:"
 
-#: filewidgets/knewfilemenu.cpp:1506
+#: filewidgets/knewfilemenu.cpp:1486
 #, fuzzy, kde-format
 #| msgid "New Folder"
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nuwe Gids"
 
-#: filewidgets/knewfilemenu.cpp:1529
+#: filewidgets/knewfilemenu.cpp:1509
 #, fuzzy, kde-format
 #| msgid "Could Not Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Kon nie die gids skep nie"
 
-#: filewidgets/knewfilemenu.cpp:1531
+#: filewidgets/knewfilemenu.cpp:1511
 #, fuzzy, kde-format
 #| msgid ""
 #| "Create new folder in:\n"
@@ -3920,14 +3920,14 @@ msgstr ""
 "Skep nuwe gids in:\n"
 "%1"
 
-#: filewidgets/knewfilemenu.cpp:1534 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1514 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Hardloop as 'n ander gebruiker"
 
-#: filewidgets/knewfilemenu.cpp:1591
+#: filewidgets/knewfilemenu.cpp:1571
 #, fuzzy, kde-format
 msgid "Default"
 msgstr " (Verstek)"
@@ -4407,7 +4407,7 @@ msgstr "Opdrag om uit te voer"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL(s) en plaaslike lêer(s) gebruik vir 'opdrag'"
 
-#: kioworkers/file/file.cpp:684
+#: kioworkers/file/file.cpp:689
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4416,7 +4416,7 @@ msgstr ""
 "Kon nie verander regte vir\n"
 "%1"
 
-#: kioworkers/file/file.cpp:692
+#: kioworkers/file/file.cpp:697
 #, fuzzy, kde-format
 #| msgid "Could not change permissions for %1."
 msgctxt "@info"
@@ -4425,18 +4425,18 @@ msgid ""
 "%1"
 msgstr "Kon nie regte vir %1 verander nie."
 
-#: kioworkers/file/file.cpp:772 kioworkers/file/file.cpp:864
+#: kioworkers/file/file.cpp:777 kioworkers/file/file.cpp:869
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "Kon Nie Herbenaam Tydelike Lêer"
 
-#: kioworkers/file/file.cpp:796
+#: kioworkers/file/file.cpp:801
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Kon nie vind program \"heg\""
 
-#: kioworkers/file/file.cpp:873
+#: kioworkers/file/file.cpp:878
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Kon nie vind program \"ontheg\""
@@ -6883,64 +6883,64 @@ msgctxt "File permission"
 msgid "Sticky"
 msgstr "Sticky"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1666
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1679
 #, kde-format
 msgid "Link"
 msgstr "Skakel"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1686
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1699
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Warieering (Geen Verandering)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1797
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1810
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Hierdie lêer gebruik gevorderde regte"
 msgstr[1] "Hierdie lêers gebruik gevorderde regte."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1819
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1832
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "Hierdie gids gebruik gevorderde regte"
 msgstr[1] "Hierdie gidss gebruik gevorderde regte."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1833
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1846
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Hierdie lêers gebruik gevorderde regte."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2077
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2090
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2368
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2381
 #, kde-format
 msgid "Invalid checksum."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2371
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2384
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2382
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2395
 #, kde-format
 msgid "Checksums match."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2385
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2398
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2397
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2410
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6948,76 +6948,76 @@ msgid ""
 "source of the file."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2403
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2416
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2411
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2424
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2440
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2453
 #, fuzzy, kde-format
 #| msgid "The new file name is empty."
 msgid "The checksums of all files are identical."
 msgstr "Die nuwe lêernaam is leeg."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2445
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2458
 #, fuzzy, kde-format
 #| msgid "The new file name is empty."
 msgid "The selected files have different checksums."
 msgstr "Die nuwe lêernaam is leeg."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2451
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2464
 #, fuzzy, kde-format
 #| msgid "Calculating..."
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Besig om te bereken..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2562
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2575
 #, kde-format
 msgid "U&RL"
 msgstr "URL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2568
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2581
 #, kde-format
 msgid "URL:"
 msgstr "Url:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2637
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2908
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2650
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2921
 #, fuzzy, kde-format
 #| msgid "Only executables on local file systems are supported."
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "Slegs uitvoerbares op plaaslike lêer sisteme word ondersteunde."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2708
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2721
 #, kde-format
 msgid "&Application"
 msgstr "Aansoek"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2848
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2861
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Voeg Lêer Tipe by vir %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2849
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2862
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Kies een of meer lêer tipes om by te voeg:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2987
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3000
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Slegs uitvoerbares op plaaslike lêer sisteme word ondersteunde."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3002
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3015
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Gevorderde Opsies vir %1"

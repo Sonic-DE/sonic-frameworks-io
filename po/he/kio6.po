@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-25 00:40+0000\n"
+"POT-Creation-Date: 2026-06-29 00:40+0000\n"
 "PO-Revision-Date: 2026-06-16 09:57+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -3474,44 +3474,44 @@ msgid ""
 "files shown.</qt>"
 msgstr "<qt>זה בורר סוג הקובץ. הוא משמש לבחירת סוג הקבצים שיופיעו.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:235
+#: filewidgets/knewfilemenu.cpp:221
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "נא למלא שם קובץ %1:"
 
-#: filewidgets/knewfilemenu.cpp:543
+#: filewidgets/knewfilemenu.cpp:529
 #, kde-format
 msgid "Sorry"
 msgstr "מחילה"
 
-#: filewidgets/knewfilemenu.cpp:554
+#: filewidgets/knewfilemenu.cpp:540
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt> קובץ התבנית <b>%1</b> לא קיים. </qt>"
 
-#: filewidgets/knewfilemenu.cpp:705 filewidgets/knewfilemenu.cpp:770
+#: filewidgets/knewfilemenu.cpp:691 filewidgets/knewfilemenu.cpp:756
 #, kde-format
 msgid "Name for new link:"
 msgstr "שם לקישור החדש:"
 
-#: filewidgets/knewfilemenu.cpp:708
+#: filewidgets/knewfilemenu.cpp:694
 #, kde-format
 msgid "Create Symlink"
 msgstr "יצירת הקישור הסמלי"
 
-#: filewidgets/knewfilemenu.cpp:774
+#: filewidgets/knewfilemenu.cpp:760
 #, kde-format
 msgid "Create link to URL"
 msgstr "יצירת קישור לכתובת"
 
-#: filewidgets/knewfilemenu.cpp:815 filewidgets/knewfilemenu.cpp:839
+#: filewidgets/knewfilemenu.cpp:800 filewidgets/knewfilemenu.cpp:824
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1184
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3521,7 +3521,7 @@ msgstr ""
 "אי אפשר להשתמש בשם <filename>%1</filename> כיוון שהוא שמור לשימוש מערכת "
 "ההפעלה."
 
-#: filewidgets/knewfilemenu.cpp:1192
+#: filewidgets/knewfilemenu.cpp:1172
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3529,7 +3529,7 @@ msgid ""
 "default."
 msgstr "השם <filename>%1</filename> מתחיל בנקודה, לכן יוסתר כברירת מחדל."
 
-#: filewidgets/knewfilemenu.cpp:1200
+#: filewidgets/knewfilemenu.cpp:1180
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3540,27 +3540,27 @@ msgstr ""
 "השם <filename>%1</filename> נפתח ברווח, מה שיגרום לכך שיופיע לפני שאר "
 "הפריטים בעת סידור לפי אלפבית, בנוסף לדברים מוזרים נוספים."
 
-#: filewidgets/knewfilemenu.cpp:1218
+#: filewidgets/knewfilemenu.cpp:1198
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "שימוש בלוכסנים בשמות תיקיות ייצר תת־תיקיות, כמו למשל:"
 
-#: filewidgets/knewfilemenu.cpp:1232
+#: filewidgets/knewfilemenu.cpp:1212
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "שימוש בלוכסנים בשמות תיקיות ייצר תת־תיקיות."
 
-#: filewidgets/knewfilemenu.cpp:1244
+#: filewidgets/knewfilemenu.cpp:1224
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "אי אפשר להשתמש בלוכסנים בשמות קבצים ותיקיות."
 
-#: filewidgets/knewfilemenu.cpp:1249
+#: filewidgets/knewfilemenu.cpp:1229
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "אי אפשר להשתמש בלוכסנים שמאליים בשמות של קבצים ותיקיות."
 
-#: filewidgets/knewfilemenu.cpp:1263
+#: filewidgets/knewfilemenu.cpp:1243
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3570,7 +3570,7 @@ msgstr ""
 "אי אפשר ליצור קובץ או תיקייה בשם <filename>%1</filename> כיוון שהוא יחפוף "
 "למקום בו נמצאת תיקיית הבית של המשתמש."
 
-#: filewidgets/knewfilemenu.cpp:1272
+#: filewidgets/knewfilemenu.cpp:1252
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3579,52 +3579,52 @@ msgstr ""
 "לא מומלץ להתחיל שם של קובץ או תיקייה בטילדה (גל) כיוון שהוא עלול לבלבל או "
 "להיות מסוכן בעת שימוש במסוף למחיקה של כל מיני דברים."
 
-#: filewidgets/knewfilemenu.cpp:1344
+#: filewidgets/knewfilemenu.cpp:1324
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "כבר קיימת תיקייה בשם <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1346
+#: filewidgets/knewfilemenu.cpp:1326
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "כבר קיים קובץ בשם <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1432
+#: filewidgets/knewfilemenu.cpp:1412
 #, kde-format
 msgid "Create New"
 msgstr "יצירת חדש"
 
-#: filewidgets/knewfilemenu.cpp:1467
+#: filewidgets/knewfilemenu.cpp:1447
 #, kde-format
 msgid "Link to Device"
 msgstr "קישור להתקן"
 
-#: filewidgets/knewfilemenu.cpp:1506
+#: filewidgets/knewfilemenu.cpp:1486
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "תיקייה חדשה"
 
-#: filewidgets/knewfilemenu.cpp:1529
+#: filewidgets/knewfilemenu.cpp:1509
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "יצירת תיקייה חדשה"
 
-#: filewidgets/knewfilemenu.cpp:1531
+#: filewidgets/knewfilemenu.cpp:1511
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "יצירת תיקייה חדשה בתוך %1:"
 
-#: filewidgets/knewfilemenu.cpp:1534 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1514 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "נא למלא שם תיקייה"
 
-#: filewidgets/knewfilemenu.cpp:1591
+#: filewidgets/knewfilemenu.cpp:1571
 #, kde-format
 msgid "Default"
 msgstr "ברירת מחדל"
@@ -4066,7 +4066,7 @@ msgstr "פקודה להרצה"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "כתובות או קבצים מקומיים שמשמשים לטובת ‚command’ (פקודה)"
 
-#: kioworkers/file/file.cpp:684
+#: kioworkers/file/file.cpp:689
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4075,7 +4075,7 @@ msgstr ""
 "אי אפשר לשנות את ההרשאות של\n"
 "%1"
 
-#: kioworkers/file/file.cpp:692
+#: kioworkers/file/file.cpp:697
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4085,17 +4085,17 @@ msgstr ""
 "לא ניתן לשנות את הבעלים והקבוצה של\n"
 "%1"
 
-#: kioworkers/file/file.cpp:772 kioworkers/file/file.cpp:864
+#: kioworkers/file/file.cpp:777 kioworkers/file/file.cpp:869
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "לא ניתן לפתוח קובץ זמני"
 
-#: kioworkers/file/file.cpp:796
+#: kioworkers/file/file.cpp:801
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "אי אפשר למצוא את התוכנית „mount”"
 
-#: kioworkers/file/file.cpp:873
+#: kioworkers/file/file.cpp:878
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "אי אפשר למצוא את התוכנית „umount”"
@@ -6371,17 +6371,17 @@ msgctxt "File permission"
 msgid "Sticky"
 msgstr "דביק"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1666
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1679
 #, kde-format
 msgid "Link"
 msgstr "קישור"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1686
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1699
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "משתנה (ללא שינוי)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1797
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1810
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
@@ -6390,7 +6390,7 @@ msgstr[1] "הקבצים האלה משתמשים בהרשאות מתקדמות."
 msgstr[2] "הקבצים האלה משתמשים בהרשאות מתקדמות."
 msgstr[3] "הקבצים האלה משתמשים בהרשאות מתקדמות."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1819
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1832
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
@@ -6399,40 +6399,40 @@ msgstr[1] "התיקיות האלו משתמשות בהרשאות מתקדמות.
 msgstr[2] "התיקיות האלו משתמשות בהרשאות מתקדמות."
 msgstr[3] "התיקיות האלו משתמשות בהרשאות מתקדמות."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1833
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1846
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "קבצים אלה משתמשים בהרשאות מתקדמות."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2077
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2090
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "סיכומי &ביקורת"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2368
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2381
 #, kde-format
 msgid "Invalid checksum."
 msgstr "סיכום ביקורת שגוי."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2371
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2384
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "הקלט אינו סיכום ביקורת תקף מהסוגים MD5,‏ SHA1 או SHA256."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2382
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2395
 #, kde-format
 msgid "Checksums match."
 msgstr "סיכומי הביקורת תואמים."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2385
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2398
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "סיכום הביקורת שחושב וסיכום הביקורת הצפוי תואמים."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2397
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2410
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6442,73 +6442,73 @@ msgstr ""
 "<p>סיכומי הביקורת סותרים.</p>כנראה ההורדה לא תקינה. עדיף לנסות להוריד את "
 "הקובץ שוב.<br/>אם האימות עדיין נכשל, יש ליצור קשר עם המקור שפרסם את הקובץ."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2403
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2416
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "סיכום הביקורת שחושב וסיכום הביקורת הצפוי שונים זה מזה."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2411
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2424
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "סיכום הביקורת מאומת…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2440
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2453
 #, kde-format
 msgid "The checksums of all files are identical."
 msgstr "סיכום הביקורת של כל הקבצים זהה."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2445
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2458
 #, kde-format
 msgid "The selected files have different checksums."
 msgstr "לקבצים הנבחרים יש סיכומי ביקורת שונים."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2451
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2464
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "מחושב…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2562
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2575
 #, kde-format
 msgid "U&RL"
 msgstr "כ&תובת"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2568
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2581
 #, kde-format
 msgid "URL:"
 msgstr "כתובת:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2637
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2908
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2650
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2921
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr ""
 "אי אפשר לשמור את המאפיינים. יש תמיכה רק ברשומות במערכות הקבצים המקומיות."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2708
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2721
 #, kde-format
 msgid "&Application"
 msgstr "יי&שום"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2848
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2861
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "הוספת סוג קובץ עבור %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2849
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2862
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "נא לבחור סוג קובץ אחד או יותר להוספה:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2987
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3000
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "יש תמיכה רק בקובצי ההפעלה במערכת המקומית."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3002
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3015
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "אפשרויות מתקדמות עבור %1"

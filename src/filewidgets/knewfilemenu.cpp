@@ -114,22 +114,15 @@ public:
         delete templatesList;
     }
 
-    enum EntryType {
-        Unknown = 0, // Not parsed, i.e. we don't know
-        LinkToTemplate, // A desktop file that points to a file or dir to copy
-        Template, // A real file to copy as is (the KDE-1.x solution)
-    };
-
     std::unique_ptr<KDirWatch> dirWatch;
 
     struct Entry {
-        QString url; /// URL of a file received from getTemplateFilePaths
+        QString url; /// URL of the file read from .desktop file URL field
         QString key; /// The key used for sorting the files in the menu
         QString text; /// Text shown on the new file submenu
         QString comment; /// The prompt label asking for filename
-        QString filePath; /// The actual filepath derived from url and the suggested basename for a new file
+        QString filePath; /// URL of a file received from getTemplateFilePaths and the suggested basename for a new file
         QString templatePath; /// Where the file is copied from, the suggested file extension and whether the menu entries have a separator around them.
-        EntryType entryType; /// Defines if the created file will be a copy or a symbolic link
         QMimeType mimeType; /// Mimetype that the icon and comment are derived from
         QIcon icon; /// The icon displayed in the context menu
 
@@ -159,7 +152,6 @@ QDebug operator<<(QDebug debug, const KNewFileMenuSingleton::Entry &Entry)
     debug.nospace() << "text\t\t" << Entry.text << "\n";
     debug.nospace() << "filepath\t" << Entry.filePath << "\n";
     debug.nospace() << "templatepath\t" << Entry.templatePath << "\n";
-    debug.nospace() << "entrytype\t" << Entry.entryType << "\n";
     debug.nospace() << "comment\t\t" << Entry.comment << "\n";
     debug.nospace() << "mimetype\t" << Entry.mimeType << "\n";
     debug.nospace() << "icon\t\t" << Entry.icon << "\n";
@@ -185,10 +177,11 @@ bool KNewFileMenuSingleton::Entry::parseFile(QString file)
         icon = QIcon::fromTheme(desktopFile.readIcon());
 
         filePath = file;
-        entryType = KNewFileMenuSingleton::Template;
 
-        if (desktopFile.readType() == QLatin1String("Link")) {
-            if (url.startsWith(QLatin1String("file:/"))) {
+        if (desktopFile.readType() == QLatin1String("Link") && !url.isEmpty()) {
+            if (!QUrl(url).isLocalFile() && !QUrl(url).isRelative()) {
+                templatePath = url;
+            } else if (url.startsWith(QLatin1String("file:/"))) {
                 templatePath = QUrl(url).toLocalFile();
             } else if (!url.startsWith(QLatin1Char('/')) && !url.startsWith(QLatin1String("__"))) {
                 // A relative path, then (that's the default in the files we ship)
@@ -198,22 +191,16 @@ bool KNewFileMenuSingleton::Entry::parseFile(QString file)
             } else {
                 templatePath = url;
             }
-        }
-        if (templatePath.isEmpty()) {
-            // No URL key, this is an old-style template
-            templatePath = filePath; // we'll copy the file
         } else {
-            entryType = KNewFileMenuSingleton::LinkToTemplate;
+            templatePath = filePath;
         }
+
         if (text.isEmpty()) {
-            text = QUrl(filePath).fileName();
-            const QLatin1String suffix(".desktop");
-            if (text.endsWith(suffix)) {
-                text.chop(suffix.size());
-            }
+            text = QFileInfo(filePath).baseName();
         }
-        QFileInfo fileinfo(templatePath);
-        if (!fileinfo.isReadable() && QFileInfo(filePath).isNativePath()) {
+
+        // TODO: Allow external files through non-local urls
+        if (!QFileInfo(templatePath).isReadable() && QFileInfo(filePath).isNativePath()) {
             return false;
         }
         mimeType = db.mimeTypeForFile(file);
@@ -229,7 +216,6 @@ bool KNewFileMenuSingleton::Entry::parseFile(QString file)
         text = fileinfo.baseName();
         filePath = file;
         templatePath = file;
-        entryType = KNewFileMenuSingleton::Template;
         mimeType = db.mimeTypeForFile(file);
         icon = QIcon::fromTheme(mimeType.iconName());
         comment = i18nc("@label:textbox Prompt for new file of type", "Enter %1 filename:", mimeType.comment());
@@ -797,87 +783,82 @@ void KNewFileMenuPrivate::fillMenu()
     int idx = 0;
     for (auto &entry : *s->templatesList) {
         ++idx;
-        if (entry.entryType != KNewFileMenuSingleton::Unknown) {
-            // There might be a .desktop for that one already.
+        // There might be a .desktop for that one already.
 
-            // In fact, we skip any second item that has the same text as another one.
-            // Duplicates in a menu look bad in any case.
-            const auto [it, isInserted] = seenTexts.insert(entry.text);
-            if (isInserted) {
-                // const KNewFileMenuSingleton::Entry entry = templatesList->at(i-1);
+        // In fact, we skip any second item that has the same text as another one.
+        // Duplicates in a menu look bad in any case.
+        const auto [it, isInserted] = seenTexts.insert(entry.text);
+        if (isInserted) {
+            // const KNewFileMenuSingleton::Entry entry = templatesList->at(i-1);
 
-                const QString templatePath = entry.templatePath;
-                // The best way to identify the "Create Directory", "Link to Location", "Link to Application" was the template
-                if (templatePath.endsWith(QLatin1String("emptydir"))) {
-                    QAction *act = new QAction(q);
-                    m_newDirAction = act;
-                    act->setIcon(entry.icon);
-                    act->setText(i18nc("@item:inmenu Create New", "%1", entry.text));
-                    act->setActionGroup(m_newMenuGroup);
+            const QString templatePath = entry.templatePath;
+            // The best way to identify the "Create Directory", "Link to Location", "Link to Application" was the template
+            if (templatePath.endsWith(QLatin1String("emptydir"))) {
+                QAction *act = new QAction(q);
+                m_newDirAction = act;
+                act->setIcon(entry.icon);
+                act->setText(i18nc("@item:inmenu Create New", "%1", entry.text));
+                act->setActionGroup(m_newMenuGroup);
 
-                    // If there is a shortcut action copy its shortcut
-                    if (m_newFolderShortcutAction) {
+                // If there is a shortcut action copy its shortcut
+                if (m_newFolderShortcutAction) {
+                    act->setShortcuts(m_newFolderShortcutAction->shortcuts());
+                    // Both actions have now the same shortcut, so this will prevent the "Ambiguous shortcut detected" dialog.
+                    act->setShortcutContext(Qt::WidgetShortcut);
+                    // We also need to react to shortcut changes.
+                    QObject::connect(m_newFolderShortcutAction, &QAction::changed, act, [act, this]() {
                         act->setShortcuts(m_newFolderShortcutAction->shortcuts());
-                        // Both actions have now the same shortcut, so this will prevent the "Ambiguous shortcut detected" dialog.
-                        act->setShortcutContext(Qt::WidgetShortcut);
-                        // We also need to react to shortcut changes.
-                        QObject::connect(m_newFolderShortcutAction, &QAction::changed, act, [act, this]() {
-                            act->setShortcuts(m_newFolderShortcutAction->shortcuts());
-                        });
-                    }
+                    });
+                }
 
-                    menu->addAction(act);
+                menu->addAction(act);
+                menu->addSeparator();
+            } else {
+                if (lastTemplatePath.startsWith(QDir::homePath()) && !templatePath.startsWith(QDir::homePath())) {
                     menu->addSeparator();
-                } else {
-                    if (lastTemplatePath.startsWith(QDir::homePath()) && !templatePath.startsWith(QDir::homePath())) {
-                        menu->addSeparator();
-                    }
+                }
 
-                    QAction *act = new QAction(q);
-                    act->setData(idx);
-                    act->setIcon(entry.icon);
-                    act->setText(i18nc("@item:inmenu Create New", "%1", entry.text));
-                    act->setActionGroup(m_newMenuGroup);
+                QAction *act = new QAction(q);
+                act->setData(idx);
+                act->setIcon(entry.icon);
+                act->setText(i18nc("@item:inmenu Create New", "%1", entry.text));
+                act->setActionGroup(m_newMenuGroup);
 
-                    // qDebug() << templatePath << entry.filePath;
+                // qDebug() << templatePath << entry.filePath;
 
-                    if (templatePath.endsWith(QLatin1String("/URL.desktop"))) {
-                        linkURL = act;
-                    } else if (templatePath.endsWith(QLatin1String("/Program.desktop"))) {
-                        linkApp = act;
-                    } else if (entry.filePath.endsWith(QLatin1String("/linkPath.desktop"))) {
-                        linkPath = act;
-                    } else if (KDesktopFile::isDesktopFile(templatePath)) {
-                        KDesktopFile df(templatePath);
-                        if (df.readType() == QLatin1String("FSDevice")) {
-                            m_menuDev->menu()->addAction(act);
-                        } else {
-                            menu->addAction(act);
-                        }
+                if (templatePath.endsWith(QLatin1String("/URL.desktop"))) {
+                    linkURL = act;
+                } else if (templatePath.endsWith(QLatin1String("/Program.desktop"))) {
+                    linkApp = act;
+                } else if (entry.filePath.endsWith(QLatin1String("/linkPath.desktop"))) {
+                    linkPath = act;
+                } else if (KDesktopFile::isDesktopFile(templatePath)) {
+                    KDesktopFile df(templatePath);
+                    if (df.readType() == QLatin1String("FSDevice")) {
+                        m_menuDev->menu()->addAction(act);
                     } else {
-                        if (!m_firstFileEntry) {
-                            m_firstFileEntry = &entry;
-
-                            // If there is a shortcut action copy its shortcut
-                            if (m_newFileShortcutAction) {
-                                act->setShortcuts(m_newFileShortcutAction->shortcuts());
-                                // Both actions have now the same shortcut, so this will prevent the "Ambiguous shortcut detected" dialog.
-                                act->setShortcutContext(Qt::WidgetShortcut);
-                                // We also need to react to shortcut changes.
-                                QObject::connect(m_newFileShortcutAction, &QAction::changed, act, [act, this]() {
-                                    act->setShortcuts(m_newFileShortcutAction->shortcuts());
-                                });
-                            }
-                        }
                         menu->addAction(act);
                     }
+                } else {
+                    if (!m_firstFileEntry) {
+                        m_firstFileEntry = &entry;
+
+                        // If there is a shortcut action copy its shortcut
+                        if (m_newFileShortcutAction) {
+                            act->setShortcuts(m_newFileShortcutAction->shortcuts());
+                            // Both actions have now the same shortcut, so this will prevent the "Ambiguous shortcut detected" dialog.
+                            act->setShortcutContext(Qt::WidgetShortcut);
+                            // We also need to react to shortcut changes.
+                            QObject::connect(m_newFileShortcutAction, &QAction::changed, act, [act, this]() {
+                                act->setShortcuts(m_newFileShortcutAction->shortcuts());
+                            });
+                        }
+                    }
+                    menu->addAction(act);
                 }
             }
-            lastTemplatePath = entry.templatePath;
-        } else { // Separate system from personal templates
-            Q_ASSERT(entry.entryType != 0);
-            menu->addSeparator();
         }
+        lastTemplatePath = entry.templatePath;
     }
 
     if (m_supportedMimeTypes.isEmpty()) {
@@ -1093,7 +1074,6 @@ void KNewFileMenuPrivate::slotFillTemplates()
     for (const QString &file : files) {
         // qDebug() << file;
         KNewFileMenuSingleton::Entry entry;
-        entry.entryType = KNewFileMenuSingleton::Unknown; // not parsed yet
         if (!entry.parseFile(file)) {
             qCInfo(KFILEWIDGETS_LOG) << "KNewFileMenu: invalid template file:" << file;
             continue;

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-25 00:40+0000\n"
+"POT-Creation-Date: 2026-06-29 00:40+0000\n"
 "PO-Revision-Date: 2026-03-31 23:12+0530\n"
 "Last-Translator: CrazyCourt651 <CrazyCourt651@gmail.com>\n"
 "Language-Team: Gujarati\n"
@@ -3514,44 +3514,44 @@ msgstr ""
 "<qt>આ ફાઇલ પ્રકાર પસંદગીકાર છે. તેનો ઉપયોગ બતાવેલી ફાઇલોનું ફોર્મેટ પસંદ કરવા માટે થાય "
 "છે.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:235
+#: filewidgets/knewfilemenu.cpp:221
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "%1 નુ ફાઇલનામ દાખલ કરો:"
 
-#: filewidgets/knewfilemenu.cpp:543
+#: filewidgets/knewfilemenu.cpp:529
 #, kde-format
 msgid "Sorry"
 msgstr "માફ કરશો"
 
-#: filewidgets/knewfilemenu.cpp:554
+#: filewidgets/knewfilemenu.cpp:540
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>ટેમ્પલેટ ફાઇલ <b>%1</b> અસ્તિત્વમાં નથી.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:705 filewidgets/knewfilemenu.cpp:770
+#: filewidgets/knewfilemenu.cpp:691 filewidgets/knewfilemenu.cpp:756
 #, kde-format
 msgid "Name for new link:"
 msgstr "નવા લિંક માટેનું નામ:"
 
-#: filewidgets/knewfilemenu.cpp:708
+#: filewidgets/knewfilemenu.cpp:694
 #, kde-format
 msgid "Create Symlink"
 msgstr "સંજ્ઞા કડી  બનાવો"
 
-#: filewidgets/knewfilemenu.cpp:774
+#: filewidgets/knewfilemenu.cpp:760
 #, kde-format
 msgid "Create link to URL"
 msgstr "URL માટે લિંક બનાવો"
 
-#: filewidgets/knewfilemenu.cpp:815 filewidgets/knewfilemenu.cpp:839
+#: filewidgets/knewfilemenu.cpp:800 filewidgets/knewfilemenu.cpp:824
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1184
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3561,7 +3561,7 @@ msgstr ""
 "<filename>%1</filename> નામ વાપરી શકાતું નથી કારણ કે તે ઓપરેટિંગ સિસ્ટમ દ્વારા ઉપયોગ "
 "માટે અનામત રાખવામાં આવ્યું છે."
 
-#: filewidgets/knewfilemenu.cpp:1192
+#: filewidgets/knewfilemenu.cpp:1172
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3569,7 +3569,7 @@ msgid ""
 "default."
 msgstr "નામ <filename>%1</filename> ટપકાથી શરૂ થાય છે, તેથી તે મૂળભૂત રીતે છુપાયેલું રહેશે."
 
-#: filewidgets/knewfilemenu.cpp:1200
+#: filewidgets/knewfilemenu.cpp:1180
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3581,27 +3581,27 @@ msgstr ""
 "મૂળાક્ષરો પ્રમાણે ગોઠવવામાં આવશે ત્યારે તે અન્ય વસ્તુઓ પહેલાં બતાવવામાં આવશે, અન્ય સંભવિત "
 "વિચિત્રતાઓ વચ્ચે."
 
-#: filewidgets/knewfilemenu.cpp:1218
+#: filewidgets/knewfilemenu.cpp:1198
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "ફોલ્ડરના નામમાં સ્લેશનો ઉપયોગ કરવાથી આ રીતે પેટા-ફોલ્ડર્સ બનશે:"
 
-#: filewidgets/knewfilemenu.cpp:1232
+#: filewidgets/knewfilemenu.cpp:1212
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "ફોલ્ડરના નામમાં સ્લેશ (/) વાપરવાથી સબ-ફોલ્ડર્સ બનશે."
 
-#: filewidgets/knewfilemenu.cpp:1244
+#: filewidgets/knewfilemenu.cpp:1224
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "ફાઇલ અને ફોલ્ડરના નામોમાં સ્લેશનો ઉપયોગ કરી શકાતો નથી."
 
-#: filewidgets/knewfilemenu.cpp:1249
+#: filewidgets/knewfilemenu.cpp:1229
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "બેકસ્લેશનો ઉપયોગ ફાઇલ અને ફોલ્ડરના નામોમાં કરી શકાતો નથી."
 
-#: filewidgets/knewfilemenu.cpp:1263
+#: filewidgets/knewfilemenu.cpp:1243
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3611,7 +3611,7 @@ msgstr ""
 "<filename>%1</filename> નામ સાથે ફાઇલ અથવા ફોલ્ડર બનાવવું શક્ય નથી કારણ કે તે "
 "વપરાશકર્તાના હોમ ફોલ્ડરના સ્થાન સાથે ઓવરલેપ થશે."
 
-#: filewidgets/knewfilemenu.cpp:1272
+#: filewidgets/knewfilemenu.cpp:1252
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3621,52 +3621,52 @@ msgstr ""
 "વસ્તુઓ કાઢી નાખવા માટે ટર્મિનલનો ઉપયોગ કરવામાં આવે ત્યારે તે મૂંઝવણભર્યું અથવા જોખમી હોઈ "
 "શકે છે."
 
-#: filewidgets/knewfilemenu.cpp:1344
+#: filewidgets/knewfilemenu.cpp:1324
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> નામની ડિરેક્ટરી પહેલેથી જ અસ્તિત્વમાં છે."
 
-#: filewidgets/knewfilemenu.cpp:1346
+#: filewidgets/knewfilemenu.cpp:1326
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> નામની ફાઇલ પહેલેથી જ અસ્તિત્વમાં છે."
 
-#: filewidgets/knewfilemenu.cpp:1432
+#: filewidgets/knewfilemenu.cpp:1412
 #, kde-format
 msgid "Create New"
 msgstr "નવું બનાવો"
 
-#: filewidgets/knewfilemenu.cpp:1467
+#: filewidgets/knewfilemenu.cpp:1447
 #, kde-format
 msgid "Link to Device"
 msgstr "ઉપકરણ સાથેની કડી"
 
-#: filewidgets/knewfilemenu.cpp:1506
+#: filewidgets/knewfilemenu.cpp:1486
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "નવું ફોલ્ડર"
 
-#: filewidgets/knewfilemenu.cpp:1529
+#: filewidgets/knewfilemenu.cpp:1509
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "નવું ફોલ્ડર બનાવો"
 
-#: filewidgets/knewfilemenu.cpp:1531
+#: filewidgets/knewfilemenu.cpp:1511
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "અહીં નવું ફોલ્ડર બનાવો:%1:"
 
-#: filewidgets/knewfilemenu.cpp:1534 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1514 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "ફોલ્ડર નામ દાખલ કરો"
 
-#: filewidgets/knewfilemenu.cpp:1591
+#: filewidgets/knewfilemenu.cpp:1571
 #, kde-format
 msgid "Default"
 msgstr "મૂળભૂત"
@@ -4115,7 +4115,7 @@ msgstr "ચલાવવા માટેનો આદેશ"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'command' માટે વપરાયેલ URL(s) અથવા સ્થાનિક ફાઇલ(ઓ)"
 
-#: kioworkers/file/file.cpp:684
+#: kioworkers/file/file.cpp:689
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4124,7 +4124,7 @@ msgstr ""
 "આના માટે પરવાનગીઓ બદલી શકાતી નથી\n"
 "%1"
 
-#: kioworkers/file/file.cpp:692
+#: kioworkers/file/file.cpp:697
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4132,17 +4132,17 @@ msgid ""
 "%1"
 msgstr "%1 માટે પરવાનગીઓ બદલી શક્યા નથી"
 
-#: kioworkers/file/file.cpp:772 kioworkers/file/file.cpp:864
+#: kioworkers/file/file.cpp:777 kioworkers/file/file.cpp:869
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "કામચલાઉ ફાઇલ ખોલી શકાઈ નથી"
 
-#: kioworkers/file/file.cpp:796
+#: kioworkers/file/file.cpp:801
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "કાર્યક્રમ \"mount\" શોધી શકાતો નથી"
 
-#: kioworkers/file/file.cpp:873
+#: kioworkers/file/file.cpp:878
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "કાર્યક્રમ \"umount\" શોધી શકાતો નથી"
@@ -6422,64 +6422,64 @@ msgctxt "File permission"
 msgid "Sticky"
 msgstr "સ્ટિકી"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1666
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1679
 #, kde-format
 msgid "Link"
 msgstr "કડી"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1686
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1699
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "બદલે છે (કોઇ ફેરફાર નહી)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1797
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1810
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "આ ફાઇલ ઉચ્ચ પરવાનગીઓ ઉપયોગ કરે છે."
 msgstr[1] "આ ફાઇલો ઉચ્ચ પરવાનગીઓ ઉપયોગ કરે છે."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1819
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1832
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "આ ફોલ્ડર ઉચ્ચ પરવાનગીઓ ઉપયોગ કરે છે."
 msgstr[1] "આ ફોલ્ડર્સ ઉચ્ચ પરવાનગીઓ ઉપયોગ કરે છે."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1833
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1846
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "આ ફાઇલો ઉચ્ચ પરવાનગીઓ ઉપયોગ કરે છે."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2077
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2090
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "ચેકસમ (&h)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2368
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2381
 #, kde-format
 msgid "Invalid checksum."
 msgstr "અમાન્ય ચેકસમ."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2371
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2384
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "આપેલ ઈનપુટ માન્ય MD5, SHA1 અથવા SHA256 ચેકસમ નથી."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2382
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2395
 #, kde-format
 msgid "Checksums match."
 msgstr "ચેકસમ્સ મેચ થાય છે."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2385
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2398
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "ગણતરી કરેલ ચેકસમ (checksum) અને અપેક્ષિત ચેકસમ મેળ ખાય છે."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2397
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2410
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6490,74 +6490,74 @@ msgstr ""
 "છે. ફાઇલને ફરીથી ડાઉનલોડ કરવાનો પ્રયાસ કરો.જો ચકાસણી હજુ પણ નિષ્ફળ જાય, તો ફાઇલના "
 "સ્ત્રોતનો સંપર્ક કરો.\""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2403
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2416
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "ગણતરી કરેલ ચેકસમ (checksum) અને અપેક્ષિત ચેકસમ અલગ છે."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2411
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2424
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "ચેકસમ ચકાસી રહ્યા છીએ…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2440
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2453
 #, kde-format
 msgid "The checksums of all files are identical."
 msgstr "બધી ફાઇલોના ચેકસમ (checksums) એકસરખા છે."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2445
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2458
 #, kde-format
 msgid "The selected files have different checksums."
 msgstr "પસંદ કરેલી ફાઇલોના ચેકસમ (checksums) અલગ છે."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2451
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2464
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "ગણતરી કરે છે..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2562
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2575
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2568
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2581
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2637
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2908
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2650
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2921
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "ગુણધર્મો સાચવી શકાયા નથી. ફક્ત સ્થાનિક ફાઇલ સિસ્ટમ પરની એન્ટ્રીઓ જ સમર્થિત છે."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2708
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2721
 #, kde-format
 msgid "&Application"
 msgstr ""
 "કાર્યક્રમ (\n"
 ")"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2848
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2861
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "%1 માટે ફાઇલ પ્રકાર ઉમેરો"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2849
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2862
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "એક અથવા વધુ ફાઇલ પ્રકારો ઉમેરવા માટે પસંદ કરો:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2987
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3000
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "માત્ર સ્થાનિક ફાઇલ સિસ્ટમ્સ પર જ ચલાવનાર આધાર અપાય છે."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3002
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3015
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 માટે ઉચ્ચ વિકલ્પો"

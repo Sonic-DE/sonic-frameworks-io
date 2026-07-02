@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-25 00:40+0000\n"
+"POT-Creation-Date: 2026-06-29 00:40+0000\n"
 "PO-Revision-Date: 2025-09-10 15:28+0630\n"
 "Last-Translator: zayar lwin <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -3439,44 +3439,44 @@ msgid ""
 msgstr ""
 "<qt>၎င်းသည် ဖိုင်အမျိုးအစားရွေးချယ်ကိရိယာဖြစ်သည်။ ၎င်းကို ဖိုင်ပြရမည့်ပုံစံ ရွေးချယ်ရာတွင် အသုံးပြုသည်။</qt>"
 
-#: filewidgets/knewfilemenu.cpp:235
+#: filewidgets/knewfilemenu.cpp:221
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "%1ဖိုင်အမည်ရေးပါ-"
 
-#: filewidgets/knewfilemenu.cpp:543
+#: filewidgets/knewfilemenu.cpp:529
 #, kde-format
 msgid "Sorry"
 msgstr "စိတ်မကောင်းပါဘူး"
 
-#: filewidgets/knewfilemenu.cpp:554
+#: filewidgets/knewfilemenu.cpp:540
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>မူကြမ်းဖိုင် <b>%1</b> မရှိပါ။</qt>"
 
-#: filewidgets/knewfilemenu.cpp:705 filewidgets/knewfilemenu.cpp:770
+#: filewidgets/knewfilemenu.cpp:691 filewidgets/knewfilemenu.cpp:756
 #, kde-format
 msgid "Name for new link:"
 msgstr "လင့်ခ်အသစ်တွက် အမည် -"
 
-#: filewidgets/knewfilemenu.cpp:708
+#: filewidgets/knewfilemenu.cpp:694
 #, kde-format
 msgid "Create Symlink"
 msgstr "ဆင်းလင့်ခ်ဖန်တီးရန်"
 
-#: filewidgets/knewfilemenu.cpp:774
+#: filewidgets/knewfilemenu.cpp:760
 #, kde-format
 msgid "Create link to URL"
 msgstr "ယူအာအယ်လ် သို့ လင့်ခ် ဖန်တီးရန်"
 
-#: filewidgets/knewfilemenu.cpp:815 filewidgets/knewfilemenu.cpp:839
+#: filewidgets/knewfilemenu.cpp:800 filewidgets/knewfilemenu.cpp:824
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1184
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3486,7 +3486,7 @@ msgstr ""
 "<filename>%1</filename>အမည်သုံးမရပါ။ အဘယ့်ကြောင့်ဆိုသော် "
 "စီမံစနစ်မှအသုံးပြုရန်သိမ်းထားသောကြောင့်ဖြစ်သည်။"
 
-#: filewidgets/knewfilemenu.cpp:1192
+#: filewidgets/knewfilemenu.cpp:1172
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3494,7 +3494,7 @@ msgid ""
 "default."
 msgstr "'<filename>%1</filename>'အမည်သည် အစက်နှင့်စတင်သောကြောင့် မူလသတ်မှတ်ချက်အရ ဖွက်ထားပါမည်။"
 
-#: filewidgets/knewfilemenu.cpp:1200
+#: filewidgets/knewfilemenu.cpp:1180
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3505,27 +3505,27 @@ msgstr ""
 "'<filename>%1</filename>'အမည်သည် နေရာလွတ်အက္ခရာနှင့် စတင်သောကြောင့် အက္ခရာစဥ်ဖြင့် ပြသရာတွင် "
 "၎င်းကို အခြားထူးဆန်းအမည်များနှင့်အတူ ရှေ့ဆုံးတွင်ပြသမည်။"
 
-#: filewidgets/knewfilemenu.cpp:1218
+#: filewidgets/knewfilemenu.cpp:1198
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "ဖိုင်တွဲအမည်များတွင် '/'သုံးခြင်းသည် လက်အောက်ခံဖိုင်တွဲများကို တည်ဆောက်လိမ့်မည်၊ နောက်ပါကဲ့သို့ -"
 
-#: filewidgets/knewfilemenu.cpp:1232
+#: filewidgets/knewfilemenu.cpp:1212
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "ဖိုင်တွဲအမည်များတွင် '/'သုံးခြင်းသည် လက်အောက်ခံဖိုင်တွဲများကို တည်ဆောက်လိမ့်မည်။"
 
-#: filewidgets/knewfilemenu.cpp:1244
+#: filewidgets/knewfilemenu.cpp:1224
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "မျဥ်းစောင်း('/')ကို ဖိုင်၊ ဖိုင်တွဲအမည်များတွင် သုံးမရပါ။"
 
-#: filewidgets/knewfilemenu.cpp:1249
+#: filewidgets/knewfilemenu.cpp:1229
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "ပြောင်းပြန်မျဥ်းစောင်း('\\')ကို ဖိုင်၊ ဖိုင်တွဲအမည်များတွင် သုံးမရပါ။"
 
-#: filewidgets/knewfilemenu.cpp:1263
+#: filewidgets/knewfilemenu.cpp:1243
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3535,7 +3535,7 @@ msgstr ""
 "<filename>%1</filename>အမည်ဖြင့် ဖိုင်တွဲ သို့ ဖိုင်သည် သုံးစွဲသူ၏အိမ်ဖိုင်တွဲနေရာဖြင့်တိုက်နေသောကြောင့် "
 "ဖန်တီး၍မရပါ။"
 
-#: filewidgets/knewfilemenu.cpp:1272
+#: filewidgets/knewfilemenu.cpp:1252
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3544,52 +3544,52 @@ msgstr ""
 "ဖိုင်၊ ဖိုင်တွဲ အမည်ပေးရာတွင် တယ်ဒါး('~') နှင့်စတင်ခြင်းကို အားမပေးပါ။ အဘယ်ကြောင့်ဆိုသော် တာမီနယ်တွင် ဖိုင်၊"
 "ဖိုင်တွဲများ ဖျက်ရာတွင် အငြင်းပွားဖွယ် သို့ အန္တရာယ်များဖွယ် ဖြစ်လိမ့်မည်။"
 
-#: filewidgets/knewfilemenu.cpp:1344
+#: filewidgets/knewfilemenu.cpp:1324
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename>အမည်ရ ဖိုင်တွဲ ရှိနှင့်ပြီးဖြစ်သည်။"
 
-#: filewidgets/knewfilemenu.cpp:1346
+#: filewidgets/knewfilemenu.cpp:1326
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename>အမည်ရ ဖိုင်တစ်ခု ရှိနှင့်ပြီးဖြစ်သည်။"
 
-#: filewidgets/knewfilemenu.cpp:1432
+#: filewidgets/knewfilemenu.cpp:1412
 #, kde-format
 msgid "Create New"
 msgstr "အသစ်ဖန်တီးရန်"
 
-#: filewidgets/knewfilemenu.cpp:1467
+#: filewidgets/knewfilemenu.cpp:1447
 #, kde-format
 msgid "Link to Device"
 msgstr "စက်သို့လင့်ခ်ချိတ်ရန်"
 
-#: filewidgets/knewfilemenu.cpp:1506
+#: filewidgets/knewfilemenu.cpp:1486
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "ဖိုင်တွဲအသစ်"
 
-#: filewidgets/knewfilemenu.cpp:1529
+#: filewidgets/knewfilemenu.cpp:1509
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "ဖိုင်တွဲအသစ်တည်ဆောက်ရန်"
 
-#: filewidgets/knewfilemenu.cpp:1531
+#: filewidgets/knewfilemenu.cpp:1511
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "%1တွင် ဖိုင်တွဲအသစ်တည်ဆောက်မည် -"
 
-#: filewidgets/knewfilemenu.cpp:1534 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1514 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "ဖိုင်တွဲအမည်ရေးပါ"
 
-#: filewidgets/knewfilemenu.cpp:1591
+#: filewidgets/knewfilemenu.cpp:1571
 #, kde-format
 msgid "Default"
 msgstr "မူလသတ်မှတ်ချက်"
@@ -4035,14 +4035,14 @@ msgstr "ဆောင်ရွက်ရန်အမိန့်"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'အမိန့်' အတွက်သုံးသော ယူအာအယ်လ် သို့ စက်တွင်းဖိုင်"
 
-#: kioworkers/file/file.cpp:684
+#: kioworkers/file/file.cpp:689
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
 "%1"
 msgstr "%1အတွက် ခွင့်ပြုချက်များကို ပြောင်းလဲမရပါ"
 
-#: kioworkers/file/file.cpp:692
+#: kioworkers/file/file.cpp:697
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4052,18 +4052,18 @@ msgstr ""
 "အောက်ပါအတွက် ပိုင်ရှင်နှင့်အုပ်စု ပြောင်းမရခဲ့ပါ\n"
 "%1"
 
-#: kioworkers/file/file.cpp:772 kioworkers/file/file.cpp:864
+#: kioworkers/file/file.cpp:777 kioworkers/file/file.cpp:869
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "ယာယီဖိုင်ကိုအမည်မပြောင်းနိုင်ခဲ့ပါ"
 
-#: kioworkers/file/file.cpp:796
+#: kioworkers/file/file.cpp:801
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" ပရိုဂရမ်ကို ရှာမတွေ့ပါ"
 
-#: kioworkers/file/file.cpp:873
+#: kioworkers/file/file.cpp:878
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" ပရိုဂရမ်ကို ရှာမတွေ့ပါ"
@@ -6306,62 +6306,62 @@ msgctxt "File permission"
 msgid "Sticky"
 msgstr "စေးကပ်"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1666
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1679
 #, kde-format
 msgid "Link"
 msgstr "လင့်ခ်"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1686
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1699
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "လှုပ်နေသည်(ပြောင်းလဲချက်မရှိ)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1797
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1810
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "ဖိုင်သည် အဆင့်မြင့်ခွင့်ပြုချက်များ အသုံးပြုသည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1819
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1832
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "ဖိုင်တွဲသည် အဆင့်မြင့်ခွင့်ပြုချက်များ အသုံးပြုသည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1833
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1846
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "ဤဖိုင်များသည် အဆင့်မြင့်ခွင့်ပြုချက်များ အသုံးပြုသည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2077
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2090
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "&hပေါင်းလဒ်စစ်တမ်းများ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2368
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2381
 #, kde-format
 msgid "Invalid checksum."
 msgstr "မမှန်ကန်သော ပေါင်းလဒ်စစ်တမ်း။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2371
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2384
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "ပေးချက်သည် မှန်ကန်သော အမ်ဒီ၅၊ အက်စ်အိပ်ချ်အေ၁ သို့ အက်စ်အိပ်ချ်အေ၂၅၆ ပေါင်းလဒ်စစ်တမ်း မဟုတ်ပါ။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2382
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2395
 #, kde-format
 msgid "Checksums match."
 msgstr "ပေါင်းလဒ်စစ်တမ်းများ ကိုက်ညီသည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2385
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2398
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "တွက်ချက်ထားသည့် ပေါင်းလဒ်စစ်တမ်းနှင့် မျှော်လင့်ထားသော ပေါင်းလဒ်စစ်တမ်း ကိုက်ညီသည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2397
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2410
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6371,73 +6371,73 @@ msgstr ""
 "<p>ပေါင်းလဒ်စစ်တမ်းများ မကိုက်ပါ။</p>အမှားပါသောဒေါင်းလုတ်တစ်ခုကြောင့်ဖြစ်နိုင်သည်။ ဖိုင်ကို "
 "နောက်တစ်ကြိမ်ဒေါင်းလုတ်ဆွဲကြည့်ပါ။<br/>အကယ်၍ စစ်ဆေးခြင်း မအောင်မြင်လျှင် ဖိုင်ဇစ်မြစ်ကို ဆက်သွယ်ပါ။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2403
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2416
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "တွက်ချက်ထားသည့် ပေါင်းလဒ်စစ်တမ်းနှင့် မျှော်လင့်ထားသော ပေါင်းလဒ်စစ်တမ်း ကွဲပြားသည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2411
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2424
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "ပေါင်းလဒ်စစ်တမ်းများ စစ်ဆေးနေသည်…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2440
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2453
 #, kde-format
 msgid "The checksums of all files are identical."
 msgstr "ဖိုင်များ၏checksums တစ်ထပ်တည်းကျသည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2445
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2458
 #, kde-format
 msgid "The selected files have different checksums."
 msgstr "ဖိုင်များ မတူပါ။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2451
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2464
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "တွက်နေသည်…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2562
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2575
 #, kde-format
 msgid "U&RL"
 msgstr "&Rယူအာအယ်လ်"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2568
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2581
 #, kde-format
 msgid "URL:"
 msgstr "ယူအာအယ်လ် -"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2637
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2908
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2650
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2921
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr ""
 "ကိုယ်ပိုင်လက္ခဏာများ သိမ်းဆည်း၍မရပါ။ စက်တွင်းဖိုင်စနစ်များရှိ စာရင်းမှတ်ချက်များကိုသာ လုပ်ဆောင်နိုင်သည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2708
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2721
 #, kde-format
 msgid "&Application"
 msgstr "&Aအပ္ပလီကေးရှင်း"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2848
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2861
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "%1 အတွက်ဖိုင်အမျိုးအစားထည့်မည်"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2849
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2862
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "တစ်ခု၊ တစ်ခုထက်ပိုသော ဖိုင်အမျိုးအစားများ ထည့်သွင်းရန် ရွေးချယ်မည် -"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2987
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3000
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "စက်တွင်းဖိုင်စနစ်ပေါ်ရှိ လုပ်ဆောင်-ဖိုင်များသာ ဆောင်ရွက်ခွင့်ပြုသည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3002
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3015
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 အတွက် အဆင့်မြင့်ရွေးချယ်စရာများ"
