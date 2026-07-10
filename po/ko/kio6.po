@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-21 00:39+0000\n"
+"POT-Creation-Date: 2026-07-10 00:40+0000\n"
 "PO-Revision-Date: 2026-06-06 13:00+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -43,12 +43,7 @@ msgstr ""
 "<filename>%1</filename> 파일의 소유권을 바꿀 수 없습니다. 변경 사항을 적용할 "
 "권한이 없습니다."
 
-#: core/connectionbackend.cpp:114
-#, kde-format
-msgid "Unable to create KIO worker: %1"
-msgstr "KIO 워커를 만들 수 없음: %1"
-
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1010
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1015
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2262,92 +2257,97 @@ msgstr ""
 "<filename>%1</filename>을(를) 찾을 수 없습니다. 실행 가능한 프로그램의 올바"
 "른 경로를 입력하십시오."
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:791
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "%1 프로토콜에서 연결을 여는 것이 지원되지 않습니다."
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:793
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "%1 프로토콜에서 연결을 닫는 것이 지원되지 않습니다."
 
-#: core/slavebase.cpp:810
+#: core/slavebase.cpp:795
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "%1 프로토콜에서 파일 접근이 지원되지 않습니다."
 
-#: core/slavebase.cpp:812
+#: core/slavebase.cpp:797
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1에 쓰는 것은 지원되지 않습니다."
 
-#: core/slavebase.cpp:814
+#: core/slavebase.cpp:799
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "%1 프로토콜에 사용할 특별한 작업이 없습니다."
 
-#: core/slavebase.cpp:816
+#: core/slavebase.cpp:801
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "%1 프로토콜에는 폴더 목록 가져오기가 지원되지 않습니다."
 
-#: core/slavebase.cpp:818
+#: core/slavebase.cpp:803
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1에서 데이터 검색은 지원되지 않습니다."
 
-#: core/slavebase.cpp:820
+#: core/slavebase.cpp:805
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1에서 MIME 형식 정보 가져오기는 지원되지 않습니다."
 
-#: core/slavebase.cpp:822
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1에서 파일 이름을 바꾸거나 이동하기는 지원되지 않습니다."
 
-#: core/slavebase.cpp:824
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "%1 프로토콜에서 심볼릭 링크를 만들기는 지원되지 않습니다."
 
-#: core/slavebase.cpp:826
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 프로토콜에서 파일 복사가 지원되지 않습니다."
 
-#: core/slavebase.cpp:828
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 프로토콜에서 파일 삭제가 지원되지 않습니다."
 
-#: core/slavebase.cpp:830
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "%1 프로토콜에서 폴더 만들기가 지원되지 않습니다."
 
-#: core/slavebase.cpp:832
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "%1 프로토콜에서 파일 속성 변경은 지원되지 않습니다."
 
-#: core/slavebase.cpp:834
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "%1 프로토콜에서 파일 소유권 변경은 지원되지 않습니다."
 
-#: core/slavebase.cpp:836
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "%1 프로토콜에서 파일 열기는 지원되지 않습니다."
 
-#: core/slavebase.cpp:838
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 프로토콜은 %2 작업을 지원하지 않습니다."
 
-#: core/worker.cpp:311
+#: core/socketconnectionbackend.cpp:120
+#, kde-format
+msgid "Unable to create KIO worker: %1"
+msgstr "KIO 워커를 만들 수 없음: %1"
+
+#: core/worker.cpp:398
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2358,17 +2358,17 @@ msgstr ""
 "'%1' 프로토콜의 KIO 워커는 일반적으로 향상된 권한을 요구하므로, 루트가 아닌 "
 "다른 사용자가 %2을(를) 수정할 수 있기 때문에 보안을 보장할 수 없습니다."
 
-#: core/worker.cpp:349
+#: core/worker.cpp:435
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "알 수 없는 프로토콜 '%1'."
 
-#: core/worker.cpp:360
+#: core/worker.cpp:446
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "'%1' 프로토콜의 KIO 워커를 찾을 수 없습니다."
 
-#: core/worker.cpp:367
+#: core/worker.cpp:453
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2379,12 +2379,12 @@ msgstr ""
 "%2에 있는 \"%1\" 플러그인의 KIO 워커를 불러오지 않았습니다. KIO 워커가 %3 경"
 "로 외부에 있고 상승된 권한을 요청한다면 안전하지 않은 것으로 간주합니다."
 
-#: core/worker.cpp:379
+#: core/worker.cpp:493
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "'%1' 프로토콜의 KIO 워커를 실행할 소켓을 만들 수 없습니다."
 
-#: core/worker.cpp:425
+#: core/worker.cpp:513
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1'에서 'kioworker' 실행 파일을 찾을 수 없음"
@@ -2412,13 +2412,13 @@ msgstr "계속(&N)"
 msgid "&Current Session only"
 msgstr "현재 세션만(&C)"
 
-#: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
+#: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:54
 #, kde-format
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
 msgstr "새 폴더로 이동"
 
-#: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
+#: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:71
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
@@ -3474,44 +3474,44 @@ msgid ""
 msgstr ""
 "<qt>파일 형식 선택기입니다. 표시할 파일 형식을 선택할 수 있습니다.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:235
+#: filewidgets/knewfilemenu.cpp:221
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "%1 파일 이름 입력:"
 
-#: filewidgets/knewfilemenu.cpp:543
+#: filewidgets/knewfilemenu.cpp:529
 #, kde-format
 msgid "Sorry"
 msgstr "죄송합니다"
 
-#: filewidgets/knewfilemenu.cpp:554
+#: filewidgets/knewfilemenu.cpp:540
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>서식 파일 <b>%1</b>이(가) 없습니다.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:705 filewidgets/knewfilemenu.cpp:770
+#: filewidgets/knewfilemenu.cpp:691 filewidgets/knewfilemenu.cpp:756
 #, kde-format
 msgid "Name for new link:"
 msgstr "새 링크 이름:"
 
-#: filewidgets/knewfilemenu.cpp:708
+#: filewidgets/knewfilemenu.cpp:694
 #, kde-format
 msgid "Create Symlink"
 msgstr "심볼릭 링크 만들기"
 
-#: filewidgets/knewfilemenu.cpp:774
+#: filewidgets/knewfilemenu.cpp:760
 #, kde-format
 msgid "Create link to URL"
 msgstr "URL로 향한 링크 만들기"
 
-#: filewidgets/knewfilemenu.cpp:815 filewidgets/knewfilemenu.cpp:839
+#: filewidgets/knewfilemenu.cpp:800 filewidgets/knewfilemenu.cpp:824
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1184
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3521,7 +3521,7 @@ msgstr ""
 "<filename>%1</filename> 이름을 사용할 수 없습니다. 운영 체제에서 예약된 이름"
 "입니다."
 
-#: filewidgets/knewfilemenu.cpp:1192
+#: filewidgets/knewfilemenu.cpp:1172
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3530,7 +3530,7 @@ msgid ""
 msgstr ""
 "<filename>%1</filename> 이름이 점으로 시작하므로 기본적으로 숨겨집니다."
 
-#: filewidgets/knewfilemenu.cpp:1200
+#: filewidgets/knewfilemenu.cpp:1180
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3541,27 +3541,27 @@ msgstr ""
 "<filename>%1</filename> 이름이 공백으로 시작합니다. 가나다순으로 정렬했을 때 "
 "다른 항목보다 더 먼저 표시될 수 있습니다."
 
-#: filewidgets/knewfilemenu.cpp:1218
+#: filewidgets/knewfilemenu.cpp:1198
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "폴더 이름에 슬래시를 사용하면 다음과 같이 하위 폴더가 생성됨:"
 
-#: filewidgets/knewfilemenu.cpp:1232
+#: filewidgets/knewfilemenu.cpp:1212
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "폴더 이름에 슬래시를 사용하면 하위 폴더가 생성됩니다."
 
-#: filewidgets/knewfilemenu.cpp:1244
+#: filewidgets/knewfilemenu.cpp:1224
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "파일이나 폴더 이름에 슬래시를 사용할 수 없습니다."
 
-#: filewidgets/knewfilemenu.cpp:1249
+#: filewidgets/knewfilemenu.cpp:1229
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "파일이나 폴더 이름에 백슬래시를 사용할 수 없습니다."
 
-#: filewidgets/knewfilemenu.cpp:1263
+#: filewidgets/knewfilemenu.cpp:1243
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3571,7 +3571,7 @@ msgstr ""
 "이름이 <filename>%1</filename>인 폴더를 만들 수 없습니다. 사용자의 홈 폴더 위"
 "치와 겹칠 수 있습니다."
 
-#: filewidgets/knewfilemenu.cpp:1272
+#: filewidgets/knewfilemenu.cpp:1252
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3580,52 +3580,52 @@ msgstr ""
 "파일이나 폴더 이름을 물결표(~)로 시작하는 것은 추천하지 않습니다. 혼동할 가능"
 "성이 있으며 터미널에서 항목을 삭제할 때 위험할 수 있습니다."
 
-#: filewidgets/knewfilemenu.cpp:1344
+#: filewidgets/knewfilemenu.cpp:1324
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "이름이 <filename>%1</filename>인 디렉터리가 이미 존재합니다."
 
-#: filewidgets/knewfilemenu.cpp:1346
+#: filewidgets/knewfilemenu.cpp:1326
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "이름이 <filename>%1</filename>인 파일이 이미 존재합니다."
 
-#: filewidgets/knewfilemenu.cpp:1432
+#: filewidgets/knewfilemenu.cpp:1412
 #, kde-format
 msgid "Create New"
 msgstr "새로 만들기"
 
-#: filewidgets/knewfilemenu.cpp:1467
+#: filewidgets/knewfilemenu.cpp:1447
 #, kde-format
 msgid "Link to Device"
 msgstr "장치로 향한 링크"
 
-#: filewidgets/knewfilemenu.cpp:1506
+#: filewidgets/knewfilemenu.cpp:1486
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "새 폴더"
 
-#: filewidgets/knewfilemenu.cpp:1529
+#: filewidgets/knewfilemenu.cpp:1509
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "새 폴더 만들기"
 
-#: filewidgets/knewfilemenu.cpp:1531
+#: filewidgets/knewfilemenu.cpp:1511
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "%1에 새 폴더 만들기:"
 
-#: filewidgets/knewfilemenu.cpp:1534 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1514 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "폴더 이름 입력"
 
-#: filewidgets/knewfilemenu.cpp:1591
+#: filewidgets/knewfilemenu.cpp:1571
 #, kde-format
 msgid "Default"
 msgstr "기본값"
@@ -3666,7 +3666,7 @@ msgstr "나중에 폴더 속성에서 아이콘을 변경할 수 있습니다."
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:609 widgets/checksumswidget.ui:145
+#: filewidgets/kurlnavigator.cpp:611 widgets/checksumswidget.ui:145
 #: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
 #: widgets/checksumswidget.ui:286
 #, kde-format
@@ -3674,39 +3674,39 @@ msgid "Copy"
 msgstr "복사"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:613 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:615 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "붙여넣기"
 
-#: filewidgets/kurlnavigator.cpp:633
+#: filewidgets/kurlnavigator.cpp:635
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "\"%1\"을(를) 새 탭으로 열기"
 
-#: filewidgets/kurlnavigator.cpp:641
+#: filewidgets/kurlnavigator.cpp:643
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "\"%1\"을(를) 새 창으로 열기"
 
-#: filewidgets/kurlnavigator.cpp:650
+#: filewidgets/kurlnavigator.cpp:652
 #, kde-format
 msgid "Edit"
 msgstr "편집"
 
-#: filewidgets/kurlnavigator.cpp:653
+#: filewidgets/kurlnavigator.cpp:655
 #, kde-format
 msgid "Navigate"
 msgstr "탐색"
 
-#: filewidgets/kurlnavigator.cpp:668
+#: filewidgets/kurlnavigator.cpp:670
 #, kde-format
 msgid "Show Full Path"
 msgstr "전체 경로 표시"
 
-#: filewidgets/kurlnavigator.cpp:829
+#: filewidgets/kurlnavigator.cpp:840
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -3785,7 +3785,7 @@ msgstr ""
 "%1 서비스를 실행할 수 없습니다. 실행을 중단합니다.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:653
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "이 파일을 열 앱을 선택할 권한이 없습니다."
@@ -3880,20 +3880,20 @@ msgstr ""
 "실행 파일 \"%1\"이(가) 원격 파일 시스템에 있습니다. 안전을 위해 이 작업은 시"
 "작되지 않습니다."
 
-#: gui/openurljob.cpp:415
+#: gui/openurljob.cpp:420
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "보안상의 이유로 이 문맥에서 실행 파일을 실행할 수 없습니다."
 
-#: gui/openurljob.cpp:445
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "\"%1\" 프로그램을 실행하려면 실행 가능 권한이 있어야 합니다."
 
-#: gui/openurljob.cpp:456
+#: gui/openurljob.cpp:461
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3902,12 +3902,12 @@ msgstr ""
 "\"%1\" 파일을 실행 파일로 만들 수 없습니다.\n"
 "%2"
 
-#: gui/openurljob.cpp:542
+#: gui/openurljob.cpp:547
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "데스크톱 항목 파일 %1에 Type=... 항목이 없습니다."
 
-#: gui/openurljob.cpp:634
+#: gui/openurljob.cpp:639
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3917,12 +3917,12 @@ msgstr ""
 "이 파일은 완전하지 않으며 열어서는 안 됩니다.\n"
 "열린 앱과 알림 영역에서 대기 중인 작업이나 다운로드를 확인하십시오."
 
-#: gui/openurljob.cpp:660
+#: gui/openurljob.cpp:665
 #, kde-format
 msgid "Failed to open the file."
 msgstr "파일을 열 수 없습니다."
 
-#: gui/openurljob.cpp:694
+#: gui/openurljob.cpp:699
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "\"%1\" 프로그램을 실행할 수 없습니다."
@@ -4071,7 +4071,7 @@ msgstr "실행할 명령"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'command'에 사용할 URL이나 로컬 파일"
 
-#: kioworkers/file/file.cpp:684
+#: kioworkers/file/file.cpp:692
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4080,7 +4080,7 @@ msgstr ""
 "%1\n"
 "의 권한을 바꿀 수 없습니다"
 
-#: kioworkers/file/file.cpp:692
+#: kioworkers/file/file.cpp:700
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4090,17 +4090,17 @@ msgstr ""
 "%1\n"
 "의 소유자와 그룹을 변경할 수 없습니다"
 
-#: kioworkers/file/file.cpp:772 kioworkers/file/file.cpp:864
+#: kioworkers/file/file.cpp:780 kioworkers/file/file.cpp:872
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "임시 파일을 열 수 없음"
 
-#: kioworkers/file/file.cpp:796
+#: kioworkers/file/file.cpp:804
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" 프로그램을 찾을 수 없음"
 
-#: kioworkers/file/file.cpp:873
+#: kioworkers/file/file.cpp:881
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" 프로그램을 찾을 수 없음"
@@ -4115,12 +4115,12 @@ msgstr "%1에서 %2(으)로 파일을 복사할 수 없습니다. (오류 번호
 msgid "No media in device for %1"
 msgstr "%1 장치에 미디어가 없습니다"
 
-#: kioworkers/file/file_unix.cpp:1078
+#: kioworkers/file/file_unix.cpp:1086
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "주어진 사용자 이름 %1의 사용자 ID를 가져올 수 없습니다"
 
-#: kioworkers/file/file_unix.cpp:1089
+#: kioworkers/file/file_unix.cpp:1097
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "주어진 그룹 이름 %1의 그룹 ID를 가져올 수 없습니다"
@@ -6363,62 +6363,62 @@ msgctxt "File permission"
 msgid "Sticky"
 msgstr "스티키"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1666
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1679
 #, kde-format
 msgid "Link"
 msgstr "링크"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1686
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1699
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "가변(변경 없음)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1797
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1810
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "이 파일은 고급 권한을 사용합니다."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1819
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1832
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "이 폴더는 고급 권한을 사용합니다."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1833
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1846
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "이 파일은 고급 권한을 사용합니다."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2077
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2090
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "체크섬(&H)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2368
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2381
 #, kde-format
 msgid "Invalid checksum."
 msgstr "체크섬이 잘못되었습니다."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2371
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2384
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "입력한 값이 올바른 MD5, SHA1, SHA256 체크섬이 아닙니다."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2382
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2395
 #, kde-format
 msgid "Checksums match."
 msgstr "체크섬이 일치합니다."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2385
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2398
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "계산한 체크섬과 입력한 체크섬이 일치합니다."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2397
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2410
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6429,72 +6429,72 @@ msgstr ""
 "을 다시 다운로드해 보십시오.<br/>체크섬 계산이 계속 실패하면 파일을 업로드한 "
 "사람에게 문의해 보십시오."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2403
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2416
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "계산한 체크섬과 입력한 체크섬이 일치하지 않습니다."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2411
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2424
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "체크섬 검사 중…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2440
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2453
 #, kde-format
 msgid "The checksums of all files are identical."
 msgstr "모든 파일의 체크섬이 일치합니다."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2445
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2458
 #, kde-format
 msgid "The selected files have different checksums."
 msgstr "선택한 파일의 체크섬이 서로 다릅니다."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2451
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2464
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "계산 중…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2562
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2575
 #, kde-format
 msgid "U&RL"
 msgstr "URL(&R)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2568
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2581
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2637
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2908
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2650
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2921
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "속성을 저장할 수 없습니다. 로컬 파일 시스템의 항목만 지원합니다."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2708
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2721
 #, kde-format
 msgid "&Application"
 msgstr "앱(&A)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2848
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2861
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "%1의 파일 형식 추가"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2849
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2862
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "하나 이상의 추가할 파일 형식 선택:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2987
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3000
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "로컬 파일 시스템의 실행 파일만 지원합니다."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3002
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3015
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1의 고급 옵션"

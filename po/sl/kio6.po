@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-21 00:39+0000\n"
+"POT-Creation-Date: 2026-07-10 00:40+0000\n"
 "PO-Revision-Date: 2026-06-14 12:03+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -56,12 +56,7 @@ msgstr ""
 "Ni bilo mogoče spremeniti lastništva datoteke <filename>%1</filename>. Za "
 "izvedbo te spremembe imate premalo dovoljenj."
 
-#: core/connectionbackend.cpp:114
-#, kde-format
-msgid "Unable to create KIO worker: %1"
-msgstr "Ni mogoče ustvariti programa KIO worker: %1"
-
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1010
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1015
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2329,92 +2324,97 @@ msgstr ""
 "<filename>%1</filename> ni bilo mogoče najti; vnesite veljavno pot do "
 "izvedljivega programa."
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:791
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Protokol %1 ne podpira odpiranja povezav."
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:793
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Protokol %1 ne podpira zapiranja povezav."
 
-#: core/slavebase.cpp:810
+#: core/slavebase.cpp:795
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Protokol %1 ne podpira dostopa do datotek."
 
-#: core/slavebase.cpp:812
+#: core/slavebase.cpp:797
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Pisanje v %1 ni podprto."
 
-#: core/slavebase.cpp:814
+#: core/slavebase.cpp:799
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Za protokol %1 ni na voljo posebnih dejanj."
 
-#: core/slavebase.cpp:816
+#: core/slavebase.cpp:801
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Protokol %1 ne podpira pregledovanja map."
 
-#: core/slavebase.cpp:818
+#: core/slavebase.cpp:803
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Pridobivanje podatkov od %1 ni podprto."
 
-#: core/slavebase.cpp:820
+#: core/slavebase.cpp:805
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Pridobivanje podrobnosti o vrstah MIME od %1 ni podprto."
 
-#: core/slavebase.cpp:822
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Preimenovanje ali premikanje datotek znotraj %1 ni podprto."
 
-#: core/slavebase.cpp:824
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Ustvarjanje simbolnih povezav ni podprto za protokol %1."
 
-#: core/slavebase.cpp:826
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Kopiranje datotek znotraj %1 ni podprto."
 
-#: core/slavebase.cpp:828
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Brisanje datotek iz %1 ni podprto."
 
-#: core/slavebase.cpp:830
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Ustvarjanje map ni podprto za protokol %1."
 
-#: core/slavebase.cpp:832
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Spreminjanje atributov datotek ni podprto za protokol %1."
 
-#: core/slavebase.cpp:834
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Spreminjanje lastništva datotek ni podprto za protokol %1."
 
-#: core/slavebase.cpp:836
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Ustvarjanje datotek ni podprto za protokol %1."
 
-#: core/slavebase.cpp:838
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokol %1 ne podpira dejanja %2."
 
-#: core/worker.cpp:311
+#: core/socketconnectionbackend.cpp:120
+#, kde-format
+msgid "Unable to create KIO worker: %1"
+msgstr "Ni mogoče ustvariti programa KIO worker: %1"
+
+#: core/worker.cpp:398
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2426,17 +2426,17 @@ msgstr ""
 "dovoljenja, ni mogoče zagotoviti, ker imajo uporabniki, ki niso root, "
 "dovoljenje za njegovo spreminjanje na %2."
 
-#: core/worker.cpp:349
+#: core/worker.cpp:435
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Neznan protokol '%1'."
 
-#: core/worker.cpp:360
+#: core/worker.cpp:446
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Ni mogoče najti programa KIO Worker za protokol '%1'."
 
-#: core/worker.cpp:367
+#: core/worker.cpp:453
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2447,13 +2447,13 @@ msgstr ""
 "KIO worker za protokol “%1” v %2 ni bil naložen, ker vsi KIO workerji, ki se "
 "nahajajo zunaj %3 in zahtevajo povišane privilegije, veljajo za nevarne."
 
-#: core/worker.cpp:379
+#: core/worker.cpp:493
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Ni mogoče ustvariti vtiča za zagon programa KIO Worker za protokol '%1'."
 
-#: core/worker.cpp:425
+#: core/worker.cpp:513
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Ni mogoče najti izvedljive datoteke 'kioworker' v '%1'."
@@ -2481,13 +2481,13 @@ msgstr "&Nadaljuj"
 msgid "&Current Session only"
 msgstr "Samo za trenutno sejo"
 
-#: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:53
+#: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:54
 #, kde-format
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
 msgstr "Premakni v novo mapo"
 
-#: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:70
+#: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:71
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
@@ -3564,44 +3564,44 @@ msgstr ""
 "<qt>To je izbirnik vrste datoteke. Uporablja se za izbiro oblike prikazanih "
 "datotek.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:235
+#: filewidgets/knewfilemenu.cpp:221
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Vnesite %1 ime datoteke:"
 
-#: filewidgets/knewfilemenu.cpp:543
+#: filewidgets/knewfilemenu.cpp:529
 #, kde-format
 msgid "Sorry"
 msgstr "Oprostite"
 
-#: filewidgets/knewfilemenu.cpp:554
+#: filewidgets/knewfilemenu.cpp:540
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Datoteka s predlogo <b>%1</b> ne obstaja.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:705 filewidgets/knewfilemenu.cpp:770
+#: filewidgets/knewfilemenu.cpp:691 filewidgets/knewfilemenu.cpp:756
 #, kde-format
 msgid "Name for new link:"
 msgstr "Ime za novo povezavo:"
 
-#: filewidgets/knewfilemenu.cpp:708
+#: filewidgets/knewfilemenu.cpp:694
 #, kde-format
 msgid "Create Symlink"
 msgstr "Ustvari simbolno povezavo"
 
-#: filewidgets/knewfilemenu.cpp:774
+#: filewidgets/knewfilemenu.cpp:760
 #, kde-format
 msgid "Create link to URL"
 msgstr "Ustvari povezavo do naslova URL"
 
-#: filewidgets/knewfilemenu.cpp:815 filewidgets/knewfilemenu.cpp:839
+#: filewidgets/knewfilemenu.cpp:800 filewidgets/knewfilemenu.cpp:824
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1184
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3611,7 +3611,7 @@ msgstr ""
 "Imena <filename>%1</filename> ni mogoče uporabiti, ker je rezervirano za "
 "rabo v operacijskem sistemu."
 
-#: filewidgets/knewfilemenu.cpp:1192
+#: filewidgets/knewfilemenu.cpp:1172
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3620,7 +3620,7 @@ msgid ""
 msgstr ""
 "Ime <filename>%1</filename> se začne s piko, zato bo mapa privzeto skrita."
 
-#: filewidgets/knewfilemenu.cpp:1200
+#: filewidgets/knewfilemenu.cpp:1180
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3632,27 +3632,27 @@ msgstr ""
 "prikaže pred drugimi, če so datoteke urejene po abecedi med morebiti še "
 "drugimi nenavadnostmi."
 
-#: filewidgets/knewfilemenu.cpp:1218
+#: filewidgets/knewfilemenu.cpp:1198
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "Uporaba poševnice v imenih map bo ustvarila podmape, kot so:"
 
-#: filewidgets/knewfilemenu.cpp:1232
+#: filewidgets/knewfilemenu.cpp:1212
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Uporaba poševnice v imenih map bo ustvarila podmape."
 
-#: filewidgets/knewfilemenu.cpp:1244
+#: filewidgets/knewfilemenu.cpp:1224
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Poševnice na morejo biti uporabljene v imenih datotek in map."
 
-#: filewidgets/knewfilemenu.cpp:1249
+#: filewidgets/knewfilemenu.cpp:1229
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Povratne poševnice na morejo biti uporabljene v imenih datotek in map."
 
-#: filewidgets/knewfilemenu.cpp:1263
+#: filewidgets/knewfilemenu.cpp:1243
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3662,7 +3662,7 @@ msgstr ""
 "Kreiranje datoteke ali mape z imenom <filename>%1</filename> ni mogoče, ker "
 "bi se prekrivala z lokacijo uporabnikove domače mape."
 
-#: filewidgets/knewfilemenu.cpp:1272
+#: filewidgets/knewfilemenu.cpp:1252
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3671,52 +3671,52 @@ msgstr ""
 "Začeti ime datoteke ali mape s tildo ni priporočljivo, ker je lahko dvoumno "
 "ali nevarno, če uporabite terminal za brisanje stvari."
 
-#: filewidgets/knewfilemenu.cpp:1344
+#: filewidgets/knewfilemenu.cpp:1324
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Imenik z imenom <filename>%1</filename> že obstaja."
 
-#: filewidgets/knewfilemenu.cpp:1346
+#: filewidgets/knewfilemenu.cpp:1326
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Datoteka z imenom <filename>%1</filename> že obstaja."
 
-#: filewidgets/knewfilemenu.cpp:1432
+#: filewidgets/knewfilemenu.cpp:1412
 #, kde-format
 msgid "Create New"
 msgstr "Ustvari novo"
 
-#: filewidgets/knewfilemenu.cpp:1467
+#: filewidgets/knewfilemenu.cpp:1447
 #, kde-format
 msgid "Link to Device"
 msgstr "Povezava do naprave"
 
-#: filewidgets/knewfilemenu.cpp:1506
+#: filewidgets/knewfilemenu.cpp:1486
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nova mapa"
 
-#: filewidgets/knewfilemenu.cpp:1529
+#: filewidgets/knewfilemenu.cpp:1509
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Ustvari novo mapo"
 
-#: filewidgets/knewfilemenu.cpp:1531
+#: filewidgets/knewfilemenu.cpp:1511
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Ustvari novo mapo v: %1:"
 
-#: filewidgets/knewfilemenu.cpp:1534 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1514 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Vnesite ime mape"
 
-#: filewidgets/knewfilemenu.cpp:1591
+#: filewidgets/knewfilemenu.cpp:1571
 #, kde-format
 msgid "Default"
 msgstr "Privzeto"
@@ -3757,7 +3757,7 @@ msgstr "Ikono lahko pozneje spremenite v lastnostih mape."
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:609 widgets/checksumswidget.ui:145
+#: filewidgets/kurlnavigator.cpp:611 widgets/checksumswidget.ui:145
 #: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
 #: widgets/checksumswidget.ui:286
 #, kde-format
@@ -3765,39 +3765,39 @@ msgid "Copy"
 msgstr "Kopiraj"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:613 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:615 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "Prilepi"
 
-#: filewidgets/kurlnavigator.cpp:633
+#: filewidgets/kurlnavigator.cpp:635
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Odpri \"%1\" v novem zavihku"
 
-#: filewidgets/kurlnavigator.cpp:641
+#: filewidgets/kurlnavigator.cpp:643
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Odpri \"%1\" v novem oknu"
 
-#: filewidgets/kurlnavigator.cpp:650
+#: filewidgets/kurlnavigator.cpp:652
 #, kde-format
 msgid "Edit"
 msgstr "Uredi"
 
-#: filewidgets/kurlnavigator.cpp:653
+#: filewidgets/kurlnavigator.cpp:655
 #, kde-format
 msgid "Navigate"
 msgstr "Krmarjenje"
 
-#: filewidgets/kurlnavigator.cpp:668
+#: filewidgets/kurlnavigator.cpp:670
 #, kde-format
 msgid "Show Full Path"
 msgstr "Pokaži polno pot"
 
-#: filewidgets/kurlnavigator.cpp:829
+#: filewidgets/kurlnavigator.cpp:840
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -3875,7 +3875,7 @@ msgstr ""
 "Storitve %1 ni mogoče napraviti izvedljive, prekinjam izvajanje.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:653
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Nimate dovoljenja, da bi izbrali program za odpiranje te datoteke."
@@ -3974,14 +3974,14 @@ msgstr ""
 "Datoteka izvedljivega programa »%1« se nahaja na oddaljenem datotečnem "
 "sistemu. Zaradi varnosti ne bo zagnan."
 
-#: gui/openurljob.cpp:415
+#: gui/openurljob.cpp:420
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 "Iz varnostnih razlogov zagon izvedljivih datotek v tem kontekstu ni dovoljen."
 
-#: gui/openurljob.cpp:445
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -3989,7 +3989,7 @@ msgid ""
 msgstr ""
 "Program \"%1\" mora imeti dovoljenje za izvajanje, da ga bi ga lahko pognali."
 
-#: gui/openurljob.cpp:456
+#: gui/openurljob.cpp:461
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3998,12 +3998,12 @@ msgstr ""
 "Ni mogoče spremeniti datoteke %1 v izvajalno.\n"
 "%2."
 
-#: gui/openurljob.cpp:542
+#: gui/openurljob.cpp:547
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Datoteka z vnosi za namizje »%1« nima vnosa  za vrsto: Type=…."
 
-#: gui/openurljob.cpp:634
+#: gui/openurljob.cpp:639
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4014,12 +4014,12 @@ msgstr ""
 "Preverite vaše odprte aplikacije in področje obvestil za nedokončanimi "
 "opravili ali prenosi."
 
-#: gui/openurljob.cpp:660
+#: gui/openurljob.cpp:665
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Ni bilo mogoče odpreti datoteke."
 
-#: gui/openurljob.cpp:694
+#: gui/openurljob.cpp:699
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Programa »%1« ni bilo mogoče zagnati."
@@ -4170,7 +4170,7 @@ msgstr "Ukaz, ki se naj izvede"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL(ji) ali krajevna(e) datoteka(e) uporabljen(i) za »ukaz«"
 
-#: kioworkers/file/file.cpp:684
+#: kioworkers/file/file.cpp:692
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4179,7 +4179,7 @@ msgstr ""
 "Ni bilo mogoče spremeniti dovoljenj za\n"
 "%1"
 
-#: kioworkers/file/file.cpp:692
+#: kioworkers/file/file.cpp:700
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4189,17 +4189,17 @@ msgstr ""
 "Ni bilo mogoče spremeniti lastnika in grupe za\n"
 "%1"
 
-#: kioworkers/file/file.cpp:772 kioworkers/file/file.cpp:864
+#: kioworkers/file/file.cpp:780 kioworkers/file/file.cpp:872
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Ni bilo mogoče odpreti začasne datoteke"
 
-#: kioworkers/file/file.cpp:796
+#: kioworkers/file/file.cpp:804
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Programa »mount« ni bilo mogoče najti"
 
-#: kioworkers/file/file.cpp:873
+#: kioworkers/file/file.cpp:881
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Programa »umount« ni bilo mogoče najti"
@@ -4214,12 +4214,12 @@ msgstr "Ni mogoče kopirati datoteke iz %1 v %2. (Napaka št. %3)"
 msgid "No media in device for %1"
 msgstr "V napravi ni nosilca za %1"
 
-#: kioworkers/file/file_unix.cpp:1078
+#: kioworkers/file/file_unix.cpp:1086
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Ni bilo mogoče pridobiti uporabniškega ID-ja za podanega uporabnika %1"
 
-#: kioworkers/file/file_unix.cpp:1089
+#: kioworkers/file/file_unix.cpp:1097
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Ni bilo mogoče pridobiti ID-ja za podano ime skupine %1"
@@ -6510,17 +6510,17 @@ msgctxt "File permission"
 msgid "Sticky"
 msgstr "Lepljivo"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1666
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1679
 #, kde-format
 msgid "Link"
 msgstr "Povezava"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1686
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1699
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Različno (brez spremembe)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1797
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1810
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
@@ -6529,7 +6529,7 @@ msgstr[1] "Ta datoteka uporablja napredna dovoljenja"
 msgstr[2] "Ti datoteki uporabljata napredni dovoljenji."
 msgstr[3] "Te datoteke uporabljajo napredna dovoljenja."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1819
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1832
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
@@ -6538,40 +6538,40 @@ msgstr[1] "Ta mapa uporablja napredna dovoljenja."
 msgstr[2] "Ti mapi uporabljata napredna dovoljenja."
 msgstr[3] "Te mape uporabljajo napredna dovoljenja."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1833
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1846
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Te datoteke uporabljajo napredna dovoljenja."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2077
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2090
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "Nadzorne vsote"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2368
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2381
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Neveljavna nadzorna vsota."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2371
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2384
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "Vnos ni veljavna nadzorna vsota MD5, SHA1 ali SHA256."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2382
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2395
 #, kde-format
 msgid "Checksums match."
 msgstr "Nadzorni vsoti se ujemata."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2385
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2398
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "Izračunana in pričakovana nadzorna vsota se ujemata."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2397
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2410
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6582,46 +6582,46 @@ msgstr ""
 "prejemom, zato ga ponovite.<br/>Če preverjanje še vedno spodleti, stopite v "
 "stik s tistimi, ki ponujajo datoteko."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2403
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2416
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "Izračunana in pričakovana nadzorna vsota se ne ujemata."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2411
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2424
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "Preverjanje nadzorne vsote…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2440
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2453
 #, kde-format
 msgid "The checksums of all files are identical."
 msgstr "Kontrolne vsote vseh datotek so enake."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2445
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2458
 #, kde-format
 msgid "The selected files have different checksums."
 msgstr "Izbrane datoteke imajo različne kontrolne vsote."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2451
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2464
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Računanje…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2562
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2575
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2568
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2581
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2637
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2908
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2650
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2921
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6629,27 +6629,27 @@ msgstr ""
 "Ni bilo mogoče shraniti lastnosti. Podprti so le vnosi na krajevnih "
 "datotečnih sistemih."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2708
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2721
 #, kde-format
 msgid "&Application"
 msgstr "Program"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2848
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2861
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Dodaj vrsto datotek za %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2849
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2862
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Izberite eno ali več vrst datotek za dodajanje:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2987
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3000
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Podprte so le izvedljive datoteke na krajevnih datotečnih sistemih."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3002
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3015
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Napredne možnosti %1"
