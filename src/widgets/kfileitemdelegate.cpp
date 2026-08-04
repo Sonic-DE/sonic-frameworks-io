@@ -117,7 +117,7 @@ private:
     Margin *activeMargins;
 };
 
-KFileItemDelegate::Private::Private(KFileItemDelegate *parent)
+KFileItemDelegate::Private::Private(KFileItemDelegate *)
     : shadowColor(Qt::transparent)
     , shadowOffset(1, 1)
     , shadowBlur(2)
@@ -450,7 +450,7 @@ QSize KFileItemDelegate::Private::displaySizeHint(const QStyleOptionViewItem &op
     return addMargin(size, TextMargin);
 }
 
-QSize KFileItemDelegate::Private::decorationSizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+QSize KFileItemDelegate::Private::decorationSizeHint(const QStyleOptionViewItem &option, const QModelIndex &) const
 {
     Q_UNUSED(index)
     QSize iconSize = option.icon.actualSize(option.decorationSize);
@@ -1007,7 +1007,7 @@ QIcon KFileItemDelegate::Private::decoration(const QStyleOptionViewItem &option,
     return icon;
 }
 
-QRect KFileItemDelegate::Private::labelRectangle(const QStyleOptionViewItem &option, const QModelIndex &index) const
+QRect KFileItemDelegate::Private::labelRectangle(const QStyleOptionViewItem &option, const QModelIndex &) const
 {
     Q_UNUSED(index)
     QStyle *style = option.widget ? option.widget->style() : QApplication::style();
