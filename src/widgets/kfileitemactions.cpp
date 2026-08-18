@@ -148,7 +148,7 @@ int KFileItemActionsPrivate::insertServicesSubmenus(const QMap<QString, ServiceL
             continue;
         }
 
-        QMenu *actionSubmenu = new QMenu(menu);
+        QMenu *actionSubmenu = new QMenu(m_mainMenu);
         const int servicesAddedCount = insertServices(it.value(), actionSubmenu);
 
         if (servicesAddedCount > 0) {
@@ -309,6 +309,7 @@ void KFileItemActions::addActionsTo(QMenu *mainMenu, MenuActionSources sources, 
 {
     QMenu *mainMenuHolder = new QMenu();
     QMenu *actionsMenuHolder = new QMenu();
+    d->m_mainMenu = mainMenu;
     if (sources & MenuActionSource::Services) {
         d->addServiceActionsTo(mainMenuHolder, actionsMenuHolder, additionalActions, excludeList);
     } else {
