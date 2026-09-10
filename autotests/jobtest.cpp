@@ -40,26 +40,43 @@
 #include <QDateTime>
 #include <QDebug>
 #include <QDir>
+#include <QDirIterator>
 #include <QElapsedTimer>
 #include <QEventLoop>
 #include <QFileInfo>
 #include <QHash>
 #include <QHostInfo>
+#include <QLocale>
 #include <QPointer>
 #include <QProcess>
 #include <QScopeGuard>
 #include <QSignalSpy>
 #include <QTemporaryFile>
 #include <QTest>
+
 #include <QTimer>
 #include <QUrl>
 #include <QVariant>
+#include <ranges>
 
 #ifndef Q_OS_WIN
 #include <unistd.h> // for readlink
 #endif
 
 using namespace Qt::StringLiterals;
+
+// Sets the language the comparisons below expect, ignoring the locale of the user running the test.
+// This runs before main, so nothing has read that locale by then.
+void initLocale()
+{
+#ifndef Q_OS_WIN
+    qputenv("LC_ALL", "en_US.utf-8");
+#else
+    QLocale::setDefault(QLocale(QStringLiteral("en_US")));
+#endif
+}
+
+Q_CONSTRUCTOR_FUNCTION(initLocale)
 
 QTEST_MAIN(JobTest)
 
@@ -805,6 +822,71 @@ void JobTest::copyFileToSamePartition()
         setXattr(filePath);
     }
     copyLocalFile(filePath, dest);
+}
+
+void JobTest::copyFileToSetgidDirectory_data()
+{
+    QTest::addColumn<int>("permissions");
+
+    // Whichever way the copy is asked to handle the permissions, the group the folder gives has
+    // to survive. With the permissions of the source the worker sets the ownership of the new
+    // file, which is where the group of the folder was being overwritten.
+    QTest::newRow("default permissions") << -1;
+    QTest::newRow("permissions of the source") << 0644;
+}
+
+void JobTest::copyFileToSetgidDirectory()
+{
+    QFETCH(int, permissions);
+
+#ifdef Q_OS_UNIX
+    // A folder with the setgid bit gives its own group to what is created in it. Finding a
+    // second group to give the folder is what makes the difference visible.
+    QList<gid_t> groups(getgroups(0, nullptr));
+    QVERIFY(getgroups(groups.size(), groups.data()) != -1);
+    QList<gid_t> candidates;
+    std::ranges::copy_if(groups, std::back_inserter(candidates), [](gid_t group) {
+        return group != getegid();
+    });
+    // The groups of the user come before the system groups, which a folder is less likely to be
+    // given, and each is tried in turn since being a member of one says little about that.
+    std::ranges::stable_partition(candidates, [](gid_t group) {
+        return group >= 1000;
+    });
+    if (candidates.isEmpty()) {
+        QSKIP("The user this runs as belongs to a single group");
+    }
+
+    // A sandbox of its own, so that what is made here is gone again before the tests that walk
+    // the test directory and count what they find.
+    QTemporaryDir sandbox(homeTmpDir() + "setgidXXXXXX");
+    QVERIFY(sandbox.isValid());
+
+    const QString filePath = sandbox.filePath(QStringLiteral("fileForTheSharedFolder"));
+    createTestFile(filePath);
+    QVERIFY(QFile::setPermissions(filePath, QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ReadGroup | QFileDevice::ReadOther));
+
+    const QString sharedDir = sandbox.filePath(QStringLiteral("sharedFolder"));
+    QVERIFY(QDir().mkpath(sharedDir));
+    const QByteArray sharedDirPath = QFile::encodeName(sharedDir);
+    const auto otherGroup = std::ranges::find_if(candidates, [&sharedDirPath](gid_t group) {
+        return ::chown(sharedDirPath.constData(), -1, group) == 0;
+    });
+    if (otherGroup == candidates.cend()) {
+        QSKIP("Giving a folder another group is not allowed here");
+    }
+    QVERIFY(::chmod(sharedDirPath.constData(), 0755 | S_ISGID) == 0);
+
+    const QString dest = sharedDir + "/fileForTheSharedFolder";
+    KIO::Job *job = KIO::file_copy(QUrl::fromLocalFile(filePath), QUrl::fromLocalFile(dest), permissions, KIO::HideProgressInfo);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QT_STATBUF buff;
+    QVERIFY(QT_STAT(QFile::encodeName(dest).constData(), &buff) == 0);
+    QCOMPARE(buff.st_gid, *otherGroup);
+#else
+    QSKIP("Setgid folders are a UNIX matter");
+#endif
 }
 
 void JobTest::copyFilePreservesAcl()
@@ -1725,12 +1807,62 @@ void JobTest::directorySize()
 #else
     QCOMPARE(job->totalFiles(), 7ULL); // see expected result in listRecursive() above
     QCOMPARE(job->totalSubdirs(), 4ULL); // see expected result in listRecursive() above
-    QVERIFY2(job->totalSize() >= 60,
-             qPrintable(QString("totalSize was %1").arg(job->totalSize()))); // size of subdir entries is filesystem dependent. E.g. this is 16428 with ext4 but
-                                                                             // only 272 with xfs, and 63 on FreeBSD
+
+    // Only the data in the files counts, so the total is the same whatever filesystem this runs on.
+    // Counting the directories as well used to make it 16428 on ext4, 272 on xfs and 63 on FreeBSD.
+    KIO::filesize_t expectedSize = 0;
+    QSet<QPair<dev_t, ino_t>> visited;
+    QDirIterator it(src, QDir::AllEntries | QDir::Hidden | QDir::System | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+    while (it.hasNext()) {
+        const QFileInfo info(it.next());
+        if (info.isSymLink() || info.isDir()) {
+            continue;
+        }
+        QT_STATBUF buf;
+        QCOMPARE(QT_LSTAT(QFile::encodeName(info.absoluteFilePath()).constData(), &buf), 0);
+        const QPair<dev_t, ino_t> key(buf.st_dev, buf.st_ino);
+        if (visited.contains(key)) { // a hard link is counted once, as the job does
+            continue;
+        }
+        visited.insert(key);
+        expectedSize += KIO::filesize_t(buf.st_size);
+    }
+    QVERIFY(expectedSize > 0);
+    QCOMPARE(job->totalSize(), expectedSize);
 #endif
 
     qApp->sendPostedEvents(nullptr, QEvent::DeferredDelete);
+}
+
+void JobTest::directorySizeOnDisk()
+{
+#ifdef Q_OS_WIN
+    QSKIP("The space a file takes up is only reported on Unix");
+#else
+    const QString dirPath = homeTmpDir() + QStringLiteral("sizeOnDisk");
+    QVERIFY(QDir().mkpath(dirPath + QStringLiteral("/subdir")));
+    createTestFile(dirPath + QStringLiteral("/file"));
+    createTestFile(dirPath + QStringLiteral("/subdir/file"));
+
+    // What the filesystem itself says the tree takes up. The directories count too, which is the
+    // whole point: that is the part a plain sum of file sizes does not see.
+    KIO::filesize_t expected = 0;
+    const QStringList paths{dirPath, dirPath + QStringLiteral("/file"), dirPath + QStringLiteral("/subdir"), dirPath + QStringLiteral("/subdir/file")};
+    for (const QString &path : paths) {
+        QT_STATBUF buf;
+        QCOMPARE(QT_LSTAT(QFile::encodeName(path).constData(), &buf), 0);
+        expected += KIO::filesize_t(buf.st_blocks) * 512;
+    }
+    QVERIFY(expected > 0);
+
+    KIO::DirectorySizeJob *job = KIO::directorySize(QUrl::fromLocalFile(dirPath));
+    job->setUiDelegate(nullptr);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QCOMPARE(job->totalSizeOnDisk(), std::optional<KIO::filesize_t>(expected));
+
+    qApp->sendPostedEvents(nullptr, QEvent::DeferredDelete);
+#endif
 }
 
 void JobTest::directorySizeError()
@@ -2561,6 +2693,382 @@ void JobTest::moveFileDestAlreadyExists() // #157601
     QCOMPARE(job->percent(), 100);
 }
 
+void JobTest::movePercentStaysInRange()
+{
+    // A move within one filesystem renames each file instead of copying its bytes, so the job
+    // reports progress in files. The first source here has to be listed, because a directory of
+    // that name is already at the destination, and the listing is what works out the file total.
+    // Reaching the second source then reset that total to the number of sources, so the percentage
+    // came out as the files moved divided by two.
+    const int fileCount = 20;
+
+    const QString srcDir = homeTmpDir() + "percentSrcDir";
+    QVERIFY(QDir().mkpath(srcDir));
+    for (int i = 0; i < fileCount; ++i) {
+        createTestFile(srcDir + QStringLiteral("/file%1").arg(i));
+    }
+
+    const QString srcFile = homeTmpDir() + "percentSrcFile";
+    createTestFile(srcFile);
+
+    const QString destDir = homeTmpDir() + "percentDest";
+    QVERIFY(QDir().mkpath(destDir + "/percentSrcDir"));
+
+    ScopedCleaner cleaner([&] {
+        QVERIFY(QDir(destDir).removeRecursively());
+        QDir(srcDir).removeRecursively();
+        QFile::remove(srcFile);
+    });
+
+    const QList<QUrl> urls{QUrl::fromLocalFile(srcDir), QUrl::fromLocalFile(srcFile)};
+    KIO::CopyJob *job = KIO::move(urls, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo | KIO::Overwrite);
+    job->setUiDelegate(nullptr);
+
+    unsigned long highestPercent = 0;
+    connect(job, &KJob::percentChanged, this, [&highestPercent](KJob *, unsigned long percent) {
+        highestPercent = qMax(highestPercent, percent);
+    });
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QCOMPARE(highestPercent, 100);
+    QCOMPARE(job->percent(), 100);
+    // The directory's files and the lone file, so the total counts the same files as the job moved.
+    QCOMPARE(job->totalAmount(KJob::Files), fileCount + 1);
+    QVERIFY(job->totalAmount(KJob::Files) >= job->processedAmount(KJob::Files));
+
+    QVERIFY(!QFile::exists(srcFile));
+    QVERIFY(QFile::exists(destDir + "/percentSrcFile"));
+    QVERIFY(QFile::exists(destDir + "/percentSrcDir/file0"));
+}
+
+void JobTest::moveSkippedAndListedTotals()
+{
+    if (otherTmpDirIsOnSamePartition()) {
+        QSKIP("This test needs the two dirs on different partitions, so that the directory is listed rather than renamed");
+    }
+
+    // One source is listed and moved file by file, the other is skipped without being listed. The
+    // file total has to count both, or the files moved are measured against a total which left the
+    // skipped one out.
+    const int fileCount = 4;
+    const QString srcDir = homeTmpDir() + "skipListSrcDir";
+    QVERIFY(QDir().mkpath(srcDir));
+    for (int i = 0; i < fileCount; ++i) {
+        createTestFile(srcDir + QStringLiteral("/file%1").arg(i));
+    }
+
+    const QString srcFile = homeTmpDir() + "skipListSrcFile";
+    createTestFile(srcFile);
+    const QString existingDest = otherTmpDir() + "skipListSrcFile";
+    createTestFile(existingDest);
+
+    ScopedCleaner cleaner([&] {
+        QDir(otherTmpDir() + "skipListSrcDir").removeRecursively();
+        QFile::remove(existingDest);
+        QDir(srcDir).removeRecursively();
+        QFile::remove(srcFile);
+    });
+
+    const QList<QUrl> urls{QUrl::fromLocalFile(srcDir), QUrl::fromLocalFile(srcFile)};
+    KIO::CopyJob *job = KIO::move(urls, QUrl::fromLocalFile(otherTmpDir()), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    job->setAutoSkip(true);
+
+    unsigned long highestPercent = 0;
+    connect(job, &KJob::percentChanged, this, [&highestPercent](KJob *, unsigned long percent) {
+        highestPercent = qMax(highestPercent, percent);
+    });
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QVERIFY(QFile::exists(srcFile)); // it was skipped
+    QVERIFY(!QFile::exists(srcDir + "/file0")); // it was moved
+
+    // The four files out of the directory and the one which was skipped.
+    QCOMPARE(job->totalAmount(KJob::Files), fileCount + 1);
+    // The skipped one is not one the user was told about.
+    QCOMPARE(job->processedAmount(KJob::Files), fileCount);
+    QVERIFY(highestPercent <= 100);
+    // The job got to the end of what it had to do, so it says so. It only knows that because the
+    // byte total was published before the copying started measuring itself against it.
+    QCOMPARE(job->percent(), 100);
+    QCOMPARE(job->totalAmount(KJob::Bytes), job->processedAmount(KJob::Bytes));
+}
+
+void JobTest::moveRenameOnlyPercentClimbs()
+{
+    // A move where every source is renamed directly never lists anything, so the files left to copy
+    // are always none and the job's own count of what it has got through is all it can work a total
+    // out from. That count is the total then, which is 100% from the first report on. What saves it
+    // is the estimate of one file per source, which is the only thing that knows how many sources
+    // are still to come, so the total has to keep it rather than replace it.
+    const int fileCount = 200;
+    const QString srcDir = homeTmpDir() + "climbSrc";
+    const QString destDir = homeTmpDir() + "climbDest";
+    QVERIFY(QDir().mkpath(srcDir));
+    QVERIFY(QDir().mkpath(destDir));
+
+    QList<QUrl> urls;
+    urls.reserve(fileCount);
+    for (int i = 0; i < fileCount; ++i) {
+        const QString path = srcDir + QStringLiteral("/file%1").arg(i);
+        createTestFile(path);
+        urls << QUrl::fromLocalFile(path);
+    }
+
+    ScopedCleaner cleaner([&] {
+        QDir(srcDir).removeRecursively();
+        QDir(destDir).removeRecursively();
+        KIO::CopyJob::setReportTimeout(std::chrono::milliseconds(200));
+    });
+
+    // Reports come every 200ms otherwise, which a job this size finishes well inside of.
+    KIO::CopyJob::setReportTimeout(std::chrono::milliseconds(1));
+
+    QList<unsigned long> reported;
+    KIO::CopyJob *job = KIO::move(urls, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    connect(job, &KJob::percentChanged, this, [&reported](KJob *, unsigned long percent) {
+        reported << percent;
+    });
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QCOMPARE(job->totalAmount(KJob::Files), fileCount);
+    QCOMPARE(job->processedAmount(KJob::Files), fileCount);
+    QCOMPARE(job->percent(), 100);
+
+    // The job reported while it was still going, and what it said was not finished.
+    QVERIFY2(reported.count() > 1, qPrintable(QStringLiteral("only %1 report(s)").arg(reported.count())));
+    QVERIFY2(reported.first() < 100, qPrintable(QStringLiteral("first report was already %1%").arg(reported.first())));
+}
+
+void JobTest::copyPercentExcludesTheFileInHand()
+{
+    // A copy counts the file it is on, so it says "file 1 of 200" from the first file on, while the
+    // percentage counts the files behind it and lags the count by that one file.
+    // The files are empty on purpose: with no bytes to move the job measures itself in files.
+    const int fileCount = 200;
+    const QString srcDir = homeTmpDir() + "inHandSrc";
+    const QString destDir = homeTmpDir() + "inHandDest";
+    QVERIFY(QDir().mkpath(srcDir));
+    QVERIFY(QDir().mkpath(destDir));
+
+    QList<QUrl> urls;
+    urls.reserve(fileCount);
+    for (int i = 0; i < fileCount; ++i) {
+        const QString path = srcDir + QStringLiteral("/file%1").arg(i);
+        QFile f(path);
+        QVERIFY(f.open(QIODevice::WriteOnly));
+        f.close();
+        urls << QUrl::fromLocalFile(path);
+    }
+
+    ScopedCleaner cleaner([&] {
+        QDir(srcDir).removeRecursively();
+        QDir(destDir).removeRecursively();
+        KIO::CopyJob::setReportTimeout(std::chrono::milliseconds(200));
+    });
+
+    // Reports come every 200ms otherwise, which a job this size finishes well inside of.
+    KIO::CopyJob::setReportTimeout(std::chrono::milliseconds(1));
+
+    KIO::CopyJob *job = KIO::copy(urls, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+
+    int copied = 0;
+    connect(job, &KIO::CopyJob::copyingDone, this, [&copied](KJob *, const QUrl &, const QUrl &, const QDateTime &, bool, bool) {
+        ++copied;
+    });
+    // copying() comes from a report made while a file is being copied, so every sample here is taken
+    // with one file in hand. The file count guards against the last one, which the report the job
+    // makes once it has finished them all can also send.
+    int samples = 0;
+    QList<QPair<int, unsigned long>> countMismatches; // copied, what the job said
+    QList<QPair<int, unsigned long>> percentMismatches;
+    connect(job, &KIO::CopyJob::copying, this, [&](KIO::Job *, const QUrl &, const QUrl &) {
+        if (copied >= fileCount) {
+            return;
+        }
+        ++samples;
+        if (job->processedAmount(KJob::Files) != qulonglong(copied) + 1) {
+            countMismatches << qMakePair(copied, static_cast<unsigned long>(job->processedAmount(KJob::Files)));
+        }
+        if (job->percent() != static_cast<unsigned long>(100 * copied / fileCount)) {
+            percentMismatches << qMakePair(copied, job->percent());
+        }
+    });
+
+    QList<unsigned long> percents;
+    connect(job, &KJob::percentChanged, this, [&percents](KJob *, unsigned long percent) {
+        percents << percent;
+    });
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QCOMPARE(copied, fileCount);
+
+    // The bar only ever moves forwards, since the job sends one percentage per report.
+    for (int i = 1; i < percents.size(); ++i) {
+        QVERIFY2(percents.at(i) >= percents.at(i - 1),
+                 qPrintable(QStringLiteral("the percentage went from %1 back to %2").arg(percents.at(i - 1)).arg(percents.at(i))));
+    }
+    QVERIFY2(samples > 1, qPrintable(QStringLiteral("only %1 report(s) while copying").arg(samples)));
+
+    // The count is on the file being copied.
+    if (!countMismatches.isEmpty()) {
+        const auto &first = countMismatches.first();
+        QFAIL(qPrintable(
+            QStringLiteral("%1 file(s) copied, the job said it was on file %2, expected %3").arg(first.first).arg(first.second).arg(first.first + 1)));
+    }
+    // The percentage is on the files behind it.
+    if (!percentMismatches.isEmpty()) {
+        const auto &first = percentMismatches.first();
+        QFAIL(qPrintable(
+            QStringLiteral("%1 file(s) copied, the job reported %2%, expected %3%").arg(first.first).arg(first.second).arg(100 * first.first / fileCount)));
+    }
+
+    QCOMPARE(job->totalAmount(KJob::Files), fileCount);
+    QCOMPARE(job->processedAmount(KJob::Files), fileCount);
+    QCOMPARE(job->percent(), 100);
+}
+
+void JobTest::moveFileSkippedWhileCopying()
+{
+    // A file can be skipped after the listing has already queued it, which takes it out of the work
+    // left without the job having moved it. The job counts it as one it is done with, the same as a
+    // source skipped before any listing, or the percentage stops short of the end.
+    // The files are empty on purpose: with no bytes to move the job measures itself in files, which
+    // is the count this is about.
+    const QString srcDir = homeTmpDir() + "skipCopySrc";
+    const QString destDir = homeTmpDir() + "skipCopyDest";
+    QVERIFY(QDir().mkpath(srcDir));
+    QVERIFY(QDir().mkpath(destDir + "/skipCopySrc"));
+    for (const QString &name : {QStringLiteral("file0"), QStringLiteral("file1"), QStringLiteral("file2")}) {
+        QFile f(srcDir + QLatin1Char('/') + name);
+        QVERIFY(f.open(QIODevice::WriteOnly));
+    }
+    // Only this one is already at the destination, so only this one is asked about.
+    QFile clash(destDir + "/skipCopySrc/file0");
+    QVERIFY(clash.open(QIODevice::WriteOnly));
+    clash.close();
+
+    ScopedCleaner cleaner([&] {
+        QDir(srcDir).removeRecursively();
+        QDir(destDir).removeRecursively();
+    });
+
+    KIO::CopyJob *job = KIO::move({QUrl::fromLocalFile(srcDir)}, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    job->setUiDelegate(new KJobUiDelegate);
+    auto *askUserHandler = new MockAskUserInterface(job->uiDelegate());
+    // The directory is merged, then the one file already there is skipped.
+    askUserHandler->m_renameResults = {KIO::Result_Overwrite, KIO::Result_Skip};
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QCOMPARE(askUserHandler->m_askUserRenameCalled, 2);
+
+    QVERIFY(QFile::exists(srcDir + "/file0")); // it was skipped
+    QVERIFY(!QFile::exists(srcDir + "/file1")); // it was moved
+    QVERIFY(!QFile::exists(srcDir + "/file2")); // it was moved
+
+    // Three files were dealt with, two of them by moving them.
+    QCOMPARE(job->totalAmount(KJob::Files), 3);
+    QCOMPARE(job->processedAmount(KJob::Files), 2);
+    // No bytes were moved and none were claimed to be, the skipped one included.
+    QCOMPARE(job->totalAmount(KJob::Bytes), 0);
+    QCOMPARE(job->processedAmount(KJob::Bytes), 0);
+    QCOMPARE(job->percent(), 100);
+}
+
+void JobTest::copyFileAutoSkippedWhileCopying()
+{
+    // The same as moveFileSkippedWhileCopying, but for the path a job takes when it was told to
+    // skip anything in the way rather than asked about each one.
+    const QString srcDir = homeTmpDir() + "autoSkipSrcDir";
+    const QString srcFile = homeTmpDir() + "autoSkipSrcFile";
+    const QString destDir = homeTmpDir() + "autoSkipDest";
+    QVERIFY(QDir().mkpath(srcDir));
+    QVERIFY(QDir().mkpath(destDir));
+    for (const QString &name : {QStringLiteral("file1"), QStringLiteral("file2")}) {
+        QFile f(srcDir + QLatin1Char('/') + name);
+        QVERIFY(f.open(QIODevice::WriteOnly));
+    }
+    const QStringList emptyFiles{srcFile, destDir + QStringLiteral("/autoSkipSrcFile")};
+    for (const QString &path : emptyFiles) {
+        QFile f(path);
+        QVERIFY(f.open(QIODevice::WriteOnly));
+    }
+
+    ScopedCleaner cleaner([&] {
+        QDir(srcDir).removeRecursively();
+        QDir(destDir).removeRecursively();
+        QFile::remove(srcFile);
+    });
+
+    // The directory is not in the way, only the one file is, and that one is skipped.
+    const QList<QUrl> urls{QUrl::fromLocalFile(srcDir), QUrl::fromLocalFile(srcFile)};
+    KIO::CopyJob *job = KIO::copy(urls, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    job->setAutoSkip(true);
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QVERIFY(QFile::exists(destDir + "/autoSkipSrcDir/file1"));
+    QVERIFY(QFile::exists(destDir + "/autoSkipSrcDir/file2"));
+
+    // The two out of the directory and the one which was skipped.
+    QCOMPARE(job->totalAmount(KJob::Files), 3);
+    QCOMPARE(job->processedAmount(KJob::Files), 2);
+    // No bytes were moved and none were claimed to be, the skipped one included.
+    QCOMPARE(job->totalAmount(KJob::Bytes), 0);
+    QCOMPARE(job->processedAmount(KJob::Bytes), 0);
+    QCOMPARE(job->percent(), 100);
+}
+
+void JobTest::copySkippedDirectoryDropsItsBytes()
+{
+    // The files here have something in them, so the job measures itself in bytes rather than in
+    // files. Skipping the inner directory takes its file out of the work left, and the bytes of
+    // that file have to leave the total with it. Counting them as moved instead would say they
+    // went by in no time, and the speed and the time left are read off how fast the processed
+    // amount grows.
+    const QString srcDir = homeTmpDir() + "skipBytesSrc";
+    const QString destDir = homeTmpDir() + "skipBytesDest";
+    QVERIFY(QDir().mkpath(srcDir + "/sub"));
+    createTestFile(srcDir + "/outer");
+    createTestFile(srcDir + "/sub/inner");
+    // Both the directory and the one inside it are already there, so both are asked about.
+    QVERIFY(QDir().mkpath(destDir + "/skipBytesSrc/sub"));
+
+    const qulonglong outerSize = QFileInfo(srcDir + "/outer").size();
+    QVERIFY(outerSize > 0);
+    QVERIFY(QFileInfo(srcDir + "/sub/inner").size() > 0);
+
+    ScopedCleaner cleaner([&] {
+        QDir(srcDir).removeRecursively();
+        QDir(destDir).removeRecursively();
+    });
+
+    KIO::CopyJob *job = KIO::copy({QUrl::fromLocalFile(srcDir)}, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    job->setUiDelegate(new KJobUiDelegate);
+    auto *askUserHandler = new MockAskUserInterface(job->uiDelegate());
+    // Merge the outer directory, skip the inner one.
+    askUserHandler->m_renameResults = {KIO::Result_Overwrite, KIO::Result_Skip};
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QCOMPARE(askUserHandler->m_askUserRenameCalled, 2);
+
+    QVERIFY(QFile::exists(destDir + "/skipBytesSrc/outer"));
+    QVERIFY(!QFile::exists(destDir + "/skipBytesSrc/sub/inner")); // it was skipped
+
+    QCOMPARE(job->totalAmount(KJob::Files), 2);
+    QCOMPARE(job->processedAmount(KJob::Files), 1);
+    // Only the file which was copied is in the byte total, and the job reached it.
+    QCOMPARE(job->totalAmount(KJob::Bytes), outerSize);
+    QCOMPARE(job->processedAmount(KJob::Bytes), outerSize);
+    QCOMPARE(job->percent(), 100);
+}
+
 void JobTest::copyFileDestAlreadyExists_data()
 {
     QTest::addColumn<bool>("autoSkip");
@@ -2787,9 +3295,11 @@ void JobTest::copyDirectoryAlreadyExistsSkip()
 
     QCOMPARE(job->totalAmount(KJob::Files), 2); // testfile, testlink
     QCOMPARE(job->totalAmount(KJob::Directories), 1);
+    // Nothing was copied, so nothing counts as processed, the directory no more than the files
+    // inside it. The job is still done with all of it, which is what the percentage is for.
     QCOMPARE(job->processedAmount(KJob::Files), 0);
-    QCOMPARE(job->processedAmount(KJob::Directories), 1);
-    QCOMPARE(job->percent(), 0);
+    QCOMPARE(job->processedAmount(KJob::Directories), 0);
+    QCOMPARE(job->percent(), 100);
 }
 
 void JobTest::copyFileAlreadyExistsRename()

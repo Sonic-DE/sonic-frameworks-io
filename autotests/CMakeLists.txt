@@ -121,6 +121,10 @@ if (TARGET KF6::KIOGui)
 
   target_link_libraries(favicontest Qt6::Concurrent)
 
+  # The thumbnail cache functions are internal to KIOGui and not exported, so the test builds them
+  # rather than looking for them in the library.
+  target_sources(filepreviewjobtest PRIVATE ${CMAKE_SOURCE_DIR}/src/gui/thumbnailcache_p.cpp)
+
   # disable some tests that fail on Windows ATM
   if (NOT WIN32)
     foreach(_kprocessrunnerTest applicationlauncherjob commandlauncherjob kterminallauncherjob)
@@ -179,8 +183,8 @@ if (NOT WIN32)
     ENVIRONMENT QT_QPA_PLATFORM=offscreen
     LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test ${DBUS_LIB}
   )
-  set(_libexec_dir_kf "${KDKE_INSTALL_FULL_LIBEXECDIR_KF}")
-  target_compile_definitions(desktopexecparsertest PRIVATE "KDE_INSTALL_FULL_LIBEXECDIR_KF=${_libexec_dir_kf}")
+  set(_libexec_dir_kf "${KDE_INSTALL_FULL_LIBEXECDIR_KF}")
+  target_compile_definitions(desktopexecparsertest PRIVATE "KDE_INSTALL_FULL_LIBEXECDIR_KF=\"${_libexec_dir_kf}\"")
 endif()
 
 # disable some tests that fail on Windows ATM

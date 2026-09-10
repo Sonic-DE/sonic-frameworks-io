@@ -9,10 +9,12 @@
  */
 
 #include "filepreviewjob.h"
+
 #include "filecopyjob.h"
 #include "kiogui_debug.h"
 #include "standardthumbnailjob_p.h"
 #include "statjob.h"
+#include "thumbnailcache_p.h"
 #include "transferjob.h"
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID) && !defined(Q_OS_HAIKU)
@@ -29,7 +31,6 @@
 #include <KConfigGroup>
 #include <KFileUtils>
 #include <KLocalizedString>
-#include <KMountPoint>
 #include <KProtocolInfo>
 #include <KSharedConfig>
 #include <Solid/Device>
@@ -132,40 +133,22 @@ void FilePreviewJob::start()
 bool FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
 {
     auto setUpCaching = [this]() {
-        short cacheSize = 0;
-        const int longer = std::max(m_options.size.width(), m_options.size.height());
-        if (longer <= 128) {
-            cacheSize = 128;
-        } else if (longer <= 256) {
-            cacheSize = 256;
-        } else if (longer <= 512) {
-            cacheSize = 512;
-        } else {
-            cacheSize = 1024;
-        }
-
-        struct CachePool {
-            QString path;
-            int minSize;
-        };
-
-        const static auto pools = {
-            CachePool{QStringLiteral("normal/"), 128},
-            CachePool{QStringLiteral("large/"), 256},
-            CachePool{QStringLiteral("x-large/"), 512},
-            CachePool{QStringLiteral("xx-large/"), 1024},
-        };
-
-        QString thumbDir;
-        int wants = m_options.devicePixelRatio * cacheSize;
-        for (const auto &p : pools) {
-            if (p.minSize < wants) {
-                continue;
-            } else {
-                thumbDir = p.path;
-                break;
+        const short cacheSize = ThumbnailCache::cacheSize(m_options.size);
+        const QString thumbDir = ThumbnailCache::tierDir(cacheSize, m_options.devicePixelRatio);
+        if (thumbDir.isEmpty()) {
+            // No directory of the cache holds thumbnails this large, so this one is made for this
+            // request alone. An empty path is what tells the rest of the job that.
+            static bool warned = false;
+            if (!warned) {
+                warned = true;
+                qCWarning(KIO_GUI) << "Thumbnails of" << m_options.size << "at a ratio of" << m_options.devicePixelRatio
+                                   << "are larger than the largest the thumbnail cache holds (1024 pixels), so they are made again every time.";
             }
+            m_thumbPath.clear();
+            m_cacheSize = cacheSize;
+            return;
         }
+
         QString thumbPath = m_setupData.thumbRoot + thumbDir;
         QDir().mkpath(m_setupData.thumbRoot);
         if (!QDir(thumbPath).exists() && !QDir(m_setupData.thumbRoot).mkdir(thumbDir, QFile::ReadUser | QFile::WriteUser | QFile::ExeUser)) { // 0700
@@ -228,22 +211,6 @@ bool FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
     }
 }
 
-static bool isSlow(const KFileItem &fileItem, const KIO::UDSEntry &entry)
-{
-    const auto mountId = entry.numberValue(KIO::UDSEntry::UDS_MOUNT_ID, 0);
-    // No Mount ID, fall back to blocking KFileItem::isSlow.
-    if (!mountId) {
-        return fileItem.isSlow();
-    }
-
-    const auto mountPoint = KMountPoint::currentMountPoints().findByMountId(mountId);
-    if (!mountPoint) {
-        return fileItem.isSlow();
-    }
-
-    return mountPoint->probablySlow();
-}
-
 void FilePreviewJob::slotStatFile(KJob *job)
 {
     if (job->error()) {
@@ -265,12 +232,6 @@ void FilePreviewJob::slotStatFile(KJob *job)
     // If we stat'd the file already, might as well report it back.
     if (!statResult.stringValue(KIO::UDSEntry::UDS_MIME_TYPE).isEmpty()) {
         m_fileItem = KFileItem(statResult, m_fileItem.url());
-    }
-
-    if (!preparePluginForMimetype(m_fileItem.mimetype())) {
-        setError(KIO::ERR_INTERNAL);
-        emitResult();
-        return;
     }
 
     if (isLocal) {
@@ -298,21 +259,36 @@ void FilePreviewJob::slotStatFile(KJob *job)
         return;
     }
 
-    bool skipCurrentItem = false;
     const KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
-    if ((itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) && !isSlow(m_fileItem, statResult)) {
-        const KIO::filesize_t maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
-        skipCurrentItem = !m_options.ignoreMaximumSize && size > maximumLocalSize && !m_plugin.value(QStringLiteral("IgnoreMaximumSize"), false);
-    } else {
+    const bool isLocalAndFast =
+        (itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) && !m_fileItem.isSlow();
+
+    if (!isLocalAndFast) {
         // For remote items the "IgnoreMaximumSize" plugin property is not respected
-        // Also we need to check if remote (but locally mounted) folder preview is enabled
+        // Also we need to check if remote (but locally mounted) folder preview is enabled.
+        // Checked before preparePluginForMimetype() since it doesn't need the MIME type/plugin.
         const KIO::filesize_t maximumRemoteSize = cg.readEntry<KIO::filesize_t>("MaximumRemoteSize", 0);
         const bool enableRemoteFolderThumbnail = cg.readEntry("EnableRemoteFolderThumbnail", false);
-        skipCurrentItem = (!m_options.ignoreMaximumSize && size > maximumRemoteSize) || (m_fileItem.isDir() && !enableRemoteFolderThumbnail);
+        const bool skipCurrentItem = (!m_options.ignoreMaximumSize && size > maximumRemoteSize) || (m_fileItem.isDir() && !enableRemoteFolderThumbnail);
+        if (skipCurrentItem) {
+            emitResult();
+            return;
+        }
     }
-    if (skipCurrentItem) {
+
+    if (!preparePluginForMimetype(m_fileItem.mimetype())) {
+        setError(KIO::ERR_INTERNAL);
         emitResult();
         return;
+    }
+
+    if (isLocalAndFast) {
+        const KIO::filesize_t maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
+        const bool skipCurrentItem = !m_options.ignoreMaximumSize && size > maximumLocalSize && !m_plugin.value(QStringLiteral("IgnoreMaximumSize"), false);
+        if (skipCurrentItem) {
+            emitResult();
+            return;
+        }
     }
 
     bool pluginHandlesSequences = m_plugin.value(QStringLiteral("HandleSequences"), false);
@@ -334,50 +310,15 @@ void FilePreviewJob::slotStatFile(KJob *job)
             getOrCreateThumbnail();
         }
     });
-    QFuture<QImage> future = QtConcurrent::run(loadThumbnailFromCache, QString(m_thumbPath + m_thumbName), m_options.devicePixelRatio);
+    QFuture<QImage> future = QtConcurrent::run(ThumbnailCache::load, QString(m_thumbPath + m_thumbName), m_options.devicePixelRatio);
 
     watcher->setFuture(future);
 }
 
-QImage FilePreviewJob::loadThumbnailFromCache(const QString &path, qreal dpr)
-{
-    QImage thumb;
-    QFile thumbFile(path);
-    if (!thumbFile.open(QIODevice::ReadOnly) || !thumb.load(&thumbFile, "png")) {
-        return QImage();
-    }
-    // The DPR of the loaded thumbnail is unspecified (and typically irrelevant).
-    // When a thumbnail is DPR-invariant, use the DPR passed in the request.
-    thumb.setDevicePixelRatio(dpr);
-    return thumb;
-}
-
 bool FilePreviewJob::isCacheValid(const QImage &thumb)
 {
-    if (thumb.isNull()) {
+    if (!ThumbnailCache::matches(thumb, m_origName, m_tOrig.toSecsSinceEpoch(), m_fileItem.size(), m_options.size, m_options.devicePixelRatio)) {
         return false;
-    }
-    if (thumb.text(QStringLiteral("Thumb::URI")) != QString::fromUtf8(m_origName)
-        || thumb.text(QStringLiteral("Thumb::MTime")).toLongLong() != m_tOrig.toSecsSinceEpoch()) {
-        return false;
-    }
-
-    const QString origSize = thumb.text(QStringLiteral("Thumb::Size"));
-    if (!origSize.isEmpty() && origSize.toULongLong() != m_fileItem.size()) {
-        // Thumb::Size is not required, but if it is set it should match
-        return false;
-    }
-
-    // Reject a cached thumbnail smaller than needed now (blurry if scaled up), but
-    // only when the original is large enough to yield a bigger one; else keep it.
-    const int neededPixels = qMax(m_options.size.width(), m_options.size.height()) * m_options.devicePixelRatio;
-    const int cachedPixels = qMax(thumb.width(), thumb.height());
-    if (cachedPixels < neededPixels) {
-        const int origWidth = thumb.text(QStringLiteral("Thumb::Image::Width")).toInt();
-        const int origHeight = thumb.text(QStringLiteral("Thumb::Image::Height")).toInt();
-        if (qMax(origWidth, origHeight) > cachedPixels) {
-            return false;
-        }
     }
 
     QString thumbnailerVersion = m_plugin.value(QStringLiteral("ThumbnailerVersion"));
@@ -710,14 +651,7 @@ void FilePreviewJob::saveThumbnailToCache(const QImage &thumb, const QString &pa
 
 void FilePreviewJob::emitPreview(const QImage &thumb)
 {
-    const qreal ratio = thumb.devicePixelRatio();
-
-    QImage preview = thumb;
-    if (preview.width() > m_options.size.width() * ratio || preview.height() > m_options.size.height() * ratio) {
-        preview = preview.scaled(QSize(m_options.size.width() * ratio, m_options.size.height() * ratio), Qt::KeepAspectRatio, Qt::SmoothTransformation);
-    }
-
-    m_preview = preview;
+    m_preview = ThumbnailCache::scaledToFit(thumb, m_options.size);
     emitResult();
 }
 

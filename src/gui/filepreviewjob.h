@@ -174,7 +174,6 @@ private:
     QPointer<KIO::StandardThumbnailJob> m_standardThumbnailJob = nullptr;
 
     void getOrCreateThumbnail();
-    static QImage loadThumbnailFromCache(const QString &url, qreal dpr);
     bool isCacheValid(const QImage &thumb);
     void createThumbnail(const QString &);
     void createThumbnailViaFuse(const QUrl &, const QUrl &);

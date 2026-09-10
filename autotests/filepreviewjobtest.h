@@ -23,6 +23,17 @@ private Q_SLOTS:
     void testGeneratedImageDevicePixelRatio();
     void testSupportedDevicePixelRatio_data();
     void testSupportedDevicePixelRatio();
+
+    void testCachedPreviewReturnsFreshThumbnail();
+    void testCachedPreviewServesAStaleThumbnail();
+    void testCachedPreviewMissReturnsNull();
+    void testCachedPreviewRejectsIneligibleItems();
+    void testCacheDirMatchesWhatIsWritten_data();
+    void testCacheDirMatchesWhatIsWritten();
+    void testCachedPreviewFoundAtDevicePixelRatio_data();
+    void testCachedPreviewFoundAtDevicePixelRatio();
+    void testNoCacheBucketLeavesTheCacheAlone();
+    void testAMissedCacheLookupKeepsItsPlaceInTheQueue();
 };
 
 #endif

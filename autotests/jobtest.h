@@ -47,6 +47,8 @@ private Q_SLOTS:
     void storedPutIODeviceSlowDeviceBigChunk();
     void asyncStoredPutReadyReadAfterFinish();
     void copyFileToSamePartition();
+    void copyFileToSetgidDirectory_data();
+    void copyFileToSetgidDirectory();
     void copyFilePreservesAcl();
     void testCopyFilePermissionsToSamePartition();
     void testMkdirPermissionsAndOwnership();
@@ -71,6 +73,7 @@ private Q_SLOTS:
     void killJobBeforeStart();
     void deleteJobBeforeStart();
     void directorySize();
+    void directorySizeOnDisk();
     void directorySizeError();
     void moveFileToSamePartition();
     void moveDirectoryToSamePartition();
@@ -115,6 +118,13 @@ private Q_SLOTS:
     void calculateRemainingSeconds();
     void moveFileDestAlreadyExists_data();
     void moveFileDestAlreadyExists();
+    void movePercentStaysInRange();
+    void moveSkippedAndListedTotals();
+    void moveRenameOnlyPercentClimbs();
+    void copyPercentExcludesTheFileInHand();
+    void moveFileSkippedWhileCopying();
+    void copyFileAutoSkippedWhileCopying();
+    void copySkippedDirectoryDropsItsBytes();
     void copyFileDestAlreadyExists_data();
     void copyFileDestAlreadyExists();
     void moveDestAlreadyExistsAutoRename_data();
