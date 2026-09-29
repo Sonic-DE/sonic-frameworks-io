@@ -15,7 +15,10 @@
 #include <QDBusMessage>
 #include <QHash>
 #include <QList>
+#include <QTimer>
 #include <QWidget>
+
+#include <functional>
 
 #include <KDEDModule>
 #include <kio/authinfo.h>
@@ -40,6 +43,12 @@ public:
     void setWalletDisabled(bool d)
     {
         m_walletDisabled = d;
+    }
+
+    // Called by the unit test, to avoid waiting the real time out
+    void setWalletOpenTimeout(int msec)
+    {
+        m_walletOpenTimeout = msec;
     }
 
 public Q_SLOTS:
@@ -67,6 +76,8 @@ private Q_SLOTS:
     void windowRemoved(WId);
 
 private:
+    friend class KPasswdServerTest;
+
     struct AuthInfoContainer {
         AuthInfoContainer()
         {
@@ -116,12 +127,21 @@ private:
      * the user has turned off, or one that would not open, is not asked again for this session.
      */
     bool isWalletUsable();
+    /**
+     * Runs @p whenOpen once the wallet has answered, with whether it opened. KWallet opens a
+     * wallet synchronously with a timeout of 24 days, which would stop kiod answering anything
+     * at all for as long as kwalletd takes, so the wallet is opened asynchronously here.
+     */
+    void withWallet(qlonglong windowId, std::function<void(bool)> whenOpen);
+    void startWalletOpenTimeout();
+    void walletOpened(bool opened);
     bool openWallet(qlonglong windowId);
 #endif
 
     bool hasPendingQuery(const QString &key, const KIO::AuthInfo &info);
     void sendResponse(Request *request);
     void showPasswordDialog(Request *request);
+    void showPasswordDialog(Request *request, const QString &username, const QString &password, bool hasWalletData, const QMap<QString, QString> &knownLogins);
     void updateCachedRequestKey(QList<Request *> &, const QString &oldKey, const QString &newKey);
 
     using AuthInfoContainerList = QList<AuthInfoContainer>;
@@ -135,6 +155,10 @@ private:
     QStringList m_authPrompted;
     KWallet::Wallet *m_wallet;
     bool m_walletDisabled;
+    bool m_walletOpening = false;
+    int m_walletOpenTimeout = 30000;
+    QTimer m_walletOpenTimer;
+    QList<std::function<void(bool)>> m_walletWaiters;
     qlonglong m_seqNr;
 };
 

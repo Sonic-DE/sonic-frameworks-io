@@ -310,6 +310,87 @@ private Q_SLOTS:
         concurrentQueryAuthWithDialog(server, authInfos, filledInfo, results);
     }
 
+#ifdef HAVE_KF6WALLET
+    void testCompletedWalletDoesNotTimeoutNextOpen()
+    {
+        // Exercise the actual timeout/completion logic without contacting kwalletd.
+        KPasswdServer server(this);
+        QList<bool> firstResults;
+        server.setWalletOpenTimeout(0);
+        server.m_walletOpening = true;
+        server.m_walletWaiters.append([&firstResults](bool opened) {
+            firstResults.append(opened);
+        });
+        server.startWalletOpenTimeout();
+        server.walletOpened(true);
+        QCOMPARE(firstResults, QList<bool>{true});
+
+        QList<bool> secondResults;
+        server.setWalletOpenTimeout(60000);
+        server.m_walletOpening = true;
+        server.m_walletWaiters.append([&secondResults](bool opened) {
+            secondResults.append(opened);
+        });
+        server.startWalletOpenTimeout();
+
+        // Process the first opening's expired timeout, not the second deadline.
+        QTest::qWait(10);
+        QVERIFY(server.m_walletOpening);
+        QVERIFY(!server.m_walletDisabled);
+        QVERIFY(secondResults.isEmpty());
+
+        server.walletOpened(true);
+        QCOMPARE(secondResults, QList<bool>{true});
+    }
+
+    void testWalletOpenTimeoutFinishesAllWaiters()
+    {
+        KPasswdServer server(this);
+        QList<bool> results;
+        server.setWalletOpenTimeout(0);
+        server.m_walletOpening = true;
+        for (int i = 0; i < 2; ++i) {
+            server.m_walletWaiters.append([&results](bool opened) {
+                results.append(opened);
+            });
+        }
+        server.startWalletOpenTimeout();
+
+        QTRY_COMPARE(results.size(), 2);
+        QCOMPARE(results, (QList<bool>{false, false}));
+        QVERIFY(!server.m_walletOpening);
+        QVERIFY(server.m_walletDisabled);
+        QTest::qWait(10);
+        QCOMPARE(results.size(), 2);
+    }
+
+    void testWalletReopenedFromCompletionKeepsTimeout()
+    {
+        KPasswdServer server(this);
+        QList<bool> results;
+        server.setWalletOpenTimeout(60000);
+        server.m_walletOpening = true;
+        server.m_walletWaiters.append([&server, &results](bool opened) {
+            results.append(opened);
+
+            // A completion callback can immediately begin another opening.
+            server.setWalletOpenTimeout(0);
+            server.m_walletOpening = true;
+            server.m_walletWaiters.append([&results](bool reopened) {
+                results.append(reopened);
+            });
+            server.startWalletOpenTimeout();
+        });
+        server.startWalletOpenTimeout();
+        server.walletOpened(true);
+
+        QTRY_COMPARE(results.size(), 2);
+        QCOMPARE(results, (QList<bool>{true, false}));
+        QVERIFY(!server.m_walletOpening);
+        QVERIFY(server.m_walletDisabled);
+    }
+#endif
+
     void testConcurrentCheckAuth()
     {
         KPasswdServer server(this);
