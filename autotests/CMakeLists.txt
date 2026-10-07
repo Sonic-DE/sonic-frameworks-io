@@ -173,6 +173,7 @@ set(ECM_TEST_NAME_PREFIX "kiowidgets-")
 ecm_add_tests(
  clipboardupdatertest.cpp
  kfileitemactionstest.cpp
+ kchecksumstest.cpp
  pastetest.cpp
  renamefiledialogtest.cpp
  kurifiltersearchprovideractionstest.cpp
