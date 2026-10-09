@@ -8,14 +8,115 @@
 #include <KFilePlacesModel>
 #include <KUser>
 #include <QDir>
+#include <QDropEvent>
+#include <QMimeData>
 #include <QPushButton>
+#include <QScopeGuard>
+#include <QSemaphore>
 #include <QStandardPaths>
 #include <QtTestWidgets>
 
 #include "kiotesthelper.h" // createTestDirectory(), createTestSymlink()
 #include "kurlcombobox.h"
 #include "kurlnavigator.h"
+#include "worker_p.h"
+#include "workerbase.h"
+#include "workerfactory.h"
 #include <kprotocolinfo.h>
+
+namespace
+{
+struct NavigatorStatState {
+    QSemaphore started;
+    QSemaphore resume;
+    QSemaphore completed;
+};
+
+class NavigatorStatFactory : public KIO::WorkerFactory
+{
+public:
+    NavigatorStatFactory(const QByteArray &protocol, const std::shared_ptr<NavigatorStatState> &state = {})
+        : m_protocol(protocol)
+        , m_state(state)
+    {
+    }
+
+    std::unique_ptr<KIO::WorkerBase> createWorker(const QByteArray &pool, const QByteArray &app) override
+    {
+        return std::make_unique<StatWorker>(m_protocol, pool, app, m_state);
+    }
+
+private:
+    class StatWorker : public KIO::WorkerBase
+    {
+    public:
+        StatWorker(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app, const std::shared_ptr<NavigatorStatState> &state)
+            : WorkerBase(protocol, pool, app)
+            , m_state(state)
+        {
+        }
+
+        KIO::WorkerResult stat(const QUrl &url) override
+        {
+            const bool delayed = m_state && url.path() == QLatin1String("/delayed");
+            if (delayed) {
+                m_state->started.release();
+                if (!m_state->resume.tryAcquire(1, 5000)) {
+                    return KIO::WorkerResult::fail(KIO::ERR_SERVER_TIMEOUT, url.toString());
+                }
+            }
+            if (url.path() == QLatin1String("/error")) {
+                return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toString());
+            }
+
+            KIO::UDSEntry entry;
+            entry.fastInsert(KIO::UDSEntry::UDS_NAME, url.fileName());
+            entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+            entry.fastInsert(KIO::UDSEntry::UDS_DISPLAY_NAME, QLatin1String("resolved-") + url.fileName());
+            if (url.path() != QLatin1String("/plain")) {
+                entry.fastInsert(KIO::UDSEntry::UDS_TARGET_URL, QUrl::fromLocalFile(QLatin1String("/physical") + url.path()).toString());
+            }
+            statEntry(entry);
+            if (delayed) {
+                m_state->completed.release();
+            }
+            return KIO::WorkerResult::pass();
+        }
+
+    private:
+        const std::shared_ptr<NavigatorStatState> m_state;
+    };
+
+    const QByteArray m_protocol;
+    const std::shared_ptr<NavigatorStatState> m_state;
+};
+
+QPushButton *navigationButton(KUrlNavigator &navigator, const QString &text)
+{
+    const auto buttons = navigator.findChildren<QPushButton *>();
+    for (QPushButton *button : buttons) {
+        if (button->property("plainText").isValid() && button->property("plainText").toString() == text) {
+            return button;
+        }
+    }
+    return nullptr;
+}
+
+QUrl dropDestination(KUrlNavigator &navigator, QPushButton *button, const QUrl &destination)
+{
+    // Observe the navigator's signal only; do not start a copy or move job.
+    QUrl droppedUrl;
+    QObject receiver;
+    QObject::connect(&navigator, &KUrlNavigator::urlsDropped, &receiver, [&droppedUrl](const QUrl &url, QDropEvent *) {
+        droppedUrl = url;
+    });
+    QMimeData mimeData;
+    mimeData.setUrls({QUrl::fromLocalFile(QStringLiteral("/source"))});
+    QDropEvent event(QPointF(), Qt::CopyAction, &mimeData, Qt::LeftButton, Qt::NoModifier);
+    QMetaObject::invokeMethod(button, "urlsDroppedOnNavButton", Qt::DirectConnection, Q_ARG(QUrl, destination), Q_ARG(QDropEvent *, &event));
+    return droppedUrl;
+}
+}
 
 QTEST_MAIN(KUrlNavigatorTest)
 
@@ -359,6 +460,74 @@ void KUrlNavigatorTest::testInitWithRedundantPathSeparators()
     const QUrl buttonUrl = temp_nav.locationUrl();
 
     QCOMPARE(buttonUrl, QUrl::fromLocalFile(QStringLiteral("/home/foo/test")));
+}
+
+void KUrlNavigatorTest::testDropTargetAfterNavigation()
+{
+    auto factory = std::make_shared<NavigatorStatFactory>(QByteArrayLiteral("kio-test-navigator-target"));
+    KIO::Worker::setTestWorkerFactory(factory);
+    const auto resetFactory = qScopeGuard([] {
+        KIO::Worker::setTestWorkerFactory({});
+    });
+
+    const QUrl virtualUrl(QStringLiteral("kio-test-navigator-target:/virtual"));
+    KUrlNavigator navigator(nullptr, virtualUrl, nullptr);
+    QTRY_VERIFY(navigationButton(navigator, QStringLiteral("resolved-virtual")));
+    QPointer<QPushButton> button = navigationButton(navigator, QStringLiteral("resolved-virtual"));
+    QCOMPARE(dropDestination(navigator, button, virtualUrl), QUrl::fromLocalFile(QStringLiteral("/physical/virtual")));
+
+    const QUrl localUrl = QUrl::fromLocalFile(QStringLiteral("/new"));
+    navigator.setLocationUrl(localUrl);
+    QCOMPARE(navigationButton(navigator, QStringLiteral("new")), button.data());
+    QCOMPARE(dropDestination(navigator, button, localUrl), localUrl);
+
+    // A stat response without a target must not inherit the old mapping either.
+    navigator.setLocationUrl(virtualUrl);
+    QTRY_VERIFY(navigationButton(navigator, QStringLiteral("resolved-virtual")));
+
+    // Submenu drops must keep the child URL, rather than use the parent's target.
+    const QUrl childUrl(QStringLiteral("kio-test-navigator-target:/virtual/child"));
+    QCOMPARE(dropDestination(navigator, button, childUrl), childUrl);
+
+    const QUrl plainUrl(QStringLiteral("kio-test-navigator-target:/plain"));
+    navigator.setLocationUrl(plainUrl);
+    QTRY_VERIFY(navigationButton(navigator, QStringLiteral("resolved-plain")));
+    QCOMPARE(navigationButton(navigator, QStringLiteral("resolved-plain")), button.data());
+    QCOMPARE(dropDestination(navigator, button, plainUrl), plainUrl);
+
+    navigator.setLocationUrl(virtualUrl);
+    QTRY_VERIFY(navigationButton(navigator, QStringLiteral("resolved-virtual")));
+    const QUrl errorUrl(QStringLiteral("kio-test-navigator-target:/error"));
+    navigator.setLocationUrl(errorUrl);
+    QTRY_VERIFY(navigationButton(navigator, QStringLiteral("error")));
+    QCOMPARE(dropDestination(navigator, button, errorUrl), errorUrl);
+}
+
+void KUrlNavigatorTest::testDropTargetAfterDelayedStat()
+{
+    auto state = std::make_shared<NavigatorStatState>();
+    auto factory = std::make_shared<NavigatorStatFactory>(QByteArrayLiteral("kio-test-navigator-delayed"), state);
+    KIO::Worker::setTestWorkerFactory(factory);
+    const auto cleanup = qScopeGuard([state] {
+        state->resume.release();
+        KIO::Worker::setTestWorkerFactory({});
+    });
+
+    KUrlNavigator navigator(nullptr, QUrl(QStringLiteral("kio-test-navigator-delayed:/delayed")), nullptr);
+    QTRY_VERIFY(state->started.available() > 0);
+
+    const QUrl localUrl = QUrl::fromLocalFile(QStringLiteral("/new"));
+    navigator.setLocationUrl(localUrl);
+    auto *button = navigationButton(navigator, QStringLiteral("new"));
+    QVERIFY(button);
+    QCOMPARE(dropDestination(navigator, button, localUrl), localUrl);
+
+    // Release the old response only after the button has been reused locally.
+    state->resume.release();
+    QTRY_VERIFY(state->completed.available() > 0);
+    QTest::qWait(100); // Deliver the worker's queued metadata and result messages.
+    QCOMPARE(button->property("plainText").toString(), QStringLiteral("new"));
+    QCOMPARE(dropDestination(navigator, button, localUrl), localUrl);
 }
 
 #include "moc_kurlnavigatortest.cpp"

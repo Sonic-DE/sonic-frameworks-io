@@ -38,6 +38,9 @@ private Q_SLOTS:
 
     void testInitWithRedundantPathSeparators();
 
+    void testDropTargetAfterNavigation();
+    void testDropTargetAfterDelayedStat();
+
 private:
     KUrlNavigator *m_navigator;
 };
