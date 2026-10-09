@@ -37,6 +37,7 @@ KUrlNavigatorButton::KUrlNavigatorButton(const QUrl &url, KUrlNavigator *parent)
     , m_drawSeparator(true)
     , m_wheelSteps(0)
     , m_url(url)
+    , m_targetUrl()
     , m_subDir()
     , m_openSubDirsTimer(nullptr)
     , m_subDirsJob(nullptr)
@@ -60,7 +61,10 @@ KUrlNavigatorButton::~KUrlNavigatorButton()
 
 void KUrlNavigatorButton::setUrl(const QUrl &url)
 {
+    const quint64 urlVersion = ++m_urlVersion;
     m_url = url;
+    m_targetUrl = QUrl();
+    m_pendingTextChange = false;
 
     // Doing a text-resolving with KIO::stat() for all non-local
     // URLs leads to problems for protocols where a limit is given for
@@ -82,11 +86,22 @@ void KUrlNavigatorButton::setUrl(const QUrl &url)
         m_pendingTextChange = true;
         KIO::StatJob *job = KIO::stat(m_url, KIO::HideProgressInfo);
         job->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
-        connect(job, &KJob::result, this, &KUrlNavigatorButton::statFinished);
+        connect(job, &KJob::result, this, [this, urlVersion](KJob *job) {
+            // A reused button must not accept metadata from a previous URL,
+            // including when it has navigated away and back to the same URL.
+            if (urlVersion == m_urlVersion) {
+                statFinished(job);
+            }
+        });
         Q_EMIT startedTextResolving();
     } else {
         setText(m_url.fileName().replace(QLatin1Char('&'), QLatin1String("&&")));
     }
+}
+
+QUrl KUrlNavigatorButton::targetUrl() const
+{
+    return m_targetUrl;
 }
 
 QUrl KUrlNavigatorButton::url() const
@@ -468,7 +483,7 @@ void KUrlNavigatorButton::slotMenuActionClicked(QAction *action, Qt::MouseButton
 void KUrlNavigatorButton::statFinished(KJob *job)
 {
     const KIO::UDSEntry entry = static_cast<KIO::StatJob *>(job)->statResult();
-
+    m_targetUrl = job->error() ? QUrl() : QUrl(entry.stringValue(KIO::UDSEntry::UDS_TARGET_URL));
     if (m_pendingTextChange) {
         m_pendingTextChange = false;
 

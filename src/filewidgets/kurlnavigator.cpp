@@ -788,7 +788,12 @@ void KUrlNavigatorPrivate::updateButtons(int startIndex)
                 button->installEventFilter(q);
                 button->setForegroundRole(QPalette::WindowText);
                 q->connect(button, &KUrlNavigatorButton::urlsDroppedOnNavButton, q, [this, button](const QUrl &destination, QDropEvent *event) {
-                    dropUrls(destination, event, button);
+                    // Submenu drops name a child, not the button's own directory.
+                    if (destination.matches(button->url(), QUrl::StripTrailingSlash) && !button->targetUrl().isEmpty()) {
+                        dropUrls(button->targetUrl(), event, button);
+                    } else {
+                        dropUrls(destination, event, button);
+                    }
                 });
 
                 auto activatedFunc = [this](const QUrl &url, Qt::MouseButton btn, Qt::KeyboardModifiers modifiers) {
