@@ -48,7 +48,7 @@ public:
 
     /*!
      * \class KIO::FileUndoManager::UiInterface
-     * \inmodule KIOGui
+     * \inmodule KIOWidgets
      *
      * Interface for the gui handling of FileUndoManager.
      * This includes three events currently:
