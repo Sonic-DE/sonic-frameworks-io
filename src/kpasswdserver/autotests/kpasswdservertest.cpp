@@ -13,6 +13,7 @@
 #include <QApplication>
 #include <QDBusConnection>
 #include <QDBusContext>
+#include <QPointer>
 #include <QSignalSpy>
 #include <QTest>
 
@@ -247,8 +248,9 @@ private Q_SLOTS:
         result = KIO::AuthInfo();
         queryAuthWithDialog(server, info, filledInfo, result, s_buttonCancel, QDialog::Accepted /*unused*/, QStringLiteral("Invalid username or password"));
 
-        // wait for the beep notification to auto-close
-        QTest::qWait(1600);
+        // Let the closed retry dialog and its warning notification (sent from a zero timer) finish here.
+        QTRY_VERIFY(!m_retryDialog);
+        QCoreApplication::processEvents();
     }
 
     void testAcceptRetryDialog()
@@ -395,8 +397,10 @@ private Q_SLOTS:
         });
         server.startWalletOpenTimeout();
 
-        // Process the first opening's expired timeout, not the second deadline.
-        QTest::qWait(10);
+        // Process any expired timeout from the first opening; only the second deadline may remain.
+        QCoreApplication::processEvents();
+        QVERIFY(server.m_walletOpenTimer.isActive());
+        QCOMPARE(server.m_walletOpenTimer.interval(), 60000);
         QVERIFY(server.m_walletOpening);
         QVERIFY(!server.m_walletDisabled);
         QVERIFY(secondResults.isEmpty());
@@ -422,7 +426,8 @@ private Q_SLOTS:
         QCOMPARE(results, (QList<bool>{false, false}));
         QVERIFY(!server.m_walletOpening);
         QVERIFY(server.m_walletDisabled);
-        QTest::qWait(10);
+        QVERIFY(!server.m_walletOpenTimer.isActive());
+        QCoreApplication::processEvents();
         QCOMPARE(results.size(), 2);
     }
 
@@ -545,6 +550,8 @@ private Q_SLOTS:
 #endif
 
 private:
+    QPointer<QDialog> m_retryDialog;
+
     // Checks that no auth is available for @p info
     bool noCheckAuth(KPasswdServer &server, const KIO::AuthInfo &info)
     {
@@ -766,6 +773,7 @@ protected Q_SLOTS:
             QDialog *dialog = qobject_cast<QDialog *>(widget);
             if (dialog && !dialog->inherits("KPasswordDialog")) {
                 qDebug() << "Closing dialog" << dialog << "with code" << code;
+                m_retryDialog = dialog;
                 dialog->done(code);
                 return;
             }
