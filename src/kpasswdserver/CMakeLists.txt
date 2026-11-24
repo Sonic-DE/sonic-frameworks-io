@@ -31,15 +31,8 @@ target_sources(kiod_kpasswdserver PRIVATE
     kiod_kpasswdserver.cpp
 )
 
-ecm_qt_export_logging_category(
-    IDENTIFIER category
-    CATEGORY_NAME kf.kio.kpasswdserver
-    OLD_CATEGORY_NAMES org.kde.kio.kpasswdserver
-    DESCRIPTION "KPasswdServer (KIO)"
-    EXPORT KIO
-)
-
 target_link_libraries(kiod_kpasswdserver
+   Sonic::Logging
    KF6::DBusAddons    # KDED Module
    ${DBUS_LIB}
    KF6::KIOCore

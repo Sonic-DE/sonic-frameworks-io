@@ -21,6 +21,10 @@
 #include <KWallet>
 #endif
 
+#include <Sonic/Logging/Log>
+
+SONIC_LOGGING_COMPONENT("org.sonicde.frameworks.io.kpasswdserver.test")
+
 // For the retry dialog (and only that one)
 static QDialogButtonBox::StandardButton s_buttonYes = QDialogButtonBox::Yes;
 static QDialogButtonBox::StandardButton s_buttonCancel = QDialogButtonBox::Cancel;
@@ -751,19 +755,19 @@ protected Q_SLOTS:
         const QList<QWidget *> widgetsList = QApplication::topLevelWidgets();
         for (QWidget *widget : widgetsList) {
             if (KPasswordDialog *dialog = qobject_cast<KPasswordDialog *>(widget)) {
-                qDebug() << "Found dialog" << dialog;
+                sonicDebug() << "Found dialog" << dialog;
                 if (code == QDialog::Accepted) {
                     QCOMPARE(dialog->username(), getUserNameFrom(info));
                     QCOMPARE(dialog->password(), info.password);
                     dialog->setUsername(filledInfo.username);
                     dialog->setPassword(filledInfo.password);
-                    qDebug() << "Filled dialog with" << filledInfo.username << filledInfo.password;
+                    sonicDebug() << "Filled dialog with" << filledInfo.username << filledInfo.password;
                 }
                 dialog->done(code);
                 return;
             }
         }
-        qWarning() << "No KPasswordDialog found!";
+        sonicWarning() << "No KPasswordDialog found!";
     }
 
     void checkRetryDialog(QDialogButtonBox::StandardButton code = s_buttonYes)
@@ -772,13 +776,13 @@ protected Q_SLOTS:
         for (QWidget *widget : widgetsList) {
             QDialog *dialog = qobject_cast<QDialog *>(widget);
             if (dialog && !dialog->inherits("KPasswordDialog")) {
-                qDebug() << "Closing dialog" << dialog << "with code" << code;
+                sonicDebug() << "Closing dialog" << dialog << "with code" << code;
                 m_retryDialog = dialog;
                 dialog->done(code);
                 return;
             }
         }
-        qWarning() << "No retry dialog found";
+        sonicWarning() << "No retry dialog found";
     }
 };
 
