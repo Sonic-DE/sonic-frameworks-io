@@ -164,9 +164,7 @@ if (TARGET KF6::KIOGui)
         set(KPR_TEST_NAME "${ECM_TEST_NAME_PREFIX}${KPR_TEST_TARGET}")
         add_test(NAME ${KPR_TEST_NAME} COMMAND ${KPR_TEST_TARGET})
         set_tests_properties(${KPR_TEST_NAME} PROPERTIES ENVIRONMENT
-          "_KDE_APPLICATIONS_AS_SERVICE=${_service};
-          _KDE_APPLICATIONS_AS_SCOPE=${_scope};
-          _KDE_APPLICATIONS_AS_FORKING=${_forking};"
+          "_KDE_APPLICATIONS_AS_SERVICE=${_service};_KDE_APPLICATIONS_AS_SCOPE=${_scope};_KDE_APPLICATIONS_AS_FORKING=${_forking}"
           )
       endforeach()
     endforeach()
