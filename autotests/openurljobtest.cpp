@@ -66,6 +66,15 @@ void OpenUrlJobTest::initTestCase()
     KConfigGroup grp = mimeAppsCfg.group(QStringLiteral("Default Applications"));
     grp.writeEntry("text/plain", s_tempServiceName);
     grp.writeEntry("text/html", s_tempServiceName);
+    // ftpUrlWithKIO() tests KIO's ftp worker, so no installed application may take ftp URLs.
+    QStringList ftpHandlers;
+    const KService::List ftpServices = KApplicationTrader::queryByMimeType(QStringLiteral("x-scheme-handler/ftp"));
+    for (const KService::Ptr& service : ftpServices) {
+        ftpHandlers.append(service->storageId());
+    }
+    if (!ftpHandlers.isEmpty()) {
+        mimeAppsCfg.group(QStringLiteral("Removed Associations")).writeEntry("x-scheme-handler/ftp", ftpHandlers);
+    }
     grp.sync();
 
     // "text/plain" encompasses all scripts (shell, python, perl)

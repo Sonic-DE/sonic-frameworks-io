@@ -70,6 +70,8 @@ private Q_SLOTS:
     // KIO global tests
     void testIconNameForUrl_data();
     void testIconNameForUrl();
+    void testIconNameForTrashRoot_data();
+    void testIconNameForTrashRoot();
 };
 
 #endif

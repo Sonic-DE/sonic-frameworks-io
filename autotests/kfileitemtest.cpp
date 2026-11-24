@@ -12,6 +12,7 @@
 #include <kfileitemlistproperties.h>
 
 #include "kiotesthelper.h"
+#include <KConfig>
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KSycoca>
@@ -21,6 +22,7 @@
 
 #include <KProtocolInfo>
 #include <QMimeDatabase>
+#include <QScopeGuard>
 #include <QtConcurrentMap>
 
 QTEST_MAIN(KFileItemTest)
@@ -805,8 +807,8 @@ void KFileItemTest::testIconNameForUrl_data()
     QTest::addColumn<QString>("expectedIcon");
 
     QTest::newRow("root") << QUrl("file:/") << "inode-directory"; // the icon comes from KFileItem
-    if (QFile::exists(QStringLiteral("/tmp"))) {
-        QTest::newRow("subdir") << QUrl::fromLocalFile("/tmp") << "folder-temp";
+    if (const QString tempDir = QStandardPaths::writableLocation(QStandardPaths::TempLocation); QFile::exists(tempDir)) {
+        QTest::newRow("subdir") << QUrl::fromLocalFile(tempDir) << "folder-temp";
     }
 
     QTest::newRow("home") << QUrl::fromLocalFile(QDir::homePath()) << "user-home";
@@ -822,7 +824,6 @@ void KFileItemTest::testIconNameForUrl_data()
     QTest::newRow("unknownscheme folder") << QUrl("unknownscheme:/") << "inode-directory";
     QTest::newRow("unknownscheme file") << QUrl("unknownscheme:/test") << "application-octet-stream";
 
-    QTest::newRow("trash:/ itself") << QUrl("trash:/") << "user-trash-full";
     QTest::newRow("folder under trash:/") << QUrl("trash:/folder/") << "inode-directory";
     QTest::newRow("file under trash:/") << QUrl("trash:/test") << "application-octet-stream";
     QTest::newRow("image file under trash:/") << QUrl("trash:/test.png") << "image-png";
@@ -846,6 +847,39 @@ void KFileItemTest::testIconNameForUrl()
         qDebug() << url;
         QCOMPARE(KIO::iconNameForUrl(url), expectedIcon);
     }
+}
+
+void KFileItemTest::testIconNameForTrashRoot_data()
+{
+    QTest::addColumn<bool>("empty");
+    QTest::addColumn<QString>("expectedIcon");
+
+    QTest::newRow("empty") << true << "user-trash";
+    QTest::newRow("full") << false << "user-trash-full";
+}
+
+void KFileItemTest::testIconNameForTrashRoot()
+{
+    QFETCH(bool, empty);
+    QFETCH(QString, expectedIcon);
+
+    // The trash worker records in trashrc whether the trash is empty.
+    KConfig trashConfig(QStringLiteral("trashrc"), KConfig::SimpleConfig);
+    KConfigGroup status = trashConfig.group(QStringLiteral("Status"));
+    const bool hadEntry = status.hasKey("Empty");
+    const bool wasEmpty = status.readEntry("Empty", true);
+    const auto restore = qScopeGuard([&] {
+        if (hadEntry) {
+            status.writeEntry("Empty", wasEmpty);
+        } else {
+            status.deleteEntry("Empty");
+        }
+        trashConfig.sync();
+    });
+    status.writeEntry("Empty", empty);
+    QVERIFY(trashConfig.sync());
+
+    QCOMPARE(KIO::iconNameForUrl(QUrl(QStringLiteral("trash:/"))), expectedIcon);
 }
 
 void KFileItemTest::testMimetypeForRemoteFolder()
