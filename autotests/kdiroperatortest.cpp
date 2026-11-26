@@ -81,9 +81,10 @@ private Q_SLOTS:
         dirOp.setViewMode(KFile::DetailTree);
         completedSpy.wait(1000);
         dirOp.setCurrentItem(QUrl(QStringLiteral("file:///")));
-        dirOp.setCurrentItem(QUrl::fromLocalFile(QFINDTESTDATA("kdiroperatortest.cpp")));
-        // completedSpy.wait(1000);
-        QTest::qWait(1000);
+        const QUrl fileUrl = QUrl::fromLocalFile(QFINDTESTDATA("kdiroperatortest.cpp"));
+        dirOp.setCurrentItem(fileUrl);
+        // The crash happened while the tree expanded to the item; it is selected once that is done.
+        QTRY_VERIFY(dirOp.selectedItems().urlList().contains(fileUrl));
     }
 
     void testSetUrlPathAdjustment_data()

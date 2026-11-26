@@ -60,15 +60,16 @@ void TestTrashDirNotify::testFileCreatedInPhysicalTrash()
 
 void TestTrashDirNotify::testFileRemovedFromPhysicalTrash()
 {
+    org::kde::KDirNotify listener(QString(), QString(), QDBusConnection::sessionBus());
+    QSignalSpy filesChangedSpy(&listener, &org::kde::KDirNotify::FilesChanged);
+
+    // Take the creation's notification first, so the one checked below is the removal's.
     const QString filePath = filesDir() + QStringLiteral("/externally-removed-file");
     QFile file(filePath);
     QVERIFY(file.open(QIODevice::WriteOnly));
     file.close();
-
-    QTest::qWait(200);
-
-    org::kde::KDirNotify listener(QString(), QString(), QDBusConnection::sessionBus());
-    QSignalSpy filesChangedSpy(&listener, &org::kde::KDirNotify::FilesChanged);
+    QVERIFY(filesChangedSpy.wait(5000));
+    filesChangedSpy.clear();
 
     QVERIFY(QFile::remove(filePath));
 

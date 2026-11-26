@@ -838,11 +838,8 @@ void KDirModelTest::testRenameDirectoryInCache() // #188807
     job = KIO::rename(newUrl, url, KIO::HideProgressInfo);
     QVERIFY(job->exec());
 
-    // KDirNotify emits FileRenamed for each rename() above, which in turn
-    // re-lists the directory. We need to wait for both signals to be emitted
-    // otherwise the dirlister will not be in the state we expect.
-    QTest::qWait(200);
-
+    // No FileRenamed is sent for these renames: the trailing slash of url gives the two URLs different
+    // parent folders. fillModel() lists the directory again.
     fillModel(true);
 
     QVERIFY(m_dirIndex.isValid());
@@ -981,7 +978,8 @@ void KDirModelTest::testExpandToUrl()
     QVERIFY(QFileInfo::exists(m_urlToExpandTo.toLocalFile()));
     m_dirModelForExpand->expandToUrl(m_urlToExpandTo);
     if (expectedExpandSignals.isEmpty()) {
-        QTest::qWait(20); // to make sure we process queued connection calls, otherwise spyExpand.count() is always 0 even if there's a bug...
+        // Process queued connection calls, otherwise spyExpand.count() is always 0 even if there's a bug.
+        QCoreApplication::processEvents();
         QCOMPARE(spyExpand.count(), 0);
     } else {
         if (spyExpand.count() < expectedExpandSignals.count()) {
@@ -1393,10 +1391,16 @@ void KDirModelTest::testDotHiddenFile()
 
     const QString path = m_tempDir->path() + '/';
     const QString dotHiddenFile = path + ".hidden";
-    QTest::qWait(1000); // mtime-based cache, so we need to wait for 1 second
+    // The .hidden cache keeps the mtime of the file each row wrote (and removed), and only rereads a newer one.
+    static QDateTime lastMTime;
     QFile dh(dotHiddenFile);
     QVERIFY(dh.open(QIODevice::WriteOnly));
     dh.write(fileContents.join('\n').toUtf8());
+    QVERIFY(dh.flush());
+    if (lastMTime.isValid() && dh.fileTime(QFileDevice::FileModificationTime) <= lastMTime) {
+        QVERIFY(dh.setFileTime(lastMTime.addMSecs(1), QFileDevice::FileModificationTime));
+    }
+    lastMTime = dh.fileTime(QFileDevice::FileModificationTime);
     dh.close();
 
     // Do it twice: once to read from the file and once to use the cache
@@ -1714,16 +1718,14 @@ void KDirModelTest::testDeleteFiles()
     KIO::DeleteJob *job = KIO::del(urls, KIO::HideProgressInfo);
     QVERIFY(job->exec());
 
-    int numRowsRemoved = 0;
-    while (numRowsRemoved < 3) {
-        QTest::qWait(20);
-
-        numRowsRemoved = 0;
-        for (int sigNum = 0; sigNum < spyRowsRemoved.count(); ++sigNum) {
-            numRowsRemoved += spyRowsRemoved[sigNum][2].toInt() - spyRowsRemoved[sigNum][1].toInt() + 1;
+    const auto numRowsRemoved = [&spyRowsRemoved] {
+        int removed = 0;
+        for (const QList<QVariant>& signal : std::as_const(spyRowsRemoved)) {
+            removed += signal[2].toInt() - signal[1].toInt() + 1;
         }
-        // qDebug() << "numRowsRemoved=" << numRowsRemoved;
-    }
+        return removed;
+    };
+    QTRY_VERIFY(numRowsRemoved() >= 3);
 
     const int topLevelRowCount = m_dirModel->rowCount();
     QCOMPARE(topLevelRowCount, oldTopLevelRowCount - 3); // three less than before

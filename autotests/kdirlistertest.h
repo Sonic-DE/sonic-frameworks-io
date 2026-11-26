@@ -139,8 +139,7 @@ private:
     QString tempPath() const;
     void createSimpleFile(const QString &fileName);
     void fillDirLister2(MyDirLister &lister, const QString &path);
-    void waitUntilMTimeChange(const QString &path);
-    void waitUntilAfter(const QDateTime &ctime);
+    void setLaterMTime(const QString& path, const QDateTime& before);
 
 private:
     int m_exitCount;

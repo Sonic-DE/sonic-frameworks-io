@@ -8,16 +8,20 @@
 
 #include <QDir>
 #include <QDirIterator>
-#include <QElapsedTimer>
 #include <QFile>
+#include <QPointer>
 #include <QSignalSpy>
 #include <QTemporaryDir>
 #include <QTest>
+#include <QThread>
 #include <QTimer>
 #include <QUrl>
 
 #include <kio/deletejob.h>
 #include <kio/simplejob.h>
+
+#include "job_p.h"
+#include "worker_p.h"
 
 #ifndef Q_OS_WIN
 #include <unistd.h>
@@ -227,11 +231,6 @@ void DeleteJobTest::killedRecursiveDeletionStopsEarly()
         }
     }
 
-    // The deletion reports the bytes it frees as it goes, and SlaveBase lets a report through only
-    // once 100 ms have passed since the last one. This worker served the tests before, so the
-    // window is given time to clear before the job starts or there is nothing to count.
-    QTest::qWait(150);
-
     KIO::SimpleJob *job = KIO::rmdir(QUrl::fromLocalFile(root));
     job->setUiDelegate(nullptr);
     job->addMetaData(QStringLiteral("recurse"), QStringLiteral("true"));
@@ -247,10 +246,15 @@ void DeleteJobTest::killedRecursiveDeletionStopsEarly()
     // kill now lands inside deleteRecursive(). The kill also waits for the first byte report, because
     // the job drops the reports that it has not read from the worker when it is killed.
     bool killed = false;
+    QPointer<QThread> workerThread;
     QTimer watcher;
     connect(&watcher, &QTimer::timeout, job, [&]() {
         if (!killed && byteReports > 0 && QDir(root).entryList(QDir::Dirs | QDir::NoDotAndDotDot).count() < subdirectories) {
             killed = true;
+            // The in-process worker's thread is a child of its Worker until the kill hands it to the reaper.
+            if (KIO::Worker* worker = KIO::SimpleJobPrivate::get(job)->m_worker) {
+                workerThread = worker->findChild<QThread*>();
+            }
             job->kill(KJob::EmitResult);
         }
     });
@@ -265,17 +269,11 @@ void DeleteJobTest::killedRecursiveDeletionStopsEarly()
                             .arg(job->error())
                             .arg(job->errorString())));
 
-    // The job reports at once, but the worker runs on until deleteRecursive() returns. Wait for
-    // the count to settle, so that what is checked is where the worker stopped.
-    int remaining = countFiles(root);
-    int previous = -1;
-    QElapsedTimer settle;
-    settle.start();
-    while (remaining != previous && settle.elapsed() < 30000) {
-        previous = remaining;
-        QTest::qWait(200);
-        remaining = countFiles(root);
-    }
+    // The job reports at once, but the worker runs on until deleteRecursive() returns. Its thread is
+    // deleted once it has finished, so wait for that before counting where the worker stopped.
+    QVERIFY(workerThread);
+    QTRY_VERIFY_WITH_TIMEOUT(workerThread.isNull(), 30000);
+    const int remaining = countFiles(root);
 
     QVERIFY2(remaining > 0, qPrintable(QStringLiteral("expected files to remain after cancel, %1 of %2 left").arg(remaining).arg(created)));
 }

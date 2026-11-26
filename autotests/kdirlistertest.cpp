@@ -30,6 +30,9 @@
 #include <QDebug>
 #include <QTest>
 
+#include <utime.h>
+
+#include <algorithm>
 #include <atomic>
 #include <optional>
 
@@ -337,7 +340,8 @@ void KDirListerTest::testNewItems()
     for (int i = 50; i > 0; i--) {
         createSimpleFile(path + QString("toplevelfile_new_%1").arg(i));
     }
-    QTest::qWait(1000); // Create them with 1s difference
+    // Create the second half after the lister has seen the first.
+    QTRY_COMPARE(m_items.count(), 55);
     for (int i = 100; i > 50; i--) {
         createSimpleFile(path + QString("toplevelfile_new_%1").arg(i));
     }
@@ -386,8 +390,6 @@ void KDirListerTest::testNewItemByCopy()
     const QString path = tempPath();
     connect(&m_dirLister, &KCoreDirLister::newItems, this, &KDirListerTest::slotNewItems);
 
-    QTest::qWait(1000); // We need a 1s timestamp difference on the dir, otherwise FAM won't notice anything.
-
     const QString fileName = QStringLiteral("toplevelfile_copy");
     const QUrl itemUrl = QUrl::fromLocalFile(path + fileName);
     KIO::CopyJob *job = KIO::copyAs(QUrl::fromLocalFile(path + "toplevelfile_3"), itemUrl, KIO::HideProgressInfo);
@@ -404,9 +406,6 @@ void KDirListerTest::testNewItemByCopy()
     QCOMPARE(m_dirLister.spyClear.count(), 0);
 
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
-
-    // Give some time to KDirWatch
-    QTest::qWait(1000);
 
     KFileItem itemForUrl = KDirLister::cachedItemForUrl(itemUrl);
     QVERIFY(!itemForUrl.isNull());
@@ -474,8 +473,6 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
     QTRY_COMPARE(m_items.count(), origItemCount);
     QTRY_VERIFY(dirLister2.isFinished());
 
-    QTest::qWait(1000); // We need a 1s timestamp difference on the dir, otherwise FAM won't notice anything.
-
     qDebug() << "Creating new file";
     const QString fileName = QStringLiteral("toplevelfile_newinlink");
     createSimpleFile(path + fileName);
@@ -498,7 +495,6 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
     // Test file deletion
     {
         qDebug() << "Deleting" << (path + fileName);
-        QTest::qWait(1000); // for timestamp difference
         QFile::remove(path + fileName);
         QTRY_COMPARE_WITH_TIMEOUT(dirLister2.spyItemsDeleted.count(), 1, 1000);
         QTRY_COMPARE_WITH_TIMEOUT(m_dirLister.spyItemsDeleted.count(), 1, 1000);
@@ -511,7 +507,6 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
     // Test file deletion in symlink dir #469254
     {
         qDebug() << "Deleting" << (symPath + "/" + fileName2);
-        QTest::qWait(1000); // for timestamp difference
         QFile::remove(symPath + "/" + fileName2);
 
         QTRY_COMPARE_WITH_TIMEOUT(m_dirLister.spyItemsDeleted.count(), 1, 1000);
@@ -590,9 +585,10 @@ void KDirListerTest::testRefreshRootItem()
     fillDirLister2(dirLister2, path);
 
     // Change the subdir by creating a file in it
-    waitUntilMTimeChange(path);
+    const QDateTime subdirMTime = QFileInfo(path).lastModified();
     const QString foobar = path + "/.foobar";
     createSimpleFile(foobar);
+    setLaterMTime(path, subdirMTime);
 
     connect(&m_dirLister, &KCoreDirLister::refreshItems, this, &KDirListerTest::slotRefreshItems);
 
@@ -626,12 +622,15 @@ void KDirListerTest::testRefreshRootItem()
     m_refreshedItems.clear();
     m_refreshedItems2.clear();
 
-    waitUntilMTimeChange(path);
+    const QDateTime subdirMTimeBeforeDirectoryFile = QFileInfo(path).lastModified();
     const QString directoryFile = path + "/.directory";
     createSimpleFile(directoryFile);
+    setLaterMTime(path, subdirMTimeBeforeDirectoryFile);
 
+    const qsizetype completedBefore = dirLister2.spyCompleted.count();
     org::kde::KDirNotify::emitFilesAdded(QUrl::fromLocalFile(path));
-    QTest::qWait(200);
+    // Let the update of the subdir that FilesAdded starts finish first.
+    QTRY_VERIFY(dirLister2.spyCompleted.count() > completedBefore);
     // The order of these two is not deterministic
     org::kde::KDirNotify::emitFilesChanged(QList<QUrl>{QUrl::fromLocalFile(directoryFile)});
     org::kde::KDirNotify::emitFilesChanged(QList<QUrl>{QUrl::fromLocalFile(path)});
@@ -745,11 +744,14 @@ void KDirListerTest::testRenameAndOverwrite() // has to be run after testRenameI
     const QString path = dirPath + "toplevelfile_2";
     createTestFile(path);
 
-    KFileItem existingItem;
-    while (existingItem.isNull()) {
-        QTest::qWait(100);
-        existingItem = m_dirLister.findByUrl(QUrl::fromLocalFile(path));
-    };
+    // Wait until the lister holds the finished file, so later updates from its creation refresh nothing.
+    const QFileInfo createdFile(path);
+    QTRY_VERIFY([&] {
+        const KFileItem item = m_dirLister.findByUrl(QUrl::fromLocalFile(path));
+        return !item.isNull() && item.size() == KIO::filesize_t(createdFile.size())
+            && item.time(KFileItem::ModificationTime).toSecsSinceEpoch() == createdFile.lastModified().toSecsSinceEpoch();
+    }());
+    const KFileItem existingItem = m_dirLister.findByUrl(QUrl::fromLocalFile(path));
     QCOMPARE(existingItem.url().toLocalFile(), path);
 
     m_refreshedItems.clear();
@@ -852,10 +854,8 @@ void KDirListerTest::testConcurrentListing()
     QCOMPARE(dirLister2.spyClearDir.count(), 0);
 
     QCOMPARE(m_items2.count(), origItemCount);
-    if (!m_dirLister.isFinished()) { // false when an update is running because subdir is already in cache
-        // TODO check why this fails QVERIFY(m_dirLister.spyCanceled.wait(1000));
-        QTest::qWait(1000);
-    }
+    // An update can still be running because subdir is already in cache.
+    QTRY_VERIFY(m_dirLister.isFinished());
 
     disconnect(&m_dirLister, nullptr, this, nullptr);
     disconnect(&dirLister2, nullptr, this, nullptr);
@@ -1139,14 +1139,18 @@ void KDirListerTest::testBug211472()
     m_items.clear();
 
     // Create a file in 'newsubdir' while we are listing its parent dir.
+    QSignalSpy dirtySpy(KDirWatch::self(), &KDirWatch::dirty);
     createTestFile(path + "newFile-1");
     // At this point, newsubdir is not used, so it's moved to the cache.
     // This happens in checkUpdate, called when receiving a notification for the cached dir,
     // this is why this unittest needs to create a test file in the subdir.
 
-    // wait a second and ensure the list is still empty afterwards
-    QTest::qWait(1000);
-    QTRY_VERIFY(m_items.isEmpty());
+    // The cache handles KDirWatch's notification before this spy does; the list stays empty after it.
+    const QString watchedPath = QDir::cleanPath(path);
+    QTRY_VERIFY(std::any_of(dirtySpy.cbegin(), dirtySpy.cend(), [&watchedPath](const QList<QVariant>& arguments) {
+        return arguments.at(0).toString() == watchedPath;
+    }));
+    QVERIFY(m_items.isEmpty());
 
     // Return to 'newsubdir'. It will be emitted from the cache, then an update will happen.
     dirLister.openUrl(QUrl::fromLocalFile(path));
@@ -1159,8 +1163,6 @@ void KDirListerTest::testBug211472()
 
     // Now try to create a second file in 'newsubdir' and verify that the
     // dir lister notices it.
-    QTest::qWait(1000); // We need a 1s timestamp difference on the dir, otherwise FAM won't notice anything.
-
     createTestFile(path + "newFile-2");
     QTRY_COMPARE(m_items.count(), 1);
 
@@ -1484,13 +1486,15 @@ void KDirListerTest::testCopyAfterListingAndMove() // #353195
     QVERIFY(spyCompleted.wait());
 
     // Move b into a
+    const qsizetype completedBeforeMove = spyCompleted.count();
     KIO::Job *moveJob = KIO::move(QUrl::fromLocalFile(dirB), QUrl::fromLocalFile(dirA));
     moveJob->setUiDelegate(nullptr);
     QVERIFY(moveJob->exec());
     QVERIFY(QFileInfo(tempPath() + "a/b").isDir());
 
-    // Give some time to processPendingUpdates
-    QTest::qWait(1000);
+    // Let the update that KDirWatch schedules for the move run.
+    QTRY_VERIFY(spyCompleted.count() > completedBeforeMove);
+    QTRY_VERIFY(m_dirLister.isFinished());
 
     // Copy folder a elsewhere
     const QString dest = tempPath() + "subdir";
@@ -1549,7 +1553,8 @@ void KDirListerTest::testRenameDirectory() // #401552
         // Do the rename
         job = KIO::rename(QUrl::fromLocalFile(currDir), QUrl::fromLocalFile(newDir), KIO::HideProgressInfo);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
-        QTest::qWait(500); // Without the delay the crash doesn't happen
+        // The crash needs the lister to follow the rename before the next one.
+        QTRY_COMPARE(m_dirLister.url().adjusted(QUrl::StripTrailingSlash), QUrl::fromLocalFile(newDir));
         currDir = newDir;
     }
 
@@ -1714,34 +1719,16 @@ void KDirListerTest::fillDirLister2(MyDirLister &lister, const QString &path)
     QTRY_VERIFY(lister.isFinished());
 }
 
-void KDirListerTest::waitUntilMTimeChange(const QString &path)
+void KDirListerTest::setLaterMTime(const QString& path, const QDateTime& before)
 {
-    // Wait until the current second is more than the file's mtime
-    // otherwise this change will go unnoticed
-
-    QFileInfo fi(path);
-    QVERIFY(fi.exists());
-    const QDateTime mtime = fi.lastModified();
-    waitUntilAfter(mtime);
-}
-
-void KDirListerTest::waitUntilAfter(const QDateTime &ctime)
-{
-    int totalWait = 0;
-    QDateTime now;
-    Q_FOREVER {
-        now = QDateTime::currentDateTime();
-        if (now.toSecsSinceEpoch() == ctime.toSecsSinceEpoch()) { // truncate milliseconds
-            totalWait += 50;
-            QTest::qWait(50);
-        } else {
-            QVERIFY(now > ctime); // can't go back in time ;)
-            QTest::qWait(50); // be safe
-            break;
-        }
+    // KIO entries carry whole seconds, so a change within the same second would go unnoticed.
+    QVERIFY(QFileInfo::exists(path));
+    if (QFileInfo(path).lastModified().toSecsSinceEpoch() > before.toSecsSinceEpoch()) {
+        return;
     }
-    // if (totalWait > 0)
-    qDebug() << "Waited" << totalWait << "ms so that now" << now.toString(Qt::ISODate) << "is >" << ctime.toString(Qt::ISODate);
+    struct utimbuf times;
+    times.actime = times.modtime = before.toSecsSinceEpoch() + 1;
+    QCOMPARE(::utime(QFile::encodeName(path).constData(), &times), 0);
 }
 
 // A bug in the decAutoUpdate/incAutoUpdate logic made KDirLister stop watching a directory for changes,
@@ -1872,14 +1859,16 @@ void KDirListerTest::testUnreadableParentDirectory()
     QVERIFY(KDirWatch::self()->contains(visiblePath));
 
     // Wait until the time changes so the cache will have to be updated
-    waitUntilMTimeChange(hiddenPath);
+    const QDateTime hiddenMTime = QFileInfo(hiddenPath).lastModified();
     const QString hiddenFile = hiddenPath + "/aaaa";
     createSimpleFile(hiddenFile);
+    setLaterMTime(hiddenPath, hiddenMTime);
 
     // Add a file to have difference between old and new cache data
-    waitUntilMTimeChange(visiblePath);
+    const QDateTime visibleMTime = QFileInfo(visiblePath).lastModified();
     const QString visibleFile = visiblePath + "/bbbb";
     createSimpleFile(visibleFile);
+    setLaterMTime(visiblePath, visibleMTime);
     // Make sure we emit files changed so the cache will be re-read
     org::kde::KDirNotify::emitFilesChanged(QList<QUrl>{QUrl::fromLocalFile(visiblePath), QUrl::fromLocalFile(hiddenPath)});
 #endif

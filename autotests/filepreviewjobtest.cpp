@@ -33,7 +33,9 @@
 #include <QTemporaryFile>
 #include <QTest>
 #include <QThread>
+
 #include <QTimer>
+#include <atomic>
 
 #include <sys/stat.h>
 #ifndef Q_OS_WIN
@@ -66,6 +68,9 @@ namespace
 // A remote file, kio-test://host/<name>, that a preview has to download first.
 // "fails.mp4" sends 8 KiB, then the transfer breaks. "slow.mp4" sends 8 KiB every 20 ms until the
 // transfer is killed, or for 1 s.
+std::atomic<int> s_slowDownloadsRunning{0};
+std::atomic<bool> s_slowDownloadWasKilled{false};
+
 class DownloadWorker : public KIO::WorkerBase
 {
 public:
@@ -92,10 +97,13 @@ public:
         if (url.fileName() == QLatin1String("fails.mp4")) {
             return KIO::WorkerResult::fail(KIO::ERR_CONNECTION_BROKEN, url.toDisplayString());
         }
+        ++s_slowDownloadsRunning;
         for (int i = 0; i < 50 && !wasKilled(); ++i) {
             QThread::msleep(20);
             data(chunk);
         }
+        s_slowDownloadWasKilled = wasKilled();
+        --s_slowDownloadsRunning;
         data(QByteArray());
         return KIO::WorkerResult::pass();
     }
@@ -183,7 +191,7 @@ void FilePreviewJobTest::testTimeoutTimerStoppedOnFinish()
 
     // It must also not fire afterwards: spinning the event loop must not produce
     // a second result (the old code re-entered emitResult() via slotTimeout()).
-    QTest::qWait(50);
+    QCoreApplication::processEvents();
     QCOMPARE(resultSpy.count(), 1);
 
     delete job;
@@ -860,8 +868,9 @@ void FilePreviewJobTest::testAKilledPreviewStopsItsDownload()
     QVERIFY(job->kill());
     job.reset();
 
-    // A download that went on would complete within 1 s and leave the whole file.
-    QTest::qWait(1500);
+    // The download stops early only when the kill reaches it; otherwise it would run its whole 1 s.
+    QTRY_COMPARE(s_slowDownloadsRunning.load(), 0);
+    QVERIFY(s_slowDownloadWasKilled.load());
     QTRY_VERIFY(!QFileInfo::exists(copy));
     QTRY_VERIFY(QDir(localCopiesOfThisProcess()).isEmpty());
 }

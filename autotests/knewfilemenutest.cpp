@@ -36,7 +36,18 @@
 #include <sys/types.h>
 #endif
 
+#include <QTimer>
+
 #include <algorithm>
+
+// The dialog checks the typed name from a short single-shot timer of the menu.
+static bool nameCheckDone(const KNewFileMenu& menu)
+{
+    const auto timers = menu.findChildren<QTimer*>();
+    return std::none_of(timers.cbegin(), timers.cend(), [](const QTimer* timer) {
+        return timer->isSingleShot() && timer->isActive();
+    });
+}
 
 class KNewFileMenuTest : public QObject
 {
@@ -509,8 +520,7 @@ private Q_SLOTS:
 
         lineEdit->setText(typedFilename);
         if (filenameAllowed) {
-            // Give the delayed check of the name the time to run.
-            QTest::qWait(500);
+            QTRY_VERIFY(nameCheckDone(menu));
             QVERIFY(okButton->isEnabled());
             QVERIFY(!msgWidget->text().contains(QLatin1String("does not allow these characters")));
         } else {

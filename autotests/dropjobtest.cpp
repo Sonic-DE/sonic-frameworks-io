@@ -54,14 +54,11 @@ public:
     // like job->exec(), but with a timeout (to avoid being stuck with a popup grabbing mouse and keyboard...)
     bool waitForResult()
     {
-        // implementation taken from QTRY_COMPARE, to move the QVERIFY to the caller
-        if (m_spy.isEmpty()) {
-            QTest::qWait(0);
-        }
-        for (int i = 0; i < 5000 && m_spy.isEmpty(); i += 50) {
-            QTest::qWait(50);
-        }
-        return !m_spy.isEmpty();
+        return QTest::qWaitFor(
+            [this] {
+                return !m_spy.isEmpty();
+            },
+            5000);
     }
     int error() const
     {

@@ -334,7 +334,6 @@ void KFilePlacesModelTest::testAddingInLaterVersion()
         std::function<void()> func;
     } cleanup(cleanupFunc);
 
-    QTest::qWait(1000); // for KDirWatch
     QSignalSpy spy(&mgr, &KBookmarkManager::changed);
 
     // WHEN

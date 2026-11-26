@@ -118,10 +118,7 @@ void KUrlCompletionTest::teardown()
 
 void KUrlCompletionTest::waitForCompletion(KUrlCompletion *completion)
 {
-    while (completion->isRunning()) {
-        qDebug() << "waiting for thread...";
-        QTest::qWait(5);
-    }
+    QTRY_VERIFY(!completion->isRunning());
     // The thread emitted a signal, process it.
     qApp->sendPostedEvents(nullptr, QEvent::MetaCall);
 }

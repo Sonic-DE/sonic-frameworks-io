@@ -33,6 +33,7 @@ struct SlowWorkerControl {
     QWaitCondition cond;
     std::atomic<bool> inListDir{false};
     bool release = false;
+    QPointer<QThread> thread; // the worker's thread, cleared once it has been deleted
 };
 SlowWorkerControl g_slowWorker;
 }
@@ -206,6 +207,10 @@ void KIOThreadTest::cancelDuringSlowWorkerDoesNotBlock()
                 }
                 KIO::WorkerResult listDir(const QUrl &) override
                 {
+                    {
+                        QMutexLocker lock(&g_slowWorker.mutex);
+                        g_slowWorker.thread = QThread::currentThread();
+                    }
                     g_slowWorker.inListDir.store(true);
                     QMutexLocker lock(&g_slowWorker.mutex);
                     while (!g_slowWorker.release) {
@@ -251,8 +256,11 @@ void KIOThreadTest::cancelDuringSlowWorkerDoesNotBlock()
     QVERIFY(killReturned);
 
     // The worker thread is reaped asynchronously (QThread::finished -> deleteLater). Now that it is
-    // released, spin the loop so it finishes and is deleted before teardown (no false leak report).
-    QTest::qWait(300);
+    // released, spin the loop until it has finished and been deleted (no false leak report at teardown).
+    QVERIFY(QTest::qWaitFor([] {
+        QMutexLocker lock(&g_slowWorker.mutex);
+        return g_slowWorker.thread.isNull();
+    }));
 }
 
 void KIOThreadTest::cancelDoesNotFlushUnrelatedDeferredDeletes()
