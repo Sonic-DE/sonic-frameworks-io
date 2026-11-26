@@ -300,11 +300,13 @@ void KUriFilterTest::shortUris_data()
     addRow("ftp://ftp.kde.org", QStringLiteral("ftp://ftp.kde.org"), KUriFilterData::NetProtocol);
     addRow("ftp://username@ftp.kde.org:500", QStringLiteral("ftp://username@ftp.kde.org:500"), KUriFilterData::NetProtocol);
 
-    // ShortURI/LocalDomain filter tests.
-    addRow("linuxtoday.com", QStringLiteral("https://linuxtoday.com"), KUriFilterData::NetProtocol);
-    addRow("LINUXTODAY.COM", QStringLiteral("https://linuxtoday.com"), KUriFilterData::NetProtocol);
-    addRow("kde.org", QStringLiteral("https://kde.org"), KUriFilterData::NetProtocol);
-    addRow("cr.yp.to", QStringLiteral("https://cr.yp.to"), KUriFilterData::NetProtocol);
+    // ShortURI/LocalDomain filter tests. Only the short URI filter: the fixhost filter looks the
+    // host up and adds "www." when the lookup fails, so these rows would depend on live DNS.
+    const QStringList shortUriFilter{QStringLiteral("kshorturifilter")};
+    addRow("linuxtoday.com", QStringLiteral("https://linuxtoday.com"), KUriFilterData::NetProtocol, shortUriFilter);
+    addRow("LINUXTODAY.COM", QStringLiteral("https://linuxtoday.com"), KUriFilterData::NetProtocol, shortUriFilter);
+    addRow("kde.org", QStringLiteral("https://kde.org"), KUriFilterData::NetProtocol, shortUriFilter);
+    addRow("cr.yp.to", QStringLiteral("https://cr.yp.to"), KUriFilterData::NetProtocol, shortUriFilter);
     addRow("www.kde.org:21", QStringLiteral("https://www.kde.org:21"), KUriFilterData::NetProtocol);
     // This one passes but the DNS lookup takes 5 seconds to fail
     // addRow("foobar.local:8000", QStringLiteral("https://foobar.local:8000"), KUriFilterData::NetProtocol);
