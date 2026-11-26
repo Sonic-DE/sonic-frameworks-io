@@ -517,6 +517,7 @@ void SlaveBase::error(int _errid, const QString &_text)
     send(MSG_ERROR, TaskError{static_cast<qint32>(_errid), _text});
     // reset
     d->totalSize = 0;
+    d->lastTimeout.invalidate(); // the next command's first progress report goes through
     d->inOpenLoop = false;
 }
 
@@ -575,6 +576,7 @@ void SlaveBase::finished()
 
     // reset
     d->totalSize = 0;
+    d->lastTimeout.invalidate(); // the next command's first progress report goes through
     d->inOpenLoop = false;
     d->m_rootEntryListed = false;
 }

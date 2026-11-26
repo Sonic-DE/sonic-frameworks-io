@@ -5,6 +5,7 @@ Sonic Frameworks IO is the file access layer behind SonicDE, letting apps open, 
 ## Unreleased
 
 - Opening a remote file in an app that can't read it directly now hands the downloaded copy to the background helper every time, instead of leaving a copy around for three minutes and asking twice whether to upload changes when the helper wasn't running yet.
+- A file operation started right after another one now shows its progress from the start, instead of sometimes skipping the first update.
 - Behind the scenes: the password manager service now writes its messages to the SonicDE log, alongside the rest of the desktop's.
 
 ## 6.31.0.1 (2026-11-10)
