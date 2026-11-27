@@ -3670,10 +3670,11 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Yeni Klasör Oluştur"
 
-#: filewidgets/knewfilemenu.cpp:1471
-#, kde-format
-msgid "Create new folder in %1:"
-msgstr "%1 içinde yeni klasör oluştur:"
+#: filewidgets/knewfilemenu.cpp:1524
+#, kde-kuit-format
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
+msgstr "<filename>%1</filename> içinde yeni klasör oluştur:"
 
 #: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
@@ -5283,11 +5284,13 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:773
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "Klasörü B&irlikte Aç…"
+msgid_plural "&Open Folders With…"
+msgstr[0] "Klasörü Birlikte &Aç…"
+msgstr[1] "Klasörleri Birlikte &Aç…"
 
 #: widgets/kfileitemactions.cpp:767
 #, kde-format
@@ -5301,10 +5304,13 @@ msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&Yürütülebiliri Çalıştır"
 
-#: widgets/kfileitemactions.cpp:847
+#: widgets/kfileitemactions.cpp:845
 #, kde-format
-msgid "&Open folder with %1"
-msgstr "Klasörü %1 ile &Aç"
+msgctxt "@action:inmenu"
+msgid "&Open folder with %2"
+msgid_plural "&Open folders with %2"
+msgstr[0] "Klasörü %2 ile &Aç"
+msgstr[1] "Klasörleri %2 ile &Aç"
 
 #: widgets/kfileitemactions.cpp:847
 #, kde-format
@@ -5315,7 +5321,9 @@ msgstr "%1 &ile Aç"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "Klasörü B&irlikte Aç"
+msgid_plural "&Open Folders With"
+msgstr[0] "Klasörü Birlikte &Aç"
+msgstr[1] "Klasörleri Birlikte &Aç"
 
 #: widgets/kfileitemactions.cpp:879
 #, kde-format

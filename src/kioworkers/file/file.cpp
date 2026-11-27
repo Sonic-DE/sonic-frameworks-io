@@ -23,6 +23,8 @@
 #include <cerrno>
 #ifndef Q_OS_WIN
 #include <fcntl.h>
+#include <optional>
+#include <sys/statvfs.h>
 #include <utime.h>
 #endif
 
@@ -185,10 +187,32 @@ WorkerResult FileProtocol::chmod(const QUrl &_url, int permissions)
     return WorkerResult::pass();
 }
 
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_HAIKU)
+// The time of dateTime to the millisecond. tv_nsec stays positive for a time before 1970.
+static timespec toTimespec(const QDateTime &dateTime)
+{
+    const qint64 msecs = dateTime.toMSecsSinceEpoch();
+    qint64 secs = msecs / 1000;
+    qint64 remainder = msecs % 1000;
+    if (remainder < 0) {
+        remainder += 1000;
+        --secs;
+    }
+    return timespec{static_cast<time_t>(secs), static_cast<long>(remainder * 1000000)};
+}
+#endif
+
 WorkerResult FileProtocol::setModificationTime(const QUrl &_url, const QDateTime &mtime)
 {
     const QUrl url = localFileWithoutHostname(_url);
     const QString path(url.toLocalFile());
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_HAIKU)
+    // UTIME_OMIT leaves the access time as it is, to the nanosecond.
+    const struct timespec times[2] = {{0, UTIME_OMIT}, toTimespec(mtime)};
+    if (::utimensat(AT_FDCWD, QFile::encodeName(path).constData(), times, 0) != 0) {
+        return WorkerResult::fail(errno == ENOENT ? KIO::ERR_DOES_NOT_EXIST : KIO::ERR_CANNOT_SETTIME, path);
+    }
+#else
     QT_STATBUF statbuf;
     if (QT_LSTAT(QFile::encodeName(path).constData(), &statbuf) != 0) {
         return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, path);
@@ -204,6 +228,7 @@ WorkerResult FileProtocol::setModificationTime(const QUrl &_url, const QDateTime
     if (::utime(QFile::encodeName(path).constData(), &utbuf) != 0) {
         return WorkerResult::fail(KIO::ERR_CANNOT_SETTIME, path);
     }
+#endif
 #endif
     return WorkerResult::pass();
 }
@@ -264,6 +289,19 @@ WorkerResult FileProtocol::mkdir(const QUrl &_url, int permissions)
             qCWarning(KIO_FILE) << "Couldn't chown directory in mkdir, path:" << path << ". Error:" << errno;
         }
     }
+
+#if HAVE_SYS_XATTR_H || HAVE_SYS_EXTATTR_H
+    // The folder a copy creates takes the user attributes of its source, such as view properties or tags.
+    // ACLs are left out: the new folder inherits them from its parent, as a new file does.
+    const QString xattrSource = metaData(QStringLiteral("copy-xattrs-from"));
+    if (!xattrSource.isEmpty()) {
+        const int sourceFd = QT_OPEN(QFile::encodeName(xattrSource).constData(), O_RDONLY | O_DIRECTORY | O_CLOEXEC);
+        if (sourceFd != -1) {
+            copyXattrs(sourceFd, fd, XattrNamespaces::User);
+            QT_CLOSE(sourceFd);
+        }
+    }
+#endif
 
     QT_CLOSE(fd);
 #else
@@ -615,6 +653,9 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
     int error = 0;
     QString dest;
     QFile f;
+#ifndef Q_OS_WIN
+    std::optional<DestinationWriteback> writeback;
+#endif
 
     // Loop until we got 0 (end of data)
     do {
@@ -658,6 +699,11 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
                         f.setPermissions(modeToQFilePermissions(initialMode));
                     }
                 }
+#ifndef Q_OS_WIN
+                writeback.emplace(f.handle(), QFileInfo(dest).absolutePath(), [this] {
+                    return wasKilled();
+                });
+#endif
             }
 
             if (f.write(buffer) == -1) {
@@ -669,6 +715,13 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
                     error = KIO::ERR_CANNOT_WRITE;
                 }
             }
+#ifndef Q_OS_WIN
+            // The window writes back what reached the file, so the buffer of f is written first.
+            if (error == 0 && writeback->isActive() && (!f.flush() || !writeback->advance(f.pos()))) {
+                error = (errno == ENOSPC || errno == EDQUOT) ? KIO::ERR_DISK_FULL : KIO::ERR_CANNOT_WRITE;
+                result = -1;
+            }
+#endif
         } else {
             qCWarning(KIO_FILE) << "readData() returned" << result;
             error = KIO::ERR_CANNOT_WRITE;
@@ -696,6 +749,29 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
         return WorkerResult::pass();
     }
 
+    const QString mtimeStr = metaData(QStringLiteral("modified"));
+    const QDateTime mtime = mtimeStr.isEmpty() ? QDateTime() : QDateTime::fromString(mtimeStr, Qt::ISODate);
+
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_HAIKU)
+    // Owner, group and modification time go on the open file. The buffered data is written first,
+    // so no later write changes the modification time. A flush error shows in f.error() after close.
+    f.flush();
+    if (bOrigExists && ::fchown(f.handle(), owner, group) < 0) {
+        warning(i18nc("@info", "Could not change owner and group for\n%1", dest_orig));
+    }
+    if (mtime.isValid()) {
+        // UTIME_OMIT leaves the access time as it is, to the nanosecond.
+        const struct timespec times[2] = {{0, UTIME_OMIT}, toTimespec(mtime)};
+        ::futimens(f.handle(), times);
+    }
+#endif
+
+#ifndef Q_OS_WIN
+    if (!f.flush() || !writeback->flushLargeFile(f.pos())) {
+        return WorkerResult::fail((errno == ENOSPC || errno == EDQUOT) ? KIO::ERR_DISK_FULL : KIO::ERR_CANNOT_WRITE, dest_orig);
+    }
+#endif
+
     f.close();
 
     if (f.error() != QFile::NoError) {
@@ -705,6 +781,7 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
 
     // after full download rename the file back to original name
     if (bMarkPartial) {
+#ifdef Q_OS_WIN
         // QFile::rename() never overwrites the destination file unlike ::remove,
         // so we must remove it manually first
         if (_flags & KIO::Overwrite) {
@@ -712,8 +789,16 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
                 // qCWarning(KIO_FILE) << " Couldn't overwrite " << dest;
             }
         }
+        const bool renamed = QFile::rename(dest, dest_orig);
+#else
+        // rename(2) replaces the destination in one step, so the destination stays in place until
+        // the new content takes its name, and is kept when the rename fails.
+        // QFile::rename() never overwrites the destination.
+        const bool renamed = (_flags & KIO::Overwrite) ? ::rename(QFile::encodeName(dest).constData(), QFile::encodeName(dest_orig).constData()) == 0
+                                                       : QFile::rename(dest, dest_orig);
+#endif
 
-        if (!QFile::rename(dest, dest_orig)) {
+        if (!renamed) {
             // qCWarning(KIO_FILE) << " Couldn't rename " << dest << " to " << dest_orig;
             return WorkerResult::fail(KIO::ERR_CANNOT_RENAME_PARTIAL, dest_orig);
         }
@@ -721,6 +806,9 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
         org::kde::KDirNotify::emitFileRenamed(QUrl::fromLocalFile(dest), QUrl::fromLocalFile(dest_orig));
 #endif
     }
+#ifndef Q_OS_WIN
+    writeback->flushFolder();
+#endif
 
     // set final permissions
     if (_mode != -1 && !(_flags & KIO::Resume)) {
@@ -730,6 +818,7 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
         }
     }
 
+#if !defined(Q_OS_LINUX) && !defined(Q_OS_FREEBSD) && !defined(Q_OS_HAIKU)
     // set original owner and group
 #if !defined(Q_OS_WIN)
     if (bOrigExists) {
@@ -740,27 +829,33 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
 #endif
 
     // set modification time
-    const QString mtimeStr = metaData(QStringLiteral("modified"));
-    if (!mtimeStr.isEmpty()) {
-        QDateTime dt = QDateTime::fromString(mtimeStr, Qt::ISODate);
-        if (dt.isValid()) {
+    if (mtime.isValid()) {
 #ifndef Q_OS_WIN
-            QT_STATBUF dest_statbuf;
-            if (QT_STAT(QFile::encodeName(dest_orig).constData(), &dest_statbuf) == 0) {
-                struct timeval utbuf[2];
-                // access time
-                utbuf[0].tv_sec = dest_statbuf.st_atime; // access time, unchanged  ## TODO preserve msec
-                utbuf[0].tv_usec = 0;
-                // modification time
-                utbuf[1].tv_sec = dt.toSecsSinceEpoch();
-                utbuf[1].tv_usec = dt.time().msec() * 1000;
-                utimes(QFile::encodeName(dest_orig).constData(), utbuf);
-            }
-#else
-            setWindowsModificationTime(dest_orig, dt);
-#endif
+        QT_STATBUF dest_statbuf;
+        if (QT_STAT(QFile::encodeName(dest_orig).constData(), &dest_statbuf) == 0) {
+            struct timeval utbuf[2];
+            // access time
+            // The access time stays the same, cut to whole seconds.
+            utbuf[0].tv_sec = dest_statbuf.st_atime;
+            utbuf[0].tv_usec = 0;
+            // modification time
+            utbuf[1].tv_sec = mtime.toSecsSinceEpoch();
+            utbuf[1].tv_usec = mtime.time().msec() * 1000;
+            utimes(QFile::encodeName(dest_orig).constData(), utbuf);
         }
+#else
+        setWindowsModificationTime(dest_orig, mtime);
+#endif
     }
+#endif
+
+#ifndef Q_OS_WIN
+    if (writeback->isRemovable()) {
+        // A file smaller than the window is still in the page cache. The job asks for the flush of
+        // the folder once its last file is written.
+        setMetaData(QStringLiteral("flush-destination"), QStringLiteral("true"));
+    }
+#endif
 
     // We have done our job => finish
     return WorkerResult::pass();
@@ -791,6 +886,13 @@ WorkerResult FileProtocol::special(const QByteArray &data)
         stream >> point;
         return unmount(point);
     }
+#ifndef Q_OS_WIN
+    case 3: {
+        QString folder;
+        stream >> folder;
+        return flushRemovableFolder(folder);
+    }
+#endif
     default:
         break;
     }
@@ -954,15 +1056,27 @@ WorkerResult FileProtocol::fileSystemFreeSpace(const QUrl &_url)
 {
     if (isLocalFileSameHost(_url)) {
         const QUrl url = localFileWithoutHostname(_url);
+#ifdef Q_OS_WIN
         QStorageInfo storageInfo(url.toLocalFile());
-        if (storageInfo.isValid() && storageInfo.isReady()) {
-            setMetaData(QStringLiteral("total"), QString::number(storageInfo.bytesTotal()));
-            setMetaData(QStringLiteral("available"), QString::number(storageInfo.bytesAvailable()));
-
-            return WorkerResult::pass();
-        } else {
+        if (!storageInfo.isValid() || !storageInfo.isReady()) {
             return WorkerResult::fail(KIO::ERR_CANNOT_STAT, _url.url());
         }
+        const qint64 total = storageInfo.bytesTotal();
+        const qint64 available = storageInfo.bytesAvailable();
+#else
+        // statvfs reads the block counts only. It does not take the filesystem lock of exfat, which a
+        // device busy writing back can hold for seconds.
+        struct statvfs info;
+        if (::statvfs(QFile::encodeName(url.toLocalFile()).constData(), &info) != 0) {
+            return WorkerResult::fail(KIO::ERR_CANNOT_STAT, _url.url());
+        }
+        const quint64 total = quint64(info.f_blocks) * info.f_frsize;
+        const quint64 available = quint64(info.f_bavail) * info.f_frsize;
+#endif
+        setMetaData(QStringLiteral("total"), QString::number(total));
+        setMetaData(QStringLiteral("available"), QString::number(available));
+
+        return WorkerResult::pass();
     } else {
         return WorkerResult::fail(KIO::ERR_UNSUPPORTED_PROTOCOL, _url.url());
     }

@@ -21,6 +21,7 @@
 #include <KSycoca>
 
 #ifdef Q_OS_UNIX
+#include <cerrno>
 #include <signal.h> // kill
 #endif
 
@@ -200,13 +201,16 @@ void ApplicationLauncherJobTest::shouldFailOnNonExecutableDesktopFile()
             // check that the handler was called (before any event loop deletes the job...)
             QCOMPARE(handler->m_calls.count(), 1);
             QCOMPARE(handler->m_calls.at(0), QStringLiteral("KRunUnittestService"));
+            const qint64 pid = job->pid();
+            QVERIFY(pid > 0);
 
             const QString dest = srcDir + (!serviceAction ? QLatin1String{"/dest_srcfile"} : QLatin1String{"/actionDest_srcfile"});
             QTRY_VERIFY2(QFile::exists(dest), qPrintable(dest));
 
-            // The actual shell process will race against the deletion of the QTemporaryDir,
-            // so don't be surprised by stderr like getcwd: cannot access parent directories: No such file or directory
-            QTest::qWait(50); // this helps a bit
+#ifdef Q_OS_UNIX
+            // Let the shell exit before the QTemporaryDir it runs in is removed.
+            QTRY_VERIFY(::kill(pid, 0) != 0 && errno == ESRCH);
+#endif
         } else {
             QVERIFY(!success);
             QCOMPARE(job->error(), KIO::ERR_USER_CANCELED);

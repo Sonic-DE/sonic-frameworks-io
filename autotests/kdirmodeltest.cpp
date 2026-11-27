@@ -734,6 +734,19 @@ void KDirModelTest::testRenameDirectory() // #172945, #174703, (and #180156)
     const QUrl url = QUrl::fromLocalFile(path + "subdir");
     const QUrl newUrl = QUrl::fromLocalFile(path + "subdir_renamed");
 
+    // After a failure, the folder is named subdir again and the second model is gone, so the tests
+    // that follow start from the state they expect. testExpandToUrl reuses an existing second model.
+    const auto restoreAfterFailure = qScopeGuard([this, path] {
+        if (!QTest::currentTestFailed()) {
+            return;
+        }
+        if (QFileInfo::exists(path + "subdir_renamed")) {
+            QDir().rename(path + "subdir_renamed", path + "subdir");
+        }
+        delete m_dirModelForExpand;
+        m_dirModelForExpand = nullptr;
+    });
+
     // For #180156 we need a second kdirmodel, viewing the subdir being renamed.
     // I'm abusing m_dirModelForExpand for that purpose.
     delete m_dirModelForExpand;
@@ -748,11 +761,11 @@ void KDirModelTest::testRenameDirectory() // #172945, #174703, (and #180156)
     KIO::SimpleJob *job = KIO::rename(url, newUrl, KIO::HideProgressInfo);
     QVERIFY(job->exec());
 
-    // Wait for the DBUS signal from KDirNotify, it's the one the triggers dataChanged
-    if (spyDataChanged.isEmpty()) {
-        QVERIFY(spyDataChanged.wait());
-    }
-    spyDataChanged.clear();
+    // The model follows the rename once the DBUS signal from KDirNotify arrives. The directory is
+    // looked up by its url, because m_dirIndex is only valid while the model keeps its node.
+    QTRY_VERIFY_WITH_TIMEOUT(m_dirModel->indexForUrl(newUrl).isValid(), 15000);
+    QVERIFY(!spyDataChanged.isEmpty());
+    QCOMPARE(m_dirModel->indexForUrl(newUrl), m_dirIndex);
 
     // If we come here, then dataChanged() was emitted - all good.
     // QCOMPARE(spyDataChanged.count(), 1); // it was in fact emitted 5 times...
@@ -763,7 +776,6 @@ void KDirModelTest::testRenameDirectory() // #172945, #174703, (and #180156)
     // check renaming happened
     QCOMPARE(m_dirModel->itemForIndex(m_dirIndex).url().toString(), newUrl.toString());
     qDebug() << newUrl << "indexForUrl=" << m_dirModel->indexForUrl(newUrl) << "m_dirIndex=" << m_dirIndex;
-    QCOMPARE(m_dirModel->indexForUrl(newUrl), m_dirIndex);
     QVERIFY(m_dirModel->indexForUrl(QUrl::fromLocalFile(path + "subdir_renamed")).isValid());
     QVERIFY(m_dirModel->indexForUrl(QUrl::fromLocalFile(path + "subdir_renamed/testfile")).isValid());
     QVERIFY(m_dirModel->indexForUrl(QUrl::fromLocalFile(path + "subdir_renamed/subsubdir")).isValid());
@@ -778,17 +790,15 @@ void KDirModelTest::testRenameDirectory() // #172945, #174703, (and #180156)
     // wasn't properly updated by the renaming, this would detect it and crash (#180673)
     testMoveDirectory(QStringLiteral("subdir_renamed"));
 
-    // Put things back to normal
+    // Put things back to normal. The signals emitted while moving the directory are not about this rename.
+    spyDataChanged.clear();
     job = KIO::rename(newUrl, url, KIO::HideProgressInfo);
     QVERIFY(job->exec());
-    // Wait for the DBUS signal from KDirNotify, it's the one the triggers dataChanged
-    if (spyDataChanged.isEmpty()) {
-        QVERIFY(spyDataChanged.wait());
-    }
-    QCOMPARE(m_dirModel->itemForIndex(m_dirIndex).url().toString(), url.toString());
+    QTRY_VERIFY_WITH_TIMEOUT(m_dirModel->indexForUrl(url).isValid(), 15000);
+    QVERIFY(!spyDataChanged.isEmpty());
+    QCOMPARE(m_dirModel->indexForUrl(url), m_dirIndex);
 
     QCOMPARE(m_dirModel->itemForIndex(m_dirIndex).url().toString(), url.toString());
-    QCOMPARE(m_dirModel->indexForUrl(url), m_dirIndex);
     QVERIFY(m_dirModel->indexForUrl(QUrl::fromLocalFile(path + "subdir")).isValid());
     QVERIFY(m_dirModel->indexForUrl(QUrl::fromLocalFile(path + "subdir/testfile")).isValid());
     QVERIFY(m_dirModel->indexForUrl(QUrl::fromLocalFile(path + "subdir/subsubdir")).isValid());
@@ -828,11 +838,8 @@ void KDirModelTest::testRenameDirectoryInCache() // #188807
     job = KIO::rename(newUrl, url, KIO::HideProgressInfo);
     QVERIFY(job->exec());
 
-    // KDirNotify emits FileRenamed for each rename() above, which in turn
-    // re-lists the directory. We need to wait for both signals to be emitted
-    // otherwise the dirlister will not be in the state we expect.
-    QTest::qWait(200);
-
+    // No FileRenamed is sent for these renames: the trailing slash of url gives the two URLs different
+    // parent folders. fillModel() lists the directory again.
     fillModel(true);
 
     QVERIFY(m_dirIndex.isValid());
@@ -971,7 +978,8 @@ void KDirModelTest::testExpandToUrl()
     QVERIFY(QFileInfo::exists(m_urlToExpandTo.toLocalFile()));
     m_dirModelForExpand->expandToUrl(m_urlToExpandTo);
     if (expectedExpandSignals.isEmpty()) {
-        QTest::qWait(20); // to make sure we process queued connection calls, otherwise spyExpand.count() is always 0 even if there's a bug...
+        // Process queued connection calls, otherwise spyExpand.count() is always 0 even if there's a bug.
+        QCoreApplication::processEvents();
         QCOMPARE(spyExpand.count(), 0);
     } else {
         if (spyExpand.count() < expectedExpandSignals.count()) {
@@ -1383,10 +1391,16 @@ void KDirModelTest::testDotHiddenFile()
 
     const QString path = m_tempDir->path() + '/';
     const QString dotHiddenFile = path + ".hidden";
-    QTest::qWait(1000); // mtime-based cache, so we need to wait for 1 second
+    // The .hidden cache keeps the mtime of the file each row wrote (and removed), and only rereads a newer one.
+    static QDateTime lastMTime;
     QFile dh(dotHiddenFile);
     QVERIFY(dh.open(QIODevice::WriteOnly));
     dh.write(fileContents.join('\n').toUtf8());
+    QVERIFY(dh.flush());
+    if (lastMTime.isValid() && dh.fileTime(QFileDevice::FileModificationTime) <= lastMTime) {
+        QVERIFY(dh.setFileTime(lastMTime.addMSecs(1), QFileDevice::FileModificationTime));
+    }
+    lastMTime = dh.fileTime(QFileDevice::FileModificationTime);
     dh.close();
 
     // Do it twice: once to read from the file and once to use the cache
@@ -1704,16 +1718,14 @@ void KDirModelTest::testDeleteFiles()
     KIO::DeleteJob *job = KIO::del(urls, KIO::HideProgressInfo);
     QVERIFY(job->exec());
 
-    int numRowsRemoved = 0;
-    while (numRowsRemoved < 3) {
-        QTest::qWait(20);
-
-        numRowsRemoved = 0;
-        for (int sigNum = 0; sigNum < spyRowsRemoved.count(); ++sigNum) {
-            numRowsRemoved += spyRowsRemoved[sigNum][2].toInt() - spyRowsRemoved[sigNum][1].toInt() + 1;
+    const auto numRowsRemoved = [&spyRowsRemoved] {
+        int removed = 0;
+        for (const QList<QVariant>& signal : std::as_const(spyRowsRemoved)) {
+            removed += signal[2].toInt() - signal[1].toInt() + 1;
         }
-        // qDebug() << "numRowsRemoved=" << numRowsRemoved;
-    }
+        return removed;
+    };
+    QTRY_VERIFY(numRowsRemoved() >= 3);
 
     const int topLevelRowCount = m_dirModel->rowCount();
     QCOMPARE(topLevelRowCount, oldTopLevelRowCount - 3); // three less than before

@@ -3702,10 +3702,11 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Izveidot jaunu mapi"
 
-#: filewidgets/knewfilemenu.cpp:1471
-#, kde-format
-msgid "Create new folder in %1:"
-msgstr "Izveidot jaunu mapi mapē „%1“"
+#: filewidgets/knewfilemenu.cpp:1524
+#, kde-kuit-format
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
+msgstr "Izveidot jaunu mapi mapē „<filename>%1</filename>“"
 
 #: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
@@ -5313,11 +5314,14 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:773
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "&Atvērt mapi ar…"
+msgid_plural "&Open Folders With…"
+msgstr[0] "&Atvērt mapi ar…"
+msgstr[1] "&Atvērt mapes ar…"
+msgstr[2] "&Atvērt mapes ar…"
 
 #: widgets/kfileitemactions.cpp:767
 #, kde-format
@@ -5332,10 +5336,14 @@ msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&Izpildīt"
 
-#: widgets/kfileitemactions.cpp:847
+#: widgets/kfileitemactions.cpp:845
 #, kde-format
-msgid "&Open folder with %1"
-msgstr "&Atvērt mapi ar „%1“"
+msgctxt "@action:inmenu"
+msgid "&Open folder with %2"
+msgid_plural "&Open folders with %2"
+msgstr[0] "&Atvērt mapi ar „%2“"
+msgstr[1] "&Atvērt mapes ar „%2“"
+msgstr[2] "&Atvērt mapes ar „%2“"
 
 #: widgets/kfileitemactions.cpp:847
 #, kde-format
@@ -5346,7 +5354,10 @@ msgstr "&Atvērt ar „%1“"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "&Atvērt mapi ar"
+msgid_plural "&Open Folders With"
+msgstr[0] "&Atvērt mapi ar"
+msgstr[1] "&Atvērt mapes ar"
+msgstr[2] "&Atvērt mapes ar"
 
 #: widgets/kfileitemactions.cpp:879
 #, kde-format

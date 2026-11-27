@@ -35,6 +35,7 @@ ecm_add_tests(
  mimetypefinderjobtest.cpp
  threadtest.cpp
  workercanceltest.cpp
+ copyjobfreespacetest.cpp
  udsentrytest.cpp
  urlutiltest.cpp
  batchrenamejobtest.cpp
@@ -69,6 +70,8 @@ if (NOT WIN32)
   )
 
   target_link_libraries(kfileitemtest Qt6::Concurrent)
+  # kfileitemtest sets whether the trash is empty in trashrc, which the trash worker writes when these trash files.
+  set_tests_properties(kiocore-kfileitemtest kiocore-deleteortrashjobtest PROPERTIES RESOURCE_LOCK trashrc)
   if(ACL_FOUND)
     target_link_libraries(jobtest ${ACL_LIBS}) # copyFilePreservesAcl()
   endif()
@@ -161,9 +164,7 @@ if (TARGET KF6::KIOGui)
         set(KPR_TEST_NAME "${ECM_TEST_NAME_PREFIX}${KPR_TEST_TARGET}")
         add_test(NAME ${KPR_TEST_NAME} COMMAND ${KPR_TEST_TARGET})
         set_tests_properties(${KPR_TEST_NAME} PROPERTIES ENVIRONMENT
-          "_KDE_APPLICATIONS_AS_SERVICE=${_service};
-          _KDE_APPLICATIONS_AS_SCOPE=${_scope};
-          _KDE_APPLICATIONS_AS_FORKING=${_forking};"
+          "_KDE_APPLICATIONS_AS_SERVICE=${_service};_KDE_APPLICATIONS_AS_SCOPE=${_scope};_KDE_APPLICATIONS_AS_FORKING=${_forking}"
           )
       endforeach()
     endforeach()
@@ -201,6 +202,7 @@ if (NOT WIN32)
   )
   set(_libexec_dir_kf "${KDE_INSTALL_FULL_LIBEXECDIR_KF}")
   target_compile_definitions(desktopexecparsertest PRIVATE "KDE_INSTALL_FULL_LIBEXECDIR_KF=\"${_libexec_dir_kf}\"")
+  set_tests_properties(kiowidgets-fileundomanagertest PROPERTIES RESOURCE_LOCK trashrc)
 endif()
 
 # disable some tests that fail on Windows ATM

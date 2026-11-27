@@ -13,6 +13,7 @@
 // The copying side of the file worker: FileProtocol::copy() and the helpers only it uses.
 
 #include "file.h"
+#include "kmountpoint_p.h"
 #include "stat_unix.h"
 
 #include "config-kioworker-file.h"
@@ -23,23 +24,33 @@
 
 #include <QElapsedTimer>
 #include <QFile>
+#include <QHash>
+#include <QMutex>
 #include <QScopeGuard>
 #include <QThread>
 #include <QUrl>
 #include <qplatformdefs.h>
 
+#include <bit>
 #include <chrono>
 
+#include <KLocalizedString>
 #include <QDebug>
 #include <kmountpoint.h>
 
 #include <cerrno>
+#include <condition_variable>
 #include <cstring>
+#include <deque>
 #include <fcntl.h>
 #include <functional>
+#include <memory>
+#include <mutex>
+#include <poll.h>
 #include <stdint.h>
 #include <sys/stat.h>
 #include <sys/time.h>
+#include <thread>
 #include <unistd.h>
 #include <utime.h>
 
@@ -58,6 +69,10 @@
 #include <unistd.h>
 #endif
 
+#if HAVE_SENDFILE
+#include <sys/sendfile.h>
+#endif
+
 #if HAVE_SYS_XATTR_H
 #include <sys/xattr.h>
 // BSD uses a different include
@@ -69,9 +84,6 @@
 
 using namespace KIO;
 using namespace std::chrono_literals;
-
-/* 512 kB */
-static constexpr int s_maxIPCSize = 1024 * 512;
 
 static bool mountIsCifs(const KMountPoint::Ptr &mount)
 {
@@ -99,7 +111,7 @@ static bool isOnCifs(const StatStruct &buf, const QString &fallbackPath)
 }
 
 #if HAVE_SYS_XATTR_H || HAVE_SYS_EXTATTR_H
-bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
+bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd, XattrNamespaces namespaces)
 {
     // Get the list of keys
     ssize_t listlen = 0;
@@ -159,6 +171,14 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
         };
 #endif
         QByteArray key(keyPtr, keyLen);
+#if HAVE_SYS_XATTR_H && !defined(Q_OS_MAC)
+        if (namespaces == XattrNamespaces::User && !key.startsWith("user.")) {
+            next_key();
+            continue;
+        }
+#else
+        Q_UNUSED(namespaces)
+#endif
 
         // Get the value for key
         ssize_t valuelen = 0;
@@ -253,6 +273,12 @@ struct CopyRequest {
     bool preserveOwner = true; // carry over the source's user and group
     bool preserveAcl = true; // carry over the source's access ACL where an extended attribute does not already
     bool tryReflink = false; // offer the filesystem the chance to share extents (FICLONE) instead of copying
+    // The largest window of written data after which its writeback is started. 0 leaves writeback
+    // to the kernel.
+    KIO::filesize_t writebackWindow = 0;
+    // A file larger than the window is on the device, with its name and its times, before the copy
+    // reports it done.
+    bool flushWindowedFile = false;
 };
 
 struct CopyReport {
@@ -266,6 +292,10 @@ struct CopyReport {
 static constexpr size_t s_copyChunk = 512 * 1024;
 #if HAVE_COPY_FILE_RANGE
 static constexpr size_t s_maxCopyChunk = 128 * 1024 * 1024;
+// ZFS clones only whole records, up to 16 MiB and 1 MiB by default, and copies any other range. A
+// server-side copy over NFS or SMB passes each call's range to the filesystem of the server.
+// copy_file_range() calls start and end on this boundary, except at the end of the file, until a call is slow.
+static constexpr size_t s_cloneAlignment = 8 * 1024 * 1024;
 static constexpr std::chrono::nanoseconds s_copyLatencyTargetLower = 200ms;
 static constexpr std::chrono::nanoseconds s_copyLatencyTargetUpper = 250ms;
 static constexpr std::chrono::nanoseconds s_copyLatencyTarget = 225ms;
@@ -273,10 +303,11 @@ static constexpr std::chrono::nanoseconds s_copyLatencyTarget = 225ms;
 // Larger chunks copy faster over the network, but a cancel or a progress update waits for the chunk being copied.
 // Shrinking in one step to the speed of the slow call keeps a sudden slowdown to one slow call.
 // A short call, such as the end of a file, says nothing about a larger chunk.
+// size stays a multiple of min.
 struct AdaptiveChunk {
     size_t size;
-    const size_t min;
-    const size_t max;
+    size_t min;
+    size_t max;
 
     void update(std::chrono::nanoseconds elapsed, size_t copied)
     {
@@ -285,11 +316,188 @@ struct AdaptiveChunk {
                 size = qMin(size * 2, max);
             }
         } else if (elapsed > s_copyLatencyTargetUpper) {
-            size = qMax(size_t(copied * s_copyLatencyTarget.count() / elapsed.count()), min);
+            size = qMax(size_t(copied * s_copyLatencyTarget.count() / elapsed.count()) / min * min, min);
         }
     }
 };
 #endif
+
+// Keeps the written data that the kernel has not written back to at most two windows. A helper thread
+// writes back each full window while the copy fills the next one, and the copy waits only when the
+// window before the one it hands over is not written back yet. Without this the whole file can sit in
+// the page cache, which a slow device or a network filesystem then writes back in one go, and the
+// writeback holds up other requests to the same filesystem meanwhile.
+// Only the helper starts writeback. CIFS sends the data from the thread that starts the writeback, and
+// it runs one writeback of a file at a time: a start that finds one running is dropped.
+// A window holds about s_windowWriteback of writeback at the speed of the window before, so a request
+// that waits for the data of the file waits about twice that long, on a slow link as on a fast one. On
+// a network filesystem, any other request to the server also waits behind the window being sent.
+// The first window is s_minWindow, and a window at most doubles the one before it.
+static constexpr off_t s_minWindow = 1024 * 1024;
+static constexpr std::chrono::milliseconds s_windowWriteback = 200ms;
+
+// How often a copy that waits for a window checks whether it was cancelled.
+static constexpr std::chrono::milliseconds s_cancelCheck = 100ms;
+
+struct WritebackWindow {
+    int fd = -1;
+    off_t maxSize = 0; // 0: the kernel writes back on its own
+    off_t size = qMin(maxSize, s_minWindow);
+    off_t windowStart = 0; // start of the window that the copy is writing
+    off_t progressLimit = size; // the progress reported so far is at most this
+
+    WritebackWindow(int destFd, off_t maxWindow, std::function<bool()> killed)
+        : fd(destFd)
+        , maxSize(maxWindow)
+        , isKilled(std::move(killed))
+    {
+    }
+
+    ~WritebackWindow()
+    {
+        if (!helper.joinable()) {
+            return;
+        }
+        {
+            std::lock_guard lock(shared->mutex);
+            shared->stopping = true;
+        }
+        shared->changed.notify_all();
+        // The writeback of a window cannot be interrupted. After a cancel, the helper finishes it on its
+        // own instead of holding up the cancel.
+        if (cancelled || (isKilled && isKilled())) {
+            helper.detach();
+        } else {
+            helper.join();
+        }
+    }
+
+    // written is the end of the data written so far. On failure errno is set, ECANCELED on cancel.
+    bool advance([[maybe_unused]] off_t written)
+    {
+#if HAVE_SYNC_FILE_RANGE
+        if (size == 0 || written - windowStart < size) {
+            return true;
+        }
+        std::unique_lock lock(shared->mutex);
+        if (!helper.joinable()) {
+            // A descriptor of its own stays open when the helper outlives the copy after a cancel.
+            const int helperFd = ::fcntl(fd, F_DUPFD_CLOEXEC, 0);
+            if (helperFd < 0) {
+                return false;
+            }
+            helper = std::thread(&WritebackWindow::writeBack, shared, helperFd);
+        }
+        shared->pending.push_back({windowStart, written});
+        shared->changed.notify_all();
+        while (!shared->changed.wait_for(lock, s_cancelCheck, [this] {
+            return shared->writtenBack >= windowStart || shared->error != 0;
+        })) {
+            if (isKilled && isKilled()) {
+                cancelled = true;
+                errno = ECANCELED;
+                return false;
+            }
+        }
+        if (shared->error != 0) {
+            errno = shared->error;
+            return false;
+        }
+        if (shared->lastWindowNs > 0) {
+            resize(shared->lastWindowBytes, shared->lastWindowNs);
+            shared->lastWindowNs = 0;
+        }
+        windowStart = written;
+        progressLimit = qMax(progressLimit, shared->writtenBack + size);
+#endif
+        return true;
+    }
+
+    // The progress to report for written bytes: at most one window ahead of the data written back.
+    // It stays at the end of a window until that window is handed over, so it never goes back, also
+    // when the window shrinks.
+    off_t progress(off_t written) const
+    {
+        return maxSize == 0 ? written : qMin(written, progressLimit);
+    }
+
+private:
+    struct Range {
+        off_t start;
+        off_t end;
+    };
+
+    // What the copy and the helper share. The helper keeps it alive when it outlives the copy.
+    struct Shared {
+        std::mutex mutex{};
+        std::condition_variable changed{};
+        std::deque<Range> pending{}; // windows handed over and not written back yet
+        off_t writtenBack = 0; // the data before this offset is written back
+        int error = 0; // errno of a writeback that failed
+        bool stopping = false;
+        off_t lastWindowBytes = 0;
+        qint64 lastWindowNs = 0; // time the helper took to write back its last window, 0 once used
+    };
+
+    std::function<bool()> isKilled;
+    std::shared_ptr<Shared> shared = std::make_shared<Shared>();
+    std::thread helper{};
+    bool cancelled = false;
+
+    // Runs on the helper thread, which owns helperFd.
+    static void writeBack([[maybe_unused]] std::shared_ptr<Shared> state, int helperFd)
+    {
+        const auto closeFd = qScopeGuard([helperFd] {
+            ::close(helperFd);
+        });
+#if HAVE_SYNC_FILE_RANGE
+        std::unique_lock lock(state->mutex);
+        while (true) {
+            state->changed.wait(lock, [&state] {
+                return state->stopping || !state->pending.empty();
+            });
+            if (state->stopping) {
+                return;
+            }
+            const Range range = state->pending.front();
+            state->pending.pop_front();
+            lock.unlock();
+
+            QElapsedTimer timer;
+            timer.start();
+            constexpr unsigned writeAndWait = SYNC_FILE_RANGE_WAIT_BEFORE | SYNC_FILE_RANGE_WRITE | SYNC_FILE_RANGE_WAIT_AFTER;
+            const int failure = ::sync_file_range(helperFd, range.start, range.end - range.start, writeAndWait) == 0 ? 0 : errno;
+#if HAVE_FADVISE
+            if (failure == 0) {
+                // Written back and not read again: the pages can go.
+                ::posix_fadvise(helperFd, range.start, range.end - range.start, POSIX_FADV_DONTNEED);
+            }
+#endif
+            const qint64 elapsedNs = qMax<qint64>(timer.nsecsElapsed(), 1);
+
+            lock.lock();
+            if (failure != 0) {
+                state->error = failure;
+            } else {
+                state->writtenBack = range.end;
+                state->lastWindowBytes = range.end - range.start;
+                state->lastWindowNs = elapsedNs;
+            }
+            state->changed.notify_all();
+            if (failure != 0) {
+                return;
+            }
+        }
+#endif
+    }
+
+    // writtenBackBytes took elapsedNs to write back.
+    void resize(off_t writtenBackBytes, qint64 elapsedNs)
+    {
+        const double target = double(writtenBackBytes) * std::chrono::nanoseconds(s_windowWriteback).count() / double(elapsedNs);
+        size = qBound(qMin(maxSize, s_minWindow), off_t(qMin(target, double(size) * 2)), maxSize);
+    }
+};
 
 // size, from the caller's fstat, bounds the loop so it stops at EOF without an extra probing call.
 // On cancel errno is ECANCELED; on failure errno is left set and readFailed, if given, says which
@@ -300,32 +508,73 @@ bool copyFds(int sourceFd,
              KIO::filesize_t &bytesCopied,
              const std::function<bool()> &isKilled,
              const std::function<void(KIO::filesize_t)> &onProgress = {},
-             bool *readFailed = nullptr)
+             bool *readFailed = nullptr,
+             KIO::filesize_t writebackWindow = 0)
 {
+    WritebackWindow window(destFd, off_t(writebackWindow), isKilled);
+    const KIO::filesize_t progressBase = bytesCopied; // the running total before this file
 #if HAVE_COPY_FILE_RANGE
     QElapsedTimer timer;
     timer.start();
-    AdaptiveChunk cfrChunk{s_copyChunk, s_copyChunk, s_maxCopyChunk};
-    KIO::filesize_t copied = 0; // bytes copied for this file by copy_file_range
+    KIO::filesize_t copied = 0; // bytes copied for this file by copy_file_range or sendfile
+    AdaptiveChunk cfrChunk{s_cloneAlignment, s_cloneAlignment, s_maxCopyChunk};
+    // copy_file_range() fails with EXDEV between two filesystems, such as from the local disk to a
+    // USB stick. sendfile() copies between any two files without the data going through user space.
+    bool useSendfile = false;
+    bool aligned = true;
     while (copied < size) {
-        const size_t want = size_t(qMin<KIO::filesize_t>(size - copied, cfrChunk.size));
+        size_t want = size_t(qMin<KIO::filesize_t>(size - copied, cfrChunk.size));
+        if (window.size > 0) {
+            // A chunk larger than the window would leave more data than the window to write back.
+            want = qMin(want, size_t(qMax(window.size, off_t(cfrChunk.min))));
+        }
+        if (aligned && copied + want < size) {
+            // The largest power of two in the chunk keeps the calls on records of up to the chunk size
+            // once it grows. After a short call, the next one goes back to the boundary.
+            const size_t boundary = qMax(std::bit_floor(want), s_cloneAlignment);
+            want = size_t((copied + want) / boundary * boundary - copied);
+        }
         const auto copyStart = timer.durationElapsed();
+#if HAVE_SENDFILE
+        const ssize_t n = useSendfile ? ::sendfile(destFd, sourceFd, nullptr, want) : ::copy_file_range(sourceFd, nullptr, destFd, nullptr, want, 0);
+#else
         const ssize_t n = ::copy_file_range(sourceFd, nullptr, destFd, nullptr, want, 0);
+#endif
         const auto elapsed = timer.durationElapsed() - copyStart;
         if (n < 0) {
             if (errno == EINTR) {
                 continue;
             }
+#if HAVE_SENDFILE
+            // copy_file_range() cannot copy between these two files. Any other error, such as EIO or
+            // ENOSPC, would fail sendfile() the same way.
+            if (!useSendfile && (errno == EXDEV || errno == ENOSYS || errno == EOPNOTSUPP || errno == EINVAL)) {
+                useSendfile = true;
+                // Nothing to clone: small chunks keep a cancel quick on a slow destination.
+                aligned = false;
+                cfrChunk = AdaptiveChunk{s_copyChunk, s_copyChunk, s_maxCopyChunk};
+                continue;
+            }
+#endif
             break; // fall back to read/write for the remainder
         }
         if (n == 0) {
             break; // unexpected early EOF (source shrank underneath us); finish via read/write
         }
+        if (aligned && elapsed > s_copyLatencyTargetUpper) {
+            // A clone takes milliseconds, so a slow call moves the data, such as over the network
+            // between two NFS or SMB mounts. Small chunks then keep a cancel quick.
+            aligned = false;
+            cfrChunk.min = s_copyChunk;
+        }
         cfrChunk.update(elapsed, size_t(n));
         copied += n;
         bytesCopied += n;
+        if (!window.advance(off_t(copied))) {
+            return false;
+        }
         if (onProgress) {
-            onProgress(bytesCopied);
+            onProgress(progressBase + window.progress(off_t(copied)));
         }
         // Between chunks only, so a single-chunk file does no extra work.
         if (copied < size && isKilled()) {
@@ -340,6 +589,11 @@ bool copyFds(int sourceFd,
     // The remainder copy_file_range did not handle, or the whole file where it is unavailable
     // (macOS, OpenBSD, older Linux). A short read or write is retried, not treated as a failure.
     QByteArray buffer(256 * 1024, Qt::Uninitialized);
+#if HAVE_COPY_FILE_RANGE
+    off_t fileEnd = off_t(copied);
+#else
+    off_t fileEnd = 0;
+#endif
     while (true) {
         const ssize_t n = ::read(sourceFd, buffer.data(), buffer.size());
         if (n < 0) {
@@ -373,8 +627,12 @@ bool copyFds(int sourceFd,
             written += w;
         }
         bytesCopied += n;
+        fileEnd += n;
+        if (!window.advance(fileEnd)) {
+            return false;
+        }
         if (onProgress) {
-            onProgress(bytesCopied);
+            onProgress(progressBase + window.progress(fileEnd));
         }
     }
     return true;
@@ -575,7 +833,7 @@ CopyReport copyFileAt(int srcDirFd,
 #endif
     bool destDeleteAttempted = false;
     bool readFailed = false;
-    while (!cloned && !copyFds(sourceFd, destFd, st.st_size, bytesCopied, isKilled, onProgress, &readFailed)) {
+    while (!cloned && !copyFds(sourceFd, destFd, st.st_size, bytesCopied, isKilled, onProgress, &readFailed, request.writebackWindow)) {
         const int err = errno;
         const bool diskFull = (err == ENOSPC || err == EDQUOT);
         if (diskFull && !readFailed && publishViaRename && !destDeleteAttempted) {
@@ -599,15 +857,266 @@ CopyReport copyFileAt(int srcDirFd,
 
     preserve(sourceFd, destFd, st, request, request.existing != ExistingDest::Truncate, destDirGroup); // both fds still open
 
+    // The window has written back all but its last two windows, so this waits for those only.
+    const bool flush = request.flushWindowedFile && request.writebackWindow > 0 && KIO::filesize_t(st.st_size) > request.writebackWindow;
+    if (flush && ::fsync(destFd) != 0) {
+        return {CopyOutcome::Failed, CopyStage::Transfer, errno, false};
+    }
+
     if (publishViaRename && ::renameat(destDirFd, outName.constData(), destDirFd, destName.constData()) != 0) {
         return {CopyOutcome::Failed, CopyStage::Publish, errno, false};
+    }
+    // The entry of the file in the folder, under its final name.
+    if (flush && ::fsync(destDirFd) != 0) {
+        qCWarning(KIO_FILE) << "Could not flush the folder of" << QFile::decodeName(destName) << ":" << strerror(errno);
     }
 
     cleanupOutput.dismiss();
     return {CopyOutcome::Copied, CopyStage::Transfer, 0, false};
 }
 
+#ifdef Q_OS_LINUX
+// The device number of the filesystem that holds fd, 0 when unknown. What the client already knows is
+// enough, so the server of a network filesystem is not asked.
+static quint64 deviceOf(int fd)
+{
+#if HAVE_STATX
+    struct statx buf;
+    if (::statx(fd, "", AT_EMPTY_PATH | AT_STATX_DONT_SYNC, STATX_TYPE, &buf) == 0) {
+        return makedev(buf.stx_dev_major, buf.stx_dev_minor);
+    }
+    return 0;
+#else
+    QT_STATBUF buf;
+    return QT_FSTAT(fd, &buf) == 0 ? quint64(buf.st_dev) : 0;
+#endif
+}
+
+// Whether a filesystem was mounted or unmounted since the last call. The kernel reports a change of
+// /proc/self/mountinfo to poll() until the file is read again.
+static bool mountTableChanged()
+{
+    static const int fd = ::open("/proc/self/mountinfo", O_RDONLY | O_CLOEXEC);
+    if (fd < 0) {
+        return true;
+    }
+    pollfd event{.fd = fd, .events = POLLPRI, .revents = 0};
+    if (::poll(&event, 1, 0) <= 0 || !(event.revents & (POLLPRI | POLLERR))) {
+        return false;
+    }
+    char buffer[4096];
+    ::lseek(fd, 0, SEEK_SET);
+    while (::read(fd, buffer, sizeof(buffer)) > 0) { }
+    return true;
+}
+#endif
+
+// What a copy to a folder needs to know about the mount that holds it.
+struct MountTraits {
+    bool removable = false;
+    bool cifs = false;
+    bool slow = false;
+};
+
+// The traits of the mount that holds the folder. The mount table gives them, so the server of a
+// network filesystem is not asked. They are kept for each mount, whose unique id is never given to
+// another mount, or else for each device. Linux only.
+static MountTraits mountTraitsFor([[maybe_unused]] int dirFd, [[maybe_unused]] const QString &dir)
+{
+#ifdef Q_OS_LINUX
+    quint64 mountId = 0;
+#if HAVE_STATX_MNT_ID_UNIQUE
+    struct statx folder;
+    if (::statx(dirFd, "", AT_EMPTY_PATH | AT_STATX_DONT_SYNC, STATX_MNT_ID_UNIQUE, &folder) == 0 && (folder.stx_mask & STATX_MNT_ID_UNIQUE)) {
+        mountId = folder.stx_mnt_id;
+    }
+#endif
+    static QMutex traitsMutex;
+    static QHash<quint64, MountTraits> traits; // by unique mount id
+    // Without a unique mount id, as before Linux 6.8, by device number. A later mount can get the same
+    // device number, so these are dropped whenever the mount table changes.
+    static QHash<quint64, MountTraits> traitsByDevice;
+    const quint64 device = mountId == 0 ? deviceOf(dirFd) : 0;
+    {
+        QMutexLocker locker(&traitsMutex);
+        if (mountId != 0) {
+            if (const auto it = traits.constFind(mountId); it != traits.cend()) {
+                return *it;
+            }
+        } else {
+            if (mountTableChanged()) {
+                traitsByDevice.clear();
+            }
+            if (const auto it = traitsByDevice.constFind(device); device != 0 && it != traitsByDevice.cend()) {
+                return *it;
+            }
+        }
+    }
+
+    const KMountPoint::Ptr mount = mountId != 0 ? KMountPoint::currentMountPointForUniqueId(mountId) : KMountPoint::currentMountPointForPath(dir);
+    MountTraits found;
+    if (mount) {
+        found.removable = KIOPrivate::isOnRemovableDevice(*mount);
+        found.cifs = mountIsCifs(mount);
+        found.slow = mount->isOnRemoteStorage();
+    }
+    QMutexLocker locker(&traitsMutex);
+    if (mountId != 0) {
+        traits.insert(mountId, found);
+    } else if (device != 0) {
+        traitsByDevice.insert(device, found);
+    }
+    return found;
+#else
+    return {};
+#endif
+}
+
+// Whether the folder is on a removable device, which can be unplugged once a copy reports it is done.
+// Linux only, where syncfs() can flush the device.
+bool isFolderOnRemovableDevice([[maybe_unused]] int dirFd, [[maybe_unused]] const QString &dir)
+{
+#ifdef Q_OS_LINUX
+    if (qEnvironmentVariableIsSet("KIO_FILE_FORCE_REMOVABLE")) {
+        return true;
+    }
+    return mountTraitsFor(dirFd, dir).removable;
+#else
+    return false;
+#endif
+}
+
+struct WritebackPolicy {
+    KIO::filesize_t window = 0; // see CopyRequest::writebackWindow
+    bool flushWindowedFile = false; // see CopyRequest::flushWindowedFile
+};
+
+// How a copy to the folder writes its data back. A removable device takes long to write back a large
+// file, and can be unplugged once the copy reports it is done, so a large file is flushed there. A
+// network filesystem holds up other requests to the share while it writes a large file back. A local
+// fixed disk writes back fast enough on its own.
+WritebackPolicy writebackPolicyFor([[maybe_unused]] int destDirFd, [[maybe_unused]] const QString &destDir)
+{
+#if HAVE_SYNC_FILE_RANGE
+    // The largest windows. On a fast link each window waits for the server to confirm the one before
+    // it, so a larger window keeps more data in flight: with 2 ms of latency, SMB copies took 20%
+    // longer with 16 MiB windows.
+    constexpr KIO::filesize_t localWindow = 16 * 1024 * 1024;
+    constexpr KIO::filesize_t smbWindow = 128 * 1024 * 1024;
+
+    if (isFolderOnRemovableDevice(destDirFd, destDir)) {
+        return {localWindow, true};
+    }
+    const MountTraits mount = mountTraitsFor(destDirFd, destDir);
+    if (mount.cifs) {
+        return {smbWindow, false};
+    }
+    // Any other filesystem that KMountPoint takes for slow: NFS, other network filesystems, and FUSE
+    // filesystems not on a device, such as rclone. A FUSE filesystem that writes through leaves
+    // nothing in the page cache, and its windows cost a call that has nothing to write.
+    if (mount.slow) {
+        return {localWindow, false};
+    }
+    return {};
+#else
+    return {};
+#endif
+}
+
 } // namespace
+
+struct DestinationWriteback::Private {
+    Private(int fd, const WritebackPolicy &writebackPolicy, const QString &destFolder, std::function<bool()> isKilled)
+        : policy(writebackPolicy)
+        , window(fd, off_t(writebackPolicy.window), std::move(isKilled))
+        , folder(destFolder)
+    {
+    }
+
+    WritebackPolicy policy;
+    WritebackWindow window;
+    QString folder;
+    bool fileFlushed = false;
+};
+
+DestinationWriteback::DestinationWriteback(int fd, const QString &folder, std::function<bool()> isKilled)
+{
+    WritebackPolicy policy;
+    const int dirFd = ::open(QFile::encodeName(folder).constData(), O_RDONLY | O_DIRECTORY | O_CLOEXEC);
+    if (dirFd >= 0) {
+        policy = writebackPolicyFor(dirFd, folder);
+        ::close(dirFd);
+    }
+    d = std::make_unique<Private>(fd, policy, folder, std::move(isKilled));
+}
+
+DestinationWriteback::~DestinationWriteback() = default;
+
+bool DestinationWriteback::isActive() const
+{
+    return d->policy.window > 0;
+}
+
+bool DestinationWriteback::isRemovable() const
+{
+    return d->policy.flushWindowedFile;
+}
+
+bool DestinationWriteback::advance(off_t written)
+{
+    return d->window.advance(written);
+}
+
+bool DestinationWriteback::flushLargeFile(off_t size)
+{
+    // The window has written back all but its last two windows, so this waits for those only.
+    if (!d->policy.flushWindowedFile || d->policy.window == 0 || KIO::filesize_t(size) <= d->policy.window) {
+        return true;
+    }
+    if (::fsync(d->window.fd) != 0) {
+        return false;
+    }
+    d->fileFlushed = true;
+    return true;
+}
+
+void DestinationWriteback::flushFolder()
+{
+    if (!d->fileFlushed) {
+        return;
+    }
+    const int dirFd = ::open(QFile::encodeName(d->folder).constData(), O_RDONLY | O_DIRECTORY | O_CLOEXEC);
+    if (dirFd < 0 || ::fsync(dirFd) != 0) {
+        qCWarning(KIO_FILE) << "Could not flush the folder" << d->folder << ":" << strerror(errno);
+    }
+    if (dirFd >= 0) {
+        ::close(dirFd);
+    }
+}
+
+WorkerResult FileProtocol::flushRemovableFolder(const QString &folder)
+{
+    const int fd = ::open(QFile::encodeName(folder).constData(), O_RDONLY | O_DIRECTORY | O_CLOEXEC);
+    if (fd < 0) {
+        // The folder that the copy just wrote to cannot be reached, as when the device is unplugged, so
+        // the data may not be on it.
+        return WorkerResult::fail(KIO::ERR_CANNOT_WRITE, folder);
+    }
+    const auto closeFd = qScopeGuard([fd] {
+        ::close(fd);
+    });
+    if (!isFolderOnRemovableDevice(fd, folder)) {
+        return WorkerResult::pass();
+    }
+#ifdef Q_OS_LINUX
+    infoMessage(i18n("Writing the copied data to the device..."));
+    if (::syncfs(fd) != 0) {
+        const int err = errno;
+        return WorkerResult::fail((err == ENOSPC || err == EDQUOT) ? KIO::ERR_DISK_FULL : KIO::ERR_CANNOT_WRITE, folder);
+    }
+#endif
+    return WorkerResult::pass();
+}
 
 WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _mode, JobFlags _flags)
 {
@@ -710,6 +1219,9 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
     // extended ACL at all.
     request.preserveAcl = (_mode == -1);
     request.tryReflink = !slowTestMode; // sharing the data is instant, and a slow copy is the point of the test mode
+    const WritebackPolicy writeback = writebackPolicyFor(dfd, QFile::decodeName(_destDir.isEmpty() ? QByteArray(".") : _destDir));
+    request.writebackWindow = writeback.window;
+    request.flushWindowedFile = writeback.flushWindowedFile;
 
     const auto isKilled = [this] {
         return wasKilled();
@@ -770,5 +1282,10 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
     }
 
     processedSize(srcSize);
+    if (isFolderOnRemovableDevice(dfd, QFile::decodeName(_destDir.isEmpty() ? QByteArray(".") : _destDir))) {
+        // The data of the copy is still in the page cache. The job asks for the flush of the folder
+        // once its last file is copied.
+        setMetaData(QStringLiteral("flush-destination"), QStringLiteral("true"));
+    }
     return WorkerResult::pass();
 }

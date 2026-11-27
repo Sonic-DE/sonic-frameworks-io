@@ -34,7 +34,7 @@
 #include <KX11Extras>
 #endif
 
-Q_LOGGING_CATEGORY(category, "kf.kio.kpasswdserver", QtInfoMsg)
+#include <Sonic/Logging/Log>
 
 static const char s_domain[] = "domain";
 static const char s_anonymous[] = "anonymous";
@@ -70,7 +70,7 @@ KPasswdServer::KPasswdServer(QObject *parent, const QList<QVariant> &)
     m_walletOpenTimer.setSingleShot(true);
     connect(&m_walletOpenTimer, &QTimer::timeout, this, [this] {
         if (m_walletOpening) {
-            qCDebug(category) << "The wallet did not say whether it opened, giving up on it.";
+            sonicDebug() << "The wallet did not say whether it opened, giving up on it.";
             walletOpened(false);
         }
     });
@@ -135,7 +135,7 @@ static bool storeInWallet(KWallet::Wallet *wallet, const QString &key, const KIO
     int entryNumber = 1;
     Map map;
     QString walletKey = makeWalletKey(key, info.realmValue);
-    qCDebug(category) << "walletKey =" << walletKey << "  reading existing map";
+    sonicDebug() << "walletKey =" << walletKey << "  reading existing map";
     if (wallet->readMap(walletKey, map) == 0) {
         Map::ConstIterator end = map.constEnd();
         Map::ConstIterator it = map.constFind(QStringLiteral("login"));
@@ -149,7 +149,7 @@ static bool storeInWallet(KWallet::Wallet *wallet, const QString &key, const KIO
     }
     const QString loginKey = makeMapKey("login", entryNumber);
     const QString passwordKey = makeMapKey("password", entryNumber);
-    qCDebug(category) << "writing to " << loginKey << "," << passwordKey;
+    sonicDebug() << "writing to " << loginKey << "," << passwordKey;
     // note the overwrite=true by default
     map.insert(loginKey, info.username);
     map.insert(passwordKey, info.password);
@@ -165,7 +165,7 @@ static bool readFromWallet(KWallet::Wallet *wallet,
                            bool userReadOnly,
                            QMap<QString, QString> &knownLogins)
 {
-    // qCDebug(category) << "key =" << key << " username =" << username << " password =" /*<< password*/
+    // sonicDebug() << "key =" << key << " username =" << username << " password =" /*<< password*/
     //                   << " userReadOnly =" << userReadOnly << " realm =" << realm;
     if (wallet->hasFolder(KWallet::Wallet::PasswordFolder())) {
         wallet->setFolder(KWallet::Wallet::PasswordFolder());
@@ -177,7 +177,7 @@ static bool readFromWallet(KWallet::Wallet *wallet,
             Map::ConstIterator end = map.constEnd();
             Map::ConstIterator it = map.constFind(QStringLiteral("login"));
             while (it != end) {
-                // qCDebug(category) << "found " << it.key() << "=" << it.value();
+                // sonicDebug() << "found " << it.key() << "=" << it.value();
                 Map::ConstIterator pwdIter = map.constFind(makeMapKey("password", entryNumber));
                 if (pwdIter != end) {
                     if (it.value() == username) {
@@ -188,13 +188,13 @@ static bool readFromWallet(KWallet::Wallet *wallet,
 
                 it = map.constFind(QStringLiteral("login-") + QString::number(++entryNumber));
             }
-            // qCDebug(category) << knownLogins.count() << " known logins";
+            // sonicDebug() << knownLogins.count() << " known logins";
 
             if (!userReadOnly && !knownLogins.isEmpty() && username.isEmpty()) {
                 // Pick one, any one...
                 username = knownLogins.begin().key();
                 password = knownLogins.begin().value();
-                // qCDebug(category) << "picked the first one:" << username;
+                // sonicDebug() << "picked the first one:" << username;
             }
 
             return true;
@@ -254,7 +254,7 @@ QByteArray KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong window
         return data; // return value will be ignored
     }
 
-    // qCDebug(category) << "key =" << key << "user =" << info.username << "windowId =" << windowId;
+    // sonicDebug() << "key =" << key << "user =" << info.username << "windowId =" << windowId;
     const AuthInfoContainer *result = findAuthInfoItem(key, info);
     if (!result || result->isCanceled) {
 #ifdef HAVE_KF6WALLET
@@ -274,7 +274,7 @@ QByteArray KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong window
         info.setModified(false);
 #endif
     } else {
-        qCDebug(category) << "Found cached authentication for" << key;
+        sonicDebug() << "Found cached authentication for" << key;
         updateAuthExpire(key, result, windowId, false);
         copyAuthInfo(result, info);
     }
@@ -295,7 +295,7 @@ qlonglong KPasswdServer::checkAuthInfoAsync(KIO::AuthInfo info, qlonglong window
 
     // send the request id back to the client
     qlonglong requestId = getRequestId();
-    qCDebug(category) << "User =" << info.username << ", WindowId =" << windowId;
+    sonicDebug() << "User =" << info.username << ", WindowId =" << windowId;
     if (calledFromDBus()) {
         QDBusMessage reply(message().createReply(requestId));
         QDBusConnection::sessionBus().send(reply);
@@ -336,7 +336,7 @@ qlonglong KPasswdServer::checkAuthInfoAsync(KIO::AuthInfo info, qlonglong window
         info.setModified(false);
 #endif
     } else {
-        // qCDebug(category) << "Found cached authentication for" << key;
+        // sonicDebug() << "Found cached authentication for" << key;
         updateAuthExpire(key, result, windowId, false);
         copyAuthInfo(result, info);
     }
@@ -352,10 +352,10 @@ QByteArray KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &e
     QDataStream stream(data);
     stream >> info;
 
-    qCDebug(category) << "User =" << info.username << ", WindowId =" << windowId << "seqNr =" << seqNr << ", errorMsg =" << errorMsg;
+    sonicDebug() << "User =" << info.username << ", WindowId =" << windowId << "seqNr =" << seqNr << ", errorMsg =" << errorMsg;
 
     if (!info.password.isEmpty()) { // should we really allow the caller to pre-fill the password?
-        qCDebug(category) << "password was set by caller";
+        sonicDebug() << "password was set by caller";
     }
 #if HAVE_X11
     if (usertime != 0) {
@@ -390,10 +390,10 @@ QByteArray KPasswdServer::queryAuthInfo(const QByteArray &data, const QString &e
 
 qlonglong KPasswdServer::queryAuthInfoAsync(const KIO::AuthInfo &info, const QString &errorMsg, qlonglong windowId, qlonglong seqNr, qlonglong usertime)
 {
-    qCDebug(category) << "User =" << info.username << ", WindowId =" << windowId << "seqNr =" << seqNr << ", errorMsg =" << errorMsg;
+    sonicDebug() << "User =" << info.username << ", WindowId =" << windowId << "seqNr =" << seqNr << ", errorMsg =" << errorMsg;
 
     if (!info.password.isEmpty()) {
-        qCDebug(category) << "password was set by caller";
+        sonicDebug() << "password was set by caller";
     }
 #if HAVE_X11
     if (usertime != 0) {
@@ -427,9 +427,9 @@ qlonglong KPasswdServer::queryAuthInfoAsync(const KIO::AuthInfo &info, const QSt
 
 void KPasswdServer::addAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
 {
-    qCDebug(category) << "User =" << info.username << ", Realm =" << info.realmValue << ", WindowId =" << windowId;
+    sonicDebug() << "User =" << info.username << ", Realm =" << info.realmValue << ", WindowId =" << windowId;
     if (!info.keepPassword) {
-        qWarning() << "This KIO worker is caching a password in KWallet even though the user didn't ask for it!";
+        sonicWarning() << "This KIO worker is caching a password in KWallet even though the user didn't ask for it!";
     }
     const QString key(createCacheKey(info));
 
@@ -468,7 +468,7 @@ void KPasswdServer::addAuthInfo(const QByteArray &data, qlonglong windowId)
 
 void KPasswdServer::removeAuthInfo(const QString &host, const QString &protocol, const QString &user)
 {
-    qCDebug(category) << protocol << host << user;
+    sonicDebug() << protocol << host << user;
 
     QHashIterator<QString, AuthInfoContainerList *> dictIterator(m_authDict);
     while (dictIterator.hasNext()) {
@@ -480,9 +480,9 @@ void KPasswdServer::removeAuthInfo(const QString &host, const QString &protocol,
         }
 
         for (const AuthInfoContainer &current : *authList) {
-            qCDebug(category) << "Evaluating: " << current.info.url.scheme() << current.info.url.host() << current.info.username;
+            sonicDebug() << "Evaluating: " << current.info.url.scheme() << current.info.url.host() << current.info.username;
             if (current.info.url.scheme() == protocol && current.info.url.host() == host && (current.info.username == user || user.isEmpty())) {
-                qCDebug(category) << "Removing this entry";
+                sonicDebug() << "Removing this entry";
                 removeAuthInfoItem(dictIterator.key(), current.info); // warning, this can modify m_authDict!
             }
         }
@@ -548,7 +548,7 @@ void KPasswdServer::walletOpened(bool opened)
     m_walletOpenTimer.stop();
     m_walletOpening = false;
     if (!opened) {
-        qCDebug(category) << "The wallet did not open, leaving it alone for the rest of the session.";
+        sonicDebug() << "The wallet did not open, leaving it alone for the rest of the session.";
         delete m_wallet;
         m_wallet = nullptr;
         m_walletDisabled = true;
@@ -575,7 +575,7 @@ bool KPasswdServer::openWallet(qlonglong windowId)
     if (!m_wallet) {
         m_wallet = KWallet::Wallet::openWallet(KWallet::Wallet::NetworkWallet(), static_cast<WId>(windowId));
         if (!m_wallet) {
-            qCDebug(category) << "The wallet did not open, leaving it alone for the rest of the session.";
+            sonicDebug() << "The wallet did not open, leaving it alone for the rest of the session.";
             m_walletDisabled = true;
         }
     }
@@ -613,11 +613,11 @@ void KPasswdServer::processRequest()
     const bool bypassCacheAndKWallet = info.getExtraField(QString::fromLatin1(s_bypassCacheAndKwallet)).toBool();
 
     const AuthInfoContainer *result = findAuthInfoItem(request->key, request->info);
-    qCDebug(category) << "key=" << request->key << ", user=" << info.username << "seqNr: request=" << request->seqNr
-                      << ", result=" << (result ? result->seqNr : -1);
+    sonicDebug() << "key=" << request->key << ", user=" << info.username << "seqNr: request=" << request->seqNr
+                 << ", result=" << (result ? result->seqNr : -1);
 
     if (!bypassCacheAndKWallet && result && (request->seqNr < result->seqNr)) {
-        qCDebug(category) << "auto retry!";
+        sonicDebug() << "auto retry!";
         if (result->isCanceled) {
             info.setModified(false);
         } else {
@@ -646,7 +646,7 @@ void KPasswdServer::processRequest()
             dlg->setAttribute(Qt::WA_NativeWindow, true);
             KWindowSystem::setMainWindow(dlg->windowHandle(), request->windowId);
 
-            qCDebug(category) << "Calling open on retry dialog" << dlg;
+            sonicDebug() << "Calling open on retry dialog" << dlg;
             m_authRetryInProgress.insert(dlg, request.release());
             dlg->open();
             return;
@@ -670,7 +670,7 @@ QString KPasswdServer::createCacheKey(const KIO::AuthInfo &info)
 {
     if (!info.url.isValid()) {
         // Note that a null key will break findAuthInfoItem later on...
-        qCWarning(category) << "createCacheKey: invalid URL " << info.url;
+        sonicWarning() << "createCacheKey: invalid URL " << info.url;
         return QString();
     }
 
@@ -697,7 +697,7 @@ void KPasswdServer::copyAuthInfo(const AuthInfoContainer *i, KIO::AuthInfo &info
 
 const KPasswdServer::AuthInfoContainer *KPasswdServer::findAuthInfoItem(const QString &key, const KIO::AuthInfo &info)
 {
-    // qCDebug(category) << "key=" << key << ", user=" << info.username;
+    // sonicDebug() << "key=" << key << ", user=" << info.username;
 
     AuthInfoContainerList *authList = m_authDict.value(key);
     if (authList) {
@@ -749,8 +749,8 @@ void KPasswdServer::removeAuthInfoItem(const QString &key, const KIO::AuthInfo &
 
 void KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &info, qlonglong windowId, qlonglong seqNr, bool canceled)
 {
-    qCDebug(category) << "key=" << key << "window-id=" << windowId << "username=" << info.username << "realm=" << info.realmValue << "seqNr=" << seqNr
-                      << "keepPassword?" << info.keepPassword << "canceled?" << canceled;
+    sonicDebug() << "key=" << key << "window-id=" << windowId << "username=" << info.username << "realm=" << info.realmValue << "seqNr=" << seqNr
+                 << "keepPassword?" << info.keepPassword << "canceled?" << canceled;
     AuthInfoContainerList *authList = m_authDict.value(key);
     if (!authList) {
         authList = new AuthInfoContainerList;
@@ -771,7 +771,7 @@ void KPasswdServer::addAuthInfoItem(const QString &key, const KIO::AuthInfo &inf
     }
 
     if (!found) {
-        qCDebug(category) << "Creating AuthInfoContainer";
+        sonicDebug() << "Creating AuthInfoContainer";
         authItem.expire = AuthInfoContainer::expTime;
     }
 
@@ -792,7 +792,7 @@ void KPasswdServer::updateAuthExpire(const QString &key, const AuthInfoContainer
     AuthInfoContainer *current = const_cast<AuthInfoContainer *>(auth);
     Q_ASSERT(current);
 
-    qCDebug(category) << "key=" << key << "expire=" << current->expire << "window-id=" << windowId << "keep=" << keep;
+    sonicDebug() << "key=" << key << "expire=" << current->expire << "window-id=" << windowId << "keep=" << keep;
 
     if (keep && !windowId) {
         current->expire = AuthInfoContainer::expNever;
@@ -902,7 +902,7 @@ void KPasswdServer::showPasswordDialog(KPasswdServer::Request *request,
 #endif
 
     // instantiate dialog
-    qCDebug(category) << "Widget for" << request->windowId << QWidget::find(request->windowId);
+    sonicDebug() << "Widget for" << request->windowId << QWidget::find(request->windowId);
 
     KPasswordDialog *dlg = new KPasswordDialog(nullptr, dialogFlags);
     dlg->setAttribute(Qt::WA_DeleteOnClose);
@@ -955,7 +955,7 @@ void KPasswdServer::showPasswordDialog(KPasswdServer::Request *request,
     KWindowSystem::setMainWindow(dlg->windowHandle(), request->windowId);
 #endif
 
-    qCDebug(category) << "Showing password dialog" << dlg << ", window-id=" << request->windowId;
+    sonicDebug() << "Showing password dialog" << dlg << ", window-id=" << request->windowId;
     m_authInProgress.insert(dlg, request);
     dlg->open();
 }
@@ -967,7 +967,7 @@ void KPasswdServer::sendResponse(KPasswdServer::Request *request)
         return;
     }
 
-    qCDebug(category) << "key=" << request->key;
+    sonicDebug() << "key=" << request->key;
     if (request->isAsync) {
         Q_EMIT queryAuthInfoAsyncResult(request->requestId, m_seqNr, request->info);
     } else {
@@ -1028,7 +1028,7 @@ void KPasswdServer::passwordDialogDone(int result, KPasswordDialog *sender)
         KIO::AuthInfo &info = request->info;
         const bool bypassCacheAndKWallet = info.getExtraField(QString::fromLatin1(s_bypassCacheAndKwallet)).toBool();
 
-        qCDebug(category) << "dialog result=" << result << ", bypassCacheAndKWallet?" << bypassCacheAndKWallet;
+        sonicDebug() << "dialog result=" << result << ", bypassCacheAndKWallet?" << bypassCacheAndKWallet;
         if (sender && result == QDialog::Accepted) {
             info.username = sender->username();
             info.password = sender->password();

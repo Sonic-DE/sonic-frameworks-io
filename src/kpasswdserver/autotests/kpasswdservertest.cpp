@@ -13,12 +13,17 @@
 #include <QApplication>
 #include <QDBusConnection>
 #include <QDBusContext>
+#include <QPointer>
 #include <QSignalSpy>
 #include <QTest>
 
 #ifdef HAVE_KF6WALLET
 #include <KWallet>
 #endif
+
+#include <Sonic/Logging/Log>
+
+SONIC_LOGGING_COMPONENT("org.sonicde.frameworks.io.kpasswdserver.test")
 
 // For the retry dialog (and only that one)
 static QDialogButtonBox::StandardButton s_buttonYes = QDialogButtonBox::Yes;
@@ -247,8 +252,9 @@ private Q_SLOTS:
         result = KIO::AuthInfo();
         queryAuthWithDialog(server, info, filledInfo, result, s_buttonCancel, QDialog::Accepted /*unused*/, QStringLiteral("Invalid username or password"));
 
-        // wait for the beep notification to auto-close
-        QTest::qWait(1600);
+        // Let the closed retry dialog and its warning notification (sent from a zero timer) finish here.
+        QTRY_VERIFY(!m_retryDialog);
+        QCoreApplication::processEvents();
     }
 
     void testAcceptRetryDialog()
@@ -395,8 +401,10 @@ private Q_SLOTS:
         });
         server.startWalletOpenTimeout();
 
-        // Process the first opening's expired timeout, not the second deadline.
-        QTest::qWait(10);
+        // Process any expired timeout from the first opening; only the second deadline may remain.
+        QCoreApplication::processEvents();
+        QVERIFY(server.m_walletOpenTimer.isActive());
+        QCOMPARE(server.m_walletOpenTimer.interval(), 60000);
         QVERIFY(server.m_walletOpening);
         QVERIFY(!server.m_walletDisabled);
         QVERIFY(secondResults.isEmpty());
@@ -422,7 +430,8 @@ private Q_SLOTS:
         QCOMPARE(results, (QList<bool>{false, false}));
         QVERIFY(!server.m_walletOpening);
         QVERIFY(server.m_walletDisabled);
-        QTest::qWait(10);
+        QVERIFY(!server.m_walletOpenTimer.isActive());
+        QCoreApplication::processEvents();
         QCOMPARE(results.size(), 2);
     }
 
@@ -545,6 +554,8 @@ private Q_SLOTS:
 #endif
 
 private:
+    QPointer<QDialog> m_retryDialog;
+
     // Checks that no auth is available for @p info
     bool noCheckAuth(KPasswdServer &server, const KIO::AuthInfo &info)
     {
@@ -744,19 +755,19 @@ protected Q_SLOTS:
         const QList<QWidget *> widgetsList = QApplication::topLevelWidgets();
         for (QWidget *widget : widgetsList) {
             if (KPasswordDialog *dialog = qobject_cast<KPasswordDialog *>(widget)) {
-                qDebug() << "Found dialog" << dialog;
+                sonicDebug() << "Found dialog" << dialog;
                 if (code == QDialog::Accepted) {
                     QCOMPARE(dialog->username(), getUserNameFrom(info));
                     QCOMPARE(dialog->password(), info.password);
                     dialog->setUsername(filledInfo.username);
                     dialog->setPassword(filledInfo.password);
-                    qDebug() << "Filled dialog with" << filledInfo.username << filledInfo.password;
+                    sonicDebug() << "Filled dialog with" << filledInfo.username << filledInfo.password;
                 }
                 dialog->done(code);
                 return;
             }
         }
-        qWarning() << "No KPasswordDialog found!";
+        sonicWarning() << "No KPasswordDialog found!";
     }
 
     void checkRetryDialog(QDialogButtonBox::StandardButton code = s_buttonYes)
@@ -765,12 +776,13 @@ protected Q_SLOTS:
         for (QWidget *widget : widgetsList) {
             QDialog *dialog = qobject_cast<QDialog *>(widget);
             if (dialog && !dialog->inherits("KPasswordDialog")) {
-                qDebug() << "Closing dialog" << dialog << "with code" << code;
+                sonicDebug() << "Closing dialog" << dialog << "with code" << code;
+                m_retryDialog = dialog;
                 dialog->done(code);
                 return;
             }
         }
-        qWarning() << "No retry dialog found";
+        sonicWarning() << "No retry dialog found";
     }
 };
 

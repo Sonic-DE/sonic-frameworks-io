@@ -38,6 +38,15 @@ private Q_SLOTS:
     void storedGet();
     void put();
     void putPermissionKept();
+    void setModificationTimeKeepsMillisecondsAndAccessTime();
+    void setModificationTimeOfMissingFileFails();
+    void putKeepsAccessTime();
+    void putReportsRemovableDestination_data();
+    void putReportsRemovableDestination();
+    void fileCopyReportsRemovableDestination_data();
+    void fileCopyReportsRemovableDestination();
+    void flushRemovableFolder_data();
+    void flushRemovableFolder();
     void storedPut();
     void storedPutIODevice();
     void storedPutIODeviceFile();
@@ -47,14 +56,27 @@ private Q_SLOTS:
     void storedPutIODeviceSlowDeviceBigChunk();
     void asyncStoredPutReadyReadAfterFinish();
     void copyFileToSamePartition();
+    void fileSystemFreeSpace();
+    void copyFolderFlushesRemovableDestination_data();
+    void copyFolderFlushesRemovableDestination();
+    void copyStoppedByErrorFlushesRemovableDestination_data();
+    void copyStoppedByErrorFlushesRemovableDestination();
+    void killedMoveFlushesRemovableDestination();
+    void moveToTargetUrlFlushesRemovableDestination();
+    void copyLargeFileWithWritebackWindow();
+    void putLargeFileWithWritebackWindow_data();
+    void putLargeFileWithWritebackWindow();
     void copyFileToSetgidDirectory_data();
     void copyFileToSetgidDirectory();
     void copyFilePreservesAcl();
     void testCopyFilePermissionsToSamePartition();
     void testMkdirPermissionsAndOwnership();
     void copyDirectoryToSamePartition();
+    void copyDirectoryKeepsUserXattrs();
+    void moveDirectoryToOtherPartitionKeepsUserXattrs();
     void copyDirectoryToExistingDirectory();
     void copyDirectoryWithOverwriteCreatesNewSubdirs();
+    void copyDirectoryListedWithoutItsParent();
     void copyDirectoryToExistingSymlinkedDirectory();
     void copyFileToOtherPartition();
     void copyDirectoryToOtherPartition();
@@ -66,6 +88,7 @@ private Q_SLOTS:
     void suspendCopy();
     void listRecursive();
     void listRecursiveExcludeDots();
+    void listRecursiveEntersFoldersOnly();
     void listRecursiveExcludeDotsHiddenToggle();
     void multipleListRecursive();
     void listFile();
@@ -146,12 +169,16 @@ private Q_SLOTS:
     void createSymlinkAsShouldFailDirectoryExists();
     void createSymlinkAsShouldFailFileExists();
     void createSymlinkWithOverwriteShouldWork();
+    void createSymlinkWithOverwriteReplacesFileButNotDir();
     void createBrokenSymlink();
 
     void cancelCopyAndCleanDest();
     void cancelCopyAndCleanDest_data();
 
     void renameFileWithNoUDSACCESS();
+    void renameOntoExistingFileKeepsIt();
+    void renameDirOntoEmptyDirKeepsIt();
+    void renameMissingSourceFails();
     void statWithNanosecondTimeOffset();
 
     // Remote tests

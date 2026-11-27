@@ -19,7 +19,11 @@ private Q_SLOTS:
     void testCurrentMountPointOptions();
     void testPossibleMountPoints();
     void testCachedMountPointLookup();
+    void testMountPointForUniqueIdMatchesTable();
     void testFileCloningFlagMatchesTheKernel();
+    void testRemovableBlockDevice_data();
+    void testRemovableBlockDevice();
+    void testNetworkMountIsNotRemovable();
 
 private:
 };

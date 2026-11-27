@@ -77,6 +77,7 @@ private Q_SLOTS:
     void testInvalidUrl();
     void testNonListableUrl();
     void testOpenUrl();
+    void testListedItemsCarryMountId();
     void testOpenUrlFromCache();
     void testNewItem();
     void testNewItems();
@@ -117,6 +118,7 @@ private Q_SLOTS:
     void testPathWithSquareBrackets();
     void testSFTPRedirect();
     void testDuplicatedEntries();
+    void testUpdateRedirectedToAnotherUrl();
     void testEntriesOfOneNameFromSeveralFolders();
     void testUpdateSearchResultOnDeleteAndRename();
     void testDeleteCurrentDir(); // must be just before last!
@@ -137,8 +139,7 @@ private:
     QString tempPath() const;
     void createSimpleFile(const QString &fileName);
     void fillDirLister2(MyDirLister &lister, const QString &path);
-    void waitUntilMTimeChange(const QString &path);
-    void waitUntilAfter(const QDateTime &ctime);
+    void setLaterMTime(const QString& path, const QDateTime& before);
 
 private:
     int m_exitCount;

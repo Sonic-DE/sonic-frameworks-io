@@ -3741,10 +3741,11 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Creează dosar nou"
 
-#: filewidgets/knewfilemenu.cpp:1471
-#, kde-format
-msgid "Create new folder in %1:"
-msgstr "Creează dosar nou în %1:"
+#: filewidgets/knewfilemenu.cpp:1524
+#, kde-kuit-format
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
+msgstr "Creează dosar nou în <filename>%1</filename>:"
 
 #: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
@@ -5365,11 +5366,14 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:773
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "&Deschide dosarul cu…"
+msgid_plural "&Open Folders With…"
+msgstr[0] "&Deschide dosarul cu…"
+msgstr[1] "&Deschide dosarele cu…"
+msgstr[2] "&Deschide dosarele cu…"
 
 #: widgets/kfileitemactions.cpp:767
 #, kde-format
@@ -5383,10 +5387,14 @@ msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&Rulează executabilul"
 
-#: widgets/kfileitemactions.cpp:847
+#: widgets/kfileitemactions.cpp:845
 #, kde-format
-msgid "&Open folder with %1"
-msgstr "Deschide d&osarul cu %1"
+msgctxt "@action:inmenu"
+msgid "&Open folder with %2"
+msgid_plural "&Open folders with %2"
+msgstr[0] "Deschide d&osarul cu %2"
+msgstr[1] "Deschide d&osarele cu %2"
+msgstr[2] "Deschide d&osarele cu %2"
 
 #: widgets/kfileitemactions.cpp:847
 #, kde-format
@@ -5397,7 +5405,10 @@ msgstr "&Deschide cu %1"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "Deschide d&osarul cu"
+msgid_plural "&Open Folders With"
+msgstr[0] "Deschide d&osarul cu"
+msgstr[1] "Deschide d&osarele cu"
+msgstr[2] "Deschide d&osarele cu"
 
 #: widgets/kfileitemactions.cpp:879
 #, kde-format

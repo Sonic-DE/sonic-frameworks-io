@@ -18,6 +18,7 @@
 #include <QLineEdit>
 #include <QMimeDatabase>
 #include <QMimeType>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 using namespace Qt::StringLiterals;
@@ -64,11 +65,18 @@ KIO::PasteDialog::PasteDialog(const QString &title, const QString &label, const 
         // Populate the combobox with nice human-readable labels
         for (const QString &format : formats) {
             QMimeType mime = db.mimeTypeForName(format);
+            auto iconName = mime.iconName();
+            if (iconName.isEmpty()) {
+                // An icon might be available, but not registered with QMimeDatabase
+                iconName = format;
+                iconName.replace(u'/', u'-');
+            }
+            const auto icon = QIcon::fromTheme(iconName);
             if (mime.isValid()) {
                 auto label = i18n("%1 (%2)", mime.comment(), format);
-                m_comboBox->addItem(QIcon::fromTheme(mime.iconName()), label, mime.name());
+                m_comboBox->addItem(icon, label, mime.name());
             } else {
-                m_comboBox->addItem(format);
+                m_comboBox->addItem(icon, format, format);
             }
         }
 
@@ -126,17 +134,26 @@ KIO::PasteDialog::PasteDialog(const QString &title, const QString &label, const 
 
         innerLayout->addWidget(m_comboBox);
 
-        // Pre-fill the filename extension and select everything before it, or just
-        // move the cursor appropriately
-        const QMimeType mimetype = db.mimeTypeForName(formats.value(comboItem()));
-        if (mimetype.isValid()) {
-            if (suggestedFileName.endsWith(mimetype.preferredSuffix())) {
-                m_lineEdit->setSelection(0, suggestedFileName.length() - mimetype.preferredSuffix().length() - 1);
-            } else {
-                m_lineEdit->setText(suggestedFileName + QLatin1String(".") + mimetype.preferredSuffix());
-                m_lineEdit->setSelection(0, suggestedFileName.length());
-            }
+        const auto mimetype = db.mimeTypeForName(formats.value(comboItem()));
+        const auto validMimeType = mimetype.isValid();
+        const auto currentSuffix = db.suffixForFileName(suggestedFileName);
+        QStringView currentBaseName = suggestedFileName;
+        if (auto suffixSize = currentSuffix.size()) {
+            currentBaseName.chop(suffixSize + 1); // remove '.' too
         }
+        // Replace the current suffix if it doesn't match the mimetype
+        if (validMimeType) {
+            const auto preferredSuffix = mimetype.preferredSuffix();
+            if (!preferredSuffix.isEmpty() && !mimetype.suffixes().contains(currentSuffix, Qt::CaseInsensitive)) {
+                m_lineEdit->setText(currentBaseName % u'.' % preferredSuffix);
+            } else if (preferredSuffix.isEmpty()) {
+                m_lineEdit->setText(currentBaseName.toString());
+            }
+        } else if (!currentSuffix.isEmpty() && !validMimeType) {
+            m_lineEdit->setText(currentBaseName.toString());
+        }
+        // Select the base name and move the text cursor to the end of it
+        m_lineEdit->setSelection(0, currentBaseName.length());
     }
 
     topLayout->addStretch();
@@ -144,6 +161,10 @@ KIO::PasteDialog::PasteDialog(const QString &title, const QString &label, const 
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(this);
     buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    auto okButton = buttonBox->button(QDialogButtonBox::Ok);
+    connect(m_lineEdit, &QLineEdit::textChanged, this, [this, okButton]() {
+        okButton->setEnabled(!m_lineEdit->text().isEmpty());
+    });
     connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     topLayout->addWidget(buttonBox);

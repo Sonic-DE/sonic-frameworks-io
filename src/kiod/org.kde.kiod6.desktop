@@ -60,4 +60,4 @@ Name[zh_CN]=KIO
 Name[zh_TW]=KIO
 NoDisplay=true
 Icon=dialog-password
-Exec=kiod6
+Exec=@KDE_INSTALL_FULL_LIBEXECDIR_KF@/kiod6

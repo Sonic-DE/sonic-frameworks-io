@@ -18,6 +18,7 @@
 #include <QMimeDatabase>
 #include <QProcess>
 #include <QStandardPaths>
+#include <QTemporaryDir>
 #include <QTest>
 
 #include "openwith_p.h"
@@ -36,6 +37,10 @@ class OpenWithTest : public QObject
 private Q_SLOTS:
     void initTestCase()
     {
+        // Test mode keeps its files under ~/.qttest, where other KIO tests running in parallel rebuild the
+        // sycoca. Use a home of this test's own, which the kbuildsycoca6 it starts inherits.
+        QVERIFY(m_home.isValid());
+        qputenv("HOME", QFile::encodeName(m_home.path()));
         QStandardPaths::setTestModeEnabled(true);
         ksycoca_ms_between_checks = 0; // the test rebuilds the sycoca and reads it at once
         const QString dataDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation);
@@ -195,6 +200,7 @@ private:
         mimeApps->sync();
     }
 
+    QTemporaryDir m_home;
     QString m_definition;
     QString m_application;
 };

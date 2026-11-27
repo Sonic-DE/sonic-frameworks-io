@@ -151,8 +151,10 @@ void KIOExec::slotResult(KJob *job)
             const QString dest = copyJob->srcUrl().toString();
             qCDebug(KIOEXEC) << "Telling kioexecd to watch path" << path << "dest" << dest;
             OrgKdeKIOExecdInterface kioexecd(QStringLiteral("org.kde.kioexecd6"), QStringLiteral("/modules/kioexecd"), QDBusConnection::sessionBus());
-            kioexecd.watch(path, dest);
-            mUseDaemon = !kioexecd.lastError().isValid();
+            // Wait for the answer: lastError() still holds the missing owner when this call starts kioexecd.
+            QDBusPendingReply<> reply = kioexecd.watch(path, dest);
+            reply.waitForFinished();
+            mUseDaemon = !reply.isError();
             if (!mUseDaemon) {
                 qCDebug(KIOEXEC) << "Not using kioexecd";
             }

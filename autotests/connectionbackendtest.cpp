@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <functional>
 
+#include <QLocalSocket>
 #include <QRegularExpression>
 #include <QSignalSpy>
 #include <QStandardPaths>
@@ -64,7 +65,9 @@ private Q_SLOTS:
         // Resume right away, while the socket is still trying to connect, and again after the
         // connection has had a chance to fail. Neither must touch the not-open socket.
         backend.setSuspended(false);
-        QTest::qWait(50);
+        auto* socket = backend.findChild<QLocalSocket*>();
+        QVERIFY(socket);
+        QTRY_COMPARE(socket->state(), QLocalSocket::UnconnectedState);
         backend.setSuspended(false);
     }
 
@@ -143,14 +146,15 @@ private Q_SLOTS:
             }
         });
 
-        // Toggle suspend and resume while the sends are in flight. The guard just
-        // stops the loop if delivery stalls so the test fails instead of hanging.
-        qsizetype guard = 0;
-        while (spy.size() < payloads.size() && ++guard < 5000) {
+        // Toggle suspend and resume while the sends are in flight; each round waits for one more delivery.
+        while (spy.size() < payloads.size()) {
             clientConnection.setSuspended(true);
-            QTest::qWait(1);
+            QCoreApplication::processEvents();
             clientConnection.setSuspended(false);
-            QTest::qWait(1);
+            const qsizetype delivered = spy.size();
+            QVERIFY(QTest::qWaitFor([&] {
+                return spy.size() > delivered;
+            }));
         }
         QVERIFY(sender->wait());
 

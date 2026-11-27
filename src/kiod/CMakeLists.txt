@@ -38,7 +38,9 @@ if (APPLE)
 endif ()
 
 install(TARGETS kiod6 DESTINATION ${KDE_INSTALL_LIBEXECDIR_KF})
-install(FILES org.kde.kiod6.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+# kiod6 is not on PATH: the desktop portal only accepts the app ID when Exec names a program it can find.
+configure_file(org.kde.kiod6.desktop ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kiod6.desktop @ONLY)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.kde.kiod6.desktop DESTINATION ${KDE_INSTALL_APPDIR})
 
 kdbusaddons_generate_dbus_service_file(kiod6 org.kde.kiod6 ${KDE_INSTALL_FULL_LIBEXECDIR_KF})
 

@@ -174,6 +174,7 @@ private:
     QTimer *m_timeoutTimer = nullptr;
 
     QPointer<KIO::TransferJob> m_transferjob = nullptr;
+    QPointer<KIO::Job> m_copyJob = nullptr;
     QPointer<KIO::StandardThumbnailJob> m_standardThumbnailJob = nullptr;
 
     void getOrCreateThumbnail();
@@ -187,7 +188,6 @@ private:
     void slotStandardThumbData(KIO::Job *, const QImage &);
     // Checks if thumbnail is on encrypted partition different than thumbRoot
     CachePolicy canBeCached(const QString &path);
-    int getDeviceId(const QString &path);
     void saveThumbnailData(QImage &thumb);
     bool preparePluginForMimetype(const QString &mimeType);
     static void saveThumbnailToCache(const QImage &thumb, const QString &path);

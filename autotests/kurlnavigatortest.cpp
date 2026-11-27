@@ -6,10 +6,13 @@
 
 #include "kurlnavigatortest.h"
 #include <KFilePlacesModel>
+#include <KIO/JobUiDelegateFactory>
+#include <KJobUiDelegate>
 #include <KUser>
 #include <QDir>
 #include <QDropEvent>
 #include <QMimeData>
+#include <QPointer>
 #include <QPushButton>
 #include <QScopeGuard>
 #include <QSemaphore>
@@ -89,6 +92,34 @@ private:
 
     const QByteArray m_protocol;
     const std::shared_ptr<NavigatorStatState> m_state;
+};
+
+// Every KIO job deletes its UI delegate when the job is deleted, so the delegates show when jobs are gone.
+class TrackingDelegateFactory : public KIO::JobUiDelegateFactory {
+public:
+    KJobUiDelegate* createDelegate() const override
+    {
+        auto* delegate = new KJobUiDelegate;
+        m_delegates.append(delegate);
+        return delegate;
+    }
+
+    KJobUiDelegate* createDelegate(KJobUiDelegate::Flags flags, QWidget*) const override
+    {
+        auto* delegate = new KJobUiDelegate(flags);
+        m_delegates.append(delegate);
+        return delegate;
+    }
+
+    bool allJobsDeleted() const
+    {
+        return std::all_of(m_delegates.cbegin(), m_delegates.cend(), [](const QPointer<KJobUiDelegate>& delegate) {
+            return delegate.isNull();
+        });
+    }
+
+private:
+    mutable QList<QPointer<KJobUiDelegate>> m_delegates;
 };
 
 QPushButton *navigationButton(KUrlNavigator &navigator, const QString &text)
@@ -508,9 +539,13 @@ void KUrlNavigatorTest::testDropTargetAfterDelayedStat()
     auto state = std::make_shared<NavigatorStatState>();
     auto factory = std::make_shared<NavigatorStatFactory>(QByteArrayLiteral("kio-test-navigator-delayed"), state);
     KIO::Worker::setTestWorkerFactory(factory);
-    const auto cleanup = qScopeGuard([state] {
+    TrackingDelegateFactory delegates;
+    KIO::JobUiDelegateFactory* const previousDelegates = KIO::defaultJobUiDelegateFactory();
+    KIO::setDefaultJobUiDelegateFactory(&delegates);
+    const auto cleanup = qScopeGuard([state, previousDelegates] {
         state->resume.release();
         KIO::Worker::setTestWorkerFactory({});
+        KIO::setDefaultJobUiDelegateFactory(previousDelegates);
     });
 
     KUrlNavigator navigator(nullptr, QUrl(QStringLiteral("kio-test-navigator-delayed:/delayed")), nullptr);
@@ -525,7 +560,8 @@ void KUrlNavigatorTest::testDropTargetAfterDelayedStat()
     // Release the old response only after the button has been reused locally.
     state->resume.release();
     QTRY_VERIFY(state->completed.available() > 0);
-    QTest::qWait(100); // Deliver the worker's queued metadata and result messages.
+    // The old stat job has delivered its result once it is deleted.
+    QTRY_VERIFY(delegates.allJobsDeleted());
     QCOMPARE(button->property("plainText").toString(), QStringLiteral("new"));
     QCOMPARE(dropDestination(navigator, button, localUrl), localUrl);
 }

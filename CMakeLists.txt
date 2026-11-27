@@ -71,6 +71,7 @@ option(USE_FTPD_WSGIDAV_UNITTEST "Use ftpd Ruby Gem (for ftptest) and wsgidav Py
 
 find_package(KF6Config ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6CoreAddons ${KF_DEP_VERSION} REQUIRED)
+find_package(SonicLogging ${KF_DEP_VERSION} CONFIG REQUIRED)
 find_package(KF6I18n ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6Service ${KF_DEP_VERSION} REQUIRED)
 find_package(KF6DocTools ${KF_DEP_VERSION})

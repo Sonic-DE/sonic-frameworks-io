@@ -151,7 +151,7 @@ void TestTrash::initTestCase()
     bool foundTrashDir = false;
     m_otherPartitionId = 0;
     m_tmpIsWritablePartition = false;
-    QList<int> writableTopDirs;
+    QList<quint64> writableTopDirs;
     for (TrashImpl::TrashDirMap::ConstIterator it = trashDirs.constBegin(); it != trashDirs.constEnd(); ++it) {
         if (it.key() == 0) {
             QCOMPARE(it.value(), m_trashDir);

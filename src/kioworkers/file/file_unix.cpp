@@ -24,6 +24,7 @@
 #include <QDir>
 #include <QFile>
 #include <QMimeDatabase>
+#include <QRandomGenerator>
 #include <QScopeGuard>
 #include <qplatformdefs.h>
 
@@ -34,6 +35,7 @@
 #include <kmountpoint.h>
 
 #include <cerrno>
+#include <cstdio>
 #include <fcntl.h>
 #include <stdint.h>
 
@@ -84,7 +86,7 @@ static QMimeDatabase::MatchMode mimeMatchModeFor(const StatStruct &buf, const QS
 #if HAVE_STATX_MNT_ID_UNIQUE
     if (buf.stx_mask & STATX_MNT_ID_UNIQUE) {
         const KMountPoint::Ptr mount = KMountPoint::currentMountPointForUniqueId(stat_mnt_id(buf));
-        return mount && mount->probablySlow() ? QMimeDatabase::MatchExtension : QMimeDatabase::MatchDefault;
+        return mount && mount->isOnRemoteStorage() ? QMimeDatabase::MatchExtension : QMimeDatabase::MatchDefault;
     }
 #else
     Q_UNUSED(buf);
@@ -335,7 +337,8 @@ static bool createUDSEntry(const QString &filename,
 #endif
 
 #if HAVE_STATX_MNT_ID_UNIQUE
-    if (details & KIO::StatMountId) {
+    // A kernel older than STATX_MNT_ID_UNIQUE puts the old mount id, which can be reused, in stx_mnt_id.
+    if ((details & KIO::StatMountId) && (buff.stx_mask & STATX_MNT_ID_UNIQUE)) {
         entry.fastInsert(KIO::UDSEntry::UDS_MOUNT_ID, stat_mnt_id(buff));
     }
 #endif
@@ -509,6 +512,20 @@ WorkerResult FileProtocol::rename(const QUrl &_srcUrl, const QUrl &_destUrl, KIO
     const QString dest = destUrl.toLocalFile();
     const QByteArray _src(QFile::encodeName(src));
     const QByteArray _dest(QFile::encodeName(dest));
+    // The errno of renameat2(), 0 when it was not called.
+    int rename_errno = 0;
+#if HAVE_RENAMEAT2
+    // RENAME_NOREPLACE makes the kernel refuse a destination that exists when the rename happens,
+    // including one created after the checks below. Any failure goes through those checks, which
+    // pick the error to report. EINVAL and ENOSYS come from a filesystem or a kernel without the flag.
+    if (!(_flags & KIO::Overwrite)) {
+        if (::renameat2(AT_FDCWD, _src.constData(), AT_FDCWD, _dest.constData(), RENAME_NOREPLACE) == 0) {
+            return WorkerResult::pass();
+        }
+        rename_errno = errno;
+    }
+#endif
+
     QT_STATBUF buff_src;
     if (QT_LSTAT(_src.data(), &buff_src) == -1) {
         if (errno == EACCES) {
@@ -545,26 +562,31 @@ WorkerResult FileProtocol::rename(const QUrl &_srcUrl, const QUrl &_destUrl, KIO
         if (!(_flags & KIO::Overwrite)) {
             return WorkerResult::fail(KIO::ERR_FILE_ALREADY_EXIST, dest);
         }
+    } else if (rename_errno == EEXIST) {
+        // The destination the kernel refused has been removed since then. The rename still fails.
+        return WorkerResult::fail(KIO::ERR_FILE_ALREADY_EXIST, dest);
     }
 
-    if (::rename(_src.data(), _dest.data()) == -1) {
-        const int error = errno;
-        if ((error == EACCES) || (error == EPERM)) {
-            return WorkerResult::fail(KIO::ERR_WRITE_ACCESS_DENIED, dest);
-        } else if (error == EXDEV) {
-            return WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, QStringLiteral("rename"));
-        } else if (error == EROFS) { // The file is on a read-only filesystem
-            return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, src);
-        } else if (error == ENOENT) {
-            // src was removed, TOCTOU case
-            return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, src);
-        } else {
-            qCWarning(KIO_FILE) << "Could not rename file" << _src << "to" << _dest << ":" << strerror(error) << "(" << error << ")";
-            return WorkerResult::fail(KIO::ERR_CANNOT_RENAME, src);
+    // A failed renameat2() already holds the answer of a rename, unless the flag is unsupported.
+    if (rename_errno == 0 || rename_errno == EINVAL || rename_errno == ENOSYS) {
+        if (::rename(_src.data(), _dest.data()) == 0) {
+            return WorkerResult::pass();
         }
+        rename_errno = errno;
     }
 
-    return WorkerResult::pass();
+    if ((rename_errno == EACCES) || (rename_errno == EPERM)) {
+        return WorkerResult::fail(KIO::ERR_WRITE_ACCESS_DENIED, dest);
+    } else if (rename_errno == EXDEV) {
+        return WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, QStringLiteral("rename"));
+    } else if (rename_errno == EROFS) { // The file is on a read-only filesystem
+        return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, src);
+    } else if (rename_errno == ENOENT) {
+        // src was removed, TOCTOU case
+        return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, src);
+    }
+    qCWarning(KIO_FILE) << "Could not rename file" << _src << "to" << _dest << ":" << strerror(rename_errno) << "(" << rename_errno << ")";
+    return WorkerResult::fail(KIO::ERR_CANNOT_RENAME, src);
 }
 
 WorkerResult FileProtocol::symlink(const QString &target, const QUrl &_destUrl, KIO::JobFlags flags)
@@ -581,13 +603,30 @@ WorkerResult FileProtocol::symlink(const QString &target, const QUrl &_destUrl, 
     // Does the destination already exist ?
     if (errno == EEXIST) {
         if (flags & KIO::Overwrite) {
-            // Try to delete the destination
-            if (unlink(dest_c.constData()) != 0) {
+            // The new link is created under a free name in the same folder, then renamed over the
+            // destination, which replaces it in one step. The name is short, so it fits whatever the
+            // length of the destination name.
+            const QByteArray target_c = QFile::encodeName(target);
+            const QByteArray folder = dest_c.left(dest_c.lastIndexOf('/') + 1);
+            QByteArray temporary;
+            int created = -1;
+            for (int attempt = 0; attempt < 100 && created != 0; ++attempt) {
+                temporary = folder + ".kio-symlink-" + QByteArray::number(QRandomGenerator::global()->generate(), 36);
+                created = ::symlink(target_c.constData(), temporary.constData());
+                if (created != 0 && errno != EEXIST) {
+                    break;
+                }
+            }
+            if (created != 0) {
+                // A folder that cannot be written to refuses the removal of the destination as well.
+                const bool folderRefused = (errno == EACCES || errno == EPERM || errno == EROFS);
+                return WorkerResult::fail(folderRefused ? KIO::ERR_CANNOT_DELETE : KIO::ERR_CANNOT_SYMLINK, dest);
+            }
+            if (::rename(temporary.constData(), dest_c.constData()) != 0) {
+                ::unlink(temporary.constData());
                 return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, dest);
             }
-
-            // Try again - this won't loop forever since unlink succeeded
-            return symlink(target, destUrl, flags);
+            return WorkerResult::pass();
         } else {
             if (QT_STATBUF buff_dest; QT_LSTAT(dest_c.constData(), &buff_dest) == 0) {
                 return WorkerResult::fail(S_ISDIR(buff_dest.st_mode) ? KIO::ERR_DIR_ALREADY_EXIST : KIO::ERR_FILE_ALREADY_EXIST, dest);

@@ -13,6 +13,7 @@ ecm_add_test(
     ../kpasswdserver.cpp
     TEST_NAME kpasswdservertest
     LINK_LIBRARIES
+        Sonic::Logging
         KF6::DBusAddons
         KF6::KIOCore
         KF6::WidgetsAddons

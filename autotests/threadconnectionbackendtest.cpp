@@ -110,7 +110,7 @@ void ThreadConnectionBackendTest::testSuspendedApplicationBuffersUntilResumed()
     QVERIFY(workerBackend->sendCommand(3, QByteArrayLiteral("ccc")));
 
     // Nothing is delivered while suspended, even after the event loop has run.
-    QTest::qWait(200);
+    QCoreApplication::processEvents();
     QCOMPARE(sink.count(), 0);
 
     // Resuming flushes everything that queued up, in the order it was sent.

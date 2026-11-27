@@ -3730,10 +3730,11 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Створення теки"
 
-#: filewidgets/knewfilemenu.cpp:1471
-#, kde-format
-msgid "Create new folder in %1:"
-msgstr "Створити теку у %1:"
+#: filewidgets/knewfilemenu.cpp:1524
+#, kde-kuit-format
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
+msgstr "Створити теку у <filename>%1</filename>:"
 
 #: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
@@ -5354,11 +5355,15 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:773
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "В&ідкрити теку за допомогою…"
+msgid_plural "&Open Folders With…"
+msgstr[0] "В&ідкрити теки за допомогою…"
+msgstr[1] "В&ідкрити теки за допомогою…"
+msgstr[2] "В&ідкрити теки за допомогою…"
+msgstr[3] "В&ідкрити теку за допомогою…"
 
 #: widgets/kfileitemactions.cpp:767
 #, kde-format
@@ -5372,10 +5377,15 @@ msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&Запустити виконуваний файл"
 
-#: widgets/kfileitemactions.cpp:847
+#: widgets/kfileitemactions.cpp:845
 #, kde-format
-msgid "&Open folder with %1"
-msgstr "В&ідкрити теку за допомогою %1"
+msgctxt "@action:inmenu"
+msgid "&Open folder with %2"
+msgid_plural "&Open folders with %2"
+msgstr[0] "В&ідкрити теки за допомогою %2"
+msgstr[1] "В&ідкрити теки за допомогою %2"
+msgstr[2] "В&ідкрити теки за допомогою %2"
+msgstr[3] "В&ідкрити теку за допомогою %2"
 
 #: widgets/kfileitemactions.cpp:847
 #, kde-format
@@ -5386,7 +5396,11 @@ msgstr "В&ідкрити за допомогою %1"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "В&ідкрити теку за допомогою"
+msgid_plural "&Open Folders With"
+msgstr[0] "В&ідкрити теки за допомогою"
+msgstr[1] "В&ідкрити теки за допомогою"
+msgstr[2] "В&ідкрити теки за допомогою"
+msgstr[3] "В&ідкрити теку за допомогою"
 
 #: widgets/kfileitemactions.cpp:879
 #, kde-format

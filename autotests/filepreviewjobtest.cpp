@@ -10,6 +10,9 @@
 #include "../src/gui/filepreviewjob.h"
 #include "../src/gui/standardthumbnailjob_p.h"
 #include "../src/gui/thumbnailcache_p.h"
+#include "worker_p.h" // KIO::Worker::setTestWorkerFactory
+#include "workerbase.h"
+#include "workerfactory.h"
 
 #include <KFileItem>
 #include <KIO/UDSEntry>
@@ -21,15 +24,23 @@
 #include <QFileInfo>
 #include <QImage>
 #include <QJsonObject>
+#include <QProcess>
+#include <QScopeGuard>
 #include <QSignalSpy>
 #include <QSize>
 #include <QStandardPaths>
 #include <QTemporaryDir>
 #include <QTemporaryFile>
 #include <QTest>
+#include <QThread>
+
 #include <QTimer>
+#include <atomic>
 
 #include <sys/stat.h>
+#ifndef Q_OS_WIN
+#include <unistd.h>
+#endif
 
 QTEST_GUILESS_MAIN(FilePreviewJobTest)
 
@@ -52,9 +63,90 @@ static QImage makeCachedThumb(int cachedW, int cachedH, const QByteArray &origNa
     return thumb;
 }
 
+namespace
+{
+// A remote file, kio-test://host/<name>, that a preview has to download first.
+// "fails.mp4" sends 8 KiB, then the transfer breaks. "slow.mp4" sends 8 KiB every 20 ms until the
+// transfer is killed, or for 1 s.
+std::atomic<int> s_slowDownloadsRunning{0};
+std::atomic<bool> s_slowDownloadWasKilled{false};
+
+class DownloadWorker : public KIO::WorkerBase
+{
+public:
+    DownloadWorker(const QByteArray &pool, const QByteArray &app)
+        : WorkerBase(QByteArrayLiteral("kio-test"), pool, app)
+    {
+    }
+
+    KIO::WorkerResult stat(const QUrl &url) override
+    {
+        KIO::UDSEntry entry;
+        entry.fastInsert(KIO::UDSEntry::UDS_NAME, url.fileName());
+        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFREG);
+        entry.fastInsert(KIO::UDSEntry::UDS_SIZE, 8192 * 50);
+        statEntry(entry);
+        return KIO::WorkerResult::pass();
+    }
+
+    KIO::WorkerResult get(const QUrl &url) override
+    {
+        mimeType(QStringLiteral("video/mp4"));
+        const QByteArray chunk(8192, 'x');
+        data(chunk);
+        if (url.fileName() == QLatin1String("fails.mp4")) {
+            return KIO::WorkerResult::fail(KIO::ERR_CONNECTION_BROKEN, url.toDisplayString());
+        }
+        ++s_slowDownloadsRunning;
+        for (int i = 0; i < 50 && !wasKilled(); ++i) {
+            QThread::msleep(20);
+            data(chunk);
+        }
+        s_slowDownloadWasKilled = wasKilled();
+        --s_slowDownloadsRunning;
+        data(QByteArray());
+        return KIO::WorkerResult::pass();
+    }
+};
+
+class DownloadWorkerFactory : public KIO::WorkerFactory
+{
+public:
+    using KIO::WorkerFactory::WorkerFactory;
+    std::unique_ptr<KIO::WorkerBase> createWorker(const QByteArray &pool, const QByteArray &app) override
+    {
+        return std::make_unique<DownloadWorker>(pool, app);
+    }
+};
+
+QString localCopiesRoot()
+{
+    return QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/kpreviewjob/");
+}
+
+QString localCopiesOfThisProcess()
+{
+    return localCopiesRoot() + QString::number(QCoreApplication::applicationPid());
+}
+
+// A preview job of a remote file, which has to download the file first
+std::unique_ptr<FilePreviewJob> previewOfRemoteFile(const QString &fileName)
+{
+    const KFileItem item(QUrl(QStringLiteral("kio-test://host/") + fileName));
+    PreviewOptions options;
+    options.size = QSize(128, 128);
+    auto job = std::make_unique<FilePreviewJob>(item, FilePreviewJob::UnknownDeviceId, options, PreviewSetupData());
+    job->setAutoDelete(false);
+    return job;
+}
+} // namespace
+
 void FilePreviewJobTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
+    // The worker keeps only a weak pointer to its factory.
+    static const auto factory = std::make_shared<DownloadWorkerFactory>();
+    KIO::Worker::setTestWorkerFactory(factory);
 }
 
 void FilePreviewJobTest::testTimeoutTimerStoppedOnFinish()
@@ -99,7 +191,7 @@ void FilePreviewJobTest::testTimeoutTimerStoppedOnFinish()
 
     // It must also not fire afterwards: spinning the event loop must not produce
     // a second result (the old code re-entered emitResult() via slotTimeout()).
-    QTest::qWait(50);
+    QCoreApplication::processEvents();
     QCOMPARE(resultSpy.count(), 1);
 
     delete job;
@@ -746,3 +838,74 @@ void FilePreviewJobTest::testStandardThumbnailerGetsEachPathAsOneArgument()
     QCOMPARE(dataSpy.count(), 1);
     QCOMPARE(dataSpy.first().at(1).value<QImage>().size(), QSize(16, 16));
 }
+
+void FilePreviewJobTest::testAFailedDownloadLeavesNoLocalCopy()
+{
+    auto job = previewOfRemoteFile(QStringLiteral("fails.mp4"));
+    job->createThumbnailViaLocalCopy(job->m_fileItem.url());
+    QSignalSpy resultSpy(job.get(), &KJob::result);
+    QVERIFY(resultSpy.wait());
+    QCOMPARE(job->error(), int(KIO::ERR_CONNECTION_BROKEN));
+
+    // The worker keeps the 8 KiB it received, as it does for a download that can be resumed. They
+    // are in the copy itself, not in a ".part" file, and the job removes them with the copy.
+    const QString copy = job->m_tempName;
+    QTRY_VERIFY(QFileInfo::exists(copy));
+    QVERIFY(!QFileInfo::exists(copy + QLatin1String(".part")));
+    job.reset();
+    // On Windows the worker can still have the copy open, and its removal is tried again.
+    QTRY_VERIFY(!QFileInfo::exists(copy));
+    QTRY_VERIFY(QDir(localCopiesOfThisProcess()).isEmpty());
+}
+
+void FilePreviewJobTest::testAKilledPreviewStopsItsDownload()
+{
+    auto job = previewOfRemoteFile(QStringLiteral("slow.mp4"));
+    job->createThumbnailViaLocalCopy(job->m_fileItem.url());
+    const QString copy = job->m_tempName;
+    QTRY_VERIFY(QFileInfo::exists(copy));
+
+    QVERIFY(job->kill());
+    job.reset();
+
+    // The download stops early only when the kill reaches it; otherwise it would run its whole 1 s.
+    QTRY_COMPARE(s_slowDownloadsRunning.load(), 0);
+    QVERIFY(s_slowDownloadWasKilled.load());
+    QTRY_VERIFY(!QFileInfo::exists(copy));
+    QTRY_VERIFY(QDir(localCopiesOfThisProcess()).isEmpty());
+}
+
+#ifndef Q_OS_WIN
+void FilePreviewJobTest::testLocalCopiesOfEndedProcessesAreRemoved()
+{
+    // A process that ran and ended, a process that runs, and a folder that no process owns
+    QProcess process;
+    process.start(QStringLiteral("true"), {});
+    QVERIFY(process.waitForStarted());
+    const qint64 endedPid = process.processId();
+    QVERIFY(process.waitForFinished());
+    const QString endedProcessCopies = localCopiesRoot() + QString::number(endedPid);
+    const QString runningProcessCopies = localCopiesRoot() + QString::number(getppid());
+    const QString otherFolder = localCopiesRoot() + QStringLiteral("other");
+    for (const QString &folder : {endedProcessCopies, runningProcessCopies, otherFolder}) {
+        QVERIFY(QDir().mkpath(folder));
+        QFile leftover(folder + QStringLiteral("/leftover.mp4.part"));
+        QVERIFY(leftover.open(QIODevice::WriteOnly));
+    }
+    const auto cleanup = qScopeGuard([&] {
+        QDir(runningProcessCopies).removeRecursively();
+        QDir(otherFolder).removeRecursively();
+    });
+
+    // The folders are looked at when this process creates its own folder.
+    QDir(localCopiesOfThisProcess()).removeRecursively();
+    auto job = previewOfRemoteFile(QStringLiteral("fails.mp4"));
+    job->createThumbnailViaLocalCopy(job->m_fileItem.url());
+    QSignalSpy resultSpy(job.get(), &KJob::result);
+    QVERIFY(resultSpy.wait());
+
+    QVERIFY(!QFileInfo::exists(endedProcessCopies));
+    QVERIFY(QFileInfo::exists(runningProcessCopies + QStringLiteral("/leftover.mp4.part")));
+    QVERIFY(QFileInfo::exists(otherFolder + QStringLiteral("/leftover.mp4.part")));
+}
+#endif

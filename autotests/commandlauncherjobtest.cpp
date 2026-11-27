@@ -11,6 +11,7 @@
 
 #include "kiotesthelper.h" // createTestFile etc.
 
+#include <QFileInfo>
 #include <QStandardPaths>
 #include <QTemporaryDir>
 #include <QTest>
@@ -21,6 +22,11 @@ QTEST_GUILESS_MAIN(CommandLauncherJobTest)
 void CommandLauncherJobTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
+
+    // The service variant starts commands through the systemd user manager. Same check as sd_booted().
+    if (qgetenv("_KDE_APPLICATIONS_AS_SERVICE") == "1" && !QFileInfo::exists(QStringLiteral("/run/systemd/system/"))) {
+        QSKIP("Starting commands as systemd services needs a system booted with systemd");
+    }
 }
 
 static void createSrcFile(const QString path)

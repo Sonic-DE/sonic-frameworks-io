@@ -20,6 +20,7 @@
 #include <KFileFilterCombo>
 #include <KUrlComboBox>
 #include <kdiroperator.h>
+#include <knewfilemenu.h>
 #include <kurlnavigator.h>
 
 #include <KLocalizedString>
@@ -34,7 +35,10 @@
 #include <QPushButton>
 #include <QStringList>
 #include <QStringLiteral>
+#include <QTimer>
 #include <QUrl>
+
+#include <algorithm>
 
 Q_DECLARE_LOGGING_CATEGORY(KIO_KFILEWIDGETS_FW)
 Q_LOGGING_CATEGORY(KIO_KFILEWIDGETS_FW, "kf.kio.kfilewidgets.kfilewidget", QtInfoMsg)
@@ -126,8 +130,7 @@ void KFileWidgetTest::testFilterCombo()
     fw.filterWidget()->setCurrentFilter(docBookFilter);
     QCOMPARE(fw.currentFilter(), docBookFilter);
     // when editing the filter, there is delay to avoid refreshing the KDirOperator after each keypress
-    QTest::qWait(350);
-    QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.xml"));
+    QTRY_COMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.xml"));
 
     // keep filter after file change with same extension
     fw.locationEdit()->setUrls(QStringList(QStringLiteral("test2.xml")));
@@ -163,8 +166,7 @@ void KFileWidgetTest::testFilterCombo()
     fw.filterWidget()->setCurrentFilter(docBookFilter);
     QCOMPARE(fw.currentFilter(), docBookFilter);
     // when editing the filter, there is delay to avoid refreshing the KDirOperator after each keypress
-    QTest::qWait(350);
-    QCOMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.xml"));
+    QTRY_COMPARE(fw.locationEdit()->urls()[0], QStringLiteral("test.xml"));
 }
 
 void KFileWidgetTest::testFocusOnLocationEdit()
@@ -504,8 +506,7 @@ void KFileWidgetTest::testFilterChange()
     // Select type with an existing file.
     fw.filterWidget()->setCurrentFilter(filters[1]);
     // when editing the filter, there is delay to avoid refreshing the KDirOperator after each keypress
-    QTest::qWait(350);
-    QCOMPARE(fw.locationEdit()->currentText(), QStringLiteral("some.c"));
+    QTRY_COMPARE(fw.locationEdit()->currentText(), QStringLiteral("some.c"));
     QCOMPARE(fw.filterWidget()->currentFilter(), filters[1]);
 
     // Do not update extension if the current selection is a directory.
@@ -636,8 +637,15 @@ void KFileWidgetTest::testCreateNestedNewFolders()
         QVERIFY(lineEdit);
         const QString name = QStringLiteral("folder%1").arg(i);
         lineEdit->setText(name);
-        // simulate the time the user will take to type the new folder name
-        QTest::qWait(300);
+        // The menu takes the typed name from a short single-shot timer, like after the user typed it.
+        const auto* menu = fw.dirOperator()->findChild<KNewFileMenu*>();
+        QVERIFY(menu);
+        QTRY_VERIFY([menu] {
+            const auto timers = menu->findChildren<QTimer*>();
+            return std::none_of(timers.cbegin(), timers.cend(), [](const QTimer* timer) {
+                return timer->isSingleShot() && timer->isActive();
+            });
+        }());
 
         dialog->accept();
 

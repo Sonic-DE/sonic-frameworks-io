@@ -30,6 +30,38 @@
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KIO_FILE)
 
+#ifndef Q_OS_WIN
+#include <functional>
+#include <memory>
+
+// Writes the data of a file back window by window while it is written, as a copy does, when its
+// folder is on a removable device or a network filesystem.
+class DestinationWriteback
+{
+public:
+    DestinationWriteback(int fd, const QString &folder, std::function<bool()> isKilled);
+    ~DestinationWriteback();
+
+    // True when the data is written back window by window.
+    bool isActive() const;
+    // True when the folder is on a removable device.
+    bool isRemovable() const;
+    // written is the end of the data written to the file so far. On failure errno is set, ECANCELED
+    // on cancel.
+    bool advance(off_t written);
+    // Flushes the file when the folder is on a removable device and the file is larger than a
+    // window. On failure errno is set.
+    bool flushLargeFile(off_t size);
+    // Flushes the folder after flushLargeFile flushed the file, for the entry of the file under its
+    // final name.
+    void flushFolder();
+
+private:
+    struct Private;
+    std::unique_ptr<Private> d;
+};
+#endif
+
 class FileProtocol : public QObject, public KIO::WorkerBase
 {
     Q_OBJECT
@@ -55,7 +87,15 @@ public:
     KIO::WorkerResult write(const QByteArray &data) override;
     KIO::WorkerResult seek(KIO::filesize_t offset) override;
     KIO::WorkerResult truncate(KIO::filesize_t length) override;
-    bool copyXattrs(const int src_fd, const int dest_fd);
+    /*!
+     * \value All Every attribute the source lists, ACLs included.
+     * \value User Only the user namespace on Linux. Other systems list their user attributes only.
+     */
+    enum class XattrNamespaces {
+        All,
+        User,
+    };
+    bool copyXattrs(const int src_fd, const int dest_fd, XattrNamespaces namespaces = XattrNamespaces::All);
     KIO::WorkerResult close() override;
 
     KIO::WorkerResult fileSystemFreeSpace(const QUrl &url) override;
@@ -64,10 +104,15 @@ public:
      * Special commands supported by this worker:
      * 1 - mount
      * 2 - unmount
+     * 3 - flush the filesystem of a folder on a removable device
      */
     KIO::WorkerResult special(const QByteArray &data) override;
     KIO::WorkerResult unmount(const QString &point);
     KIO::WorkerResult mount(bool _ro, const char *_fstype, const QString &dev, const QString &point);
+#ifndef Q_OS_WIN
+    // Writes back the data of the filesystem that holds the folder, when it is on a removable device.
+    KIO::WorkerResult flushRemovableFolder(const QString &folder);
+#endif
 
 #if HAVE_POSIX_ACL
     static bool isExtendedACL(acl_t acl);
