@@ -3657,10 +3657,11 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "નવું ફોલ્ડર બનાવો"
 
-#: filewidgets/knewfilemenu.cpp:1471
-#, kde-format
-msgid "Create new folder in %1:"
-msgstr "અહીં નવું ફોલ્ડર બનાવો:%1:"
+#: filewidgets/knewfilemenu.cpp:1524
+#, kde-kuit-format
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
+msgstr "<filename>%1</filename> માં નવું ફોલ્ડર બનાવો:"
 
 #: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
@@ -5261,11 +5262,13 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:773
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "આની સાથે ફોલ્ડર ખોલો (&O)"
+msgid_plural "&Open Folders With…"
+msgstr[0] "આની સાથે ફોલ્ડર ખોલો (&O)…"
+msgstr[1] "આની સાથે ફોલ્ડરો ખોલો (&O)…"
 
 #: widgets/kfileitemactions.cpp:767
 #, kde-format
@@ -5279,10 +5282,13 @@ msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "એક્ઝિક્યુટેબલ ચલાવો (&R)"
 
-#: widgets/kfileitemactions.cpp:847
+#: widgets/kfileitemactions.cpp:845
 #, kde-format
-msgid "&Open folder with %1"
-msgstr "%1 વડે ફોલ્ડર ખોલો(&O):"
+msgctxt "@action:inmenu"
+msgid "&Open folder with %2"
+msgid_plural "&Open folders with %2"
+msgstr[0] "%2 વડે ફોલ્ડર ખોલો(&O)"
+msgstr[1] "%2 વડે ફોલ્ડરો ખોલો(&O)"
 
 #: widgets/kfileitemactions.cpp:847
 #, kde-format
@@ -5293,7 +5299,9 @@ msgstr "%1 વડે ખોલો(&O):"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "વડે ફોલ્ડર ખોલો(&O):"
+msgid_plural "&Open Folders With"
+msgstr[0] "આની સાથે ફોલ્ડર ખોલો (&O)"
+msgstr[1] "આની સાથે ફોલ્ડરો ખોલો (&O)"
 
 #: widgets/kfileitemactions.cpp:879
 #, kde-format

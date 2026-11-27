@@ -3574,10 +3574,11 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "አዲስ አቃፊ ይፍጠሩ"
 
-#: filewidgets/knewfilemenu.cpp:1471
-#, kde-format
-msgid "Create new folder in %1:"
-msgstr "በ%1 ውስጥ አዲስ አቃፊ ይፍጠሩ፦"
+#: filewidgets/knewfilemenu.cpp:1524
+#, kde-kuit-format
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
+msgstr "በ <filename>%1</filename> ውስጥ አዲስ አቃፊ ይፍጠሩ፦"
 
 #: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
@@ -5163,11 +5164,13 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:773
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "አቃፊን ክፈት በ(&O)…"
+msgid_plural "&Open Folders With…"
+msgstr[0] "(&O)አቃፊውን በ... ክፈት"
+msgstr[1] "(&O)አቃፊዎችን በ... ክፈት"
 
 #: widgets/kfileitemactions.cpp:767
 #, kde-format
@@ -5181,10 +5184,13 @@ msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "ተፈጻሚውን አስኪድ(&R)"
 
-#: widgets/kfileitemactions.cpp:847
+#: widgets/kfileitemactions.cpp:845
 #, kde-format
-msgid "&Open folder with %1"
-msgstr "አቃፊን በ%1 ክፈት(&O)"
+msgctxt "@action:inmenu"
+msgid "&Open folder with %2"
+msgid_plural "&Open folders with %2"
+msgstr[0] "(&O)አቃፊውን በ%2 ይክፈቱ"
+msgstr[1] "(&O)አቃፊዎችን በ%2 ይክፈቱ"
 
 #: widgets/kfileitemactions.cpp:847
 #, kde-format
@@ -5195,7 +5201,9 @@ msgstr "በ %1 ክፈት(&O)"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "አቃፊን ክፈት በ(&O)"
+msgid_plural "&Open Folders With"
+msgstr[0] "(&O)አቃፊን በ... ክፈት"
+msgstr[1] "(&O)አቃፊዎችን በ... ክፈት"
 
 #: widgets/kfileitemactions.cpp:879
 #, kde-format

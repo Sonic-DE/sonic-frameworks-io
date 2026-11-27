@@ -3648,10 +3648,11 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "أنشئ مجلدًّا جديدًا"
 
-#: filewidgets/knewfilemenu.cpp:1471
-#, kde-format
-msgid "Create new folder in %1:"
-msgstr "أنشئ مجلدًّا جديدًا في %1:"
+#: filewidgets/knewfilemenu.cpp:1524
+#, kde-kuit-format
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
+msgstr "أنشئ مجلدًّا جديدًا في <filename>%1</filename>:"
 
 #: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
@@ -5271,11 +5272,17 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "‏%1"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:773
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "ا&فتح المجلد بـ…"
+msgid_plural "&Open Folders With…"
+msgstr[0] "ا&فتح المجلد بـ…"
+msgstr[1] "ا&فتح المجلد بـ…"
+msgstr[2] "ا&فتح المجلدين بـ…"
+msgstr[3] "ا&فتح مجلدات بـ…"
+msgstr[4] "ا&فتح مجلدات بـ…"
+msgstr[5] "ا&فتح مجلدات بـ…"
 
 #: widgets/kfileitemactions.cpp:767
 #, kde-format
@@ -5289,10 +5296,17 @@ msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&شغّل الملف التنفيذي"
 
-#: widgets/kfileitemactions.cpp:847
+#: widgets/kfileitemactions.cpp:845
 #, kde-format
-msgid "&Open folder with %1"
-msgstr "ا&فتح المجلد بـ %1"
+msgctxt "@action:inmenu"
+msgid "&Open folder with %2"
+msgid_plural "&Open folders with %2"
+msgstr[0] "ا&فتح المجلد بـ %2"
+msgstr[1] "ا&فتح المجلد بـ %2"
+msgstr[2] "ا&فتح المجلدين بـ %2"
+msgstr[3] "ا&فتح المجلدات بـ %2"
+msgstr[4] "ا&فتح المجلدات بـ %2"
+msgstr[5] "ا&فتح المجلدات بـ %2"
 
 #: widgets/kfileitemactions.cpp:847
 #, kde-format
@@ -5303,7 +5317,13 @@ msgstr "ا&فتح في %1"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "ا&فتح المجلد بـ"
+msgid_plural "&Open Folders With"
+msgstr[0] "ا&فتح المجلد بـ"
+msgstr[1] "ا&فتح المجلد بـ"
+msgstr[2] "ا&فتح المجلدين بـ"
+msgstr[3] "ا&فتح المجلدات بـ"
+msgstr[4] "ا&فتح المجلدات بـ"
+msgstr[5] "ا&فتح المجلدات بـ"
 
 #: widgets/kfileitemactions.cpp:879
 #, kde-format

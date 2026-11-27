@@ -3484,13 +3484,11 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "ফোল্ডার তৈরি করা যায়নি"
 
-#: filewidgets/knewfilemenu.cpp:1471
-#, fuzzy, kde-format
-#| msgid ""
-#| "Create new folder in:\n"
-#| "%1"
-msgid "Create new folder in %1:"
-msgstr ""
+#: filewidgets/knewfilemenu.cpp:1524
+#, kde-kuit-format
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
+msgstr "<filename>%1</filename>-এ নতুন ফোল্ডার তৈরি করো:"
 "%1-এ \n"
 "নতুন ফোল্ডার তৈরি করো"
 
@@ -5088,12 +5086,13 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1 বাইট"
 
-#: widgets/kfileitemactions.cpp:767
-#, fuzzy, kde-format
-#| msgid "Open With"
+#: widgets/kfileitemactions.cpp:773
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "খুলতে ব্যবহার করো"
+msgid_plural "&Open Folders With…"
+msgstr[0] "&ফোল্ডার খুলতে ব্যবহার করো…"
+msgstr[1] "&ফোল্ডারগুলো খুলতে ব্যবহার করো…"
 
 #: widgets/kfileitemactions.cpp:767
 #, fuzzy, kde-format
@@ -5109,11 +5108,13 @@ msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "চালা&ও"
 
-#: widgets/kfileitemactions.cpp:847
-#, fuzzy, kde-format
-#| msgid "Open with:"
-msgid "&Open folder with %1"
-msgstr "খুলতে ব্যবহার করো:"
+#: widgets/kfileitemactions.cpp:845
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "&Open folder with %2"
+msgid_plural "&Open folders with %2"
+msgstr[0] "%2 দিয়ে &ফোল্ডার খোলো"
+msgstr[1] "%2 দিয়ে &ফোল্ডারগুলো খোলো"
 
 #: widgets/kfileitemactions.cpp:847
 #, fuzzy, kde-format
@@ -5122,11 +5123,12 @@ msgid "&Open with %1"
 msgstr "খুলতে ব্যবহার করো:"
 
 #: widgets/kfileitemactions.cpp:879
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "খুলতে ব্যবহার করো"
+msgid_plural "&Open Folders With"
+msgstr[0] "&ফোল্ডার খুলতে ব্যবহার করো"
+msgstr[1] "&ফোল্ডারগুলো খুলতে ব্যবহার করো"
 
 #: widgets/kfileitemactions.cpp:879
 #, fuzzy, kde-format

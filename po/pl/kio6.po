@@ -3693,10 +3693,11 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Utwórz nowy katalog"
 
-#: filewidgets/knewfilemenu.cpp:1471
-#, kde-format
-msgid "Create new folder in %1:"
-msgstr "Utwórz nowy katalog w %1:"
+#: filewidgets/knewfilemenu.cpp:1524
+#, kde-kuit-format
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
+msgstr "Utwórz nowy katalog w <filename>%1</filename>:"
 
 #: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
@@ -5309,11 +5310,14 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:773
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "&Otwórz katalog w…"
+msgid_plural "&Open Folders With…"
+msgstr[0] "&Otwórz katalog w…"
+msgstr[1] "&Otwórz katalogi w…"
+msgstr[2] "&Otwórz katalogi w…"
 
 #: widgets/kfileitemactions.cpp:767
 #, kde-format
@@ -5327,10 +5331,14 @@ msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "U&ruchom plik wykonywalny"
 
-#: widgets/kfileitemactions.cpp:847
+#: widgets/kfileitemactions.cpp:845
 #, kde-format
-msgid "&Open folder with %1"
-msgstr "&Otwórz katalog w %1"
+msgctxt "@action:inmenu"
+msgid "&Open folder with %2"
+msgid_plural "&Open folders with %2"
+msgstr[0] "&Otwórz katalog w %2"
+msgstr[1] "&Otwórz katalogi w %2"
+msgstr[2] "&Otwórz katalogi w %2"
 
 #: widgets/kfileitemactions.cpp:847
 #, kde-format
@@ -5341,7 +5349,10 @@ msgstr "&Otwórz w %1"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "&Otwórz katalog w"
+msgid_plural "&Open Folders With"
+msgstr[0] "&Otwórz katalog w"
+msgstr[1] "&Otwórz katalogi w"
+msgstr[2] "&Otwórz katalogi w"
 
 #: widgets/kfileitemactions.cpp:879
 #, kde-format
